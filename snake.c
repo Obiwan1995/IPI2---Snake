@@ -1,5 +1,6 @@
-#include <stdio.h>
+é#include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 typedef struct {
 	int x;
@@ -131,16 +132,42 @@ void affiche_tableau(Serpent snake) {
 	}
 }
 
-/*int test_collision(Mur mur, Serpent snake, int taille) {
-	Point pos = deplacement(snake);
-	if ( appartient_tableau(pos, mur, taille) == 1 ) {
-		return 0;
-	}
-	else {
-		return 1;
-	}
+Serpent init_snake(Serpent snake, int taille_plateau, int id, int vitesse) {
+	snake.id = id ;
+	snake.vitesse = vitesse;
+	snake.taille = 1;
+	snake.tete.x = rand()%taille_plateau ;
+	snake.tete.y = rand()%taille_plateau;
+	snake.tab = (Point*)malloc(snake.taille*sizeof(Point)) ;
+	snake.tab[0].x=snake.tete.x;
+	snake.tab[0].y=snake.tete.y;
+	snake.dir = rand()%4;
+	return snake;
 }
-*/
+
+
+int test_collision(Mur mur, Serpent* tab_serpent, int taille, int nbr_serpent) {
+	int i;
+	int j;
+	for (i=0; i<nbr_serpent; i++) {
+		if (appartient_tableau(tab_serpent[i].tete, mur, taille) == 0) {
+			for (j=0; j<nbr_serpent; j++) {
+				if (i!=j) {
+					if (appartient_tableau(tab_serpent[i].tete, tab_serpent[j].tab)) == 1 {
+						return tab_serpent[i].id;
+					}	
+				}
+			}
+		}
+		else {
+			return tab_serpent[i].id;
+		}
+	}
+	return 0;	
+}
+
+
+
 int main () {
 	Serpent snake;
 
