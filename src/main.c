@@ -1,4 +1,4 @@
-#include "../usr2/include/SDL/SDL.h"
+#include "../SDL/include/SDL/SDL.h"
 
 #include "game.h"
 

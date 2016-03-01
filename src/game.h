@@ -1,7 +1,7 @@
 #ifndef _game_h_
 #define _game_h_
 
-#include "../usr2/include/SDL/SDL.h"
+#include "../SDL/include/SDL/SDL.h"
 
 #define SIZE_PIXEL 15
 #define RED 0x00FF0000

@@ -27,7 +27,7 @@ void play(SDL_Surface* sdlScreen)
                         break;
                     case SDLK_q:
                     case SDLK_RIGHT:
-                        if (Time > 100000)
+                        if (Time > 2)
                         {
                             red = (red + 1)%10;
                         }
@@ -35,7 +35,7 @@ void play(SDL_Surface* sdlScreen)
                         break;
                     case SDLK_d:
                     case SDLK_LEFT:
-                        if (Time > 100000)
+                        if (Time > 2)
                         {
                             red = (red - 1)%10;
                         }
@@ -46,7 +46,7 @@ void play(SDL_Surface* sdlScreen)
         }
 
 
-        if (Time > 100000)
+        if (Time > 2)
         {
             Time =0;
             SDL_FillRect(sdlScreen, NULL, SDL_MapRGB(sdlScreen->format, 255, 255, 255)); 
