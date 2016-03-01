@@ -3,18 +3,18 @@
 void play(SDL_Surface* sdlScreen)
 {
     SDL_Event event;
-	int nInGame;
-	int red;
-	int blue;
+    int nInGame;
+    int red;
+    int blue;
 
-	nInGame = 1;
-	red = 0;
-	blue = 0;
+    nInGame = 1;
+    red = 0;
+    blue = 0;
     int Time =0;
-	while(nInGame)
+    while(nInGame)
     {
-    	SDL_PollEvent(&event);
-    	switch(event.type)
+        SDL_PollEvent(&event);
+        switch(event.type)
         {
             case SDL_QUIT:
                 nInGame = 0;
@@ -22,7 +22,7 @@ void play(SDL_Surface* sdlScreen)
             case SDL_KEYDOWN:
                 switch(event.key.keysym.sym)
                 {
-                	case SDLK_ESCAPE: // Leave Game
+                    case SDLK_ESCAPE: // Leave Game
                         nInGame = 0;
                         break;
                     case SDLK_q:
@@ -50,7 +50,7 @@ void play(SDL_Surface* sdlScreen)
         {
             Time =0;
             SDL_FillRect(sdlScreen, NULL, SDL_MapRGB(sdlScreen->format, 255, 255, 255)); 
-        	
+            
             int x, y;
             for (x = red; x != 9+red; ++x)
             {
@@ -59,7 +59,7 @@ void play(SDL_Surface* sdlScreen)
                     paint(sdlScreen, x, y, (x+y)%3);
                 }    
             }
-    	    SDL_Flip(sdlScreen);
+            SDL_Flip(sdlScreen);
             printf("top, \n");
         }
         Time++;
@@ -92,7 +92,8 @@ void paint(SDL_Surface* sdlScreen, int x, int y, int nId)
     {
         for (j = 0; j != SIZE_PIXEL; ++j)
         {
-            setPixel(sdlScreen, x*SIZE_PIXEL+i, y*SIZE_PIXEL+j, color);
+            if (!((i == 0 || i == SIZE_PIXEL || i == 1 || i == SIZE_PIXEL-1) && (j == 0 || j == SIZE_PIXEL || j == 1 || j == SIZE_PIXEL-1)))
+                setPixel(sdlScreen, x*SIZE_PIXEL+i, y*SIZE_PIXEL+j, color);
         }    
     }
 }
