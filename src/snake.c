@@ -1,4 +1,4 @@
-é#include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
@@ -138,7 +138,7 @@ Serpent init_snake(Serpent snake, int taille_plateau, int id, int vitesse) {
 	snake.taille = 1;
 	snake.tete.x = rand()%taille_plateau ;
 	snake.tete.y = rand()%taille_plateau;
-	snake.tab = (Point*)malloc(snake.taille*sizeof(Point)) ;
+	snake.tab = (Point*)malloc(snake.taille*sizeof(Point));
 	snake.tab[0].x=snake.tete.x;
 	snake.tab[0].y=snake.tete.y;
 	snake.dir = rand()%4;
@@ -153,7 +153,7 @@ int test_collision(Mur mur, Serpent* tab_serpent, int taille, int nbr_serpent) {
 		if (appartient_tableau(tab_serpent[i].tete, mur, taille) == 0) {
 			for (j=0; j<nbr_serpent; j++) {
 				if (i!=j) {
-					if (appartient_tableau(tab_serpent[i].tete, tab_serpent[j].tab)) == 1 {
+					if (appartient_tableau(tab_serpent[i].tete, tab_serpent[j].tab, taille) == 1) {
 						return tab_serpent[i].id;
 					}	
 				}
@@ -168,7 +168,7 @@ int test_collision(Mur mur, Serpent* tab_serpent, int taille, int nbr_serpent) {
 
 
 
-int main () {
+/*int main () {
 	Serpent snake;
 
 	int taille = 4;
@@ -200,6 +200,6 @@ int main () {
 	affiche_tableau(snake);
 
 	return 0;
-}
+}*/
 
 
