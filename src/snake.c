@@ -1,3 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+typedef struct {
+	int x;
+	int y;
+} Point;
+
+typedef enum Direction {top=1, right=2, bot=3, left=4} Direction;
+
+typedef struct {
+	int id;
+	int vitesse;
+	int taille;
+	Point* tab;
+	Point tete;
+	Direction dir;
+} Serpent;
+
+typedef Point* Mur;
 
 Serpent Right(Serpent snake) {
 	Direction dir = snake.dir;
@@ -117,7 +138,7 @@ Serpent init_snake(Serpent snake, int taille_plateau, int id, int vitesse) {
 	snake.taille = 1;
 	snake.tete.x = rand()%taille_plateau ;
 	snake.tete.y = rand()%taille_plateau;
-	snake.tab = (Point*)malloc(snake.taille*sizeof(Point)) ;
+	snake.tab = (Point*)malloc(snake.taille*sizeof(Point));
 	snake.tab[0].x=snake.tete.x;
 	snake.tab[0].y=snake.tete.y;
 	snake.dir = rand()%4;
@@ -132,7 +153,7 @@ int test_collision(Mur mur, Serpent* tab_serpent, int taille, int nbr_serpent) {
 		if (appartient_tableau(tab_serpent[i].tete, mur, taille) == 0) {
 			for (j=0; j<nbr_serpent; j++) {
 				if (i!=j) {
-					if (appartient_tableau(tab_serpent[i].tete, tab_serpent[j].tab)) == 1 {
+					if (appartient_tableau(tab_serpent[i].tete, tab_serpent[j].tab, taille) == 1) {
 						return tab_serpent[i].id;
 					}	
 				}
@@ -179,6 +200,5 @@ int test_collision(Mur mur, Serpent* tab_serpent, int taille, int nbr_serpent) {
 	affiche_tableau(snake);
 
 	return 0;
-}
-*/
-
+<<<<<<< HEAD
+}*/
