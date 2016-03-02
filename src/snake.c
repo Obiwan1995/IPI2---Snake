@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 /*#include <stdio.h>
@@ -41,6 +42,13 @@ void Right(Serpent *snake) {
 	Point tete = snake->tete;
 	int taille = snake->taille;
 	Point* tab = snake->tab;
+=======
+Serpent Right(Serpent snake) {
+	Direction dir = snake.dir;
+	Point tete = snake.tete;
+	int taille = snake.taille;
+	Point* tab = snake.tab;
+>>>>>>> be6643547cfab125a67bcf96344a878b16821062
 	switch (dir) {
 			case 1 :
 				tete.x = tete.x + 1;
@@ -145,6 +153,7 @@ void affiche_tableau(Serpent *snake) {
 	}
 }
 
+<<<<<<< HEAD
 Serpent * init_snake(Serpent *snake, int taille_plateau, int id, int vitesse) {
 	snake = malloc(sizeof(Serpent));
 	snake->id = id ;
@@ -156,6 +165,18 @@ Serpent * init_snake(Serpent *snake, int taille_plateau, int id, int vitesse) {
 	snake->tab[0].x=snake->tete.x;
 	snake->tab[0].y=snake->tete.y;
 	snake->dir = rand()%4;
+=======
+Serpent init_snake(Serpent snake, int taille_plateau, int id, int vitesse) {
+	snake.id = id ;
+	snake.vitesse = vitesse;
+	snake.taille = 1;
+	snake.tete.x = rand()%taille_plateau ;
+	snake.tete.y = rand()%taille_plateau;
+	snake.tab = (Point*)malloc(snake.taille*sizeof(Point));
+	snake.tab[0].x=snake.tete.x;
+	snake.tab[0].y=snake.tete.y;
+	snake.dir = rand()%4;
+>>>>>>> be6643547cfab125a67bcf96344a878b16821062
 	return snake;
 }
 
@@ -167,8 +188,13 @@ int test_collision(Mur mur, Serpent** tab_serpent, int taille, int nbr_serpent) 
 		if (appartient_tableau(tab_serpent[i]->tete, mur, taille) == 0) {
 			for (j=0; j<nbr_serpent; j++) {
 				if (i!=j) {
+<<<<<<< HEAD
 					if (appartient_tableau(tab_serpent[i]->tete, tab_serpent[j]->tab, taille) == 1 ) {
 						return tab_serpent[i]->id;
+=======
+					if (appartient_tableau(tab_serpent[i].tete, tab_serpent[j].tab, taille) == 1) {
+						return tab_serpent[i].id;
+>>>>>>> be6643547cfab125a67bcf96344a878b16821062
 					}	
 				}
 			}
@@ -206,4 +232,9 @@ int main () {
 	printf("la direction est %i\n",snake->dir);
 	affiche_tableau(snake);
 	return 0;
+<<<<<<< HEAD
 }*/
+=======
+<<<<<<< HEAD
+}*/
+>>>>>>> be6643547cfab125a67bcf96344a878b16821062
