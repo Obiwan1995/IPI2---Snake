@@ -200,6 +200,5 @@ int test_collision(Mur mur, Serpent* tab_serpent, int taille, int nbr_serpent) {
 	affiche_tableau(snake);
 
 	return 0;
+<<<<<<< HEAD
 }*/
-
-
