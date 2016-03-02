@@ -1,9 +1,46 @@
 
-Serpent Right(Serpent snake) {
-	Direction dir = snake.dir;
-	Point tete = snake.tete;
-	int taille = snake.taille;
-	Point* tab = snake.tab;
+
+/*#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+// Structure de Point qui permet de situer le serpent ou les obstacles
+
+typedef struct {
+	int x;
+	int y;
+} Point;
+
+// Type Direction pour savoir dans quelle direction le serepent est actuellement
+// en train d'avancer : vers le haut, vers la droite, vers la gauche, vers le bas
+
+typedef enum Direction {top=1, right=2, bot=3, left=4} Direction;
+
+// Structure de Serpent avec différents champs qui le cararctérise :
+// 		- un identifiant : permet de reconnaitre le serpent
+// 		- une vitesse
+// 		- une taille (est modifiée au cours du jeu)
+// 		- un tableau de point qui représente le serpent 
+// 		- une direction : la direction du serepent
+
+typedef struct {
+	int id;
+	int vitesse;
+	int taille;
+	Point* tab;
+	Point tete;
+	Direction dir;
+} Serpent;
+
+// Type Mur qui va délimiter le terrain de jeu : tableau de coordonnées des points qui représentent le mur
+
+typedef Point* Mur;*/
+
+void Right(Serpent *snake) {
+	Direction dir = snake->dir;
+	Point tete = snake->tete;
+	int taille = snake->taille;
+	Point* tab = snake->tab;
 	switch (dir) {
 			case 1 :
 				tete.x = tete.x + 1;
@@ -22,20 +59,19 @@ Serpent Right(Serpent snake) {
 				dir = 1;
 				break;
 	}
-	snake.tete = tete;
-	snake.dir = dir;
+	snake->tete = tete;
+	snake->dir = dir;
 	tab = (Point*)realloc(tab, (taille + 1)*sizeof(Point));
 	tab[taille] = tete;
-	snake.tab = tab;
-	snake.taille = taille + 1;
-	return snake;
+	snake->tab = tab;
+	snake->taille = taille + 1;
 }
 
-Serpent Forward(Serpent snake) {
-	Point tete = snake.tete;
-	int taille = snake.taille;
-	Point* tab = snake.tab;
-	switch (snake.dir) {
+void Forward(Serpent *snake) {
+	Point tete = snake->tete;
+	int taille = snake->taille;
+	Point* tab = snake->tab;
+	switch (snake->dir) {
 			case 1 :
 				tete.y = tete.y + 1;
 				break;
@@ -49,19 +85,18 @@ Serpent Forward(Serpent snake) {
 				tete.x = tete.x - 1;
 				break;
 	}
-	snake.tete = tete;
+	snake->tete = tete;
 	tab = (Point*)realloc(tab, (taille + 1)*sizeof(Point));
 	tab[taille] = tete;
-	snake.tab = tab;
-	snake.taille = taille + 1;
-	return snake;
+	snake->tab = tab;
+	snake->taille = taille + 1;
 }
 
-Serpent Left(Serpent snake) {
-	Direction dir = snake.dir;
-	Point tete = snake.tete;
-	int taille = snake.taille;
-	Point* tab = snake.tab;
+void Left(Serpent *snake) {
+	Direction dir = snake->dir;
+	Point tete = snake->tete;
+	int taille = snake->taille;
+	Point* tab = snake->tab;
 	switch (dir) {
 		case 1 :
 			tete.x = tete.x - 1;
@@ -80,13 +115,12 @@ Serpent Left(Serpent snake) {
 			dir = 3;
 			break;
 	}
-	snake.tete = tete;
-	snake.dir = dir;
+	snake->tete = tete;
+	snake->dir = dir;
 	tab = (Point*)realloc(tab, (taille + 1)*sizeof(Point));
 	tab[taille] = tete;
-	snake.tab = tab;
-	snake.taille = taille + 1;
-	return snake;
+	snake->tab = tab;
+	snake->taille = taille + 1;
 }
 
 int appartient_tableau(Point point, Point* tableau, int taille) {
@@ -103,82 +137,73 @@ int appartient_tableau(Point point, Point* tableau, int taille) {
 	return flag;
 }
 
-void affiche_tableau(Serpent snake) {
-	int taille = snake.taille;
+void affiche_tableau(Serpent *snake) {
+	int taille = snake->taille;
 	int i;
 	for (i=0; i<taille; i++) {
-		printf("(%i,%i) | ",snake.tab[i].x, snake.tab[i].y);
+		printf("(%i,%i) | ",snake->tab[i].x, snake->tab[i].y);
 	}
 }
 
-Serpent init_snake(Serpent snake, int taille_plateau, int id, int vitesse) {
-	snake.id = id ;
-	snake.vitesse = vitesse;
-	snake.taille = 1;
-	snake.tete.x = rand()%taille_plateau ;
-	snake.tete.y = rand()%taille_plateau;
-	snake.tab = (Point*)malloc(snake.taille*sizeof(Point)) ;
-	snake.tab[0].x=snake.tete.x;
-	snake.tab[0].y=snake.tete.y;
-	snake.dir = rand()%4;
+Serpent * init_snake(Serpent *snake, int taille_plateau, int id, int vitesse) {
+	snake = malloc(sizeof(Serpent));
+	snake->id = id ;
+	snake->vitesse = vitesse;
+	snake->taille = 1;
+	snake->tete.x = rand()%taille_plateau ;
+	snake->tete.y = rand()%taille_plateau;
+	snake->tab = (Point*)malloc(snake->taille*sizeof(Point)) ;
+	snake->tab[0].x=snake->tete.x;
+	snake->tab[0].y=snake->tete.y;
+	snake->dir = rand()%4;
 	return snake;
 }
 
 
-int test_collision(Mur mur, Serpent* tab_serpent, int taille, int nbr_serpent) {
+int test_collision(Mur mur, Serpent** tab_serpent, int taille, int nbr_serpent) {
 	int i;
 	int j;
 	for (i=0; i<nbr_serpent; i++) {
-		if (appartient_tableau(tab_serpent[i].tete, mur, taille) == 0) {
+		if (appartient_tableau(tab_serpent[i]->tete, mur, taille) == 0) {
 			for (j=0; j<nbr_serpent; j++) {
 				if (i!=j) {
-					if (appartient_tableau(tab_serpent[i].tete, tab_serpent[j].tab)) == 1 {
-						return tab_serpent[i].id;
+					if (appartient_tableau(tab_serpent[i]->tete, tab_serpent[j]->tab, taille) == 1 ) {
+						return tab_serpent[i]->id;
 					}	
 				}
 			}
 		}
 		else {
-			return tab_serpent[i].id;
+			return tab_serpent[i]->id;
 		}
 	}
 	return 0;	
 }
 
 
+/*
+int main () {
+	Serpent *snake = init_snake(snake, 100, 1, 10);
 
-/*int main () {
-	Serpent snake;
+	snake->tete.x=3;
+	snake->tete.y=2;
 
-	int taille = 4;
-	snake.taille=4;
-	affiche_tableau(snake);
-	printf("\n");
-	Point* tab = (Point*)malloc(taille*sizeof(Point));
-
-	snake.tete.x=3;
-	snake.tete.y=2;
-
-	snake.tab = tab;
-	snake.tab[taille-1].x=snake.tete.x;
-	snake.tab[taille-1].y=snake.tete.y;
+	snake->tab[snake->taille-1].x=snake->tete.x;
+	snake->tab[snake->taille-1].y=snake->tete.y;
 	
 
-	snake.dir = 1;
+	snake->dir = 1;
 
 	affiche_tableau(snake);
 	printf("\n");
-	snake=Forward(snake);
-	printf("la tete est en position(%i,%i)\n",snake.tete.x,snake.tete.y);
-	printf("la direction est %i\n",snake.dir);
+	Right(snake);
+	printf("la tete est en position(%i,%i)\n",snake->tete.x,snake->tete.y);
+	printf("la direction est %i\n",snake->dir);
 	affiche_tableau(snake);
 	printf("\n");
-	snake=Left(snake);
-	printf("la tete est en position(%i,%i)\n",snake.tete.x,snake.tete.y);
-	printf("la direction est %i\n",snake.dir);
+	Left(snake);
+	printf("la tete est en position(%i,%i)\n",snake->tete.x,snake->tete.y);
+	printf("la direction est %i\n",snake->dir);
 	affiche_tableau(snake);
-
 	return 0;
-}
-*/
-
+}*/
