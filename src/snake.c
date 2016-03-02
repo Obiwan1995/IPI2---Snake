@@ -1,24 +1,3 @@
-é#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-
-typedef struct {
-	int x;
-	int y;
-} Point;
-
-typedef enum Direction {top=1, right=2, bot=3, left=4} Direction;
-
-typedef struct {
-	int id;
-	int vitesse;
-	int taille;
-	Point* tab;
-	Point tete;
-	Direction dir;
-} Serpent;
-
-typedef Point* Mur;
 
 Serpent Right(Serpent snake) {
 	Direction dir = snake.dir;
@@ -168,7 +147,7 @@ int test_collision(Mur mur, Serpent* tab_serpent, int taille, int nbr_serpent) {
 
 
 
-int main () {
+/*int main () {
 	Serpent snake;
 
 	int taille = 4;
@@ -201,5 +180,5 @@ int main () {
 
 	return 0;
 }
-
+*/
 
