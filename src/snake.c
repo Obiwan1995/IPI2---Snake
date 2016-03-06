@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+#include "snake.h"
 
 /**
  *
@@ -156,7 +156,7 @@ int appartient_tableau(Point point, Point* tableau, int taille) {
  * @param      snake  serpent dont on veut connaître l'emplacement
  */
 
-void affiche_tableau(Serpent *snake) {
+void affiche_tableau(Serpent* snake) {
 	int taille = snake->taille;
 	int i;
 	for (i=0; i<taille; i++) {
@@ -178,8 +178,8 @@ void affiche_tableau(Serpent *snake) {
  */
 
 
-Serpent* init_snake(Serpent *snake, int taille_plateau, int id, int vitesse) {
-	snake = malloc(sizeof(Serpent));
+void init_snake(Serpent *snake, int taille_plateau, int id, int vitesse) {
+	//snake = malloc(sizeof (Serpent));
 	snake->id = id ;
 	snake->vitesse = vitesse;
 	snake->taille = 1;
@@ -189,7 +189,6 @@ Serpent* init_snake(Serpent *snake, int taille_plateau, int id, int vitesse) {
 	snake->tab[0].x=snake->tete.x;
 	snake->tab[0].y=snake->tete.y;
 	snake->dir = rand()%4;
-	return snake;
 }
 
 /**
@@ -229,18 +228,11 @@ int test_collision(Mur mur, Serpent** tab_serpent, int taille_mur, int nbr_serpe
 
 /*
 int main () {
-	Serpent *snake = init_snake(snake, 100, 1, 10);
-
-	snake->tete.x=3;
-	snake->tete.y=2;
-
-	snake->tab[snake->taille-1].x=snake->tete.x;
-	snake->tab[snake->taille-1].y=snake->tete.y;
-	
-
-	snake->dir = 1;
-
+	Serpent* snake = malloc(sizeof(Serpent));
+	init_snake(snake, 100, 1, 10);
+	printf("%i", snake->taille);
 	affiche_tableau(snake);
+	printf("blala\n");
 	printf("\n");
 	Right(snake);
 	printf("la tete est en position(%i,%i)\n",snake->tete.x,snake->tete.y);
@@ -252,4 +244,5 @@ int main () {
 	printf("la direction est %i\n",snake->dir);
 	affiche_tableau(snake);
 	return 0;
-}*/
+}
+*/
