@@ -47,3 +47,5 @@ int appartient_tableau(Point point, Point* tableau, int taille);
 void affiche_tableau(Serpent* snake);
 Serpent* init_snake(Serpent* snake, int taille_plateau, int id, int vitesse);
 int test_collision(Mur mur, Serpent** tab_serpent, int taille, int nbr_serpent)
+
+#endif
