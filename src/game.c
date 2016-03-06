@@ -3,13 +3,10 @@
 void play(SDL_Surface* sdlScreen)
 {
     SDL_Event event;
-    int nInGame;
-    int red;
-    int blue;
+    Serpent * snake1 = init_snake(snake1, 100, 1, 10);
 
-    nInGame = 1;
-    red = 0;
-    blue = 0;
+    int nDir = 0;
+    int nInGame = 1;
     int Time =0;
     while(nInGame)
     {
@@ -27,40 +24,44 @@ void play(SDL_Surface* sdlScreen)
                         break;
                     case SDLK_q:
                     case SDLK_RIGHT:
-                        if (Time > 2)
-                        {
-                            red = (red + 1)%10;
-                        }
-                        Time++;
+                        nDir = 1;
                         break;
                     case SDLK_d:
                     case SDLK_LEFT:
-                        if (Time > 2)
-                        {
-                            red = (red - 1)%10;
-                        }
-                        Time++;
+                        nDir = 2;
                         break;
                 }
                 break;
         }
 
 
-        if (Time > 2)
+        if (Time > 10000)
         {
-            Time =0;
+            switch(nDir)
+            {
+                case 0:
+                    Forward(snake1)
+                    break;
+                case 1:
+                    Right(snake1);
+                    break;
+                case 2:
+                    Left(snake1);
+                    break;
+            }
             SDL_FillRect(sdlScreen, NULL, SDL_MapRGB(sdlScreen->format, 255, 255, 255)); 
             
-            int x, y;
-            for (x = red; x != 9+red; ++x)
+            int i;
+            for (i=0; i<taille; i++)
             {
-                for (y = blue; y != 9+blue; ++y)
-                {
-                    paint(sdlScreen, x, y, (x+y)%3);
-                }    
+                paint(sdlScreen, snake->tab[i].x, snake->tab[i].y, 1);
             }
+
             SDL_Flip(sdlScreen);
             printf("top, \n");
+
+            Time = 0;
+            nDir = 0;
         }
         Time++;
 

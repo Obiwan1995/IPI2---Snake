@@ -2,6 +2,7 @@
 #define _game_h_
 
 #include "../SDL/include/SDL/SDL.h"
+#include "snake.h"
 
 #define SIZE_PIXEL 15
 #define RED 0x00FF0000
