@@ -1,41 +1,15 @@
 <<<<<<< HEAD
 
-
-/*#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-
-// Structure de Point qui permet de situer le serpent ou les obstacles
-
-typedef struct {
-	int x;
-	int y;
-} Point;
-
-// Type Direction pour savoir dans quelle direction le serepent est actuellement
-// en train d'avancer : vers le haut, vers la droite, vers la gauche, vers le bas
-
-typedef enum Direction {top=1, right=2, bot=3, left=4} Direction;
-
-// Structure de Serpent avec différents champs qui le cararctérise :
-// 		- un identifiant : permet de reconnaitre le serpent
-// 		- une vitesse
-// 		- une taille (est modifiée au cours du jeu)
-// 		- un tableau de point qui représente le serpent 
-// 		- une direction : la direction du serepent
-
-typedef struct {
-	int id;
-	int vitesse;
-	int taille;
-	Point* tab;
-	Point tete;
-	Direction dir;
-} Serpent;
-
-// Type Mur qui va délimiter le terrain de jeu : tableau de coordonnées des points qui représentent le mur
-
-typedef Point* Mur;*/
+/**
+ *
+ * @fn         void Right(Serpent *snake)
+ * 
+ * @brief      Change la direction et le serpent lorsque le déplacement choisi par le joueur est la droite.
+ * 			   Enumération des 4 cas selon la direction actuelle du serpent
+ * 			   On ajoute une case de plus au tableau du serpent qui correspond à la position de la nouvelle tête.
+ *
+ * @param      snake  serpent à déplacer
+ */
 
 void Right(Serpent *snake) {
 	Direction dir = snake->dir;
@@ -68,6 +42,17 @@ void Right(Serpent *snake) {
 	snake->taille = taille + 1;
 }
 
+/**
+ *
+ * @fn         void Forward(Serpent *snake)
+ * 
+ * @brief      Change la direction et le serpent lorsque le déplacement choisi par le joueur est tout droit (il continue dans sa direction actuelle).
+ * 			   Enumération des 4 cas selon la direction actuelle du serpent
+ * 			   On ajoute une case de plus au tableau du serpent qui correspond à la position de la nouvelle tête.
+ *
+ * @param      snake  serpent à déplacer
+ */
+
 void Forward(Serpent *snake) {
 	Point tete = snake->tete;
 	int taille = snake->taille;
@@ -92,6 +77,17 @@ void Forward(Serpent *snake) {
 	snake->tab = tab;
 	snake->taille = taille + 1;
 }
+
+/**
+ *
+ * @fn         void Left(Serpent *snake)
+ * 
+ * @brief      Change la direction et le serpent lorsque le déplacement choisi par le joueur est la gauche.
+ * 			   Enumération des 4 cas selon la direction actuelle du serpent
+ * 			   On ajoute une case de plus au tableau du serpent qui correspond à la position de la nouvelle tête.
+ *
+ * @param      snake  serpent à déplacer
+ */
 
 void Left(Serpent *snake) {
 	Direction dir = snake->dir;
@@ -124,6 +120,19 @@ void Left(Serpent *snake) {
 	snake->taille = taille + 1;
 }
 
+/**
+ * @fn 		int appartient_tableau(Point point, Point* tableau, int taille)
+ * 
+ * @brief   teste l'appartenance d'un point (2 coordonnées x et y) à un tableau
+ *
+ * @param[in]  point    point dont on veut tester l'appartenance au tableau
+ * @param      tableau  tableau de point 
+ * @param[in]  taille   taille du tableau
+ *
+ * @return      0 si le point n'appartient pas au tableau
+ * 				1 sinon
+ */
+
 int appartient_tableau(Point point, Point* tableau, int taille) {
 	int i=0;
 	int flag=0;
@@ -138,6 +147,15 @@ int appartient_tableau(Point point, Point* tableau, int taille) {
 	return flag;
 }
 
+/**
+ * @fn 			void affiche_tableau(Serpent *snake)
+ * 
+ * @brief      affiche les coordonnées occupées par le serpent
+ * 				fonction utilisée pour les tests dans le main
+ *
+ * @param      snake  serpent dont on veut connaître l'emplacement
+ */
+
 void affiche_tableau(Serpent *snake) {
 	int taille = snake->taille;
 	int i;
@@ -146,7 +164,21 @@ void affiche_tableau(Serpent *snake) {
 	}
 }
 
-Serpent * init_snake(Serpent *snake, int taille_plateau, int id, int vitesse) {
+/**
+ * @fn         Serpent* init_snake(Serpent *snake, int taille_plateau, int id, int vitesse)
+ *
+ * @brief      initialise le serpent : donne une valeur à chaque champ de la structure
+ *
+ * @param      snake           serpent à initialiser
+ * @param[in]  taille_plateau  taille du plateau de jeu
+ * @param[in]  id              id du serpent
+ * @param[in]  vitesse         vitesse du serpent
+ *
+ * @return     serpent avec des valeurs pour chaque champs de sa structure
+ */
+
+
+Serpent* init_snake(Serpent *snake, int taille_plateau, int id, int vitesse) {
 	snake = malloc(sizeof(Serpent));
 	snake->id = id ;
 	snake->vitesse = vitesse;
@@ -160,15 +192,28 @@ Serpent * init_snake(Serpent *snake, int taille_plateau, int id, int vitesse) {
 	return snake;
 }
 
+/**
+ * @fn         int test_collision(Mur mur, Serpent** tab_serpent, int taille, int nbr_serpent)
+ *
+ * @brief      teste la collision d'un serpent avec le mur ou un autre serpent
+ *
+ * @param[in]  mur          coordonnée des emplacements du mur
+ * @param      tab_serpent  tableau de serpent : nécessaire pour la collision avec les autres serpents
+ * @param[in]  taille_mur   longueur du tableau mur
+ * @param[in]  nbr_serpent  nombre de serpent = longueur du tableau tab_serpent
+ *
+ * @return     soit 0 s'il n'y a pas de collision
+ * 				soit l'id du serpent qui entre en collision avec le mur ou un autre serpent
+ */
 
-int test_collision(Mur mur, Serpent** tab_serpent, int taille, int nbr_serpent) {
+int test_collision(Mur mur, Serpent** tab_serpent, int taille_mur, int nbr_serpent) {
 	int i;
 	int j;
 	for (i=0; i<nbr_serpent; i++) {
-		if (appartient_tableau(tab_serpent[i]->tete, mur, taille) == 0) {
+		if (appartient_tableau(tab_serpent[i]->tete, mur, taille_mur) == 0) {
 			for (j=0; j<nbr_serpent; j++) {
 				if (i!=j) {
-					if (appartient_tableau(tab_serpent[i]->tete, tab_serpent[j]->tab, taille) == 1 ) {
+					if (appartient_tableau(tab_serpent[i]->tete, tab_serpent[j]->tab, tab_serpent[j]->taille) == 1 ) {
 						return tab_serpent[i]->id;
 					}	
 				}
