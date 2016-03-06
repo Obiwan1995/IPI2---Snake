@@ -40,10 +40,10 @@ typedef struct {
 
 typedef Point* Mur;
 
-Serpent Right(Serpent snake);
-Serpent Forward(Serpent snake);
-Serpent Left(Serpent snake);
+void Right(Serpent* snake);
+void Forward(Serpent* snake);
+void Left(Serpent* snake);
 int appartient_tableau(Point point, Point* tableau, int taille);
-void affiche_tableau(Serpent snake);
-Serpent init_snake(Serpent snake, int taille_plateau, int id, int vitesse);
-int test_collision(Mur mur, Serpent* tab_serpent, int taille, int nbr_serpent)
+void affiche_tableau(Serpent* snake);
+Serpent* init_snake(Serpent* snake, int taille_plateau, int id, int vitesse);
+int test_collision(Mur mur, Serpent** tab_serpent, int taille, int nbr_serpent)
