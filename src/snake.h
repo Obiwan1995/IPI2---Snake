@@ -1,8 +1,8 @@
 
 // Présentation des structures de données utiles au jeu
 
-#ifndef SNACK_H_
-#define SNACK_H_
+#ifndef SNAKE_H_
+#define SNAKE_H_
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -45,7 +45,7 @@ void Forward(Serpent* snake);
 void Left(Serpent* snake);
 int appartient_tableau(Point point, Point* tableau, int taille);
 void affiche_tableau(Serpent* snake);
-Serpent* init_snake(Serpent* snake, int taille_plateau, int id, int vitesse);
-int test_collision(Mur mur, Serpent** tab_serpent, int taille, int nbr_serpent)
+void init_snake(Serpent* snake, int taille_plateau, int id, int vitesse);
+int test_collision(Mur mur, Serpent** tab_serpent, int taille_mur, int nbr_serpent);
 
 #endif

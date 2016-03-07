@@ -3,9 +3,11 @@
 void play(SDL_Surface* sdlScreen)
 {
     SDL_Event event;
-    Serpent * snake1 = init_snake(snake1, 100, 1, 10);
+    Serpent* snake = malloc(sizeof(Serpent));
+    init_snake(snake, 50, 1, 10);
 
     int nDir = 0;
+    int nKeyUp = 0;
     int nInGame = 1;
     int Time =0;
     while(nInGame)
@@ -22,46 +24,52 @@ void play(SDL_Surface* sdlScreen)
                     case SDLK_ESCAPE: // Leave Game
                         nInGame = 0;
                         break;
-                    case SDLK_q:
-                    case SDLK_RIGHT:
-                        nDir = 1;
-                        break;
                     case SDLK_d:
+                    case SDLK_RIGHT:
+                        if (nKeyUp)
+                            nDir = 1;
+                        nKeyUp = 0;
+                        break;
+                    case SDLK_q:
                     case SDLK_LEFT:
-                        nDir = 2;
+                        if (nKeyUp)
+                            nDir = 2;
+                        nKeyUp = 0;
+                        break;
+                    default:
                         break;
                 }
                 break;
+            case SDL_KEYUP:
+                        nKeyUp = 1;
+            default:
+                break;
         }
 
-        if (Time > 10000)
+        if (Time > 200000)
         {
-            printf("TOP\n");
             switch(nDir)
             {
                 case 0:
-                    Forward(snake1);
+                    Forward(snake);
                     break;
                 case 1:
-                    Right(snake1);
+                    Right(snake);
                     break;
                 case 2:
-                    Left(snake1);
+                    Left(snake);
                     break;
             }
-            printf("TOP2\n");
+
             SDL_FillRect(sdlScreen, NULL, SDL_MapRGB(sdlScreen->format, 255, 255, 255)); 
             
             int i;
-            for (i=0; i< snake1->taille; i++)
+            for (i=0; i< snake->taille; i++)
             {
-            printf("TOP3\n");
-                paint(sdlScreen, snake1->tab[i].x, snake1->tab[i].y, 1);
-            printf("TOP4\n");
+                paint(sdlScreen, snake->tab[i].x, snake->tab[i].y, 1);
             }
 
             SDL_Flip(sdlScreen);
-            printf("top, \n");
 
             Time = 0;
             nDir = 0;
