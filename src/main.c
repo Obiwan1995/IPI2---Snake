@@ -48,7 +48,11 @@ int main(int argc, char *argv[])
                     case SDLK_p: // Start Game
                         play(sdlScreen);
                         break;
+                    default:
+                        break;
                 }
+                break;
+            default:
                 break;
         }
 
