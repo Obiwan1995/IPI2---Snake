@@ -8,6 +8,8 @@
 #include <stdlib.h>
 #include <time.h>
 
+#define X 70
+
 // Structure de Point qui permet de situer le serpent ou les obstacles
 
 typedef struct {
