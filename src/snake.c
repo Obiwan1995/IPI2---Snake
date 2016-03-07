@@ -273,16 +273,20 @@ int test_collision(Mur mur, Serpent** tab_serpent, int taille_mur, int nbr_serpe
 	return 0;	
 }
 
+void free_snake(Serpent* snake) {
+	free(snake->tab);
+	free(snake);
+}
 
 
 /*int main () {
 	Serpent* snake = malloc(sizeof(Serpent));
 	init_snake(snake, 100, 1, 10);
-	//printf("%i", snake->taille);
+	printf("%i", snake->taille);
 	affiche_tableau(snake);
-	//printf("blala\n");
-	//printf("\n");
-	//Right(snake);
+	printf("blala\n");
+	printf("\n");
+	Right(snake);
 	printf("la tete est en position(%i,%i)\n",snake->tete.x,snake->tete.y);
 	printf("la direction est %i\n",snake->dir);
 	affiche_tableau(snake);
@@ -292,5 +296,7 @@ int test_collision(Mur mur, Serpent** tab_serpent, int taille_mur, int nbr_serpe
 	printf("la direction est %i\n",snake->dir);
 	affiche_tableau(snake);
 	printf("\n");
+	free_snake(snake);
 	return 0;
-}*/
+}
+*/
