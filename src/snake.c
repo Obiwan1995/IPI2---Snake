@@ -11,7 +11,7 @@
  * @param      snake  serpent à déplacer
  */
 
-void Right(Serpent *snake) {
+void Left(Serpent *snake) {
 	Direction dir = snake->dir;
 	Point tete = snake->tete;
 	int taille = snake->taille;
@@ -89,7 +89,7 @@ void Forward(Serpent *snake) {
  * @param      snake  serpent à déplacer
  */
 
-void Left(Serpent *snake) {
+void Right(Serpent *snake) {
 	Direction dir = snake->dir;
 	Point tete = snake->tete;
 	int taille = snake->taille;
