@@ -180,10 +180,11 @@ void affiche_tableau(Serpent* snake) {
 
 void init_snake(Serpent *snake, int taille_plateau, int id, int vitesse) {
 	//snake = malloc(sizeof (Serpent));
+	srand(time(NULL));
 	snake->id = id ;
 	snake->vitesse = vitesse;
 	snake->taille = 1;
-	snake->tete.x = rand()%taille_plateau ;
+	snake->tete.x = rand()%taille_plateau;
 	snake->tete.y = rand()%taille_plateau;
 	snake->tab = (Point*)malloc(snake->taille*sizeof(Point)) ;
 	snake->tab[0].x=snake->tete.x;
