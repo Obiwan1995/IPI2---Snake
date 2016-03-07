@@ -34,13 +34,13 @@ void play(SDL_Surface* sdlScreen)
                 break;
         }
 
-
         if (Time > 10000)
         {
+            printf("TOP\n");
             switch(nDir)
             {
                 case 0:
-                    Forward(snake1)
+                    Forward(snake1);
                     break;
                 case 1:
                     Right(snake1);
@@ -49,12 +49,15 @@ void play(SDL_Surface* sdlScreen)
                     Left(snake1);
                     break;
             }
+            printf("TOP2\n");
             SDL_FillRect(sdlScreen, NULL, SDL_MapRGB(sdlScreen->format, 255, 255, 255)); 
             
             int i;
-            for (i=0; i<taille; i++)
+            for (i=0; i< snake1->taille; i++)
             {
-                paint(sdlScreen, snake->tab[i].x, snake->tab[i].y, 1);
+            printf("TOP3\n");
+                paint(sdlScreen, snake1->tab[i].x, snake1->tab[i].y, 1);
+            printf("TOP4\n");
             }
 
             SDL_Flip(sdlScreen);
