@@ -9,6 +9,7 @@
 #define RED 0x00DF2020
 #define GREEN 0x0000FF00
 #define BLUE 0x000000FF
+#define SPEED 100 // Nombre de ms entre chaque pas de temps
 
 void play(SDL_Surface* sdlScreen);
 void paint(SDL_Surface* sdlScreen, int x, int y, int nId);

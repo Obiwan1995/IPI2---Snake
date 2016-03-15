@@ -13,9 +13,12 @@ void play(SDL_Surface* sdlScreen)
     int nDir = 0;
     int nKeyUp = 0;
     int nInGame = 1;
-    int Time =0;
+    int actualTime = 0;
+    int previousTime = 0;
+
     while(nInGame)
     {
+        actualTime = SDL_GetTicks();
         SDL_PollEvent(&event);
         switch(event.type)
         {
@@ -50,8 +53,7 @@ void play(SDL_Surface* sdlScreen)
                 break;
         }
 
-        if (Time > 200000)
-        {
+        if (actualTime - previousTime > SPEED) {
             switch(nDir)
             {
                 case 0:
@@ -66,7 +68,7 @@ void play(SDL_Surface* sdlScreen)
             }
 
             SDL_FillRect(sdlScreen, NULL, SDL_MapRGB(sdlScreen->format, 255, 255, 255)); 
-            
+
             int i;
             for (i=0; i< board.nSize; i++)
             {
@@ -81,10 +83,9 @@ void play(SDL_Surface* sdlScreen)
 
             SDL_Flip(sdlScreen);
 
-            Time = 0;
             nDir = 0;
+            previousTime = actualTime;
         }
-        Time++;
 
     }
 

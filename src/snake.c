@@ -1,5 +1,6 @@
 #include "snake.h"
 
+
 /**
  *
  * @fn         void Right(Serpent *snake)
@@ -16,6 +17,8 @@ void Left(Serpent *snake) {
 	Point tete = snake->tete;
 	int taille = snake->taille;
 	Point* tab = snake->tab;
+	srand(time(NULL));
+	int y=rand()%100;
 	switch (dir) {
 			case 1 :
 				tete.x = tete.x + 1;
@@ -36,10 +39,24 @@ void Left(Serpent *snake) {
 	}
 	snake->tete = tete;
 	snake->dir = dir;
-	tab = (Point*)realloc(tab, (taille + 1)*sizeof(Point));
-	tab[taille] = tete;
-	snake->tab = tab;
-	snake->taille = taille + 1;
+
+	//soit on fait ca : ajout de la tete et déplacement des autres cases : le serpent ne grandit pas
+	if (y < X) {
+		int i;
+		for (i=1; i<taille; i++) {
+			tab[i-1].x = tab[i].x;
+			tab[i-1].y = tab[i].y;
+		}
+		tab[taille-1] = tete;
+	}
+
+	//soit on fait ca : ajout de la tête : le serpent grandit
+	else {
+		tab = (Point*)realloc(tab, (taille + 1)*sizeof(Point));
+		tab[taille] = tete;
+		snake->tab = tab;
+		snake->taille = taille + 1;
+	}
 }
 
 /**
@@ -57,6 +74,8 @@ void Forward(Serpent *snake) {
 	Point tete = snake->tete;
 	int taille = snake->taille;
 	Point* tab = snake->tab;
+	srand(time(NULL));
+	int y=rand()%100;
 	switch (snake->dir) {
 			case 1 :
 				tete.y = tete.y + 1;
@@ -72,10 +91,24 @@ void Forward(Serpent *snake) {
 				break;
 	}
 	snake->tete = tete;
-	tab = (Point*)realloc(tab, (taille + 1)*sizeof(Point));
-	tab[taille] = tete;
-	snake->tab = tab;
-	snake->taille = taille + 1;
+
+	//soit on fait ca : ajout de la tete et déplacement des autres cases : le serpent ne grandit pas
+	if (y < X) {
+		int i;
+		for (i=1; i<taille; i++) {
+			tab[i-1].x = tab[i].x;
+			tab[i-1].y = tab[i].y;
+		}
+		tab[taille-1] = tete;
+	}
+
+	//soit on fait ca : ajout de la tête : le serpent grandit
+	else {
+		tab = (Point*)realloc(tab, (taille + 1)*sizeof(Point));
+		tab[taille] = tete;
+		snake->tab = tab;
+		snake->taille = taille + 1;
+	}
 }
 
 /**
@@ -90,10 +123,12 @@ void Forward(Serpent *snake) {
  */
 
 void Right(Serpent *snake) {
+	srand(time(NULL));
 	Direction dir = snake->dir;
 	Point tete = snake->tete;
 	int taille = snake->taille;
 	Point* tab = snake->tab;
+	int y=rand()%100;
 	switch (dir) {
 		case 1 :
 			tete.x = tete.x - 1;
@@ -114,10 +149,24 @@ void Right(Serpent *snake) {
 	}
 	snake->tete = tete;
 	snake->dir = dir;
-	tab = (Point*)realloc(tab, (taille + 1)*sizeof(Point));
-	tab[taille] = tete;
-	snake->tab = tab;
-	snake->taille = taille + 1;
+
+	//soit on fait ca : ajout de la tete et déplacement des autres cases : le serpent ne grandit pas
+	if (y < X) {
+		int i;
+		for (i=1; i<taille; i++) {
+			tab[i-1].x = tab[i].x;
+			tab[i-1].y = tab[i].y;
+		}
+		tab[taille-1] = tete;
+	}
+
+	//soit on fait ca : ajout de la tête : le serpent grandit
+	else {
+		tab = (Point*)realloc(tab, (taille + 1)*sizeof(Point));
+		tab[taille] = tete;
+		snake->tab = tab;
+		snake->taille = taille + 1;
+	}
 }
 
 /**
@@ -180,10 +229,11 @@ void affiche_tableau(Serpent* snake) {
 
 void init_snake(Serpent *snake, int taille_plateau, int id, int vitesse) {
 	//snake = malloc(sizeof (Serpent));
+	srand(time(NULL));
 	snake->id = id ;
 	snake->vitesse = vitesse;
 	snake->taille = 1;
-	snake->tete.x = rand()%taille_plateau ;
+	snake->tete.x = rand()%taille_plateau;
 	snake->tete.y = rand()%taille_plateau;
 	snake->tab = (Point*)malloc(snake->taille*sizeof(Point)) ;
 	snake->tab[0].x=snake->tete.x;
@@ -211,11 +261,9 @@ int test_collision(Mur mur, Serpent** tab_serpent, int taille_mur, int nbr_serpe
 	for (i=0; i<nbr_serpent; i++) {
 		if (appartient_tableau(tab_serpent[i]->tete, mur, taille_mur) == 0) {
 			for (j=0; j<nbr_serpent; j++) {
-				if (i!=j) {
 					if (appartient_tableau(tab_serpent[i]->tete, tab_serpent[j]->tab, tab_serpent[j]->taille) == 1 ) {
 						return tab_serpent[i]->id;
 					}	
-				}
 			}
 		}
 		else {
@@ -226,23 +274,23 @@ int test_collision(Mur mur, Serpent** tab_serpent, int taille_mur, int nbr_serpe
 }
 
 
-/*
-int main () {
+
+/*int main () {
 	Serpent* snake = malloc(sizeof(Serpent));
 	init_snake(snake, 100, 1, 10);
-	printf("%i", snake->taille);
+	//printf("%i", snake->taille);
 	affiche_tableau(snake);
-	printf("blala\n");
+	//printf("blala\n");
+	//printf("\n");
+	//Right(snake);
+	printf("la tete est en position(%i,%i)\n",snake->tete.x,snake->tete.y);
+	printf("la direction est %i\n",snake->dir);
+	affiche_tableau(snake);
 	printf("\n");
 	Right(snake);
 	printf("la tete est en position(%i,%i)\n",snake->tete.x,snake->tete.y);
 	printf("la direction est %i\n",snake->dir);
 	affiche_tableau(snake);
 	printf("\n");
-	Left(snake);
-	printf("la tete est en position(%i,%i)\n",snake->tete.x,snake->tete.y);
-	printf("la direction est %i\n",snake->dir);
-	affiche_tableau(snake);
 	return 0;
-}
-*/
+}*/
