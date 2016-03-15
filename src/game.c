@@ -1,8 +1,8 @@
 #include "game.h"
-#include "obstacle.h"
 
 void play(SDL_Surface* sdlScreen, int nbSnakes)
 {
+    srand(time(NULL));
     SDL_Event event;
     Board board;
     board = init_board1();
@@ -12,7 +12,18 @@ void play(SDL_Surface* sdlScreen, int nbSnakes)
     for (i = 0; i < nbSnakes; i++)
     {
         snakes[i] = malloc(sizeof(Serpent));
-        init_snake(snakes[i], 40, 1, 10);
+
+        int rng = rand()%board.nNbPos;
+        init_snake(snakes[i], (i+1), 10, board.pnDirs[rng], board.pPtsPositions[rng]);
+
+        board.pPtsPositions[rng] = board.pPtsPositions[board.nNbPos];
+        board.pnDirs[rng] = board.pnDirs[board.nNbPos];
+        board.nNbPos--;
+        if(board.nNbPos < 0)
+        {
+            fprintf(stderr, "Trop de snake pour les positions disponibles\n");
+            exit(1);
+        }
     }
 
     int nDir = 0;
@@ -21,7 +32,7 @@ void play(SDL_Surface* sdlScreen, int nbSnakes)
     int nResGame = 0;
     int actualTime = 0;
     int previousTime = 0;
-    //int pause = 1;
+    int pause = 1;
 
     while(nInGame && !nResGame)
     {
@@ -50,9 +61,9 @@ void play(SDL_Surface* sdlScreen, int nbSnakes)
                             nDir = 2;
                         nKeyUp = 0;
                         break;
-                    /*case SDLK_p:
+                    case SDLK_p:
                         pause = !pause;
-                        break;*/
+                        break;
                     default:
                         break;
                 }
@@ -63,7 +74,7 @@ void play(SDL_Surface* sdlScreen, int nbSnakes)
                 break;
         }
 
-        if (actualTime - previousTime > SPEED) {
+        if (actualTime - previousTime > SPEED && pause) {
             switch(nDir)
             {
                 case 0:

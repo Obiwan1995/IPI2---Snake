@@ -1,5 +1,32 @@
 #include "snake.h"
 
+/**
+ * @fn         Serpent* init_snake(Serpent *snake, int taille_plateau, int id, int vitesse)
+ *
+ * @brief      initialise le serpent : donne une valeur à chaque champ de la structure
+ *
+ * @param      snake           serpent à initialiser
+ * @param[in]  taille_plateau  taille du plateau de jeu
+ * @param[in]  id              id du serpent
+ * @param[in]  vitesse         vitesse du serpent
+ *
+ * @return     serpent avec des valeurs pour chaque champs de sa structure
+ */
+
+
+void init_snake(Serpent* snake, int id, int speed, int dir, Point pos)
+{
+	snake->id = id ;
+	snake->vitesse = speed;
+	snake->tete.x = pos.x;
+	snake->tete.y = pos.y;
+	snake->dir = dir;
+
+	snake->taille = 1;
+	snake->tab = (Point*)malloc(snake->taille*sizeof(Point)) ;
+	snake->tab[0].x=snake->tete.x;
+	snake->tab[0].y=snake->tete.y;
+}
 
 /**
  *
@@ -12,50 +39,45 @@
  * @param      snake  serpent à déplacer
  */
 
-void Left(Serpent *snake) {
-	Direction dir = snake->dir;
-	Point tete = snake->tete;
-	int taille = snake->taille;
-	Point* tab = snake->tab;
-	srand(time(NULL));
-	int y=rand()%100;
-	switch (dir) {
+void Left(Serpent *snake)
+{
+	switch (snake->dir) {
 			case 1 :
-				tete.x = tete.x + 1;
-				dir = 2;
+				snake->tete.x += 1;
+				snake->dir = 2;
 				break;
 			case 2 :
-				tete.y = tete.y - 1;
-				dir = 3;
+				snake->tete.y -= 1;
+				snake->dir = 3;
 				break;
 			case 3 :
-				tete.x = tete.x - 1;
-				dir = 4;
+				snake->tete.x -= 1;
+				snake->dir = 4;
 				break;
 			case 4 :
-				tete.y = tete.y + 1;
-				dir = 1;
+				snake->tete.y += 1;
+				snake->dir = 1;
 				break;
 	}
-	snake->tete = tete;
-	snake->dir = dir;
 
 	//soit on fait ca : ajout de la tete et déplacement des autres cases : le serpent ne grandit pas
-	if (y < X) {
+	//sinon :le serpent grandit
+	int rng=rand()%100;
+	if (rng < P_GAIN_SIZE)
+	{
 		int i;
-		for (i=1; i<taille; i++) {
-			tab[i-1].x = tab[i].x;
-			tab[i-1].y = tab[i].y;
+		for (i=1; i<snake->taille; i++)
+		{
+			snake->tab[i-1].x = snake->tab[i].x;
+			snake->tab[i-1].y = snake->tab[i].y;
 		}
-		tab[taille-1] = tete;
+		snake->tab[snake->taille-1] = snake->tete;
 	}
-
-	//soit on fait ca : ajout de la tête : le serpent grandit
-	else {
-		tab = (Point*)realloc(tab, (taille + 1)*sizeof(Point));
-		tab[taille] = tete;
-		snake->tab = tab;
-		snake->taille = taille + 1;
+	else
+	{
+		snake->tab = (Point*)realloc(snake->tab, (snake->taille + 1)*sizeof(Point));
+		snake->tab[snake->taille] = snake->tete;
+		snake->taille++;
 	}
 }
 
@@ -70,46 +92,43 @@ void Left(Serpent *snake) {
  * @param      snake  serpent à déplacer
  */
 
-void Forward(Serpent *snake) {
-	Point tete = snake->tete;
-	int taille = snake->taille;
-	Point* tab = snake->tab;
-	srand(time(NULL));
-	int y=rand()%100;
-	switch (snake->dir) {
-			case 1 :
-				tete.y = tete.y + 1;
-				break;
-			case 2 :
-				tete.x = tete.x + 1;
-				break;
-			case 3 :
-				tete.y = tete.y - 1;
-				break;
-			case 4 :
-				tete.x = tete.x - 1;
-				break;
+void Forward(Serpent *snake)
+{
+	switch (snake->dir)
+	{
+		case 1 :
+			snake->tete.y += 1;
+			break;
+		case 2 :
+			snake->tete.x += 1;
+			break;
+		case 3 :
+			snake->tete.y -= 1;
+			break;
+		case 4 :
+			snake->tete.x -= 1;
+			break;
 	}
-	snake->tete = tete;
 
 	//soit on fait ca : ajout de la tete et déplacement des autres cases : le serpent ne grandit pas
-	if (y < X) {
+	//sinon :le serpent grandit
+	int rng=rand()%100;
+	if (rng < P_GAIN_SIZE)
+	{
 		int i;
-		for (i=1; i<taille; i++) {
-			tab[i-1].x = tab[i].x;
-			tab[i-1].y = tab[i].y;
+		for (i=1; i<snake->taille; i++)
+		{
+			snake->tab[i-1].x = snake->tab[i].x;
+			snake->tab[i-1].y = snake->tab[i].y;
 		}
-		tab[taille-1] = tete;
+		snake->tab[snake->taille-1] = snake->tete;
 	}
-
-	//soit on fait ca : ajout de la tête : le serpent grandit
-	else {
-		tab = (Point*)realloc(tab, (taille + 1)*sizeof(Point));
-		tab[taille] = tete;
-		snake->tab = tab;
-		snake->taille = taille + 1;
+	else
+	{
+		snake->tab = (Point*)realloc(snake->tab, (snake->taille + 1)*sizeof(Point));
+		snake->tab[snake->taille] = snake->tete;
+		snake->taille++;
 	}
-
 }
 
 /**
@@ -123,50 +142,46 @@ void Forward(Serpent *snake) {
  * @param      snake  serpent à déplacer
  */
 
-void Right(Serpent *snake) {
-	srand(time(NULL));
-	Direction dir = snake->dir;
-	Point tete = snake->tete;
-	int taille = snake->taille;
-	Point* tab = snake->tab;
-	int y=rand()%100;
-	switch (dir) {
+void Right(Serpent *snake)
+{
+	switch (snake->dir)
+	{
 		case 1 :
-			tete.x = tete.x - 1;
-			dir = 4;
+			snake->tete.x -= 1;
+			snake->dir = 4;
 			break;
 		case 2 :
-			tete.y = tete.y + 1;
-			dir = 1;
+			snake->tete.y += 1;
+			snake->dir = 1;
 			break;
 		case 3 :
-			tete.x = tete.x + 1;
-			dir = 2;
+			snake->tete.x += 1;
+			snake->dir = 2;
 			break;
 		case 4 :
-			tete.y = tete.y - 1;
-			dir = 3;
+			snake->tete.y -= 1;
+			snake->dir = 3;
 			break;
 	}
-	snake->tete = tete;
-	snake->dir = dir;
 
 	//soit on fait ca : ajout de la tete et déplacement des autres cases : le serpent ne grandit pas
-	if (y < X) {
+	//sinon :le serpent grandit
+	int rng=rand()%100;
+	if (rng < P_GAIN_SIZE)
+	{
 		int i;
-		for (i=1; i<taille; i++) {
-			tab[i-1].x = tab[i].x;
-			tab[i-1].y = tab[i].y;
+		for (i=1; i<snake->taille; i++)
+		{
+			snake->tab[i-1].x = snake->tab[i].x;
+			snake->tab[i-1].y = snake->tab[i].y;
 		}
-		tab[taille-1] = tete;
+		snake->tab[snake->taille-1] = snake->tete;
 	}
-
-	//soit on fait ca : ajout de la tête : le serpent grandit
-	else {
-		tab = (Point*)realloc(tab, (taille + 1)*sizeof(Point));
-		tab[taille] = tete;
-		snake->tab = tab;
-		snake->taille = taille + 1;
+	else
+	{
+		snake->tab = (Point*)realloc(snake->tab, (snake->taille + 1)*sizeof(Point));
+		snake->tab[snake->taille] = snake->tete;
+		snake->taille++;
 	}
 }
 
@@ -212,34 +227,6 @@ void affiche_tableau(Serpent* snake) {
 	for (i=0; i<taille; i++) {
 		printf("(%i,%i) | ",snake->tab[i].x, snake->tab[i].y);
 	}
-}
-
-/**
- * @fn         Serpent* init_snake(Serpent *snake, int taille_plateau, int id, int vitesse)
- *
- * @brief      initialise le serpent : donne une valeur à chaque champ de la structure
- *
- * @param      snake           serpent à initialiser
- * @param[in]  taille_plateau  taille du plateau de jeu
- * @param[in]  id              id du serpent
- * @param[in]  vitesse         vitesse du serpent
- *
- * @return     serpent avec des valeurs pour chaque champs de sa structure
- */
-
-
-void init_snake(Serpent *snake, int taille_plateau, int id, int vitesse) {
-	//snake = malloc(sizeof (Serpent));
-	srand(time(NULL));
-	snake->id = id ;
-	snake->vitesse = vitesse;
-	snake->taille = 1;
-	snake->tete.x = (int)(taille_plateau/2);
-	snake->tete.y = (int)(taille_plateau/2);
-	snake->tab = (Point*)malloc(snake->taille*sizeof(Point)) ;
-	snake->tab[0].x=snake->tete.x;
-	snake->tab[0].y=snake->tete.y;
-	snake->dir = rand()%4;
 }
 
 /**

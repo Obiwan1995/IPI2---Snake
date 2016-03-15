@@ -1,15 +1,13 @@
-
 // Présentation des structures de données utiles au jeu
 
 #ifndef SNAKE_H_
 #define SNAKE_H_
 
 #include <stdio.h>
-#include <stdlib.h>
 #include <time.h>
 #include "obstacle.h"
 
-#define X 70
+#define P_GAIN_SIZE 50
 
 // Type Direction pour savoir dans quelle direction le serepent est actuellement
 // en train d'avancer : vers le haut, vers la droite, vers la gauche, vers le bas
@@ -32,16 +30,12 @@ typedef struct {
 	Direction dir;
 } Serpent;
 
-// Type Mur qui va délimiter le terrain de jeu : tableau de coordonnées des points qui représentent le mur
-
-typedef Point* Mur;
-
+void init_snake(Serpent* snake, int id, int speed, int dir, Point pos);
 void Right(Serpent* snake);
 void Forward(Serpent* snake);
 void Left(Serpent* snake);
 int appartient_tableau(Point point, Point* tableau, int taille);
 void affiche_tableau(Serpent* snake);
-void init_snake(Serpent* snake, int taille_plateau, int id, int vitesse);
 int test_collision(Board* mur, Serpent** tab_serpent, int nb_snakes);
 
 #endif
