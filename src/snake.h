@@ -10,12 +10,11 @@
 #define SNAKE_H_
 
 #include <stdio.h>
-#include <stdlib.h>
 #include <time.h>
 #include "obstacle.h"
 
 /** Probabilité que le serpent grandisse à chaque pas de temps (en pourcentage) */
-#define X 70
+#define P_GAIN_SIZE 50
 
 /** Correspond à la direction du serpent : haut, droite, bas ou gauche */
 
@@ -38,12 +37,12 @@ typedef struct {
 	Direction dir;
 } Serpent;
 
+void init_snake(Serpent* snake, int id, int speed, int dir, Point pos);
 void Right(Serpent* snake);
 void Forward(Serpent* snake);
 void Left(Serpent* snake);
 int appartient_tableau(Point point, Point* tableau, int taille);
 void affiche_tableau(Serpent* snake);
-void init_snake(Serpent* snake, int taille_plateau, int id, int vitesse);
 int test_collision(Board* mur, Serpent** tab_serpent, int nb_snakes);
 
 #endif
