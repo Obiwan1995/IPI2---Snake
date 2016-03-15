@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
         exit(1);
     }
 
-    sdlScreen = SDL_SetVideoMode(800, 600, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
+    sdlScreen = SDL_SetVideoMode(BOARD_WIDTH*SIZE_CASE, BOARD_HEIGTH*SIZE_CASE, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
     if (sdlScreen == NULL) // Si l'ouverture a échoué, on le note et on arrête
     {
         fprintf(stderr, "Impossible de charger le mode vidéo : %s\n", SDL_GetError());
