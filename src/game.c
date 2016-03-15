@@ -3,6 +3,10 @@
 void play(SDL_Surface* sdlScreen)
 {
     SDL_Event event;
+    Board board;
+    board = init_board1();
+        printf("(%i,%i) | ", board.pPtsMur[0].x, board.pPtsMur[0].y);
+
     Serpent* snake = malloc(sizeof(Serpent));
     init_snake(snake, 50, 1, 10);
 
@@ -64,6 +68,12 @@ void play(SDL_Surface* sdlScreen)
             SDL_FillRect(sdlScreen, NULL, SDL_MapRGB(sdlScreen->format, 255, 255, 255)); 
             
             int i;
+            for (i=0; i< board.nSize; i++)
+            {
+                printf("%i\n", i);
+                paint(sdlScreen, board.pPtsMur[i].x, board.pPtsMur[i].y, 0);
+            }
+
             for (i=0; i< snake->taille; i++)
             {
                 paint(sdlScreen, snake->tab[i].x, snake->tab[i].y, 1);
@@ -87,7 +97,7 @@ void paint(SDL_Surface* sdlScreen, int x, int y, int nId)
     switch(nId)
     {
         case 0:
-            color = RED;
+            color = BLACK;
             break;
         case 1:
             color = GREEN;
@@ -100,12 +110,12 @@ void paint(SDL_Surface* sdlScreen, int x, int y, int nId)
     }
 
     int i, j;
-    for (i = 0; i != SIZE_PIXEL; ++i)
+    for (i = 0; i != SIZE_CASE; ++i)
     {
-        for (j = 0; j != SIZE_PIXEL; ++j)
+        for (j = 0; j != SIZE_CASE; ++j)
         {
-            if (!((i == 0 || i == SIZE_PIXEL || i == 1 || i == SIZE_PIXEL-1) && (j == 0 || j == SIZE_PIXEL || j == 1 || j == SIZE_PIXEL-1)))
-                setPixel(sdlScreen, x*SIZE_PIXEL+i, y*SIZE_PIXEL+j, color);
+            if (!((i == 0 || i == SIZE_CASE || i == 1 || i == SIZE_CASE-1) && (j == 0 || j == SIZE_CASE || j == 1 || j == SIZE_CASE-1)))
+                setPixel(sdlScreen, x*SIZE_CASE+i, y*SIZE_CASE+j, color);
         }    
     }
 }
