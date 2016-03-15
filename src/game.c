@@ -1,22 +1,29 @@
 #include "game.h"
+#include "obstacle.h"
 
-void play(SDL_Surface* sdlScreen)
+void play(SDL_Surface* sdlScreen, int nbSnakes)
 {
     SDL_Event event;
     Board board;
     board = init_board1();
-        printf("(%i,%i) | ", board.pPtsMur[0].x, board.pPtsMur[0].y);
 
-    Serpent* snake = malloc(sizeof(Serpent));
-    init_snake(snake, 50, 1, 10);
+    Serpent** snakes = malloc(nbSnakes * sizeof(Serpent *));
+    int i;
+    for (i = 0; i < nbSnakes; i++)
+    {
+        snakes[i] = malloc(sizeof(Serpent));
+        init_snake(snakes[i], 40, 1, 10);
+    }
 
     int nDir = 0;
     int nKeyUp = 0;
     int nInGame = 1;
+    int nResGame = 0;
     int actualTime = 0;
     int previousTime = 0;
+    //int pause = 1;
 
-    while(nInGame)
+    while(nInGame && !nResGame)
     {
         actualTime = SDL_GetTicks();
         SDL_PollEvent(&event);
@@ -43,6 +50,9 @@ void play(SDL_Surface* sdlScreen)
                             nDir = 2;
                         nKeyUp = 0;
                         break;
+                    /*case SDLK_p:
+                        pause = !pause;
+                        break;*/
                     default:
                         break;
                 }
@@ -57,28 +67,29 @@ void play(SDL_Surface* sdlScreen)
             switch(nDir)
             {
                 case 0:
-                    Forward(snake);
+                    Forward(snakes[0]);
                     break;
                 case 1:
-                    Right(snake);
+                    Right(snakes[0]);
                     break;
                 case 2:
-                    Left(snake);
+                    Left(snakes[0]);
                     break;
             }
+
+            nResGame = test_collision(&board, snakes, nbSnakes);
 
             SDL_FillRect(sdlScreen, NULL, SDL_MapRGB(sdlScreen->format, 255, 255, 255)); 
 
             int i;
             for (i=0; i< board.nSize; i++)
             {
-                printf("%i\n", i);
                 paint(sdlScreen, board.pPtsMur[i].x, board.pPtsMur[i].y, 0);
             }
 
-            for (i=0; i< snake->taille; i++)
+            for (i=0; i< snakes[0]->taille; i++)
             {
-                paint(sdlScreen, snake->tab[i].x, snake->tab[i].y, 1);
+                paint(sdlScreen, snakes[0]->tab[i].x, snakes[0]->tab[i].y, 1);
             }
 
             SDL_Flip(sdlScreen);

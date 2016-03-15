@@ -7,15 +7,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include "obstacle.h"
 
 #define X 70
-
-// Structure de Point qui permet de situer le serpent ou les obstacles
-
-typedef struct {
-	int x;
-	int y;
-} Point;
 
 // Type Direction pour savoir dans quelle direction le serepent est actuellement
 // en train d'avancer : vers le haut, vers la droite, vers la gauche, vers le bas
@@ -48,6 +42,6 @@ void Left(Serpent* snake);
 int appartient_tableau(Point point, Point* tableau, int taille);
 void affiche_tableau(Serpent* snake);
 void init_snake(Serpent* snake, int taille_plateau, int id, int vitesse);
-int test_collision(Mur mur, Serpent** tab_serpent, int taille_mur, int nbr_serpent);
+int test_collision(Board* mur, Serpent** tab_serpent, int nb_snakes);
 
 #endif

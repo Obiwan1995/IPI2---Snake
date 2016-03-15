@@ -109,6 +109,7 @@ void Forward(Serpent *snake) {
 		snake->tab = tab;
 		snake->taille = taille + 1;
 	}
+
 }
 
 /**
@@ -233,8 +234,8 @@ void init_snake(Serpent *snake, int taille_plateau, int id, int vitesse) {
 	snake->id = id ;
 	snake->vitesse = vitesse;
 	snake->taille = 1;
-	snake->tete.x = rand()%taille_plateau;
-	snake->tete.y = rand()%taille_plateau;
+	snake->tete.x = (int)(taille_plateau/2);
+	snake->tete.y = (int)(taille_plateau/2);
 	snake->tab = (Point*)malloc(snake->taille*sizeof(Point)) ;
 	snake->tab[0].x=snake->tete.x;
 	snake->tab[0].y=snake->tete.y;
@@ -255,19 +256,24 @@ void init_snake(Serpent *snake, int taille_plateau, int id, int vitesse) {
  * 				soit l'id du serpent qui entre en collision avec le mur ou un autre serpent
  */
 
-int test_collision(Mur mur, Serpent** tab_serpent, int taille_mur, int nbr_serpent) {
+int test_collision(Board* mur, Serpent** tab_serpent, int nb_snakes) {
 	int i;
 	int j;
-	for (i=0; i<nbr_serpent; i++) {
-		if (appartient_tableau(tab_serpent[i]->tete, mur, taille_mur) == 0) {
-			for (j=0; j<nbr_serpent; j++) {
-					if (appartient_tableau(tab_serpent[i]->tete, tab_serpent[j]->tab, tab_serpent[j]->taille) == 1 ) {
-						return tab_serpent[i]->id;
-					}	
-			}
-		}
-		else {
+	for (i=0; i<nb_snakes; i++) 
+	{
+		if (appartient_tableau(tab_serpent[i]->tete, mur->pPtsMur, mur->nSize)) 
+		{
 			return tab_serpent[i]->id;
+		}
+		else 
+		{
+			for (j=0; j<nb_snakes; j++) 
+			{
+				if (appartient_tableau(tab_serpent[i]->tete, tab_serpent[j]->tab, tab_serpent[j]->taille-1) == 1 ) 
+				{
+					return tab_serpent[i]->id;
+				}
+			}
 		}
 	}
 	return 0;	
