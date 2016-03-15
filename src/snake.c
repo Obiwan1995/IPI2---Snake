@@ -63,9 +63,9 @@ void Left(Serpent *snake) {
  *
  * @fn         void Forward(Serpent *snake)
  * 
- * @brief      Change la direction et le serpent lorsque le déplacement choisi par le joueur est tout droit (il continue dans sa direction actuelle).
- * 			   Enumération des 4 cas selon la direction actuelle du serpent
- * 			   On ajoute une case de plus au tableau du serpent qui correspond à la position de la nouvelle tête.
+ * @brief      	Change la direction et le serpent lorsque le déplacement choisi par le joueur est tout droit (il continue dans sa direction actuelle).
+ * @details		Enumération des 4 cas selon la direction actuelle du serpent
+ * @details   	On ajoute une case de plus au tableau du serpent qui correspond à la position de la nouvelle tête.
  *
  * @param      snake  serpent à déplacer
  */
@@ -116,9 +116,9 @@ void Forward(Serpent *snake) {
  *
  * @fn         void Left(Serpent *snake)
  * 
- * @brief      Change la direction et le serpent lorsque le déplacement choisi par le joueur est la gauche.
- * 			   Enumération des 4 cas selon la direction actuelle du serpent
- * 			   On ajoute une case de plus au tableau du serpent qui correspond à la position de la nouvelle tête.
+ * @brief      	Change la direction et le serpent lorsque le déplacement choisi par le joueur est la gauche.		
+ * @details		Enumération des 4 cas selon la direction actuelle du serpent
+ * @details	   	On ajoute une case de plus au tableau du serpent qui correspond à la position de la nouvelle tête.
  *
  * @param      snake  serpent à déplacer
  */
@@ -173,14 +173,14 @@ void Right(Serpent *snake) {
 /**
  * @fn 		int appartient_tableau(Point point, Point* tableau, int taille)
  * 
- * @brief   teste l'appartenance d'un point (2 coordonnées x et y) à un tableau
+ * @brief   Teste l'appartenance d'un point (2 coordonnées x et y) à un tableau
  *
- * @param[in]  point    point dont on veut tester l'appartenance au tableau
- * @param      tableau  tableau de point 
- * @param[in]  taille   taille du tableau
+ * @param  point    point dont on veut tester l'appartenance au tableau
+ * @param  tableau  tableau de points
+ * @param  taille   taille du tableau
  *
- * @return      0 si le point n'appartient pas au tableau
- * 				1 sinon
+ * @return 0 si le point n'appartient pas au tableau
+ * @return 1 sinon
  */
 
 int appartient_tableau(Point point, Point* tableau, int taille) {
@@ -195,23 +195,6 @@ int appartient_tableau(Point point, Point* tableau, int taille) {
 		}
 	}
 	return flag;
-}
-
-/**
- * @fn 			void affiche_tableau(Serpent *snake)
- * 
- * @brief      affiche les coordonnées occupées par le serpent
- * 				fonction utilisée pour les tests dans le main
- *
- * @param      snake  serpent dont on veut connaître l'emplacement
- */
-
-void affiche_tableau(Serpent* snake) {
-	int taille = snake->taille;
-	int i;
-	for (i=0; i<taille; i++) {
-		printf("(%i,%i) | ",snake->tab[i].x, snake->tab[i].y);
-	}
 }
 
 /**
@@ -243,7 +226,7 @@ void init_snake(Serpent *snake, int taille_plateau, int id, int vitesse) {
 }
 
 /**
- * @fn         int test_collision(Mur mur, Serpent** tab_serpent, int taille, int nbr_serpent)
+ * @fn         int test_collision(Board* mur, Serpent** tab_serpent, int nb_snakes)
  *
  * @brief      teste la collision d'un serpent avec le mur ou un autre serpent
  *

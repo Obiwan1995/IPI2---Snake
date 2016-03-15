@@ -1,5 +1,10 @@
-
-// Présentation des structures de données utiles au jeu
+/**
+ * @file snake.h
+ * @author Les Mixtes
+ * @date 15/03/2016
+ * @brief Header du fichier snake.c
+ * @details Contient toutes les déclarations des structures et des variables utiles dans la gestion des serpents
+ */
 
 #ifndef SNAKE_H_
 #define SNAKE_H_
@@ -9,19 +14,20 @@
 #include <time.h>
 #include "obstacle.h"
 
+/** Probabilité que le serpent grandisse à chaque pas de temps (en pourcentage) */
 #define X 70
 
-// Type Direction pour savoir dans quelle direction le serepent est actuellement
-// en train d'avancer : vers le haut, vers la droite, vers la gauche, vers le bas
+/** Correspond à la direction du serpent : haut, droite, bas ou gauche */
 
 typedef enum Direction {top=1, right=2, bot=3, left=4} Direction;
 
-// Structure de Serpent avec différents champs qui le cararctérise :
-// 		- un identifiant : permet de reconnaitre le serpent
-// 		- une vitesse
-// 		- une taille (est modifiée au cours du jeu)
-// 		- un tableau de point qui représente le serpent 
-// 		- une direction : la direction du serepent
+/** Structure de Serpent avec plusieurs champs qui le caractérise :
+- un identifiant : permet de reconnaitre le serpent
+- une vitesse
+- une taille (est modifiée au cours du jeu)
+- un tableau de point qui représente le serpent 
+- un point correspondant à la tête du serpent
+- une direction : la direction du serepent */
 
 typedef struct {
 	int id;
@@ -31,10 +37,6 @@ typedef struct {
 	Point tete;
 	Direction dir;
 } Serpent;
-
-// Type Mur qui va délimiter le terrain de jeu : tableau de coordonnées des points qui représentent le mur
-
-typedef Point* Mur;
 
 void Right(Serpent* snake);
 void Forward(Serpent* snake);
