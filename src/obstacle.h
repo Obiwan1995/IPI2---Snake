@@ -3,7 +3,7 @@
 
 #include <stdlib.h>
 
-#define BOARD_HEIGTH 40
+#define BOARD_HEIGHT 40
 #define BOARD_WIDTH 40
 
 // Structure de Point qui permet de situer le serpent ou les obstacles
