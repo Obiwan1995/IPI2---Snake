@@ -1,7 +1,7 @@
 /**
  * @file snake.h
  * @author Les Mixtes
- * @date 15/03/2016
+ * @date 17/03/2016
  * @brief Header du fichier snake.c
  * @details Contient toutes les déclarations des structures et des variables utiles dans la gestion des serpents
  */
@@ -42,7 +42,6 @@ void Right(Serpent* snake);
 void Forward(Serpent* snake);
 void Left(Serpent* snake);
 int appartient_tableau(Point point, Point* tableau, int taille);
-void affiche_tableau(Serpent* snake);
 int test_collision(Board* mur, Serpent** tab_serpent, int nb_snakes);
 
 #endif

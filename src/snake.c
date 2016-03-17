@@ -1,16 +1,25 @@
+/**
+ * @file snake.c
+ * @author Les Mixtes
+ * @date 17/03/2016
+ * @brief Fichier permettant la gestion des serpents
+ * @details Contient toutes les fonctions utiles à la gestion des serpents : initialisation, déplacements et gestion des collisions
+ */
+
 #include "snake.h"
 
 /**
- * @fn         Serpent* init_snake(Serpent *snake, int taille_plateau, int id, int vitesse)
+ * @fn         Serpent* init_snake(Serpent *snake, int id, int speed, int dir, Point pos)
  *
  * @brief      initialise le serpent : donne une valeur à chaque champ de la structure
  *
- * @param      snake           serpent à initialiser
- * @param[in]  taille_plateau  taille du plateau de jeu
- * @param[in]  id              id du serpent
- * @param[in]  vitesse         vitesse du serpent
+ * @param      	snake           serpent à initialiser
+ * @param		id              id du serpent
+ * @param		speed			vitesse du serpent
+ * @param		dir 			direction du serpent
+ * @param		pos 			position initiale du serpent
  *
- * @return     serpent avec des valeurs pour chaque champs de sa structure
+ * @return     Le serpent passé en paramètre avec des valeurs pour chaque champ de sa structure
  */
 
 
@@ -32,9 +41,9 @@ void init_snake(Serpent* snake, int id, int speed, int dir, Point pos)
  *
  * @fn         void Right(Serpent *snake)
  * 
- * @brief      Change la direction et le serpent lorsque le déplacement choisi par le joueur est la droite.
- * 			   Enumération des 4 cas selon la direction actuelle du serpent
- * 			   On ajoute une case de plus au tableau du serpent qui correspond à la position de la nouvelle tête.
+ * @brief       Change la direction et le serpent lorsque le déplacement choisi par le joueur est la droite.
+ * @details		Enumération des 4 cas selon la direction actuelle du serpent
+ * @details		On ajoute une case de plus au tableau du serpent qui correspond à la position de la nouvelle tête.
  *
  * @param      snake  serpent à déplacer
  */
@@ -43,20 +52,20 @@ void Left(Serpent *snake)
 {
 	switch (snake->dir) {
 			case 1 :
-				snake->tete.x += 1;
-				snake->dir = 2;
-				break;
-			case 2 :
-				snake->tete.y -= 1;
-				snake->dir = 3;
-				break;
-			case 3 :
 				snake->tete.x -= 1;
 				snake->dir = 4;
 				break;
+			case 2 :
+				snake->tete.y -= 1;
+				snake->dir = 1;
+				break;
+			case 3 :
+				snake->tete.x += 1;
+				snake->dir = 2;
+				break;
 			case 4 :
 				snake->tete.y += 1;
-				snake->dir = 1;
+				snake->dir = 3;
 				break;
 	}
 
@@ -97,13 +106,13 @@ void Forward(Serpent *snake)
 	switch (snake->dir)
 	{
 		case 1 :
-			snake->tete.y += 1;
+			snake->tete.y -= 1;
 			break;
 		case 2 :
 			snake->tete.x += 1;
 			break;
 		case 3 :
-			snake->tete.y -= 1;
+			snake->tete.y += 1;
 			break;
 		case 4 :
 			snake->tete.x -= 1;
@@ -147,20 +156,20 @@ void Right(Serpent *snake)
 	switch (snake->dir)
 	{
 		case 1 :
-			snake->tete.x -= 1;
-			snake->dir = 4;
-			break;
-		case 2 :
-			snake->tete.y += 1;
-			snake->dir = 1;
-			break;
-		case 3 :
 			snake->tete.x += 1;
 			snake->dir = 2;
 			break;
+		case 2 :
+			snake->tete.y += 1;
+			snake->dir = 3;
+			break;
+		case 3 :
+			snake->tete.x -= 1;
+			snake->dir = 4;
+			break;
 		case 4 :
 			snake->tete.y -= 1;
-			snake->dir = 3;
+			snake->dir = 1;
 			break;
 	}
 
@@ -215,15 +224,14 @@ int appartient_tableau(Point point, Point* tableau, int taille) {
 /**
  * @fn         int test_collision(Board* mur, Serpent** tab_serpent, int nb_snakes)
  *
- * @brief      teste la collision d'un serpent avec le mur ou un autre serpent
+ * @brief      Teste la collision d'un serpent avec le mur ou un autre serpent
  *
- * @param[in]  mur          coordonnée des emplacements du mur
- * @param      tab_serpent  tableau de serpent : nécessaire pour la collision avec les autres serpents
- * @param[in]  taille_mur   longueur du tableau mur
- * @param[in]  nbr_serpent  nombre de serpent = longueur du tableau tab_serpent
+ * @param  mur          plateau contenant un tableau de points correspondant aux emplacements des murs
+ * @param  tab_serpent  tableau de serpent : nécessaire pour la collision avec les autres serpents
+ * @param  nb_snakes  	nombre de serpents = longueur du tableau tab_serpent
  *
- * @return     soit 0 s'il n'y a pas de collision
- * 				soit l'id du serpent qui entre en collision avec le mur ou un autre serpent
+ * @return  0 s'il n'y a pas de collision
+ * @return	Sinon, l'id du serpent qui entre en collision avec le mur ou un autre serpent
  */
 
 int test_collision(Board* mur, Serpent** tab_serpent, int nb_snakes) {
