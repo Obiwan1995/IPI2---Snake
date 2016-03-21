@@ -16,15 +16,14 @@
 /** Probabilité que le serpent grandisse à chaque pas de temps (en pourcentage) */
 #define P_GAIN_SIZE 50
 
-/** Correspond à la direction du serpent : haut, droite, bas ou gauche */
-
+/** Direction du serpent : haut, droite, bas ou gauche */
 typedef enum Direction {top=1, right=2, bot=3, left=4} Direction;
 
 /** Structure de Serpent avec plusieurs champs qui le caractérise :
 - un identifiant : permet de reconnaitre le serpent
 - une vitesse
 - une taille (est modifiée au cours du jeu)
-- un tableau de point qui représente le serpent 
+- un tableau de points qui représente le serpent 
 - un point correspondant à la tête du serpent
 - une direction : la direction du serepent */
 

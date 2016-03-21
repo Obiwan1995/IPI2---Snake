@@ -4,7 +4,9 @@ digraph "snake.h"
   node [fontname="Helvetica",fontsize="10",shape=record];
   Node1 [label="snake.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
   Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
-  Node2 [label="game.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$game_8h_source.html"];
-  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
-  Node3 [label="snake.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$snake_8c.html",tooltip="Fichier permettant la gestion des serpents. "];
+  Node2 [label="game.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$game_8h.html",tooltip="Header du fichier game.c. "];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="game.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$game_8c.html",tooltip="Fichier qui gère le jeu. "];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="snake.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$snake_8c.html",tooltip="Fichier permettant la gestion des serpents. "];
 }

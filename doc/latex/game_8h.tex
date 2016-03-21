@@ -1,0 +1,150 @@
+\hypertarget{game_8h}{}\section{game.\+h File Reference}
+\label{game_8h}\index{game.\+h@{game.\+h}}
+
+
+Header du fichier \hyperlink{game_8c}{game.\+c}.  
+
+
+{\ttfamily \#include \char`\"{}../lib/\+S\+D\+L/include/\+S\+D\+L/\+S\+D\+L.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}snake.\+h\char`\"{}}\\*
+Include dependency graph for game.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{game_8h_a2a94d2f61c849b4aeed9684aae52c8c1}{S\+I\+Z\+E\+\_\+\+C\+A\+S\+E}~15
+\item 
+\#define \hyperlink{game_8h_a7b3b25cba33b07c303f3060fe41887f6}{B\+L\+A\+C\+K}~0x00696969
+\item 
+\#define \hyperlink{game_8h_a8d23feea868a983c8c2b661e1e16972f}{R\+E\+D}~0x00\+D\+F2020
+\item 
+\#define \hyperlink{game_8h_acfbc006ea433ad708fdee3e82996e721}{G\+R\+E\+E\+N}~0x0000\+F\+F00
+\item 
+\#define \hyperlink{game_8h_a79d10e672abb49ad63eeaa8aaef57c38}{B\+L\+U\+E}~0x000000\+F\+F
+\item 
+\#define \hyperlink{game_8h_aac3553b3932cbfeeac4526ce7ca0336b}{S\+P\+E\+E\+D}~100
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{game_8h_a32ed6647b4edc5caeeb75c312bc1024a}{play} (S\+D\+L\+\_\+\+Surface $\ast$sdl\+Screen, int nb\+Snakes)
+\begin{DoxyCompactList}\small\item\em Fait tourner le jeu, boucle principale. \end{DoxyCompactList}\item 
+void \hyperlink{game_8h_a55883363797dcb303093fb68cd97109c}{paint} (S\+D\+L\+\_\+\+Surface $\ast$sdl\+Screen, int x, int y, int n\+Id)
+\begin{DoxyCompactList}\small\item\em Colorie S\+I\+Z\+E\+\_\+\+C\+A\+S\+E$\ast$\+S\+I\+Z\+E\+\_\+\+C\+A\+S\+E pixels en x, y, pour les serpents ou le mur (la couleur dépend du n\+Id) \end{DoxyCompactList}\item 
+void \hyperlink{game_8h_af16e2307d16c262a30a859ca3dc9c3ac}{set\+Pixel} (S\+D\+L\+\_\+\+Surface $\ast$surface, int x, int y, Uint32 color)
+\begin{DoxyCompactList}\small\item\em Colorie un pixel à l\textquotesingle{}écran. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Header du fichier \hyperlink{game_8c}{game.\+c}. 
+
+\begin{DoxyAuthor}{Author}
+Les Mixtes 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+21/03/2016
+\end{DoxyDate}
+Contient les déclarations des fonctions utiles dans la gestion du jeu 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{game_8h_a7b3b25cba33b07c303f3060fe41887f6}{}\index{game.\+h@{game.\+h}!B\+L\+A\+C\+K@{B\+L\+A\+C\+K}}
+\index{B\+L\+A\+C\+K@{B\+L\+A\+C\+K}!game.\+h@{game.\+h}}
+\subsubsection[{B\+L\+A\+C\+K}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+L\+A\+C\+K~0x00696969}\label{game_8h_a7b3b25cba33b07c303f3060fe41887f6}
+Couleur noire \hypertarget{game_8h_a79d10e672abb49ad63eeaa8aaef57c38}{}\index{game.\+h@{game.\+h}!B\+L\+U\+E@{B\+L\+U\+E}}
+\index{B\+L\+U\+E@{B\+L\+U\+E}!game.\+h@{game.\+h}}
+\subsubsection[{B\+L\+U\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+L\+U\+E~0x000000\+F\+F}\label{game_8h_a79d10e672abb49ad63eeaa8aaef57c38}
+Couleur bleue \hypertarget{game_8h_acfbc006ea433ad708fdee3e82996e721}{}\index{game.\+h@{game.\+h}!G\+R\+E\+E\+N@{G\+R\+E\+E\+N}}
+\index{G\+R\+E\+E\+N@{G\+R\+E\+E\+N}!game.\+h@{game.\+h}}
+\subsubsection[{G\+R\+E\+E\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+R\+E\+E\+N~0x0000\+F\+F00}\label{game_8h_acfbc006ea433ad708fdee3e82996e721}
+Couleur verte \hypertarget{game_8h_a8d23feea868a983c8c2b661e1e16972f}{}\index{game.\+h@{game.\+h}!R\+E\+D@{R\+E\+D}}
+\index{R\+E\+D@{R\+E\+D}!game.\+h@{game.\+h}}
+\subsubsection[{R\+E\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+E\+D~0x00\+D\+F2020}\label{game_8h_a8d23feea868a983c8c2b661e1e16972f}
+Couleur rouge \hypertarget{game_8h_a2a94d2f61c849b4aeed9684aae52c8c1}{}\index{game.\+h@{game.\+h}!S\+I\+Z\+E\+\_\+\+C\+A\+S\+E@{S\+I\+Z\+E\+\_\+\+C\+A\+S\+E}}
+\index{S\+I\+Z\+E\+\_\+\+C\+A\+S\+E@{S\+I\+Z\+E\+\_\+\+C\+A\+S\+E}!game.\+h@{game.\+h}}
+\subsubsection[{S\+I\+Z\+E\+\_\+\+C\+A\+S\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+I\+Z\+E\+\_\+\+C\+A\+S\+E~15}\label{game_8h_a2a94d2f61c849b4aeed9684aae52c8c1}
+Taille d\textquotesingle{}une case en pixels \hypertarget{game_8h_aac3553b3932cbfeeac4526ce7ca0336b}{}\index{game.\+h@{game.\+h}!S\+P\+E\+E\+D@{S\+P\+E\+E\+D}}
+\index{S\+P\+E\+E\+D@{S\+P\+E\+E\+D}!game.\+h@{game.\+h}}
+\subsubsection[{S\+P\+E\+E\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+P\+E\+E\+D~100}\label{game_8h_aac3553b3932cbfeeac4526ce7ca0336b}
+Nombre de ms entre chaque pas de temps 
+
+\subsection{Function Documentation}
+\hypertarget{game_8h_a55883363797dcb303093fb68cd97109c}{}\index{game.\+h@{game.\+h}!paint@{paint}}
+\index{paint@{paint}!game.\+h@{game.\+h}}
+\subsubsection[{paint}]{\setlength{\rightskip}{0pt plus 5cm}void paint (
+\begin{DoxyParamCaption}
+\item[{S\+D\+L\+\_\+\+Surface $\ast$}]{sdl\+Screen, }
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{int}]{n\+Id}
+\end{DoxyParamCaption}
+)}\label{game_8h_a55883363797dcb303093fb68cd97109c}
+
+
+Colorie S\+I\+Z\+E\+\_\+\+C\+A\+S\+E$\ast$\+S\+I\+Z\+E\+\_\+\+C\+A\+S\+E pixels en x, y, pour les serpents ou le mur (la couleur dépend du n\+Id) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sdl\+Screen} & L\textquotesingle{}écran affiché à l\textquotesingle{}utilisateur \\
+\hline
+{\em x} & Le x de la case à colorier \\
+\hline
+{\em y} & Le y de la case à colorier \\
+\hline
+{\em n\+Id} & L\textquotesingle{}identifiant du propriétaire de la case à colorier\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{game_8h_a32ed6647b4edc5caeeb75c312bc1024a}{}\index{game.\+h@{game.\+h}!play@{play}}
+\index{play@{play}!game.\+h@{game.\+h}}
+\subsubsection[{play}]{\setlength{\rightskip}{0pt plus 5cm}void play (
+\begin{DoxyParamCaption}
+\item[{S\+D\+L\+\_\+\+Surface $\ast$}]{sdl\+Screen, }
+\item[{int}]{nb\+Snakes}
+\end{DoxyParamCaption}
+)}\label{game_8h_a32ed6647b4edc5caeeb75c312bc1024a}
+
+
+Fait tourner le jeu, boucle principale. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sdl\+Screen} & L\textquotesingle{}écran affiché à l\textquotesingle{}utilisateur \\
+\hline
+{\em nb\+Snakes} & Le nombre de serpents\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{game_8h_af16e2307d16c262a30a859ca3dc9c3ac}{}\index{game.\+h@{game.\+h}!set\+Pixel@{set\+Pixel}}
+\index{set\+Pixel@{set\+Pixel}!game.\+h@{game.\+h}}
+\subsubsection[{set\+Pixel}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Pixel (
+\begin{DoxyParamCaption}
+\item[{S\+D\+L\+\_\+\+Surface $\ast$}]{surface, }
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{Uint32}]{color}
+\end{DoxyParamCaption}
+)}\label{game_8h_af16e2307d16c262a30a859ca3dc9c3ac}
+
+
+Colorie un pixel à l\textquotesingle{}écran. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em surface} & L\textquotesingle{}écran affiché à l\textquotesingle{}utilisateur \\
+\hline
+{\em x} & La coordonnée x du pixel à colorier \\
+\hline
+{\em y} & La coordonnée y du pixel à colorier \\
+\hline
+{\em color} & La couleur utilisée pour colorier le pixel\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}

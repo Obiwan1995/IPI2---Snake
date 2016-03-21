@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['p_5fgain_5fsize',['P_GAIN_SIZE',['../snake_8h.html#a2bd8d77eb71ec19ca11bce2506ea4bc3',1,'snake.h']]],
-  ['point',['Point',['../struct_point.html',1,'']]]
+  ['left',['Left',['../snake_8c.html#a3ab39c5db14b489238d731176838e667',1,'Left(Serpent *snake):&#160;snake.c'],['../snake_8h.html#a3ab39c5db14b489238d731176838e667',1,'Left(Serpent *snake):&#160;snake.c']]]
 ];

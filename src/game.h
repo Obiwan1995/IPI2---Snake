@@ -1,7 +1,7 @@
 /**
  * @file game.h
  * @author Les Mixtes
- * @date 19/03/2016
+ * @date 21/03/2016
  * @brief Header du fichier game.c
  * @details Contient les déclarations des fonctions utiles dans la gestion du jeu
  */
@@ -12,13 +12,16 @@
 #include "../lib/SDL/include/SDL/SDL.h"
 #include "snake.h"
 
-/** taille d'une case en pixels */
+/** Taille d'une case en pixels */
 #define SIZE_CASE 15
 
-/** couleur des différents serpents / mur */
+/** Couleur noire */
 #define BLACK 0x00696969
+ /** Couleur rouge */
 #define RED 0x00DF2020
+ /** Couleur verte */
 #define GREEN 0x0000FF00
+ /** Couleur bleue */
 #define BLUE 0x000000FF
 
 /** Nombre de ms entre chaque pas de temps */

@@ -1,0 +1,111 @@
+\hypertarget{game_8c}{}\section{game.\+c File Reference}
+\label{game_8c}\index{game.\+c@{game.\+c}}
+
+
+Fichier qui gère le jeu.  
+
+
+{\ttfamily \#include \char`\"{}game.\+h\char`\"{}}\\*
+Include dependency graph for game.\+c\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{game_8c_a5686b30aedd5f4d9c895f85214c7aa24}{play} (S\+D\+L\+\_\+\+Surface $\ast$sdl\+Screen, int nb\+Snakes)
+\begin{DoxyCompactList}\small\item\em Fait tourner le jeu, boucle principale. \end{DoxyCompactList}\item 
+void \hyperlink{game_8c_a46baed0d67949c129bec3f7f2f663844}{paint} (S\+D\+L\+\_\+\+Surface $\ast$sdl\+Screen, int x, int y, int n\+Id)
+\begin{DoxyCompactList}\small\item\em Colorie S\+I\+Z\+E\+\_\+\+C\+A\+S\+E$\ast$\+S\+I\+Z\+E\+\_\+\+C\+A\+S\+E pixels en x, y, pour les serpents ou le mur (la couleur dépend du n\+Id) \end{DoxyCompactList}\item 
+void \hyperlink{game_8c_a2d22163827217dad3828cb9b80215bbc}{set\+Pixel} (S\+D\+L\+\_\+\+Surface $\ast$surface, int x, int y, Uint32 color)
+\begin{DoxyCompactList}\small\item\em Colorie un pixel à l\textquotesingle{}écran. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Fichier qui gère le jeu. 
+
+\begin{DoxyAuthor}{Author}
+Les Mixtes 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+19/03/2016
+\end{DoxyDate}
+Contient la boucle principale du jeu ainsi que les divers affichages 
+
+\subsection{Function Documentation}
+\hypertarget{game_8c_a46baed0d67949c129bec3f7f2f663844}{}\index{game.\+c@{game.\+c}!paint@{paint}}
+\index{paint@{paint}!game.\+c@{game.\+c}}
+\subsubsection[{paint}]{\setlength{\rightskip}{0pt plus 5cm}paint (
+\begin{DoxyParamCaption}
+\item[{S\+D\+L\+\_\+\+Surface $\ast$}]{sdl\+Screen, }
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{int}]{n\+Id}
+\end{DoxyParamCaption}
+)}\label{game_8c_a46baed0d67949c129bec3f7f2f663844}
+
+
+Colorie S\+I\+Z\+E\+\_\+\+C\+A\+S\+E$\ast$\+S\+I\+Z\+E\+\_\+\+C\+A\+S\+E pixels en x, y, pour les serpents ou le mur (la couleur dépend du n\+Id) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sdl\+Screen} & L\textquotesingle{}écran affiché à l\textquotesingle{}utilisateur \\
+\hline
+{\em x} & Le x de la case à colorier \\
+\hline
+{\em y} & Le y de la case à colorier \\
+\hline
+{\em n\+Id} & L\textquotesingle{}identifiant du propriétaire de la case à colorier\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{game_8c_a5686b30aedd5f4d9c895f85214c7aa24}{}\index{game.\+c@{game.\+c}!play@{play}}
+\index{play@{play}!game.\+c@{game.\+c}}
+\subsubsection[{play}]{\setlength{\rightskip}{0pt plus 5cm}play (
+\begin{DoxyParamCaption}
+\item[{S\+D\+L\+\_\+\+Surface $\ast$}]{sdl\+Screen, }
+\item[{int}]{nb\+Snakes}
+\end{DoxyParamCaption}
+)}\label{game_8c_a5686b30aedd5f4d9c895f85214c7aa24}
+
+
+Fait tourner le jeu, boucle principale. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sdl\+Screen} & L\textquotesingle{}écran affiché à l\textquotesingle{}utilisateur \\
+\hline
+{\em nb\+Snakes} & Le nombre de serpents\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{game_8c_a2d22163827217dad3828cb9b80215bbc}{}\index{game.\+c@{game.\+c}!set\+Pixel@{set\+Pixel}}
+\index{set\+Pixel@{set\+Pixel}!game.\+c@{game.\+c}}
+\subsubsection[{set\+Pixel}]{\setlength{\rightskip}{0pt plus 5cm}set\+Pixel (
+\begin{DoxyParamCaption}
+\item[{S\+D\+L\+\_\+\+Surface $\ast$}]{surface, }
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{Uint32}]{color}
+\end{DoxyParamCaption}
+)}\label{game_8c_a2d22163827217dad3828cb9b80215bbc}
+
+
+Colorie un pixel à l\textquotesingle{}écran. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em surface} & L\textquotesingle{}écran affiché à l\textquotesingle{}utilisateur \\
+\hline
+{\em x} & La coordonnée x du pixel à colorier \\
+\hline
+{\em y} & La coordonnée y du pixel à colorier \\
+\hline
+{\em color} & La couleur utilisée pour colorier le pixel\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
