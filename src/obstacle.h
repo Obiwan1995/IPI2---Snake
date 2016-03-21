@@ -1,24 +1,36 @@
+/**
+ * @file obstacles.h
+ * @author Les Mixtes
+ * @date 17/03/2016
+ * @brief Header du fichier obstacles.c
+ * @details Contient les déclarations des structures et des fonctions utiles dans la gestion du plateau
+ */
+
 #ifndef OBSTACLE_H_
 #define OBSTACLE_H_
 
 #include <stdlib.h>
 
+
+/** Taille et hauteur du plateau de jeu */
 #define BOARD_HEIGHT 40
 #define BOARD_WIDTH 40
 
-// Structure de Point qui permet de situer le serpent ou les obstacles
+ /** Structure de Serpent qui permet de situer le serpent ou les obstacles:
+- x : sa position en x
+- y : sa position en y */
 
 typedef struct {
 	int x;
 	int y;
 } Point;
 
-// Structure de Serpent avec différents champs qui le cararctérise :
-// 		- un identifiant : permet de reconnaitre le serpent
-// 		- une vitesse
-// 		- une taille (est modifiée au cours du jeu)
-// 		- un tableau de point qui représente le serpent 
-// 		- une direction : la direction du serepent
+ /** Structure du plateau :
+- nNbPos : le nombre de position de départ possible pour ce plateau
+- nSize : le nombre de case du mur du plateau
+- pPtsMur : les cases du mur
+- pPtsPositions : les points des positions de départ
+- pnDirs : la direction des positions de départ */
 
 typedef struct
 {

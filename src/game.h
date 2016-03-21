@@ -1,15 +1,28 @@
+/**
+ * @file game.h
+ * @author Les Mixtes
+ * @date 19/03/2016
+ * @brief Header du fichier game.c
+ * @details Contient les déclarations des fonctions utiles dans la gestion du jeu
+ */
+
 #ifndef _game_h_
 #define _game_h_
 
 #include "../lib/SDL/include/SDL/SDL.h"
 #include "snake.h"
 
+/** taille d'une case en pixels */
 #define SIZE_CASE 15
+
+/** couleur des différents serpents / mur */
 #define BLACK 0x00696969
 #define RED 0x00DF2020
 #define GREEN 0x0000FF00
 #define BLUE 0x000000FF
-#define SPEED 100 // Nombre de ms entre chaque pas de temps
+
+/** Nombre de ms entre chaque pas de temps */
+#define SPEED 100
 
 void play(SDL_Surface* sdlScreen, int nbSnakes);
 void paint(SDL_Surface* sdlScreen, int x, int y, int nId);

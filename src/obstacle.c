@@ -1,4 +1,22 @@
-#include "obstacle.h"
+/**
+ * @file obstacle.c
+ * @author Les Mixtes
+ * @date 19/03/2016
+ * @brief Fichier permettant la création des murs / positions de départ des serpents
+ * @details Contient l'initialisation du "plateau"
+ */
+
+ #include "obstacle.h"
+
+/**
+ * @fn         Board init_board1()
+ *
+ * @brief      initialise le plateau
+ *
+ * @param      	NULL
+ *
+ * @return     le plateau avec ses murs et positions de départs
+ */
 
 Board init_board1()
 {

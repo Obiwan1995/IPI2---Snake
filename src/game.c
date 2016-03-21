@@ -1,4 +1,23 @@
-#include "game.h"
+/**
+ * @file game.c
+ * @author Les Mixtes
+ * @date 19/03/2016
+ * @brief Fichier qui gere le jeu
+ * @details Contient la boucle principale du jeu ainsi que les diverts affichages
+ */
+
+ #include "game.h"
+
+/**
+ * @fn         play(SDL_Surface* sdlScreen, int nbSnakes)
+ *
+ * @brief      Fait tourner le jeu, boucle principale
+ *
+ * @param       sdlScreen       l'écrant affiché à la fenêtre
+ * @param       nbSnakes        le nombre de serpents
+ *
+ * @return     void
+ */
 
 void play(SDL_Surface* sdlScreen, int nbSnakes)
 {
@@ -109,6 +128,19 @@ void play(SDL_Surface* sdlScreen, int nbSnakes)
 
 }
 
+/**
+ * @fn         paint(SDL_Surface* sdlScreen, int x, int y, int nId)
+ *
+ * @brief      colori SIZE_CASE*SIZE_CASE pixels en x, y, pour le serpents ou mur nId
+ *
+ * @param       sdlScreen     l'écrant affiché à la fenêtre
+ * @param       x             le x de la case à colorier
+ * @param       y             le y de la case à colorier
+ * @param       nId           l'identifiant du propriètaire de la case à colorier
+ *
+ * @return     void
+ */
+
 void paint(SDL_Surface* sdlScreen, int x, int y, int nId)
 {
     Uint32 color;
@@ -138,6 +170,20 @@ void paint(SDL_Surface* sdlScreen, int x, int y, int nId)
         }    
     }
 }
+
+
+/**
+ * @fn         setPixel(SDL_Surface *surface, int x, int y, Uint32 color)
+ *
+ * @brief      colori un pixel à l'écrant
+ *
+ * @param       surface       l'écrant affiché à la fenêtre
+ * @param       x             le x du pixel à colorier
+ * @param       y             le y du pixel à colorier
+ * @param       color         la couleur pour colorier le pixel
+ *
+ * @return     void
+ */
 
 void setPixel(SDL_Surface *surface, int x, int y, Uint32 color)
 {
