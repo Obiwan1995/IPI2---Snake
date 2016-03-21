@@ -29,7 +29,7 @@ Board init_board1()
 
 	B.pPtsPositions[0].x = BOARD_WIDTH/2;
 	B.pPtsPositions[0].y = BOARD_HEIGHT/6;
-	B.pnDirs[0] = 1;
+	B.pnDirs[0] = 3;
 
 	B.pPtsPositions[1].x = (BOARD_WIDTH*5)/6;
 	B.pPtsPositions[1].y = BOARD_HEIGHT/2;
@@ -37,7 +37,7 @@ Board init_board1()
 
 	B.pPtsPositions[2].x = BOARD_WIDTH/2;
 	B.pPtsPositions[2].y = (BOARD_HEIGHT*5)/6;
-	B.pnDirs[2] = 3;
+	B.pnDirs[2] = 1;
 
 	B.pPtsPositions[3].x = BOARD_WIDTH/6;
 	B.pPtsPositions[3].y = BOARD_HEIGHT/2;
