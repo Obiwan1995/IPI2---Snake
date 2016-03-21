@@ -32,7 +32,6 @@ void play(SDL_Surface* sdlScreen, int nbSnakes)
     int nResGame = 0;
     int actualTime = 0;
     int previousTime = 0;
-    int pause = 1;
 
     while(nInGame && !nResGame)
     {
@@ -61,9 +60,6 @@ void play(SDL_Surface* sdlScreen, int nbSnakes)
                             nDir = 2;
                         nKeyUp = 0;
                         break;
-                    case SDLK_p:
-                        pause = !pause;
-                        break;
                     default:
                         break;
                 }
@@ -74,7 +70,7 @@ void play(SDL_Surface* sdlScreen, int nbSnakes)
                 break;
         }
 
-        if (actualTime - previousTime > SPEED && pause) {
+        if (actualTime - previousTime > SPEED) {
             switch(nDir)
             {
                 case 0:
