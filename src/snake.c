@@ -72,7 +72,7 @@ void Left(Serpent *snake)
 	//soit on fait ca : ajout de la tete et déplacement des autres cases : le serpent ne grandit pas
 	//sinon :le serpent grandit
 	int rng=rand()%100;
-	if (rng < P_GAIN_SIZE)
+	if (rng > P_GAIN_SIZE)
 	{
 		int i;
 		for (i=1; i<snake->taille; i++)
@@ -122,7 +122,7 @@ void Forward(Serpent *snake)
 	//soit on fait ca : ajout de la tete et déplacement des autres cases : le serpent ne grandit pas
 	//sinon :le serpent grandit
 	int rng=rand()%100;
-	if (rng < P_GAIN_SIZE)
+	if (rng > P_GAIN_SIZE)
 	{
 		int i;
 		for (i=1; i<snake->taille; i++)
@@ -176,7 +176,7 @@ void Right(Serpent *snake)
 	//soit on fait ca : ajout de la tete et déplacement des autres cases : le serpent ne grandit pas
 	//sinon :le serpent grandit
 	int rng=rand()%100;
-	if (rng < P_GAIN_SIZE)
+	if (rng > P_GAIN_SIZE)
 	{
 		int i;
 		for (i=1; i<snake->taille; i++)
@@ -247,9 +247,19 @@ int test_collision(Board* mur, Serpent** tab_serpent, int nb_snakes) {
 		{
 			for (j=0; j<nb_snakes; j++) 
 			{
-				if (appartient_tableau(tab_serpent[i]->tete, tab_serpent[j]->tab, tab_serpent[j]->taille-1) == 1 ) 
+				if (i == j)
 				{
-					return tab_serpent[i]->id;
+					if (appartient_tableau(tab_serpent[i]->tete, tab_serpent[j]->tab, tab_serpent[j]->taille-1))
+					{
+						return tab_serpent[i]->id;
+					}
+				}
+				else
+				{
+					if (appartient_tableau(tab_serpent[i]->tete, tab_serpent[j]->tab, tab_serpent[j]->taille))
+					{
+						return tab_serpent[i]->id;
+					}
 				}
 			}
 		}

@@ -1,7 +1,7 @@
 #ifndef _game_h_
 #define _game_h_
 
-#include "../SDL/include/SDL/SDL.h"
+#include "../lib/SDL/include/SDL/SDL.h"
 #include "snake.h"
 
 #define SIZE_CASE 15

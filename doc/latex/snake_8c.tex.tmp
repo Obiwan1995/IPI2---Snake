@@ -1,0 +1,184 @@
+\hypertarget{snake_8c}{}\section{snake.\+c File Reference}
+\label{snake_8c}\index{snake.\+c@{snake.\+c}}
+
+
+Fichier permettant la gestion des serpents.  
+
+
+{\ttfamily \#include \char`\"{}snake.\+h\char`\"{}}\\*
+Include dependency graph for snake.\+c\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{snake_8c_aeec7bcbb0a7f1528c6150cea20d83f90}{init\+\_\+snake} (\hyperlink{struct_serpent}{Serpent} $\ast$snake, int id, int speed, int dir, \hyperlink{struct_point}{Point} pos)
+\begin{DoxyCompactList}\small\item\em initialise le serpent \+: donne une valeur à chaque champ de la structure \end{DoxyCompactList}\item 
+void \hyperlink{snake_8c_a3ab39c5db14b489238d731176838e667}{Left} (\hyperlink{struct_serpent}{Serpent} $\ast$snake)
+\begin{DoxyCompactList}\small\item\em Change la direction et le serpent lorsque le déplacement choisi par le joueur est la gauche. \end{DoxyCompactList}\item 
+void \hyperlink{snake_8c_a40af0c3301e6a0d90261c056a3afba28}{Forward} (\hyperlink{struct_serpent}{Serpent} $\ast$snake)
+\begin{DoxyCompactList}\small\item\em Change la direction et le serpent lorsque le déplacement choisi par le joueur est tout droit (il continue dans sa direction actuelle). \end{DoxyCompactList}\item 
+void \hyperlink{snake_8c_a89100897980e51855920fdb91793d4e8}{Right} (\hyperlink{struct_serpent}{Serpent} $\ast$snake)
+\begin{DoxyCompactList}\small\item\em Change la direction et le serpent lorsque le déplacement choisi par le joueur est la droite. \end{DoxyCompactList}\item 
+int \hyperlink{snake_8c_a3bbb036c9c1de1a55a5b4c02324982a6}{appartient\+\_\+tableau} (\hyperlink{struct_point}{Point} point, \hyperlink{struct_point}{Point} $\ast$tableau, int taille)
+\begin{DoxyCompactList}\small\item\em Teste l\textquotesingle{}appartenance d\textquotesingle{}un point (2 coordonnées x et y) à un tableau. \end{DoxyCompactList}\item 
+int \hyperlink{snake_8c_a6108f746af34c7093095fa6d51659e5e}{test\+\_\+collision} (\hyperlink{struct_board}{Board} $\ast$mur, \hyperlink{struct_serpent}{Serpent} $\ast$$\ast$tab\+\_\+serpent, int nb\+\_\+snakes)
+\begin{DoxyCompactList}\small\item\em Teste la collision d\textquotesingle{}un serpent avec le mur ou un autre serpent. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Fichier permettant la gestion des serpents. 
+
+\begin{DoxyAuthor}{Author}
+Les Mixtes 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+17/03/2016
+\end{DoxyDate}
+Contient toutes les fonctions utiles à la gestion des serpents \+: initialisation, déplacements et gestion des collisions 
+
+\subsection{Function Documentation}
+\hypertarget{snake_8c_a3bbb036c9c1de1a55a5b4c02324982a6}{}\index{snake.\+c@{snake.\+c}!appartient\+\_\+tableau@{appartient\+\_\+tableau}}
+\index{appartient\+\_\+tableau@{appartient\+\_\+tableau}!snake.\+c@{snake.\+c}}
+\subsubsection[{appartient\+\_\+tableau}]{\setlength{\rightskip}{0pt plus 5cm}int appartient\+\_\+tableau (
+\begin{DoxyParamCaption}
+\item[{{\bf Point}}]{point, }
+\item[{{\bf Point} $\ast$}]{tableau, }
+\item[{int}]{taille}
+\end{DoxyParamCaption}
+)}\label{snake_8c_a3bbb036c9c1de1a55a5b4c02324982a6}
+
+
+Teste l\textquotesingle{}appartenance d\textquotesingle{}un point (2 coordonnées x et y) à un tableau. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & point dont on veut tester l\textquotesingle{}appartenance au tableau \\
+\hline
+{\em tableau} & tableau de points \\
+\hline
+{\em taille} & taille du tableau\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 si le point n\textquotesingle{}appartient pas au tableau 
+
+1 sinon 
+\end{DoxyReturn}
+\hypertarget{snake_8c_a40af0c3301e6a0d90261c056a3afba28}{}\index{snake.\+c@{snake.\+c}!Forward@{Forward}}
+\index{Forward@{Forward}!snake.\+c@{snake.\+c}}
+\subsubsection[{Forward}]{\setlength{\rightskip}{0pt plus 5cm}void Forward (
+\begin{DoxyParamCaption}
+\item[{{\bf Serpent} $\ast$}]{snake}
+\end{DoxyParamCaption}
+)}\label{snake_8c_a40af0c3301e6a0d90261c056a3afba28}
+
+
+Change la direction et le serpent lorsque le déplacement choisi par le joueur est tout droit (il continue dans sa direction actuelle). 
+
+Enumération des 4 cas selon la direction actuelle du serpent
+
+On ajoute une case de plus au tableau du serpent qui correspond à la position de la nouvelle tête.
+
+
+\begin{DoxyParams}{Parameters}
+{\em snake} & serpent à déplacer \\
+\hline
+\end{DoxyParams}
+\hypertarget{snake_8c_aeec7bcbb0a7f1528c6150cea20d83f90}{}\index{snake.\+c@{snake.\+c}!init\+\_\+snake@{init\+\_\+snake}}
+\index{init\+\_\+snake@{init\+\_\+snake}!snake.\+c@{snake.\+c}}
+\subsubsection[{init\+\_\+snake}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Serpent} $\ast$ init\+\_\+snake (
+\begin{DoxyParamCaption}
+\item[{{\bf Serpent} $\ast$}]{snake, }
+\item[{int}]{id, }
+\item[{int}]{speed, }
+\item[{int}]{dir, }
+\item[{{\bf Point}}]{pos}
+\end{DoxyParamCaption}
+)}\label{snake_8c_aeec7bcbb0a7f1528c6150cea20d83f90}
+
+
+initialise le serpent \+: donne une valeur à chaque champ de la structure 
+
+
+\begin{DoxyParams}{Parameters}
+{\em snake} & serpent à initialiser \\
+\hline
+{\em id} & id du serpent \\
+\hline
+{\em speed} & vitesse du serpent \\
+\hline
+{\em dir} & direction du serpent \\
+\hline
+{\em pos} & position initiale du serpent\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Le serpent passé en paramètre avec des valeurs pour chaque champ de sa structure 
+\end{DoxyReturn}
+\hypertarget{snake_8c_a3ab39c5db14b489238d731176838e667}{}\index{snake.\+c@{snake.\+c}!Left@{Left}}
+\index{Left@{Left}!snake.\+c@{snake.\+c}}
+\subsubsection[{Left}]{\setlength{\rightskip}{0pt plus 5cm}void Left (
+\begin{DoxyParamCaption}
+\item[{{\bf Serpent} $\ast$}]{snake}
+\end{DoxyParamCaption}
+)}\label{snake_8c_a3ab39c5db14b489238d731176838e667}
+
+
+Change la direction et le serpent lorsque le déplacement choisi par le joueur est la gauche. 
+
+Enumération des 4 cas selon la direction actuelle du serpent
+
+On ajoute une case de plus au tableau du serpent qui correspond à la position de la nouvelle tête.
+
+
+\begin{DoxyParams}{Parameters}
+{\em snake} & serpent à déplacer \\
+\hline
+\end{DoxyParams}
+\hypertarget{snake_8c_a89100897980e51855920fdb91793d4e8}{}\index{snake.\+c@{snake.\+c}!Right@{Right}}
+\index{Right@{Right}!snake.\+c@{snake.\+c}}
+\subsubsection[{Right}]{\setlength{\rightskip}{0pt plus 5cm}void Right (
+\begin{DoxyParamCaption}
+\item[{{\bf Serpent} $\ast$}]{snake}
+\end{DoxyParamCaption}
+)}\label{snake_8c_a89100897980e51855920fdb91793d4e8}
+
+
+Change la direction et le serpent lorsque le déplacement choisi par le joueur est la droite. 
+
+Enumération des 4 cas selon la direction actuelle du serpent
+
+On ajoute une case de plus au tableau du serpent qui correspond à la position de la nouvelle tête.
+
+
+\begin{DoxyParams}{Parameters}
+{\em snake} & serpent à déplacer \\
+\hline
+\end{DoxyParams}
+\hypertarget{snake_8c_a6108f746af34c7093095fa6d51659e5e}{}\index{snake.\+c@{snake.\+c}!test\+\_\+collision@{test\+\_\+collision}}
+\index{test\+\_\+collision@{test\+\_\+collision}!snake.\+c@{snake.\+c}}
+\subsubsection[{test\+\_\+collision}]{\setlength{\rightskip}{0pt plus 5cm}int test\+\_\+collision (
+\begin{DoxyParamCaption}
+\item[{{\bf Board} $\ast$}]{mur, }
+\item[{{\bf Serpent} $\ast$$\ast$}]{tab\+\_\+serpent, }
+\item[{int}]{nb\+\_\+snakes}
+\end{DoxyParamCaption}
+)}\label{snake_8c_a6108f746af34c7093095fa6d51659e5e}
+
+
+Teste la collision d\textquotesingle{}un serpent avec le mur ou un autre serpent. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mur} & plateau contenant un tableau de points correspondant aux emplacements des murs \\
+\hline
+{\em tab\+\_\+serpent} & tableau de serpent \+: nécessaire pour la collision avec les autres serpents \\
+\hline
+{\em nb\+\_\+snakes} & nombre de serpents = longueur du tableau tab\+\_\+serpent\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 s\textquotesingle{}il n\textquotesingle{}y a pas de collision 
+
+Sinon, l\textquotesingle{}id du serpent qui entre en collision avec le mur ou un autre serpent 
+\end{DoxyReturn}
