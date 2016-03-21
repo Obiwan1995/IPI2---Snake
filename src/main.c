@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
     SDL_WM_SetCaption("Snake.. SNAKE !", NULL);
     SDL_ShowCursor(SDL_DISABLE);
 
-    sdlMenu = SDL_LoadBMP("/images/lac_en_montagne.bmp");
+    sdlMenu = SDL_LoadBMP("../images/MenuV1.bmp");
     sdlPosMenu.x = 0;
     sdlPosMenu.y = 0;
 
@@ -43,6 +43,7 @@ int main(int argc, char *argv[])
                 switch(event.key.keysym.sym)
                 {
                     case SDLK_ESCAPE: // Leave Game
+                    case SDLK_q: // Start Game
                         nMenu = 0;
                         break;
                     case SDLK_p: // Start Game
