@@ -2,8 +2,8 @@
  * @file game.c
  * @author Les Mixtes
  * @date 19/03/2016
- * @brief Fichier qui gere le jeu
- * @details Contient la boucle principale du jeu ainsi que les diverts affichages
+ * @brief Fichier qui gère le jeu
+ * @details Contient la boucle principale du jeu ainsi que les divers affichages
  */
 
  #include "game.h"
@@ -13,8 +13,8 @@
  *
  * @brief      Fait tourner le jeu, boucle principale
  *
- * @param       sdlScreen       l'écrant affiché à la fenêtre
- * @param       nbSnakes        le nombre de serpents
+ * @param       sdlScreen       L'écran affiché à l'utilisateur
+ * @param       nbSnakes        Le nombre de serpents
  *
  * @return     void
  */
@@ -131,12 +131,12 @@ void play(SDL_Surface* sdlScreen, int nbSnakes)
 /**
  * @fn         paint(SDL_Surface* sdlScreen, int x, int y, int nId)
  *
- * @brief      colori SIZE_CASE*SIZE_CASE pixels en x, y, pour le serpents ou mur nId
+ * @brief      Colorie SIZE_CASE*SIZE_CASE pixels en x, y, pour les serpents ou le mur (la couleur dépend du nId)
  *
- * @param       sdlScreen     l'écrant affiché à la fenêtre
- * @param       x             le x de la case à colorier
- * @param       y             le y de la case à colorier
- * @param       nId           l'identifiant du propriètaire de la case à colorier
+ * @param       sdlScreen     L'écran affiché à l'utilisateur
+ * @param       x             Le x de la case à colorier
+ * @param       y             Le y de la case à colorier
+ * @param       nId           L'identifiant du propriétaire de la case à colorier
  *
  * @return     void
  */
@@ -175,12 +175,12 @@ void paint(SDL_Surface* sdlScreen, int x, int y, int nId)
 /**
  * @fn         setPixel(SDL_Surface *surface, int x, int y, Uint32 color)
  *
- * @brief      colori un pixel à l'écrant
+ * @brief      Colorie un pixel à l'écran
  *
- * @param       surface       l'écrant affiché à la fenêtre
- * @param       x             le x du pixel à colorier
- * @param       y             le y du pixel à colorier
- * @param       color         la couleur pour colorier le pixel
+ * @param       surface       L'écran affiché à l'utilisateur
+ * @param       x             La coordonnée x du pixel à colorier
+ * @param       y             La coordonnée y du pixel à colorier
+ * @param       color         La couleur utilisée pour colorier le pixel
  *
  * @return     void
  */

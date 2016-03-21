@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9.1"/>
-<title>My Project: game.h Source File</title>
+<title>Snake vs Schlanga: game.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,8 +23,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Snake vs Schlanga
+   &#160;<span id="projectnumber">0.5</span>
    </div>
+   <div id="projectbrief">Version améliorée du jeu Snake sur Nokia</div>
   </td>
  </tr>
  </tbody>
@@ -84,29 +86,38 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">game.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef _game_h_</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define _game_h_</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;../lib/SDL/include/SDL/SDL.h&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="snake_8h.html">snake.h</a>&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define SIZE_CASE 15</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define BLACK 0x00696969</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define RED 0x00DF2020</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define GREEN 0x0000FF00</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define BLUE 0x000000FF</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define SPEED 100 // Nombre de ms entre chaque pas de temps</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keywordtype">void</span> play(SDL_Surface* sdlScreen, <span class="keywordtype">int</span> nbSnakes);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keywordtype">void</span> paint(SDL_Surface* sdlScreen, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> nId);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keywordtype">void</span> setPixel(SDL_Surface *surface, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, Uint32 color);</div>
+<a href="game_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef _game_h_</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define _game_h_</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;../lib/SDL/include/SDL/SDL.h&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="snake_8h.html">snake.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="game_8h.html#a2a94d2f61c849b4aeed9684aae52c8c1">   16</a></span>&#160;<span class="preprocessor">#define SIZE_CASE 15</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="game_8h.html#a7b3b25cba33b07c303f3060fe41887f6">   19</a></span>&#160;<span class="preprocessor">#define BLACK 0x00696969</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="game_8h.html#a8d23feea868a983c8c2b661e1e16972f">   21</a></span>&#160;<span class="preprocessor">#define RED 0x00DF2020</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="game_8h.html#acfbc006ea433ad708fdee3e82996e721">   23</a></span>&#160;<span class="preprocessor">#define GREEN 0x0000FF00</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="game_8h.html#a79d10e672abb49ad63eeaa8aaef57c38">   25</a></span>&#160;<span class="preprocessor">#define BLUE 0x000000FF</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="game_8h.html#aac3553b3932cbfeeac4526ce7ca0336b">   28</a></span>&#160;<span class="preprocessor">#define SPEED 100</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordtype">void</span> <a class="code" href="game_8h.html#a32ed6647b4edc5caeeb75c312bc1024a">play</a>(SDL_Surface* sdlScreen, <span class="keywordtype">int</span> nbSnakes);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keywordtype">void</span> <a class="code" href="game_8h.html#a55883363797dcb303093fb68cd97109c">paint</a>(SDL_Surface* sdlScreen, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> nId);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keywordtype">void</span> <a class="code" href="game_8h.html#af16e2307d16c262a30a859ca3dc9c3ac">setPixel</a>(SDL_Surface *surface, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, Uint32 color);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="game_8h_html_af16e2307d16c262a30a859ca3dc9c3ac"><div class="ttname"><a href="game_8h.html#af16e2307d16c262a30a859ca3dc9c3ac">setPixel</a></div><div class="ttdeci">void setPixel(SDL_Surface *surface, int x, int y, Uint32 color)</div><div class="ttdoc">Colorie un pixel à l&#39;écran. </div><div class="ttdef"><b>Definition:</b> game.c:188</div></div>
+<div class="ttc" id="game_8h_html_a55883363797dcb303093fb68cd97109c"><div class="ttname"><a href="game_8h.html#a55883363797dcb303093fb68cd97109c">paint</a></div><div class="ttdeci">void paint(SDL_Surface *sdlScreen, int x, int y, int nId)</div><div class="ttdoc">Colorie SIZE_CASE*SIZE_CASE pixels en x, y, pour les serpents ou le mur (la couleur dépend du nId) ...</div><div class="ttdef"><b>Definition:</b> game.c:144</div></div>
+<div class="ttc" id="game_8h_html_a32ed6647b4edc5caeeb75c312bc1024a"><div class="ttname"><a href="game_8h.html#a32ed6647b4edc5caeeb75c312bc1024a">play</a></div><div class="ttdeci">void play(SDL_Surface *sdlScreen, int nbSnakes)</div><div class="ttdoc">Fait tourner le jeu, boucle principale. </div><div class="ttdef"><b>Definition:</b> game.c:22</div></div>
 <div class="ttc" id="snake_8h_html"><div class="ttname"><a href="snake_8h.html">snake.h</a></div><div class="ttdoc">Header du fichier snake.c. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Mar 21 2016 15:33:13 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Mar 21 2016 21:35:00 for Snake vs Schlanga by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

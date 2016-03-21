@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['snake_2ec',['snake.c',['../snake_8c.html',1,'']]],
-  ['snake_2eh',['snake.h',['../snake_8h.html',1,'']]]
+  ['game_2ec',['game.c',['../game_8c.html',1,'']]],
+  ['game_2eh',['game.h',['../game_8h.html',1,'']]]
 ];

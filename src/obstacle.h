@@ -1,8 +1,8 @@
 /**
- * @file obstacles.h
+ * @file obstacle.h
  * @author Les Mixtes
- * @date 17/03/2016
- * @brief Header du fichier obstacles.c
+ * @date 21/03/2016
+ * @brief Header du fichier obstacle.c
  * @details Contient les déclarations des structures et des fonctions utiles dans la gestion du plateau
  */
 
@@ -12,8 +12,9 @@
 #include <stdlib.h>
 
 
-/** Taille et hauteur du plateau de jeu */
+/** Hauteur du plateau de jeu */
 #define BOARD_HEIGHT 40
+/** Largeur du plateau de jeu */
 #define BOARD_WIDTH 40
 
  /** Structure de Serpent qui permet de situer le serpent ou les obstacles:
@@ -26,10 +27,10 @@ typedef struct {
 } Point;
 
  /** Structure du plateau :
-- nNbPos : le nombre de position de départ possible pour ce plateau
-- nSize : le nombre de case du mur du plateau
-- pPtsMur : les cases du mur
-- pPtsPositions : les points des positions de départ
+- nNbPos : le nombre de positions de départ possibles pour ce plateau
+- nSize : le nombre de cases du mur du plateau
+- pPtsMur : les cases correspondant au mur
+- pPtsPositions : les points correspondant aux positions de départ
 - pnDirs : la direction des positions de départ */
 
 typedef struct
