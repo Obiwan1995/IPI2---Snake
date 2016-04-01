@@ -41,13 +41,10 @@ void Right(Serpent* snake);
 void Forward(Serpent* snake);
 void Left(Serpent* snake);
 int appartient_tableau(Point point, Point* tableau, int taille);
-<<<<<<< HEAD
 void affiche_tableau(Serpent* snake);
 void init_snake(Serpent* snake, int taille_plateau, int id, int vitesse);
-int test_collision(Mur mur, Serpent** tab_serpent, int taille_mur, int nbr_serpent);
-void free_snake(Serpent* snake)
-=======
-int test_collision(Board* mur, Serpent** tab_serpent, int nb_snakes);
->>>>>>> 7eb4872e3db42dccd2da46d33e18ddb26200f123
+void free_snake(Serpent* snake);
+int test_collision(Board* mur, Serpent** tab_serpent, int nb_snakes, Point point);
+
 
 #endif

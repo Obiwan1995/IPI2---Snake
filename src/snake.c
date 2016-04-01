@@ -234,32 +234,25 @@ int appartient_tableau(Point point, Point* tableau, int taille) {
  * @return	Sinon, l'id du serpent qui entre en collision avec le mur ou un autre serpent
  */
 
-int test_collision(Board* mur, Serpent** tab_serpent, int nb_snakes) {
+int test_collision(Board* mur, Serpent** tab_serpent, int nb_snakes, Point point) { //Point = tête du serpent
 	int i;
-	int j;
-	for (i=0; i<nb_snakes; i++) 
+	if (appartient_tableau(point, mur->pPtsMur, mur->nSize)) 
 	{
-		if (appartient_tableau(tab_serpent[i]->tete, mur->pPtsMur, mur->nSize)) 
+		return 1;
+	}
+	else 
+	{
+		for (i=0; i<nb_snakes; i++) 
 		{
-			return tab_serpent[i]->id;
-		}
-		else 
-		{
-			for (j=0; j<nb_snakes; j++) 
+			if (appartient_tableau(point, tab_serpent[i]->tab, tab_serpent[i]->taille-1))
 			{
-				if (i == j)
+				return 1;
+			}
+			else
+			{
+				if (appartient_tableau(point, tab_serpent[i]->tab, tab_serpent[i]->taille))
 				{
-					if (appartient_tableau(tab_serpent[i]->tete, tab_serpent[j]->tab, tab_serpent[j]->taille-1))
-					{
-						return tab_serpent[i]->id;
-					}
-				}
-				else
-				{
-					if (appartient_tableau(tab_serpent[i]->tete, tab_serpent[j]->tab, tab_serpent[j]->taille))
-					{
-						return tab_serpent[i]->id;
-					}
+					return 1;
 				}
 			}
 		}
