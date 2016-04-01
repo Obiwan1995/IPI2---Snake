@@ -266,3 +266,19 @@ int test_collision(Board* mur, Serpent** tab_serpent, int nb_snakes) {
 	}
 	return 0;	
 }
+
+/**
+ * @fn 			delete_snake(Serpent* snake)
+ *
+ * @brief		Supprime un serpent
+ *
+ * @param 		snake Serpent à supprimer
+ *
+ * @details		Supprime un serpent de la mémoire en supprimant son tableau de points puis sa structure complète
+ *
+ */
+
+void delete_snake(Serpent* snake)
+{
+	
+}

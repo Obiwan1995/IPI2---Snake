@@ -42,5 +42,6 @@ void Forward(Serpent* snake);
 void Left(Serpent* snake);
 int appartient_tableau(Point point, Point* tableau, int taille);
 int test_collision(Board* mur, Serpent** tab_serpent, int nb_snakes);
+void delete_snake(Serpent* snake);
 
 #endif

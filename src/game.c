@@ -104,6 +104,10 @@ void play(SDL_Surface* sdlScreen, int nbSnakes)
             }
 
             nResGame = test_collision(&board, snakes, nbSnakes);
+            if (nResGame != 0)
+            {
+                delete_snake(snakes[nResGame-1]);
+            }
 
             SDL_FillRect(sdlScreen, NULL, SDL_MapRGB(sdlScreen->format, 255, 255, 255)); 
 
@@ -125,7 +129,6 @@ void play(SDL_Surface* sdlScreen, int nbSnakes)
         }
 
     }
-
 }
 
 /**
