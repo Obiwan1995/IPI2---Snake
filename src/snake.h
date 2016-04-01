@@ -14,7 +14,7 @@
 #include "obstacle.h"
 
 /** Probabilité que le serpent grandisse à chaque pas de temps (en pourcentage) */
-#define P_GAIN_SIZE 50
+#define P_GAIN_SIZE 40
 
 /** Direction du serpent : haut, droite, bas ou gauche */
 typedef enum Direction {top=1, right=2, bot=3, left=4} Direction;
@@ -42,8 +42,7 @@ void Forward(Serpent* snake);
 void Left(Serpent* snake);
 int appartient_tableau(Point point, Point* tableau, int taille);
 void affiche_tableau(Serpent* snake);
-void init_snake(Serpent* snake, int taille_plateau, int id, int vitesse);
 void free_snake(Serpent* snake);
-int test_collision(Board* mur, Serpent** tab_serpent, int nb_snakes, Point point);
+int test_collision(Board* mur, Serpent** tab_serpent, int nb_snakes, Point point, int id_snake);
 
 #endif

@@ -43,6 +43,6 @@ typedef struct
 Board init_board1();
 Board init_board_1v1();
 Board init_board_walls();
-void free_board(Board* b)
+void free_board(Board* b);
 
 #endif

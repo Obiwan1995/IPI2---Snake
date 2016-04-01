@@ -7,6 +7,7 @@
  */
 
  #include "game.h"
+ #include "ia.c"
 
 /**
  * @fn         play(SDL_Surface* sdlScreen, int nbSnakes)
@@ -35,8 +36,8 @@ void play(SDL_Surface* sdlScreen, int nbSnakes)
         int rng = rand()%board.nNbPos;
         init_snake(snakes[i], (i+1), 10, board.pnDirs[rng], board.pPtsPositions[rng]);
 
-        board.pPtsPositions[rng] = board.pPtsPositions[board.nNbPos];
-        board.pnDirs[rng] = board.pnDirs[board.nNbPos];
+        board.pPtsPositions[rng] = board.pPtsPositions[board.nNbPos-1];
+        board.pnDirs[rng] = board.pnDirs[board.nNbPos-1];
         board.nNbPos--;
         if(board.nNbPos < 0)
         {
@@ -89,7 +90,8 @@ void play(SDL_Surface* sdlScreen, int nbSnakes)
                 break;
         }
 
-        if (actualTime - previousTime > SPEED) {
+        if (actualTime - previousTime > SPEED) 
+        {
             switch(nDir)
             {
                 case 0:
@@ -103,10 +105,12 @@ void play(SDL_Surface* sdlScreen, int nbSnakes)
                     break;
             }
 
-            nResGame = test_collision(&board, snakes, nbSnakes);
-            if (nResGame != 0)
+            deplacement_ia(snakes[1], board, nbSnakes, snakes);
+            i = 0;
+            while(!nResGame && i < nbSnakes)
             {
-                delete_snake(snakes[nResGame-1]);
+                nResGame = test_collision(&board, snakes, nbSnakes, snakes[i]->tete, snakes[i]->id);
+                i++;
             }
 
             SDL_FillRect(sdlScreen, NULL, SDL_MapRGB(sdlScreen->format, 255, 255, 255)); 
@@ -116,10 +120,13 @@ void play(SDL_Surface* sdlScreen, int nbSnakes)
             {
                 paint(sdlScreen, board.pPtsMur[i].x, board.pPtsMur[i].y, 0);
             }
-
-            for (i=0; i< snakes[0]->taille; i++)
+            int j;
+            for (j = 0; j < nbSnakes; j++)
             {
-                paint(sdlScreen, snakes[0]->tab[i].x, snakes[0]->tab[i].y, 1);
+                for (i=0; i < snakes[j]->taille; i++)
+                {
+                    paint(sdlScreen, snakes[j]->tab[i].x, snakes[j]->tab[i].y, j+1);
+                }
             }
 
             SDL_Flip(sdlScreen);
@@ -127,8 +134,8 @@ void play(SDL_Surface* sdlScreen, int nbSnakes)
             nDir = 0;
             previousTime = actualTime;
         }
-
     }
+    sleep(2);
 }
 
 /**
@@ -157,6 +164,9 @@ void paint(SDL_Surface* sdlScreen, int x, int y, int nId)
             color = GREEN;
             break;
         case 2:
+            color = RED;
+            break;
+        case 3:
             color = BLUE;
             break;
         default:

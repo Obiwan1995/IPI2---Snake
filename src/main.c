@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
                         nMenu = 0;
                         break;
                     case SDLK_p: // Start Game
-                        play(sdlScreen, 1);
+                        play(sdlScreen, 2);
                         break;
                     default:
                         break;

@@ -210,7 +210,7 @@ void Right(Serpent *snake)
 int appartient_tableau(Point point, Point* tableau, int taille) {
 	int i=0;
 	int flag=0;
-	while (flag==0 && i!=taille) {
+	while (flag==0 && i<taille) {
 		if ( (tableau[i].x == point.x) && (tableau[i].y == point.y) ) {
 			flag=1;
 		}
@@ -234,7 +234,7 @@ int appartient_tableau(Point point, Point* tableau, int taille) {
  * @return	Sinon, l'id du serpent qui entre en collision avec le mur ou un autre serpent
  */
 
-int test_collision(Board* mur, Serpent** tab_serpent, int nb_snakes, Point point) { //Point = tête du serpent
+int test_collision(Board* mur, Serpent** tab_serpent, int nb_snakes, Point point, int id_snake) { //Point = tête du serpent
 	int i;
 	if (appartient_tableau(point, mur->pPtsMur, mur->nSize)) 
 	{
@@ -244,16 +244,9 @@ int test_collision(Board* mur, Serpent** tab_serpent, int nb_snakes, Point point
 	{
 		for (i=0; i<nb_snakes; i++) 
 		{
-			if (appartient_tableau(point, tab_serpent[i]->tab, tab_serpent[i]->taille-1))
+			if ((i+1 != id_snake && appartient_tableau(point, tab_serpent[i]->tab, tab_serpent[i]->taille)) || (i+1 == id_snake && appartient_tableau(point, tab_serpent[i]->tab, tab_serpent[i]->taille-1)))
 			{
 				return 1;
-			}
-			else
-			{
-				if (appartient_tableau(point, tab_serpent[i]->tab, tab_serpent[i]->taille))
-				{
-					return 1;
-				}
 			}
 		}
 	}
@@ -271,7 +264,8 @@ int test_collision(Board* mur, Serpent** tab_serpent, int nb_snakes, Point point
  *
  */
 
-void free_snake(Serpent* snake) {
+void free_snake(Serpent* snake) 
+{
 	free(snake->tab);
 	free(snake);
 }

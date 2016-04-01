@@ -25,7 +25,7 @@
 #define BLUE 0x000000FF
 
 /** Nombre de ms entre chaque pas de temps */
-#define SPEED 100
+#define SPEED 150
 
 void play(SDL_Surface* sdlScreen, int nbSnakes);
 void paint(SDL_Surface* sdlScreen, int x, int y, int nId);
