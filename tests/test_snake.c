@@ -179,7 +179,7 @@ static void test_collision_no_collision_forward(void ** state)
     Board b = init_board1();
     // 1 time forward
     Forward(snake);
-    assert_int_equal(test_collision(&b, snakes, nb_snakes), 0);
+    assert_int_equal(test_collision(&b, snakes, nb_snakes, snake->tete, snake->id), 0);
 }
 
 static void test_collision_no_collision_left(void ** state)
@@ -191,7 +191,7 @@ static void test_collision_no_collision_left(void ** state)
     Board b = init_board1();
     // Turn left
     Left(snake);
-    assert_int_equal(test_collision(&b, snakes, nb_snakes), 0);
+    assert_int_equal(test_collision(&b, snakes, nb_snakes, snake->tete, snake->id), 0);
 }
 
 static void test_collision_no_collision_right(void ** state)
@@ -203,7 +203,7 @@ static void test_collision_no_collision_right(void ** state)
     Board b = init_board1();
     // Turn right
     Right(snake);
-    assert_int_equal(test_collision(&b, snakes, nb_snakes), 0);
+    assert_int_equal(test_collision(&b, snakes, nb_snakes, snake->tete, snake->id), 0);
 }
 
 static void test_collision_head_body(void ** state)
@@ -224,7 +224,7 @@ static void test_collision_head_body(void ** state)
     // We move the head to the previous position
     snake->tete.x = X;
     snake->tete.y = Y-7;
-    assert_int_equal(test_collision(&b, snakes, nb_snakes), ID);
+    assert_int_equal(test_collision(&b, snakes, nb_snakes, snake->tete, snake->id), 1);
 }
 
 static void test_collision_head_wall_forward(void ** state)
@@ -239,10 +239,10 @@ static void test_collision_head_wall_forward(void ** state)
     // We move the head next to a wall
     snake->tete.x = X;
     snake->tete.y = Y-9;
-    assert_int_equal(test_collision(&b, snakes, nb_snakes), 0);
+    assert_int_equal(test_collision(&b, snakes, nb_snakes, snake->tete, snake->id), 0);
 
     Forward(snake);    
-    assert_int_equal(test_collision(&b, snakes, nb_snakes), ID);
+    assert_int_equal(test_collision(&b, snakes, nb_snakes, snake->tete, snake->id), 1);
 }
 
 static void test_collision_head_wall_left(void ** state)
@@ -257,10 +257,10 @@ static void test_collision_head_wall_left(void ** state)
     // We move the head along a wall
     snake->tete.x = X-9;
     snake->tete.y = Y;
-    assert_int_equal(test_collision(&b, snakes, nb_snakes), 0);
+    assert_int_equal(test_collision(&b, snakes, nb_snakes, snake->tete, snake->id), 0);
 
     Left(snake);    
-    assert_int_equal(test_collision(&b, snakes, nb_snakes), ID);
+    assert_int_equal(test_collision(&b, snakes, nb_snakes, snake->tete, snake->id), 1);
 }
 
 static void test_collision_head_wall_right(void ** state)
@@ -275,10 +275,10 @@ static void test_collision_head_wall_right(void ** state)
     // We move the head along a wall
     snake->tete.x = BOARD_WIDTH-2;
     snake->tete.y = Y;
-    assert_int_equal(test_collision(&b, snakes, nb_snakes), 0);
+    assert_int_equal(test_collision(&b, snakes, nb_snakes, snake->tete, snake->id), 0);
 
     Right(snake); 
-    assert_int_equal(test_collision(&b, snakes, nb_snakes), ID);
+    assert_int_equal(test_collision(&b, snakes, nb_snakes, snake->tete, snake->id), 1);
 }
 
 static void test_collision_two_snakes_head_head(void ** state)
@@ -297,12 +297,12 @@ static void test_collision_two_snakes_head_head(void ** state)
     snakes[0] = snake;
     snakes[1] = snake2;
     Board b = init_board1();
-    assert_int_equal(test_collision(&b, snakes, nb_snakes), 0);
+    assert_int_equal(test_collision(&b, snakes, nb_snakes, snake->tete, snake->id), 0);
 
     // We move the head of the second snake to the initial position of the first one
     snake2->tete.x = X;
     snake2->tete.y = Y;
-    assert_int_equal(test_collision(&b, snakes, nb_snakes), ID+1);
+    assert_int_equal(test_collision(&b, snakes, nb_snakes, snake->tete, snake2->id), 1);
 }
 
 static void test_collision_two_snakes_head_body(void ** state)
@@ -329,12 +329,12 @@ static void test_collision_two_snakes_head_body(void ** state)
     snakes[0] = snake;
     snakes[1] = snake2;
     Board b = init_board1();
-    assert_int_equal(test_collision(&b, snakes, nb_snakes), 0);
+    assert_int_equal(test_collision(&b, snakes, nb_snakes, snake->tete, snake->id), 0);
 
     // We move the head of the first snake to a position in the body of the second one
     snake->tete.x = X+1;
     snake->tete.y = Y+8;
-    assert_int_equal(test_collision(&b, snakes, nb_snakes), ID);
+    assert_int_equal(test_collision(&b, snakes, nb_snakes, snake->tete, snake->id), 1);
 }
 
 int main(void) 

@@ -7,6 +7,7 @@
  */
 
  #include "game.h"
+ #include "ia.c"
  #include <stdio.h>
 
 /**
@@ -88,7 +89,8 @@ void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit)
                 break;
         }
 
-        if (actualTime - previousTime > snakes[0]->vitesse) {
+        if (actualTime - previousTime > snakes[0]->vitesse)
+        {
             switch(nDir)
             {
                 case 0:
@@ -102,7 +104,13 @@ void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit)
                     break;
             }
 
-            nResGame = test_collision(&board, snakes, nbSnakes);
+            deplacement_ia(snakes[1], board, nbSnakes, snakes);
+            i = 0;
+            while(!nResGame && i < nbSnakes)
+            {
+                nResGame = test_collision(&board, snakes, nbSnakes, snakes[i]->tete, snakes[i]->id);
+                i++;
+            }
 
             SDL_FillRect(sdlScreen, NULL, SDL_MapRGB(sdlScreen->format, 255, 255, 255)); 
 
@@ -111,10 +119,13 @@ void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit)
             {
                 paint(sdlScreen, board.pPtsMur[i].x, board.pPtsMur[i].y, 0);
             }
-
-            for (i=0; i< snakes[0]->taille; i++)
+            int j;
+            for (j = 0; j < nbSnakes; j++)
             {
-                paint(sdlScreen, snakes[0]->tab[i].x, snakes[0]->tab[i].y, 1);
+                for (i=0; i < snakes[j]->taille; i++)
+                {
+                    paint(sdlScreen, snakes[j]->tab[i].x, snakes[j]->tab[i].y, j+1);
+                }
             }
 
             SDL_Flip(sdlScreen);
@@ -122,9 +133,8 @@ void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit)
             nDir = 0;
             previousTime = actualTime;
         }
-
     }
-
+    sleep(2);
 }
 
 /**
@@ -153,6 +163,9 @@ void paint(SDL_Surface* sdlScreen, int x, int y, int nId)
             color = GREEN;
             break;
         case 2:
+            color = RED;
+            break;
+        case 3:
             color = BLUE;
             break;
         default:

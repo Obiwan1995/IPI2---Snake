@@ -210,7 +210,7 @@ void Right(Serpent *snake)
 int appartient_tableau(Point point, Point* tableau, int taille) {
 	int i=0;
 	int flag=0;
-	while (flag==0 && i!=taille) {
+	while (flag==0 && i<taille) {
 		if ( (tableau[i].x == point.x) && (tableau[i].y == point.y) ) {
 			flag=1;
 		}
@@ -234,35 +234,38 @@ int appartient_tableau(Point point, Point* tableau, int taille) {
  * @return	Sinon, l'id du serpent qui entre en collision avec le mur ou un autre serpent
  */
 
-int test_collision(Board* mur, Serpent** tab_serpent, int nb_snakes) {
+int test_collision(Board* mur, Serpent** tab_serpent, int nb_snakes, Point point, int id_snake) { //Point = tête du serpent
 	int i;
-	int j;
-	for (i=0; i<nb_snakes; i++) 
+	if (appartient_tableau(point, mur->pPtsMur, mur->nSize)) 
 	{
-		if (appartient_tableau(tab_serpent[i]->tete, mur->pPtsMur, mur->nSize)) 
+		return 1;
+	}
+	else 
+	{
+		for (i=0; i<nb_snakes; i++) 
 		{
-			return tab_serpent[i]->id;
-		}
-		else 
-		{
-			for (j=0; j<nb_snakes; j++) 
+			if ((i+1 != id_snake && appartient_tableau(point, tab_serpent[i]->tab, tab_serpent[i]->taille)) || (i+1 == id_snake && appartient_tableau(point, tab_serpent[i]->tab, tab_serpent[i]->taille-1)))
 			{
-				if (i == j)
-				{
-					if (appartient_tableau(tab_serpent[i]->tete, tab_serpent[j]->tab, tab_serpent[j]->taille-1))
-					{
-						return tab_serpent[i]->id;
-					}
-				}
-				else
-				{
-					if (appartient_tableau(tab_serpent[i]->tete, tab_serpent[j]->tab, tab_serpent[j]->taille))
-					{
-						return tab_serpent[i]->id;
-					}
-				}
+				return 1;
 			}
 		}
 	}
 	return 0;	
+}
+
+/**
+ * @fn 			free_snake(Serpent* snake)
+ *
+ * @brief		Supprime un serpent
+ *
+ * @param 		snake Serpent à supprimer
+ *
+ * @details		Supprime un serpent de la mémoire en supprimant son tableau de points puis sa structure complète
+ *
+ */
+
+void free_snake(Serpent* snake) 
+{
+	free(snake->tab);
+	free(snake);
 }
