@@ -131,8 +131,8 @@ Board init_board_1v1()
 void add_walls_inside(Board* b)
 {
 	int nNbCases = b->nBoardWidth * b->nBoardHeight;
-	double nMin = 0.05; // 5% du nombre total de cases
-	double nMax = 0.1; // 10% du nombre total de cases
+	double nMin = 0.01; // 1% du nombre total de cases
+	double nMax = 0.03; // 3% du nombre total de cases
 	int n = b->nSize;
 	int nNbWalls = rand()%((int)(nMin * nNbCases))+(nMax - nMin)*nNbCases;
 	
@@ -142,8 +142,8 @@ void add_walls_inside(Board* b)
 	int i;
 	for (i = 0; i < nNbWalls; i++)
 	{
-		int randx = rand()%(b->nBoardWidth-1)+1;
-		int randy = rand()%(b->nBoardHeight-1)+1;
+		int randx = rand()%(b->nBoardWidth);
+		int randy = rand()%(b->nBoardHeight);
 		/*while (!wall_ok(randx, randy, n))
 		{
 			randx = rand()%width;

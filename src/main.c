@@ -18,6 +18,7 @@ int main(int argc, char *argv[])
     int nBoard = BOARD_BASE;
     int nSpeedInit = SPEED_MEDIUM;
     int nNbSnake = NB_SNAKE;
+    int nWalls = BOARD_WITH_WALLS;
 
     if ( SDL_Init(SDL_INIT_VIDEO) < 0 )
     {
@@ -61,13 +62,17 @@ int main(int argc, char *argv[])
                                 board = init_board1();
                                 break;
                             case BOARD_1V1:
-                                board = init_board1();
+                                board = init_board_1v1();
                                 break;
-                            case BOARD_WALL:
+                            case BIG_BOARD:
                                 board = init_board1();
                                 break;
                             default:
                                 break;
+                        }
+                        if (nWalls)
+                        {
+                            add_walls_inside(&board);
                         }
                         SDL_FreeSurface(sdlScreen);
                         sdlScreen = SDL_SetVideoMode(board.nBoardWidth*SIZE_CASE, board.nBoardHeight*SIZE_CASE, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);

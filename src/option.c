@@ -73,9 +73,9 @@ void option(SDL_Surface* sdlScreen, int* pNbSnakes, int* pBoard, int* pSpeedInit
                                             *pBoard = BOARD_1V1;
                                             break;
                                         case BOARD_1V1:
-                                            *pBoard = BOARD_WALL;
+                                            *pBoard = BIG_BOARD;
                                             break;
-                                        case BOARD_WALL:
+                                        case BIG_BOARD:
                                             *pBoard = BOARD_BASE;
                                             break;
                                         default:
@@ -113,12 +113,12 @@ void option(SDL_Surface* sdlScreen, int* pNbSnakes, int* pBoard, int* pSpeedInit
                                     switch(*pBoard)
                                     {
                                         case BOARD_BASE:
-                                            *pBoard = BOARD_WALL;
+                                            *pBoard = BIG_BOARD;
                                             break;
                                         case BOARD_1V1:
                                             *pBoard = BOARD_BASE;
                                             break;
-                                        case BOARD_WALL:
+                                        case BIG_BOARD:
                                             *pBoard = BOARD_1V1;
                                             break;
                                         default:
