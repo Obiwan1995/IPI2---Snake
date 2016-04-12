@@ -11,8 +11,6 @@
 
 #include <stdlib.h>
 
-#define BOARD_WIDTH 40
-#define BOARD_HEIGHT 40
 
  /** Direction du serpent : haut, droite, bas ou gauche */
 typedef enum Direction {top, right, bot, left} Direction;
@@ -35,6 +33,8 @@ typedef struct {
 
 typedef struct
 {
+	int nBoardWidth;
+	int nBoardHeight;
 	int nNbPos;
 	int nSize;
 	Point* pPtsMur;
@@ -44,7 +44,7 @@ typedef struct
 
 Board init_board1();
 Board init_board_1v1();
-void add_walls_inside(Board* b, int width, int height);
+void add_walls_inside(Board* b);
 int wall_ok(Board* b, int x, int y, int taille);
 void free_board(Board* b);
 

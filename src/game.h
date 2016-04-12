@@ -24,10 +24,7 @@
  /** Couleur bleue */
 #define BLUE 0x000000FF
 
-/** Nombre de ms entre chaque pas de temps */
-#define SPEED 300
-
-void play(SDL_Surface* sdlScreen, int nbSnakes);
+void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit);
 void paint(SDL_Surface* sdlScreen, int x, int y, int nId);
 void setPixel(SDL_Surface *surface, int x, int y, Uint32 color);
 

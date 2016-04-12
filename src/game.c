@@ -8,9 +8,10 @@
 
  #include "game.h"
  #include "ia.c"
+ #include <stdio.h>
 
 /**
- * @fn         play(SDL_Surface* sdlScreen, int nbSnakes)
+ * @fn         play(SDL_Surface* sdlScreen, int nbSnakes, int nBoardWidth int nBoardHeight, int nSpeedInit)
  *
  * @brief      Fait tourner le jeu, boucle principale
  *
@@ -20,13 +21,11 @@
  * @return     void
  */
 
-void play(SDL_Surface* sdlScreen, int nbSnakes)
+void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit)
 {
     srand(time(NULL));
     SDL_Event event;
-    Board board;
-    board = init_board1();
-    add_walls_inside(&board, BOARD_WIDTH,BOARD_HEIGHT);
+    add_walls_inside(&board);
 
     Serpent** snakes = malloc(nbSnakes * sizeof(Serpent *));
     int i;
@@ -35,7 +34,7 @@ void play(SDL_Surface* sdlScreen, int nbSnakes)
         snakes[i] = malloc(sizeof(Serpent));
 
         int rng = rand()%board.nNbPos;
-        init_snake(snakes[i], (i+1), 10, board.pnDirs[rng], board.pPtsPositions[rng]);
+        init_snake(snakes[i], (i+1), nSpeedInit, board.pnDirs[rng], board.pPtsPositions[rng]);
 
         board.pPtsPositions[rng] = board.pPtsPositions[board.nNbPos-1];
         board.pnDirs[rng] = board.pnDirs[board.nNbPos-1];
@@ -91,7 +90,7 @@ void play(SDL_Surface* sdlScreen, int nbSnakes)
                 break;
         }
 
-        if (actualTime - previousTime > SPEED) 
+        if (actualTime - previousTime > snakes[0]->vitesse)
         {
             switch(nDir)
             {
@@ -106,7 +105,12 @@ void play(SDL_Surface* sdlScreen, int nbSnakes)
                     break;
             }
 
-            deplacement_ia(snakes[1], board, nbSnakes, snakes);
+            printf("test1\n");
+
+            for (i = 1; i < nbSnakes; i++)
+            {
+                deplacement_ia(snakes[i], board, nbSnakes, snakes);
+            }
             i = 0;
             while(!nResGame && i < nbSnakes)
             {
