@@ -79,8 +79,8 @@ Board init_board1()
 Board init_board_1v1()
 {
 	Board B;
-	B.nBoardWidth = 35;
-	B.nBoardHeight = 35;
+	B.nBoardWidth = 50;
+	B.nBoardHeight = 25;
 
 	B.nSize = 2*B.nBoardWidth+2*B.nBoardHeight-4;
 	B.pPtsMur = (Point*)malloc(B.nSize*sizeof(Point));
@@ -107,11 +107,11 @@ Board init_board_1v1()
 
 	B.pPtsPositions[0].x = B.nBoardWidth/6;
 	B.pPtsPositions[0].y = B.nBoardHeight/2;
-	B.pnDirs[0] = 2;
+	B.pnDirs[0] = right;
 
 	B.pPtsPositions[1].x = B.nBoardWidth*5/6.f;
 	B.pPtsPositions[1].y = B.nBoardHeight/2;
-	B.pnDirs[1] = 4;
+	B.pnDirs[1] = left;
 
 	return B;
 }
@@ -131,10 +131,10 @@ Board init_board_1v1()
 void add_walls_inside(Board* b)
 {
 	int nNbCases = b->nBoardWidth * b->nBoardHeight;
-	double nMin = 0.01; // 1% du nombre total de cases
-	double nMax = 0.03; // 3% du nombre total de cases
+	int nMin = 3; // 3% du nombre total de cases
+	int nMax = 8; // 8% du nombre total de cases
 	int n = b->nSize;
-	int nNbWalls = rand()%((int)(nMin * nNbCases))+(nMax - nMin)*nNbCases;
+	int nNbWalls = (rand()%(nMin * nNbCases)+(nMax - nMin)*nNbCases)/100;
 	
 	b->nSize += nNbWalls;
 	b->pPtsMur = (Point*)realloc(b->pPtsMur, b->nSize*sizeof(Point));

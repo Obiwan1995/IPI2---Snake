@@ -83,9 +83,7 @@ int main(int argc, char *argv[])
                         sdlScreen = SDL_SetVideoMode(MENU_WIDTH, MENU_HEIGHT, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
                         break;
                     case SDLK_o: // Option
-                        printf("%d sp\n", nSpeedInit);
                         option(sdlScreen, &nNbSnake, &nBoard, &nSpeedInit);
-                        printf("%d dp\n", nSpeedInit);
                         break;
                     case SDLK_a: // Help
                     case SDLK_h:

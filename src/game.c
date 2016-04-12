@@ -25,7 +25,6 @@ void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit)
 {
     srand(time(NULL));
     SDL_Event event;
-    add_walls_inside(&board);
 
     Serpent** snakes = malloc(nbSnakes * sizeof(Serpent *));
     int i;
@@ -104,8 +103,6 @@ void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit)
                     Left(snakes[0]);
                     break;
             }
-
-            printf("test1\n");
 
             for (i = 1; i < nbSnakes; i++)
             {

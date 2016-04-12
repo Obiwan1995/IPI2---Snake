@@ -53,6 +53,7 @@ void option(SDL_Surface* sdlScreen, int* pNbSnakes, int* pBoard, int* pSpeedInit
                 {
                     case SDLK_ESCAPE: // Leave Game
                     case SDLK_q:
+                    case SDLK_p:
                         nInOption = 0;
                         SDL_FreeSurface(sdlOption);
                         break;
@@ -71,12 +72,15 @@ void option(SDL_Surface* sdlScreen, int* pNbSnakes, int* pBoard, int* pSpeedInit
                                     {
                                         case BOARD_BASE:
                                             *pBoard = BOARD_1V1;
+                                            *pNbSnakes = 2;
                                             break;
                                         case BOARD_1V1:
                                             *pBoard = BIG_BOARD;
+                                            *pNbSnakes = 3;
                                             break;
                                         case BIG_BOARD:
                                             *pBoard = BOARD_BASE;
+                                            *pNbSnakes = 1;
                                             break;
                                         default:
                                             break;
@@ -114,12 +118,15 @@ void option(SDL_Surface* sdlScreen, int* pNbSnakes, int* pBoard, int* pSpeedInit
                                     {
                                         case BOARD_BASE:
                                             *pBoard = BIG_BOARD;
+                                            *pNbSnakes = 3;
                                             break;
                                         case BOARD_1V1:
                                             *pBoard = BOARD_BASE;
+                                            *pNbSnakes = 1;
                                             break;
                                         case BIG_BOARD:
                                             *pBoard = BOARD_1V1;
+                                            *pNbSnakes = 2;
                                             break;
                                         default:
                                             break;
