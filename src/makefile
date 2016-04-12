@@ -1,7 +1,10 @@
 all: play
  
-play: main.c game.o snake.o obstacle.o
-	gcc -o play main.c game.o snake.o obstacle.o -std=c99 -Wall `sdl-config --libs`
+play: main.c option.o game.o snake.o obstacle.o
+	gcc -o play main.c option.o game.o snake.o obstacle.o -std=c99 -Wall `sdl-config --libs`
+
+option.o: option.c option.h
+	gcc -o option.o -c option.c -std=c99 -Wall
 
 game.o: game.c game.h
 	gcc -o game.o -c game.c -std=c99 -Wall

@@ -21,17 +21,19 @@
 Board init_board1()
 {
 	Board B;
+	B.nBoardWidth = 35;
+	B.nBoardHeight = 35;
 
-	B.nSize = 2*BOARD_WIDTH+2*BOARD_HEIGHT-4;
+	B.nSize = 2*B.nBoardWidth+2*B.nBoardHeight-4;
 	B.pPtsMur = (Point*)malloc(B.nSize*sizeof(Point));
 
 	int i, j, n;
 	n = 0;
-	for (i = 1; i <= BOARD_WIDTH; ++i)
+	for (i = 1; i <= B.nBoardWidth; ++i)
 	{
-		for (j = 1; j <= BOARD_HEIGHT; ++j)
+		for (j = 1; j <= B.nBoardHeight; ++j)
 		{
-			if (i == 1 || j == 1 || i == BOARD_WIDTH || j == BOARD_HEIGHT)
+			if (i == 1 || j == 1 || i == B.nBoardWidth || j == B.nBoardHeight)
 			{
 				B.pPtsMur[n].x = (i-1);
 				B.pPtsMur[n].y = (j-1);
@@ -45,20 +47,20 @@ Board init_board1()
 	B.pPtsPositions = (Point*)malloc(B.nNbPos*sizeof(Point));
 	B.pnDirs = (int*)malloc(B.nNbPos*sizeof(int));
 
-	B.pPtsPositions[0].x = BOARD_WIDTH/2;
-	B.pPtsPositions[0].y = BOARD_HEIGHT/6;
+	B.pPtsPositions[0].x = B.nBoardWidth/2;
+	B.pPtsPositions[0].y = B.nBoardHeight/6;
 	B.pnDirs[0] = 3;
 
-	B.pPtsPositions[1].x = (BOARD_WIDTH*5)/6;
-	B.pPtsPositions[1].y = BOARD_HEIGHT/2;
+	B.pPtsPositions[1].x = (B.nBoardWidth*5)/6;
+	B.pPtsPositions[1].y = B.nBoardHeight/2;
 	B.pnDirs[1] = 4;
 
-	B.pPtsPositions[2].x = BOARD_WIDTH/2;
-	B.pPtsPositions[2].y = (BOARD_HEIGHT*5)/6;
+	B.pPtsPositions[2].x = B.nBoardWidth/2;
+	B.pPtsPositions[2].y = (B.nBoardHeight*5)/6;
 	B.pnDirs[2] = 1;
 
-	B.pPtsPositions[3].x = BOARD_WIDTH/6;
-	B.pPtsPositions[3].y = BOARD_HEIGHT/2;
+	B.pPtsPositions[3].x = B.nBoardWidth/6;
+	B.pPtsPositions[3].y = B.nBoardHeight/2;
 	B.pnDirs[3] = 2;
 
 	return B;

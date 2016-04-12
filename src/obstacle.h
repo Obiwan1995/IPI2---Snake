@@ -11,12 +11,6 @@
 
 #include <stdlib.h>
 
-
-/** Hauteur du plateau de jeu */
-#define BOARD_HEIGHT 40
-/** Largeur du plateau de jeu */
-#define BOARD_WIDTH 40
-
  /** Structure de Serpent qui permet de situer le serpent ou les obstacles:
 - x : sa position en x
 - y : sa position en y */
@@ -35,6 +29,8 @@ typedef struct {
 
 typedef struct
 {
+	int nBoardWidth;
+	int nBoardHeight;
 	int nNbPos;
 	int nSize;
 	Point* pPtsMur;
