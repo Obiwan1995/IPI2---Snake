@@ -26,6 +26,7 @@ void play(SDL_Surface* sdlScreen, int nbSnakes)
     SDL_Event event;
     Board board;
     board = init_board1();
+    add_walls_inside(&board, BOARD_WIDTH,BOARD_HEIGHT);
 
     Serpent** snakes = malloc(nbSnakes * sizeof(Serpent *));
     int i;

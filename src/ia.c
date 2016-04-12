@@ -2,52 +2,52 @@
 
 int deplacement_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes) 
 {
-	Point left;
-	Point forward;
-	Point right;
+	Point pt_left;
+	Point pt_forward;
+	Point pt_right;
 	switch(ia->dir)
 	{	
-	    case 1: //top
-	    	right.x = ia->tete.x+1;
-	    	right.y = ia->tete.y;
-			left.x = ia->tete.x-1;
-			left.y = ia->tete.y;
-			forward.x = ia->tete.x;
-			forward.y = ia->tete.y-1;
+	    case top:
+	    	pt_right.x = ia->tete.x+1;
+	    	pt_right.y = ia->tete.y;
+			pt_left.x = ia->tete.x-1;
+			pt_left.y = ia->tete.y;
+			pt_forward.x = ia->tete.x;
+			pt_forward.y = ia->tete.y-1;
 	        break;
-	    case 2: //right
-	   		right.x = ia->tete.x;
-	    	right.y = ia->tete.y+1;
-			left.x = ia->tete.x;
-			left.y = ia->tete.y-1;
-			forward.x = ia->tete.x+1;
-			forward.y = ia->tete.y;
+	    case right:
+	   		pt_right.x = ia->tete.x;
+	    	pt_right.y = ia->tete.y+1;
+			pt_left.x = ia->tete.x;
+			pt_left.y = ia->tete.y-1;
+			pt_forward.x = ia->tete.x+1;
+			pt_forward.y = ia->tete.y;
 	        break;
-	     case 3: //bot
-	     	right.x = ia->tete.x-1;
-	    	right.y = ia->tete.y;
-			left.x = ia->tete.x+1;
-			left.y = ia->tete.y;
-			forward.x = ia->tete.x;
-			forward.y = ia->tete.y+1;
+	     case bot:
+	     	pt_right.x = ia->tete.x-1;
+	    	pt_right.y = ia->tete.y;
+			pt_left.x = ia->tete.x+1;
+			pt_left.y = ia->tete.y;
+			pt_forward.x = ia->tete.x;
+			pt_forward.y = ia->tete.y+1;
 	        break;
-	    case 4: //left
-	    	right.x = ia->tete.x;
-	    	right.y = ia->tete.y-1;
-			left.x = ia->tete.x;
-			left.y = ia->tete.y+1;
-			forward.x = ia->tete.x-1;
-			forward.y = ia->tete.y;
+	    case left:
+	    	pt_right.x = ia->tete.x;
+	    	pt_right.y = ia->tete.y-1;
+			pt_left.x = ia->tete.x;
+			pt_left.y = ia->tete.y+1;
+			pt_forward.x = ia->tete.x-1;
+			pt_forward.y = ia->tete.y;
 	        break;
 	}
-	int collision_forward = test_collision(&board, snakes, nbSnakes, forward, ia->id);
+	int collision_forward = test_collision(&board, snakes, nbSnakes, pt_forward, ia->id);
 
 	if (collision_forward == 1) 
 	{
 		int rdm = rand()%2;
 		if (rdm == 0)
 		{
-			int collision_left = test_collision(&board, snakes, nbSnakes, left, ia->id);
+			int collision_left = test_collision(&board, snakes, nbSnakes, pt_left, ia->id);
 			if (collision_left == 1) 
 			{
 				Right(ia);
@@ -59,7 +59,7 @@ int deplacement_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes)
 		}
 		else
 		{
-			int collision_right = test_collision(&board, snakes, nbSnakes, right, ia->id);
+			int collision_right = test_collision(&board, snakes, nbSnakes, pt_right, ia->id);
 			if (collision_right == 1) 
 			{
 				Left(ia);
@@ -79,8 +79,8 @@ int deplacement_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes)
 		}
 		else if(rdm >= 90 && rdm < 95)
 		{
-			int collision_left = test_collision(&board, snakes, nbSnakes, left, ia->id);
-			if (collision_left == 1 && test_collision(&board, snakes, nbSnakes, right, ia->id) == 0) 
+			int collision_left = test_collision(&board, snakes, nbSnakes, pt_left, ia->id);
+			if (collision_left == 1 && test_collision(&board, snakes, nbSnakes, pt_right, ia->id) == 0) 
 			{
 				Right(ia);
 			}
@@ -95,8 +95,8 @@ int deplacement_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes)
 		}
 		else
 		{
-			int collision_right = test_collision(&board, snakes, nbSnakes, right, ia->id);
-			if (collision_right == 1 && test_collision(&board, snakes, nbSnakes, left, ia->id) == 0) 
+			int collision_right = test_collision(&board, snakes, nbSnakes, pt_right, ia->id);
+			if (collision_right == 1 && test_collision(&board, snakes, nbSnakes, pt_left, ia->id) == 0) 
 			{
 				Left(ia);
 			}

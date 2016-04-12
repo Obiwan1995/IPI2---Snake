@@ -51,21 +51,21 @@ void init_snake(Serpent* snake, int id, int speed, int dir, Point pos)
 void Left(Serpent *snake)
 {
 	switch (snake->dir) {
-			case 1 :
+			case top :
 				snake->tete.x -= 1;
-				snake->dir = 4;
+				snake->dir = left;
 				break;
-			case 2 :
+			case right :
 				snake->tete.y -= 1;
-				snake->dir = 1;
+				snake->dir = top;
 				break;
-			case 3 :
+			case bot :
 				snake->tete.x += 1;
-				snake->dir = 2;
+				snake->dir = right;
 				break;
-			case 4 :
+			case left :
 				snake->tete.y += 1;
-				snake->dir = 3;
+				snake->dir = bot;
 				break;
 	}
 
@@ -105,16 +105,16 @@ void Forward(Serpent *snake)
 {
 	switch (snake->dir)
 	{
-		case 1 :
+		case top :
 			snake->tete.y -= 1;
 			break;
-		case 2 :
+		case right :
 			snake->tete.x += 1;
 			break;
-		case 3 :
+		case bot :
 			snake->tete.y += 1;
 			break;
-		case 4 :
+		case left :
 			snake->tete.x -= 1;
 			break;
 	}
@@ -155,21 +155,21 @@ void Right(Serpent *snake)
 {
 	switch (snake->dir)
 	{
-		case 1 :
+		case top :
 			snake->tete.x += 1;
-			snake->dir = 2;
+			snake->dir = right;
 			break;
-		case 2 :
+		case right :
 			snake->tete.y += 1;
-			snake->dir = 3;
+			snake->dir = bot;
 			break;
-		case 3 :
+		case bot :
 			snake->tete.x -= 1;
-			snake->dir = 4;
+			snake->dir = left;
 			break;
-		case 4 :
+		case left :
 			snake->tete.y -= 1;
-			snake->dir = 1;
+			snake->dir = top;
 			break;
 	}
 

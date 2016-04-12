@@ -14,6 +14,8 @@
 #define BOARD_WIDTH 40
 #define BOARD_HEIGHT 40
 
+ /** Direction du serpent : haut, droite, bas ou gauche */
+typedef enum Direction {top, right, bot, left} Direction;
 
  /** Structure de Serpent qui permet de situer le serpent ou les obstacles:
 - x : sa position en x
@@ -42,7 +44,8 @@ typedef struct
 
 Board init_board1();
 Board init_board_1v1();
-Board init_board_walls();
+void add_walls_inside(Board* b, int width, int height);
+int wall_ok(Board* b, int x, int y, int taille);
 void free_board(Board* b);
 
 #endif

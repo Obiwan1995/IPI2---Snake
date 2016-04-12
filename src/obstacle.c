@@ -47,19 +47,19 @@ Board init_board1()
 
 	B.pPtsPositions[0].x = BOARD_WIDTH/2;
 	B.pPtsPositions[0].y = BOARD_HEIGHT/6;
-	B.pnDirs[0] = 3;
+	B.pnDirs[0] = bot;
 
 	B.pPtsPositions[1].x = (BOARD_WIDTH*5)/6;
 	B.pPtsPositions[1].y = BOARD_HEIGHT/2;
-	B.pnDirs[1] = 4;
+	B.pnDirs[1] = left;
 
 	B.pPtsPositions[2].x = BOARD_WIDTH/2;
 	B.pPtsPositions[2].y = (BOARD_HEIGHT*5)/6;
-	B.pnDirs[2] = 1;
+	B.pnDirs[2] = top;
 
 	B.pPtsPositions[3].x = BOARD_WIDTH/6;
 	B.pPtsPositions[3].y = BOARD_HEIGHT/2;
-	B.pnDirs[3] = 2;
+	B.pnDirs[3] = right;
 
 	return B;
 }
@@ -113,60 +113,47 @@ Board init_board_1v1()
 }
 
 /**
- * @fn         Board init_board_walls()
+ * @fn         void add_walls_inside(Board* b, int width, int height)
  *
- * @brief      Initialise le plateau contenant des murs au milieu
+ * @brief      Ajoute des murs à l'intérieur du plateau
  *
- * @param      void
+ * @param	   b 		Le plateau créé précédemment
+ * @param	   width 	La largeur du plateau
+ * @param	   height 	La hauteur du plateau
  *
- * @return     Le plateau avec ses murs et 4 positions de départs
+ * @return     void
  */
 
-Board init_board_walls()
+void add_walls_inside(Board* b, int width, int height)
 {
-	Board B;
+	int nNbCases = width * height;
+	double nMin = 0.05; // 5% du nombre total de cases
+	double nMax = 0.1; // 10% du nombre total de cases
+	int n = b->nSize;
+	int nNbWalls = rand()%((int)(nMin * nNbCases))+(nMax - nMin)*nNbCases;
 	
-	B.nSize = 2*BOARD_WIDTH+2*BOARD_HEIGHT-4;
-	B.pPtsMur = (Point*)malloc(B.nSize*sizeof(Point));
+	b->nSize += nNbWalls;
+	b->pPtsMur = (Point*)realloc(b->pPtsMur, b->nSize*sizeof(Point));
 
-	int i, j, n;
-	n = 0;
-	for (i = 1; i <= BOARD_WIDTH; ++i)
+	int i;
+	for (i = 0; i < nNbWalls; i++)
 	{
-		for (j = 1; j <= BOARD_HEIGHT; ++j)
+		int randx = rand()%width;
+		int randy = rand()%height;
+		/*while (!wall_ok(randx, randy, n))
 		{
-			if (i == 1 || j == 1 || i == BOARD_WIDTH || j == BOARD_HEIGHT)
-			{
-				B.pPtsMur[n].x = (i-1);
-				B.pPtsMur[n].y = (j-1);
-				n++;
-			}
-		}
+			randx = rand()%width;
+			randy = rand()%height;
+		}*/
+		b->pPtsMur[n].x = randx;
+		b->pPtsMur[n].y = randy;
+		n++;
 	}
+}
 
-	B.nNbPos = 4;
-
-	B.pPtsPositions = (Point*)malloc(B.nNbPos*sizeof(Point));
-	B.pnDirs = (int*)malloc(B.nNbPos*sizeof(int));
-
-	
-	B.pPtsPositions[0].x = BOARD_WIDTH/2;
-	B.pPtsPositions[0].y = BOARD_HEIGHT/10;
-	B.pnDirs[0] = 3;
-
-	B.pPtsPositions[1].x = (BOARD_WIDTH*9)/10;
-	B.pPtsPositions[1].y = BOARD_HEIGHT/2;
-	B.pnDirs[1] = 4;
-
-	B.pPtsPositions[2].x = BOARD_WIDTH/2;
-	B.pPtsPositions[2].y = (BOARD_HEIGHT*9)/10;
-	B.pnDirs[2] = 1;
-
-	B.pPtsPositions[3].x = BOARD_WIDTH/10;
-	B.pPtsPositions[3].y = BOARD_HEIGHT/2;
-	B.pnDirs[3] = 2;
-
-	return B;
+int wall_ok(Board* b, int x, int y, int taille)
+{
+	return 1;
 }
 
 void free_board(Board* b)
