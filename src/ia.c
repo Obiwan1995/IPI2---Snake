@@ -1,4 +1,25 @@
+/**
+ * @file ia.c
+ * @author Les Mixtes
+ * @date 17/04/2016
+ * @brief Fichier permettant la gestion de l'IA aléatoire
+ * @details Contient la fonction deplacement_ia qui permet de faire bouger le serpent contrôlé par l'IA aléatoire
+ */
+
 #include "ia.h"
+
+/**
+* @fn         int deplacement_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes)
+*
+* @brief      Fait bouger le serpent contrôlé par l'IA aléatoire
+*
+* @param      ia 		Le serpent contrôlé par l'IA aléatoire
+* @param 	  board 	Le plateau de jeu
+* @param 	  nbSnakes	Le nombre de serpents dans la partie
+* @param 	  snakes 	Le tableau contenant tous les serpents de la partie
+*
+* @return     1 ?
+*/
 
 int deplacement_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes) 
 {

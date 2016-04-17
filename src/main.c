@@ -1,3 +1,11 @@
+/**
+ * @file main.c
+ * @author Les Mixtes
+ * @date 17/04/2016
+ * @brief Fichier principal du jeu
+ * @details Contient la fonction principale du snake qui permet de lancer le jeu avec le menu
+ */
+
 #include "game.h"
 #include "option.h"
 
@@ -19,6 +27,7 @@ int main(int argc, char *argv[])
     int nSpeedInit = SPEED_MEDIUM;
     int nNbSnake = NB_SNAKE;
     int nWalls = BOARD_WITH_WALLS;
+    srand(time(NULL));
 
     if ( SDL_Init(SDL_INIT_VIDEO) < 0 )
     {

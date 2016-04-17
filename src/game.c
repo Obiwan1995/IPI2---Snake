@@ -23,7 +23,6 @@
 
 void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit)
 {
-    srand(time(NULL));
     SDL_Event event;
 
     Serpent** snakes = malloc(nbSnakes * sizeof(Serpent *));

@@ -10,7 +10,7 @@
 #define _game_h_
 
 #include "../lib/SDL/include/SDL/SDL.h"
-#include "snake.h"
+#include "obstacle.h"
 
 /** Taille d'une case en pixels */
 #define SIZE_CASE 15

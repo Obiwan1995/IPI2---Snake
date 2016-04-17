@@ -1,7 +1,7 @@
 /**
  * @file snake.c
  * @author Les Mixtes
- * @date 17/03/2016
+ * @date 17/04/2016
  * @brief Fichier permettant la gestion des serpents
  * @details Contient toutes les fonctions utiles à la gestion des serpents : initialisation, déplacements et gestion des collisions
  */
@@ -192,65 +192,6 @@ void Right(Serpent *snake)
 		snake->tab[snake->taille] = snake->tete;
 		snake->taille++;
 	}
-}
-
-/**
- * @fn 		int appartient_tableau(Point point, Point* tableau, int taille)
- * 
- * @brief   Teste l'appartenance d'un point (2 coordonnées x et y) à un tableau
- *
- * @param  point    point dont on veut tester l'appartenance au tableau
- * @param  tableau  tableau de points
- * @param  taille   taille du tableau
- *
- * @return 0 si le point n'appartient pas au tableau
- * @return 1 sinon
- */
-
-int appartient_tableau(Point point, Point* tableau, int taille) {
-	int i=0;
-	int flag=0;
-	while (flag==0 && i<taille) {
-		if ( (tableau[i].x == point.x) && (tableau[i].y == point.y) ) {
-			flag=1;
-		}
-		else {
-			i=i+1;
-		}
-	}
-	return flag;
-}
-
-/**
- * @fn         int test_collision(Board* mur, Serpent** tab_serpent, int nb_snakes)
- *
- * @brief      Teste la collision d'un serpent avec le mur ou un autre serpent
- *
- * @param  mur          plateau contenant un tableau de points correspondant aux emplacements des murs
- * @param  tab_serpent  tableau de serpent : nécessaire pour la collision avec les autres serpents
- * @param  nb_snakes  	nombre de serpents = longueur du tableau tab_serpent
- *
- * @return  0 s'il n'y a pas de collision
- * @return	Sinon, l'id du serpent qui entre en collision avec le mur ou un autre serpent
- */
-
-int test_collision(Board* mur, Serpent** tab_serpent, int nb_snakes, Point point, int id_snake) { //Point = tête du serpent
-	int i;
-	if (appartient_tableau(point, mur->pPtsMur, mur->nSize)) 
-	{
-		return 1;
-	}
-	else 
-	{
-		for (i=0; i<nb_snakes; i++) 
-		{
-			if ((i+1 != id_snake && appartient_tableau(point, tab_serpent[i]->tab, tab_serpent[i]->taille)) || (i+1 == id_snake && appartient_tableau(point, tab_serpent[i]->tab, tab_serpent[i]->taille-1)))
-			{
-				return 1;
-			}
-		}
-	}
-	return 0;	
 }
 
 /**
