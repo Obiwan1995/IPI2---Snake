@@ -11,18 +11,23 @@
 
 #include "../lib/SDL/include/SDL/SDL.h"
 
-/** Nombre de ms entre chaque mouvement des snakes */
+/** Niveau facile : 200 ms entre chaque déplacement des serpents */
 #define SPEED_EASY 200
+/** Niveau moyen : 120 ms entre chaque déplacement des serpents */
 #define SPEED_MEDIUM 120
+/** Niveau difficile : 80 ms entre chaque déplacement des serpents */
 #define SPEED_HARD 80
 
-/** Type de plateau */
+/** Plateau de base */
 #define BOARD_BASE 1
+/** Plateau 1 contre 1 */
 #define BOARD_1V1 2
+/** Grand plateau */
 #define BIG_BOARD 3
 
-/** Murs au milieu ? */
+/** Pas de murs au milieu */
 #define BOARD_WITHOUT_WALLS 0
+/** Murs au milieu */
 #define BOARD_WITH_WALLS 1
 
 void option(SDL_Surface* sdlScreen, int* pNbSnakes, int* pBoard, int* pSpeedInit);

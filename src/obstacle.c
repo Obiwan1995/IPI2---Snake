@@ -188,7 +188,7 @@ int test_collision(Board* mur, Serpent** tab_serpent, int nb_snakes, Point point
 }
 
 /**
- * @fn         void add_walls_inside(Board* b, int width, int height)
+ * @fn         void add_walls_inside(Board* b)
  *
  * @brief      Ajoute des murs à l'intérieur du plateau
  *

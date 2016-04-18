@@ -11,7 +11,7 @@
  #include <stdio.h>
 
 /**
- * @fn         play(SDL_Surface* sdlScreen, int nbSnakes, int nBoardWidth int nBoardHeight, int nSpeedInit)
+ * @fn         play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit)
  *
  * @brief      Fait tourner le jeu, boucle principale
  *
