@@ -32,9 +32,8 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Snake vs Schlanga
-   &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">Création d&#39;une variante du jeu Snake existant sur les anciens téléphones Nokia</div>
+   <div id="projectbrief">Variante du jeu Snake qui existait sur les anciens téléphones Nokia</div>
   </td>
  </tr>
  </tbody>
@@ -125,13 +124,14 @@ $(document).ready(function(){initNavTree('game_8h_source.html','');});
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
 <div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="game_8h.html#a79d10e672abb49ad63eeaa8aaef57c38">   25</a></span>&#160;<span class="preprocessor">#define BLUE 0x000000FF</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">void</span> play(SDL_Surface* sdlScreen, <a class="code" href="struct_board.html">Board</a> board, <span class="keywordtype">int</span> nbSnakes, <span class="keywordtype">int</span> nSpeedInit);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">void</span> <a class="code" href="game_8h.html#a0bd87ffa626489bf6be5140af0d8366b">play</a>(SDL_Surface* sdlScreen, <a class="code" href="struct_board.html">Board</a> board, <span class="keywordtype">int</span> nbSnakes, <span class="keywordtype">int</span> nSpeedInit);</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">void</span> <a class="code" href="game_8h.html#a55883363797dcb303093fb68cd97109c">paint</a>(SDL_Surface* sdlScreen, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> nId);</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keywordtype">void</span> <a class="code" href="game_8h.html#af16e2307d16c262a30a859ca3dc9c3ac">setPixel</a>(SDL_Surface *surface, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, Uint32 color);</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="game_8h_html_af16e2307d16c262a30a859ca3dc9c3ac"><div class="ttname"><a href="game_8h.html#af16e2307d16c262a30a859ca3dc9c3ac">setPixel</a></div><div class="ttdeci">void setPixel(SDL_Surface *surface, int x, int y, Uint32 color)</div><div class="ttdoc">Colorie un pixel à l&#39;écran. </div><div class="ttdef"><b>Definition:</b> game.c:206</div></div>
-<div class="ttc" id="game_8h_html_a55883363797dcb303093fb68cd97109c"><div class="ttname"><a href="game_8h.html#a55883363797dcb303093fb68cd97109c">paint</a></div><div class="ttdeci">void paint(SDL_Surface *sdlScreen, int x, int y, int nId)</div><div class="ttdoc">Colorie SIZE_CASE*SIZE_CASE pixels en x, y, pour les serpents ou le mur (la couleur dépend du nId) ...</div><div class="ttdef"><b>Definition:</b> game.c:158</div></div>
+<div class="ttc" id="game_8h_html_af16e2307d16c262a30a859ca3dc9c3ac"><div class="ttname"><a href="game_8h.html#af16e2307d16c262a30a859ca3dc9c3ac">setPixel</a></div><div class="ttdeci">void setPixel(SDL_Surface *surface, int x, int y, Uint32 color)</div><div class="ttdoc">Colorie un pixel à l&#39;écran. </div><div class="ttdef"><b>Definition:</b> game.c:208</div></div>
+<div class="ttc" id="game_8h_html_a55883363797dcb303093fb68cd97109c"><div class="ttname"><a href="game_8h.html#a55883363797dcb303093fb68cd97109c">paint</a></div><div class="ttdeci">void paint(SDL_Surface *sdlScreen, int x, int y, int nId)</div><div class="ttdoc">Colorie SIZE_CASE*SIZE_CASE pixels en x, y, pour les serpents ou le mur (la couleur dépend du nId) ...</div><div class="ttdef"><b>Definition:</b> game.c:160</div></div>
+<div class="ttc" id="game_8h_html_a0bd87ffa626489bf6be5140af0d8366b"><div class="ttname"><a href="game_8h.html#a0bd87ffa626489bf6be5140af0d8366b">play</a></div><div class="ttdeci">void play(SDL_Surface *sdlScreen, Board board, int nbSnakes, int nSpeedInit)</div><div class="ttdoc">Fait tourner le jeu, boucle principale. </div><div class="ttdef"><b>Definition:</b> game.c:28</div></div>
 <div class="ttc" id="struct_board_html"><div class="ttname"><a href="struct_board.html">Board</a></div><div class="ttdef"><b>Definition:</b> obstacle.h:25</div></div>
 <div class="ttc" id="obstacle_8h_html"><div class="ttname"><a href="obstacle_8h.html">obstacle.h</a></div><div class="ttdoc">Header du fichier obstacle.c. </div></div>
 </div><!-- fragment --></div><!-- contents -->

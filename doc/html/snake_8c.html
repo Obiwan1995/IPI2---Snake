@@ -32,9 +32,8 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Snake vs Schlanga
-   &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">Création d&#39;une variante du jeu Snake existant sur les anciens téléphones Nokia</div>
+   <div id="projectbrief">Variante du jeu Snake qui existait sur les anciens téléphones Nokia</div>
   </td>
  </tr>
  </tbody>
@@ -135,9 +134,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a89100897980e51855920fdb91793d4e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="snake_8c.html#a89100897980e51855920fdb91793d4e8">Right</a> (<a class="el" href="struct_serpent.html">Serpent</a> *snake)</td></tr>
 <tr class="memdesc:a89100897980e51855920fdb91793d4e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change la direction et le serpent lorsque le déplacement choisi par le joueur est la droite.  <a href="#a89100897980e51855920fdb91793d4e8">More...</a><br /></td></tr>
 <tr class="separator:a89100897980e51855920fdb91793d4e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af38375ebbeb7fb3e36374711468b3e8d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="snake_8c.html#af38375ebbeb7fb3e36374711468b3e8d">free_snake</a> (<a class="el" href="struct_serpent.html">Serpent</a> *snake)</td></tr>
-<tr class="memdesc:af38375ebbeb7fb3e36374711468b3e8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supprime un serpent.  <a href="#af38375ebbeb7fb3e36374711468b3e8d">More...</a><br /></td></tr>
-<tr class="separator:af38375ebbeb7fb3e36374711468b3e8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3666302f1c4fdf0c1d9aa607fd3089ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="snake_8c.html#a3666302f1c4fdf0c1d9aa607fd3089ad">free_snake</a> (<a class="el" href="struct_serpent.html">Serpent</a> **snake, int nbSnake)</td></tr>
+<tr class="memdesc:a3666302f1c4fdf0c1d9aa607fd3089ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supprime la mémoire allouée au tableau de serpents.  <a href="#a3666302f1c4fdf0c1d9aa607fd3089ad">More...</a><br /></td></tr>
+<tr class="separator:a3666302f1c4fdf0c1d9aa607fd3089ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Fichier permettant la gestion des serpents. </p>
@@ -172,28 +171,38 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="af38375ebbeb7fb3e36374711468b3e8d"></a>
+<a class="anchor" id="a3666302f1c4fdf0c1d9aa607fd3089ad"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">free_snake </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_serpent.html">Serpent</a> *&#160;</td>
-          <td class="paramname"><em>snake</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_serpent.html">Serpent</a> **&#160;</td>
+          <td class="paramname"><em>snake</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nbSnake</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Supprime un serpent. </p>
+<p>Supprime la mémoire allouée au tableau de serpents. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">snake</td><td><a class="el" href="struct_serpent.html">Serpent</a> à supprimer</td></tr>
+    <tr><td class="paramname">snake</td><td>Le tableau de serpents à supprimer nbSnake Le nombre de serpents dans le tableau</td></tr>
   </table>
   </dd>
 </dl>
-<p>Supprime un serpent de la mémoire en supprimant son tableau de points puis sa structure complète</p>
+<p>Supprime un tableau de serpents de la mémoire en supprimant pour chaque serpent son tableau de points puis sa structure complète</p>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
 </div>

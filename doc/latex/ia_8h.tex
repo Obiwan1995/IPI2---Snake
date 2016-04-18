@@ -1,0 +1,63 @@
+\hypertarget{ia_8h}{}\section{ia.\+h File Reference}
+\label{ia_8h}\index{ia.\+h@{ia.\+h}}
+
+
+Header du fichier \hyperlink{ia_8c}{ia.\+c}.  
+
+
+{\ttfamily \#include \char`\"{}obstacle.\+h\char`\"{}}\\*
+Include dependency graph for ia.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{ia_8h_a56edf63e554b1c8be4d61a6cad1f9af5}{move\+\_\+random\+\_\+ia} (\hyperlink{struct_serpent}{Serpent} $\ast$ia, \hyperlink{struct_board}{Board} board, int nb\+Snakes, \hyperlink{struct_serpent}{Serpent} $\ast$$\ast$snakes)
+\begin{DoxyCompactList}\small\item\em Fait bouger le serpent contrôlé par l\textquotesingle{}I\+A aléatoire. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Header du fichier \hyperlink{ia_8c}{ia.\+c}. 
+
+\begin{DoxyAuthor}{Author}
+Les Mixtes 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+18/04/2016
+\end{DoxyDate}
+Contient les déclarations des structures et des fonctions utiles dans la gestion de l\textquotesingle{}I\+A aléatoire 
+
+\subsection{Function Documentation}
+\hypertarget{ia_8h_a56edf63e554b1c8be4d61a6cad1f9af5}{}\index{ia.\+h@{ia.\+h}!move\+\_\+random\+\_\+ia@{move\+\_\+random\+\_\+ia}}
+\index{move\+\_\+random\+\_\+ia@{move\+\_\+random\+\_\+ia}!ia.\+h@{ia.\+h}}
+\subsubsection[{move\+\_\+random\+\_\+ia}]{\setlength{\rightskip}{0pt plus 5cm}void move\+\_\+random\+\_\+ia (
+\begin{DoxyParamCaption}
+\item[{{\bf Serpent} $\ast$}]{ia, }
+\item[{{\bf Board}}]{board, }
+\item[{int}]{nb\+Snakes, }
+\item[{{\bf Serpent} $\ast$$\ast$}]{snakes}
+\end{DoxyParamCaption}
+)}\label{ia_8h_a56edf63e554b1c8be4d61a6cad1f9af5}
+
+
+Fait bouger le serpent contrôlé par l\textquotesingle{}I\+A aléatoire. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ia} & Le serpent contrôlé par l\textquotesingle{}I\+A aléatoire \\
+\hline
+{\em board} & Le plateau de jeu \\
+\hline
+{\em nb\+Snakes} & Le nombre de serpents dans la partie \\
+\hline
+{\em snakes} & Le tableau contenant tous les serpents de la partie\\
+\hline
+\end{DoxyParams}
+Ce serpent va tout droit dans 90\% des cas s\textquotesingle{}il le peut. Il va de temps à temps à droite ou à gauche de façon aléatoire.
+
+S\textquotesingle{}il ne peut pas aller tout droit, il choisit aléatoirement d\textquotesingle{}aller à droite ou gauche s\textquotesingle{}il ne meurt pas en allant dans cette direction.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}

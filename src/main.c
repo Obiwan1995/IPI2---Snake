@@ -68,6 +68,7 @@ int main(int argc, char *argv[])
                         switch(nBoard)
                         {
                             case BOARD_BASE:
+                                nNbSnake = NB_SNAKES;
                                 board = init_board1();
                                 break;
                             case BOARD_1V1:
@@ -75,6 +76,7 @@ int main(int argc, char *argv[])
                                 board = init_board_1v1();
                                 break;
                             case BIG_BOARD:
+                                nNbSnake = NB_SNAKES;
                                 board = init_board1();
                                 break;
                             default:

@@ -32,9 +32,8 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Snake vs Schlanga
-   &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">Création d&#39;une variante du jeu Snake existant sur les anciens téléphones Nokia</div>
+   <div id="projectbrief">Variante du jeu Snake qui existait sur les anciens téléphones Nokia</div>
   </td>
  </tr>
  </tbody>
@@ -125,9 +124,9 @@ Include dependency graph for game.c:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a0bd87ffa626489bf6be5140af0d8366b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0bd87ffa626489bf6be5140af0d8366b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>play</b> (SDL_Surface *sdlScreen, <a class="el" href="struct_board.html">Board</a> board, int nbSnakes, int nSpeedInit)</td></tr>
-<tr class="separator:a0bd87ffa626489bf6be5140af0d8366b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa77be2ac83b38abb120ca06a1b3ac3e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8c.html#aa77be2ac83b38abb120ca06a1b3ac3e5">play</a> (SDL_Surface *sdlScreen, <a class="el" href="struct_board.html">Board</a> board, int nbSnakes, int nSpeedInit)</td></tr>
+<tr class="memdesc:aa77be2ac83b38abb120ca06a1b3ac3e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fait tourner le jeu, boucle principale.  <a href="#aa77be2ac83b38abb120ca06a1b3ac3e5">More...</a><br /></td></tr>
+<tr class="separator:aa77be2ac83b38abb120ca06a1b3ac3e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46baed0d67949c129bec3f7f2f663844"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8c.html#a46baed0d67949c129bec3f7f2f663844">paint</a> (SDL_Surface *sdlScreen, int x, int y, int nId)</td></tr>
 <tr class="memdesc:a46baed0d67949c129bec3f7f2f663844"><td class="mdescLeft">&#160;</td><td class="mdescRight">Colorie SIZE_CASE*SIZE_CASE pixels en x, y, pour les serpents ou le mur (la couleur dépend du nId)  <a href="#a46baed0d67949c129bec3f7f2f663844">More...</a><br /></td></tr>
 <tr class="separator:a46baed0d67949c129bec3f7f2f663844"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -187,6 +186,57 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>play</b> (SDL_Surface
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa77be2ac83b38abb120ca06a1b3ac3e5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">play </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Surface *&#160;</td>
+          <td class="paramname"><em>sdlScreen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_board.html">Board</a>&#160;</td>
+          <td class="paramname"><em>board</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nbSnakes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nSpeedInit</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fait tourner le jeu, boucle principale. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sdlScreen</td><td>L'écran affiché à l'utilisateur </td></tr>
+    <tr><td class="paramname">board</td><td>Le plateau de jeu </td></tr>
+    <tr><td class="paramname">nbSnakes</td><td>Le nombre de serpents </td></tr>
+    <tr><td class="paramname">nSpeedInit</td><td>La vitesse initiale de tous les serpents</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Initialise les serpents puis le plateau avant de rentrer dans la boucle de jeu qui ne s'arrête que lorsqu'une collision est détectée.</p>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
 </div>

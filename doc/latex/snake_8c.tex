@@ -19,8 +19,8 @@ void \hyperlink{snake_8c_a40af0c3301e6a0d90261c056a3afba28}{Forward} (\hyperlink
 \begin{DoxyCompactList}\small\item\em Change la direction et le serpent lorsque le déplacement choisi par le joueur est tout droit (il continue dans sa direction actuelle). \end{DoxyCompactList}\item 
 void \hyperlink{snake_8c_a89100897980e51855920fdb91793d4e8}{Right} (\hyperlink{struct_serpent}{Serpent} $\ast$snake)
 \begin{DoxyCompactList}\small\item\em Change la direction et le serpent lorsque le déplacement choisi par le joueur est la droite. \end{DoxyCompactList}\item 
-void \hyperlink{snake_8c_af38375ebbeb7fb3e36374711468b3e8d}{free\+\_\+snake} (\hyperlink{struct_serpent}{Serpent} $\ast$snake)
-\begin{DoxyCompactList}\small\item\em Supprime un serpent. \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \hyperlink{snake_8c_a3666302f1c4fdf0c1d9aa607fd3089ad}{free\+\_\+snake} (\hyperlink{struct_serpent}{Serpent} $\ast$$\ast$snake, int nb\+Snake)
+\begin{DoxyCompactList}\small\item\em Supprime la mémoire allouée au tableau de serpents. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -58,23 +58,24 @@ On ajoute une case de plus au tableau du serpent qui correspond à la position d
 \begin{DoxyReturn}{Returns}
 void 
 \end{DoxyReturn}
-\hypertarget{snake_8c_af38375ebbeb7fb3e36374711468b3e8d}{}\index{snake.\+c@{snake.\+c}!free\+\_\+snake@{free\+\_\+snake}}
+\hypertarget{snake_8c_a3666302f1c4fdf0c1d9aa607fd3089ad}{}\index{snake.\+c@{snake.\+c}!free\+\_\+snake@{free\+\_\+snake}}
 \index{free\+\_\+snake@{free\+\_\+snake}!snake.\+c@{snake.\+c}}
 \subsubsection[{free\+\_\+snake}]{\setlength{\rightskip}{0pt plus 5cm}free\+\_\+snake (
 \begin{DoxyParamCaption}
-\item[{{\bf Serpent} $\ast$}]{snake}
+\item[{{\bf Serpent} $\ast$$\ast$}]{snake, }
+\item[{int}]{nb\+Snake}
 \end{DoxyParamCaption}
-)}\label{snake_8c_af38375ebbeb7fb3e36374711468b3e8d}
+)}\label{snake_8c_a3666302f1c4fdf0c1d9aa607fd3089ad}
 
 
-Supprime un serpent. 
+Supprime la mémoire allouée au tableau de serpents. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em snake} & \hyperlink{struct_serpent}{Serpent} à supprimer\\
+{\em snake} & Le tableau de serpents à supprimer nb\+Snake Le nombre de serpents dans le tableau\\
 \hline
 \end{DoxyParams}
-Supprime un serpent de la mémoire en supprimant son tableau de points puis sa structure complète
+Supprime un tableau de serpents de la mémoire en supprimant pour chaque serpent son tableau de points puis sa structure complète
 
 \begin{DoxyReturn}{Returns}
 void 

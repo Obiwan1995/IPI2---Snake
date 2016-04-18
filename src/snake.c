@@ -206,14 +206,14 @@ void Right(Serpent *snake)
 /**
  * @fn 			free_snake(Serpent** snake, int nbSnake)
  *
- * @brief		Supprime la mémoire allouée au tableau de serpent
+ * @brief		Supprime la mémoire allouée au tableau de serpents
  *
- * @param 		snake tableau de serpent à supprimer
- * 				nbSnake nombre de snake dans le tableau
+ * @param 		snake 		Le tableau de serpents à supprimer
+ * 				nbSnake 	Le nombre de serpents dans le tableau
  *
- * @details		Supprime un tableau serpent de la mémoire en supprimant pour chaque serpent son tableau de points puis sa structure complète
+ * @details		Supprime un tableau de serpents de la mémoire en supprimant pour chaque serpent son tableau de points puis sa structure complète
  *
- * @return void
+ * @return 		void
  */
 
 void free_snake(Serpent** snake, int nbSnake) 

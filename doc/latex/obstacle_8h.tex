@@ -27,9 +27,8 @@ int \hyperlink{obstacle_8h_a4e2d7666dbbf9ed45e1c23e327d7e59e}{belongs\+\_\+to\+\
 \begin{DoxyCompactList}\small\item\em Teste l\textquotesingle{}appartenance d\textquotesingle{}un point (2 coordonnées x et y) à un tableau. \end{DoxyCompactList}\item 
 int \hyperlink{obstacle_8h_abe2438846b458617075b83ba19cbdaa0}{test\+\_\+collision} (\hyperlink{struct_board}{Board} $\ast$mur, \hyperlink{struct_serpent}{Serpent} $\ast$$\ast$tab\+\_\+serpent, int nb\+\_\+snakes, \hyperlink{struct_point}{Point} point, int id\+\_\+snake)
 \begin{DoxyCompactList}\small\item\em Teste la collision d\textquotesingle{}un serpent avec le mur ou un autre serpent. \end{DoxyCompactList}\item 
-\hypertarget{obstacle_8h_a47e86039ea17eebe4fa81567d558f957}{}void {\bfseries add\+\_\+walls\+\_\+inside} (\hyperlink{struct_board}{Board} $\ast$b)\label{obstacle_8h_a47e86039ea17eebe4fa81567d558f957}
-
-\item 
+void \hyperlink{obstacle_8h_a47e86039ea17eebe4fa81567d558f957}{add\+\_\+walls\+\_\+inside} (\hyperlink{struct_board}{Board} $\ast$b)
+\begin{DoxyCompactList}\small\item\em Ajoute des murs à l\textquotesingle{}intérieur du plateau. \end{DoxyCompactList}\item 
 void \hyperlink{obstacle_8h_ad44be14f4ef6100373c68d5ba139a95c}{delete\+\_\+too\+\_\+close\+\_\+walls} (\hyperlink{struct_board}{Board} $\ast$b)
 \begin{DoxyCompactList}\small\item\em Supprime les murs trop proches des positions de départ. \end{DoxyCompactList}\item 
 int \hyperlink{obstacle_8h_a7f8d7d716e767e23404b4e5afd654522}{is\+\_\+cell\+\_\+free} (\hyperlink{struct_point}{Point} p, \hyperlink{struct_board}{Board} $\ast$b, \hyperlink{struct_serpent}{Serpent} $\ast$$\ast$tab\+\_\+serpent, int nb\+\_\+snakes)
@@ -38,9 +37,8 @@ int \hyperlink{obstacle_8h_acc02215591ee4acb37889a39837a7ad0}{okay\+\_\+to\+\_\+
 \begin{DoxyCompactList}\small\item\em Teste si on peut ajouter un mur. \end{DoxyCompactList}\item 
 void \hyperlink{obstacle_8h_a92c318e3584d506652ad891c86b6bb34}{add\+\_\+wall} (\hyperlink{struct_board}{Board} $\ast$b, \hyperlink{struct_serpent}{Serpent} $\ast$$\ast$tab\+\_\+serpent, int nb\+\_\+snakes)
 \begin{DoxyCompactList}\small\item\em Ajoute un nouveau mur sur le plateau. \end{DoxyCompactList}\item 
-\hypertarget{obstacle_8h_ad757f886e77e9ec40649c5ae10d7992d}{}void {\bfseries free\+\_\+board} (\hyperlink{struct_board}{Board} $\ast$b)\label{obstacle_8h_ad757f886e77e9ec40649c5ae10d7992d}
-
-\end{DoxyCompactItemize}
+void \hyperlink{obstacle_8h_a92913020637471129fd0f07dbf3a7396}{free\+\_\+board} (\hyperlink{struct_board}{Board} b)
+\begin{DoxyCompactList}\small\item\em Supprime la mémoire allouée au plateau. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -78,6 +76,35 @@ Ajoute un nouveau mur sur le plateau.
 \hline
 \end{DoxyParams}
 Génère un mur à une position aléatoire tant qu\textquotesingle{}il n\textquotesingle{}a pas une position correcte puis l\textquotesingle{}ajoute au plateau
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{obstacle_8h_a47e86039ea17eebe4fa81567d558f957}{}\index{obstacle.\+h@{obstacle.\+h}!add\+\_\+walls\+\_\+inside@{add\+\_\+walls\+\_\+inside}}
+\index{add\+\_\+walls\+\_\+inside@{add\+\_\+walls\+\_\+inside}!obstacle.\+h@{obstacle.\+h}}
+\subsubsection[{add\+\_\+walls\+\_\+inside}]{\setlength{\rightskip}{0pt plus 5cm}void add\+\_\+walls\+\_\+inside (
+\begin{DoxyParamCaption}
+\item[{{\bf Board} $\ast$}]{b}
+\end{DoxyParamCaption}
+)}\label{obstacle_8h_a47e86039ea17eebe4fa81567d558f957}
+
+
+Ajoute des murs à l\textquotesingle{}intérieur du plateau. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & Le plateau créé précédemment\\
+\hline
+\end{DoxyParams}
+Ajoute des murs de formes prédéfinies, selon le nombre de cases qu\textquotesingle{}il comporte
+
+Avec 3 cases, on a soit une ligne, soit un angle
+
+Avec 4 cases, on crée un carré
+
+Avec 5 cases, on choisit soit une croix, un carré avec une case en plus ou un grand angle
+
+A la fin, cette fonction supprime les murs trop proches des positions de départ
 
 \begin{DoxyReturn}{Returns}
 void 
@@ -130,7 +157,23 @@ En partant des positions de départ, on supprime les murs à moins de 5 cases de
 \begin{DoxyReturn}{Returns}
 void 
 \end{DoxyReturn}
-\hypertarget{obstacle_8h_a1bb6d5e97f9c0ea85cec0dfc047ae669}{}\index{obstacle.\+h@{obstacle.\+h}!init\+\_\+board1@{init\+\_\+board1}}
+\hypertarget{obstacle_8h_a92913020637471129fd0f07dbf3a7396}{}\index{obstacle.\+h@{obstacle.\+h}!free\+\_\+board@{free\+\_\+board}}
+\index{free\+\_\+board@{free\+\_\+board}!obstacle.\+h@{obstacle.\+h}}
+\subsubsection[{free\+\_\+board}]{\setlength{\rightskip}{0pt plus 5cm}void free\+\_\+board (
+\begin{DoxyParamCaption}
+\item[{{\bf Board}}]{b}
+\end{DoxyParamCaption}
+)}\label{obstacle_8h_a92913020637471129fd0f07dbf3a7396}
+
+
+Supprime la mémoire allouée au plateau. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & Plateau dont on veut supprimer la mémoire\\
+\hline
+\end{DoxyParams}
+Supprime les points du mur, les points correspondant aux positions de départ et la direction des positions de départ \hypertarget{obstacle_8h_a1bb6d5e97f9c0ea85cec0dfc047ae669}{}\index{obstacle.\+h@{obstacle.\+h}!init\+\_\+board1@{init\+\_\+board1}}
 \index{init\+\_\+board1@{init\+\_\+board1}!obstacle.\+h@{obstacle.\+h}}
 \subsubsection[{init\+\_\+board1}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Board} init\+\_\+board1 (
 \begin{DoxyParamCaption}

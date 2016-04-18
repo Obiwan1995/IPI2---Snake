@@ -48,7 +48,6 @@ void init_snake(Serpent* snake, int id, int speed, int dir, Point pos);
 void Right(Serpent* snake);
 void Forward(Serpent* snake);
 void Left(Serpent* snake);
-void affiche_tableau(Serpent* snake);
 void free_snake(Serpent** snake, int nbSnake);
 
 #endif

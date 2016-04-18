@@ -32,9 +32,8 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Snake vs Schlanga
-   &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">Création d&#39;une variante du jeu Snake existant sur les anciens téléphones Nokia</div>
+   <div id="projectbrief">Variante du jeu Snake qui existait sur les anciens téléphones Nokia</div>
   </td>
  </tr>
  </tbody>
@@ -150,8 +149,8 @@ Functions</h2></td></tr>
 <tr class="memitem:abe2438846b458617075b83ba19cbdaa0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obstacle_8h.html#abe2438846b458617075b83ba19cbdaa0">test_collision</a> (<a class="el" href="struct_board.html">Board</a> *mur, <a class="el" href="struct_serpent.html">Serpent</a> **tab_serpent, int nb_snakes, <a class="el" href="struct_point.html">Point</a> point, int id_snake)</td></tr>
 <tr class="memdesc:abe2438846b458617075b83ba19cbdaa0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teste la collision d'un serpent avec le mur ou un autre serpent.  <a href="#abe2438846b458617075b83ba19cbdaa0">More...</a><br /></td></tr>
 <tr class="separator:abe2438846b458617075b83ba19cbdaa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47e86039ea17eebe4fa81567d558f957"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a47e86039ea17eebe4fa81567d558f957"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>add_walls_inside</b> (<a class="el" href="struct_board.html">Board</a> *b)</td></tr>
+<tr class="memitem:a47e86039ea17eebe4fa81567d558f957"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obstacle_8h.html#a47e86039ea17eebe4fa81567d558f957">add_walls_inside</a> (<a class="el" href="struct_board.html">Board</a> *b)</td></tr>
+<tr class="memdesc:a47e86039ea17eebe4fa81567d558f957"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute des murs à l'intérieur du plateau.  <a href="#a47e86039ea17eebe4fa81567d558f957">More...</a><br /></td></tr>
 <tr class="separator:a47e86039ea17eebe4fa81567d558f957"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad44be14f4ef6100373c68d5ba139a95c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obstacle_8h.html#ad44be14f4ef6100373c68d5ba139a95c">delete_too_close_walls</a> (<a class="el" href="struct_board.html">Board</a> *b)</td></tr>
 <tr class="memdesc:ad44be14f4ef6100373c68d5ba139a95c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supprime les murs trop proches des positions de départ.  <a href="#ad44be14f4ef6100373c68d5ba139a95c">More...</a><br /></td></tr>
@@ -165,9 +164,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>add_walls_inside</b> 
 <tr class="memitem:a92c318e3584d506652ad891c86b6bb34"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obstacle_8h.html#a92c318e3584d506652ad891c86b6bb34">add_wall</a> (<a class="el" href="struct_board.html">Board</a> *b, <a class="el" href="struct_serpent.html">Serpent</a> **tab_serpent, int nb_snakes)</td></tr>
 <tr class="memdesc:a92c318e3584d506652ad891c86b6bb34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute un nouveau mur sur le plateau.  <a href="#a92c318e3584d506652ad891c86b6bb34">More...</a><br /></td></tr>
 <tr class="separator:a92c318e3584d506652ad891c86b6bb34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad757f886e77e9ec40649c5ae10d7992d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad757f886e77e9ec40649c5ae10d7992d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>free_board</b> (<a class="el" href="struct_board.html">Board</a> *b)</td></tr>
-<tr class="separator:ad757f886e77e9ec40649c5ae10d7992d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92913020637471129fd0f07dbf3a7396"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obstacle_8h.html#a92913020637471129fd0f07dbf3a7396">free_board</a> (<a class="el" href="struct_board.html">Board</a> b)</td></tr>
+<tr class="memdesc:a92913020637471129fd0f07dbf3a7396"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supprime la mémoire allouée au plateau.  <a href="#a92913020637471129fd0f07dbf3a7396">More...</a><br /></td></tr>
+<tr class="separator:a92913020637471129fd0f07dbf3a7396"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Header du fichier <a class="el" href="obstacle_8c.html" title="Fichier permettant la création des murs et des positions de départ des serpents. ">obstacle.c</a>. </p>
@@ -215,6 +214,36 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>free_board</b> (<a cl
   </dd>
 </dl>
 <p>Génère un mur à une position aléatoire tant qu'il n'a pas une position correcte puis l'ajoute au plateau</p>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a47e86039ea17eebe4fa81567d558f957"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void add_walls_inside </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_board.html">Board</a> *&#160;</td>
+          <td class="paramname"><em>b</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ajoute des murs à l'intérieur du plateau. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">b</td><td>Le plateau créé précédemment</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Ajoute des murs de formes prédéfinies, selon le nombre de cases qu'il comporte</p>
+<p>Avec 3 cases, on a soit une ligne, soit un angle</p>
+<p>Avec 4 cases, on crée un carré</p>
+<p>Avec 5 cases, on choisit soit une croix, un carré avec une case en plus ou un grand angle</p>
+<p>A la fin, cette fonction supprime les murs trop proches des positions de départ</p>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
 </div>
@@ -287,6 +316,31 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>free_board</b> (<a cl
 </dl>
 <p>En partant des positions de départ, on supprime les murs à moins de 5 cases de celles-ci dans les directions données au départ lors de l'initialisation</p>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a92913020637471129fd0f07dbf3a7396"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void free_board </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_board.html">Board</a>&#160;</td>
+          <td class="paramname"><em>b</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Supprime la mémoire allouée au plateau. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">b</td><td>Plateau dont on veut supprimer la mémoire</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Supprime les points du mur, les points correspondant aux positions de départ et la direction des positions de départ </p>
 
 </div>
 </div>
