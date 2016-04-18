@@ -1,7 +1,7 @@
 /**
  * @file game.h
  * @author Les Mixtes
- * @date 21/03/2016
+ * @date 18/04/2016
  * @brief Header du fichier game.c
  * @details Contient les déclarations des fonctions utiles dans la gestion du jeu
  */

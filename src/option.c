@@ -1,21 +1,23 @@
 /**
  * @file option.c
  * @author Les Mixtes
- * @date 01/04/2016
+ * @date 18/04/2016
  * @brief Fichier qui gère les options
- * @details Contient la boucle principale du jeu ainsi que les divers affichages
+ * @details 
  */
 
  #include "option.h"
  #include <stdio.h>
 
 /**
- * @fn         play(SDL_Surface* sdlScreen, int nbSnakes, int nBoardWidth int nBoardHeight, int nSpeedInit)
+ * @fn         option(SDL_Surface* sdlScreen, int* pNbSnakes, int *pBoard, int* pSpeedInit)
  *
- * @brief      Fait tourner le jeu, boucle principale
+ * @brief      Gère les options du jeu
  *
  * @param       sdlScreen       L'écran affiché à l'utilisateur
- * @param       nbSnakes        Le nombre de serpents
+ * @param       pNbSnakes       Le nombre de serpents
+ * @param       pBoard          Le type de plateau utilisé actuellement
+ * @param       pSpeedInit      La vitesse initiale définie actuellement
  *
  * @return     void
  */
@@ -172,6 +174,16 @@ void option(SDL_Surface* sdlScreen, int* pNbSnakes, int* pBoard, int* pSpeedInit
         }
     }
 }
+
+/**
+ * @fn         aide(SDL_Surface* sdlScreen)
+ *
+ * @brief      Affiche l'aide du jeu
+ *
+ * @param       sdlScreen       L'écran affiché à l'utilisateur
+ *
+ * @return     void
+ */
 
 void aide(SDL_Surface* sdlScreen)
 {

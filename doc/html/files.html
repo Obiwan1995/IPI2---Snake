@@ -8,6 +8,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -24,9 +32,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Snake vs Schlanga
-   &#160;<span id="projectnumber">0.5</span>
+   &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">Version améliorée du jeu Snake sur Nokia</div>
+   <div id="projectbrief">Création d&#39;une variante du jeu Snake existant sur les anciens téléphones Nokia</div>
   </td>
  </tr>
  </tbody>
@@ -67,6 +75,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('files.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -90,18 +112,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="directory">
 <tr id="row_0_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="game_8c.html" target="_self">game.c</a></td><td class="desc">Fichier qui gère le jeu </td></tr>
 <tr id="row_1_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="game_8h_source.html"><span class="icondoc"></span></a><a class="el" href="game_8h.html" target="_self">game.h</a></td><td class="desc">Header du fichier <a class="el" href="game_8c.html" title="Fichier qui gère le jeu. ">game.c</a> </td></tr>
-<tr id="row_2_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="obstacle_8c.html" target="_self">obstacle.c</a></td><td class="desc">Fichier permettant la création des murs et des positions de départ des serpents </td></tr>
-<tr id="row_3_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="obstacle_8h_source.html"><span class="icondoc"></span></a><a class="el" href="obstacle_8h.html" target="_self">obstacle.h</a></td><td class="desc">Header du fichier <a class="el" href="obstacle_8c.html" title="Fichier permettant la création des murs et des positions de départ des serpents. ">obstacle.c</a> </td></tr>
-<tr id="row_4_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="snake_8c.html" target="_self">snake.c</a></td><td class="desc">Fichier permettant la gestion des serpents </td></tr>
-<tr id="row_5_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="snake_8h_source.html"><span class="icondoc"></span></a><a class="el" href="snake_8h.html" target="_self">snake.h</a></td><td class="desc">Header du fichier <a class="el" href="snake_8c.html" title="Fichier permettant la gestion des serpents. ">snake.c</a> </td></tr>
+<tr id="row_2_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="ia_8c.html" target="_self">ia.c</a></td><td class="desc">Fichier permettant la gestion de l'IA aléatoire </td></tr>
+<tr id="row_3_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="ia_8h_source.html"><span class="icondoc"></span></a><a class="el" href="ia_8h.html" target="_self">ia.h</a></td><td class="desc">Header du fichier <a class="el" href="ia_8c.html" title="Fichier permettant la gestion de l&#39;IA aléatoire. ">ia.c</a> </td></tr>
+<tr id="row_4_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="main_8c.html" target="_self">main.c</a></td><td class="desc">Fichier principal du jeu </td></tr>
+<tr id="row_5_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="obstacle_8c.html" target="_self">obstacle.c</a></td><td class="desc">Fichier permettant la création des murs et des positions de départ des serpents </td></tr>
+<tr id="row_6_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="obstacle_8h_source.html"><span class="icondoc"></span></a><a class="el" href="obstacle_8h.html" target="_self">obstacle.h</a></td><td class="desc">Header du fichier <a class="el" href="obstacle_8c.html" title="Fichier permettant la création des murs et des positions de départ des serpents. ">obstacle.c</a> </td></tr>
+<tr id="row_7_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="option_8c.html" target="_self">option.c</a></td><td class="desc">Fichier qui gère les options </td></tr>
+<tr id="row_8_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="option_8h_source.html"><span class="icondoc"></span></a><a class="el" href="option_8h.html" target="_self">option.h</a></td><td class="desc">Header du fichier <a class="el" href="option_8c.html" title="Fichier qui gère les options. ">option.c</a> </td></tr>
+<tr id="row_9_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="snake_8c.html" target="_self">snake.c</a></td><td class="desc">Fichier permettant la gestion des serpents </td></tr>
+<tr id="row_10_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="snake_8h_source.html"><span class="icondoc"></span></a><a class="el" href="snake_8h.html" target="_self">snake.h</a></td><td class="desc">Header du fichier <a class="el" href="snake_8c.html" title="Fichier permettant la gestion des serpents. ">snake.c</a> </td></tr>
 </table>
 </div><!-- directory -->
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Mon Mar 21 2016 21:35:01 for Snake vs Schlanga by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.9.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
+  </ul>
+</div>
 </body>
 </html>

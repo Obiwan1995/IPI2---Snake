@@ -1,7 +1,7 @@
 /**
  * @file ia.c
  * @author Les Mixtes
- * @date 17/04/2016
+ * @date 18/04/2016
  * @brief Fichier permettant la gestion de l'IA aléatoire
  * @details Contient la fonction deplacement_ia qui permet de faire bouger le serpent contrôlé par l'IA aléatoire
  */
@@ -9,7 +9,7 @@
 #include "ia.h"
 
 /**
-* @fn         int deplacement_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes)
+* @fn         void move_random_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes)
 *
 * @brief      Fait bouger le serpent contrôlé par l'IA aléatoire
 *
@@ -18,10 +18,13 @@
 * @param 	  nbSnakes	Le nombre de serpents dans la partie
 * @param 	  snakes 	Le tableau contenant tous les serpents de la partie
 *
-* @return     1 ?
+* @details	  Ce serpent va tout droit dans 90% des cas s'il le peut. Il va de temps à temps à droite ou à gauche de façon aléatoire.
+* @details	  S'il ne peut pas aller tout droit, il choisit aléatoirement d'aller à droite ou gauche s'il ne meurt pas en allant dans cette direction.
+*
+* @return     void
 */
 
-int deplacement_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes) 
+void move_random_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes) 
 {
 	Point pt_left;
 	Point pt_forward;
@@ -63,13 +66,13 @@ int deplacement_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes)
 	}
 	int collision_forward = test_collision(&board, snakes, nbSnakes, pt_forward, ia->id);
 
-	if (collision_forward == 1) 
+	if (collision_forward == ia->id) 
 	{
 		int rdm = rand()%2;
 		if (rdm == 0)
 		{
 			int collision_left = test_collision(&board, snakes, nbSnakes, pt_left, ia->id);
-			if (collision_left == 1) 
+			if (collision_left == ia->id) 
 			{
 				Right(ia);
 			}
@@ -81,7 +84,7 @@ int deplacement_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes)
 		else
 		{
 			int collision_right = test_collision(&board, snakes, nbSnakes, pt_right, ia->id);
-			if (collision_right == 1) 
+			if (collision_right == ia->id) 
 			{
 				Left(ia);
 			}
@@ -101,7 +104,7 @@ int deplacement_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes)
 		else if(rdm >= 90 && rdm < 95)
 		{
 			int collision_left = test_collision(&board, snakes, nbSnakes, pt_left, ia->id);
-			if (collision_left == 1 && test_collision(&board, snakes, nbSnakes, pt_right, ia->id) == 0) 
+			if (collision_left == ia->id && test_collision(&board, snakes, nbSnakes, pt_right, ia->id) == 0) 
 			{
 				Right(ia);
 			}
@@ -117,7 +120,7 @@ int deplacement_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes)
 		else
 		{
 			int collision_right = test_collision(&board, snakes, nbSnakes, pt_right, ia->id);
-			if (collision_right == 1 && test_collision(&board, snakes, nbSnakes, pt_left, ia->id) == 0) 
+			if (collision_right == ia->id && test_collision(&board, snakes, nbSnakes, pt_left, ia->id) == 0) 
 			{
 				Left(ia);
 			}
@@ -131,6 +134,4 @@ int deplacement_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes)
 			}
 		}
 	}
-
-	return 0;
 }

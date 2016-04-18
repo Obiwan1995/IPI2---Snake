@@ -1,7 +1,7 @@
 /**
  * @file snake.h
  * @author Les Mixtes
- * @date 17/04/2016
+ * @date 18/04/2016
  * @brief Header du fichier snake.c
  * @details Contient toutes les déclarations des structures et des variables utiles dans la gestion des serpents
  */
@@ -9,7 +9,6 @@
 #ifndef SNAKE_H_
 #define SNAKE_H_
 
-#include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
 
@@ -34,7 +33,7 @@ typedef struct {
 - une taille (est modifiée au cours du jeu)
 - un tableau de points qui représente le serpent 
 - un point correspondant à la tête du serpent
-- une direction : la direction du serepent */
+- une direction : la direction du serpent */
 
 typedef struct {
 	int id;

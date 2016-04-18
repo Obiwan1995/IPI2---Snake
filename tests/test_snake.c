@@ -301,7 +301,7 @@ static void test_collision_two_snakes_head_head(void ** state)
     // We move the head of the second snake to the initial position of the first one
     snake2->tete.x = X;
     snake2->tete.y = Y;
-    assert_int_equal(test_collision(&b, snakes, nb_snakes, snake->tete, snake2->id), 1);
+    assert_int_equal(test_collision(&b, snakes, nb_snakes, snake->tete, snake2->id), snake2->id);
 }
 
 static void test_collision_two_snakes_head_body(void ** state)

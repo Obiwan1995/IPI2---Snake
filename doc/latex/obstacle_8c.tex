@@ -5,6 +5,7 @@
 Fichier permettant la création des murs et des positions de départ des serpents.  
 
 
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
 {\ttfamily \#include \char`\"{}obstacle.\+h\char`\"{}}\\*
 Include dependency graph for obstacle.\+c\+:
 % FIG 0
@@ -12,7 +13,27 @@ Include dependency graph for obstacle.\+c\+:
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{struct_board}{Board} \hyperlink{obstacle_8c_a1bb6d5e97f9c0ea85cec0dfc047ae669}{init\+\_\+board1} ()
-\begin{DoxyCompactList}\small\item\em Initialise le plateau. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Initialise le plateau de base. \end{DoxyCompactList}\item 
+\hyperlink{struct_board}{Board} \hyperlink{obstacle_8c_a4f392d338ba735131630de96f83307a3}{init\+\_\+board\+\_\+1v1} ()
+\begin{DoxyCompactList}\small\item\em Initialise le plateau spécifique au 1v1. \end{DoxyCompactList}\item 
+int \hyperlink{obstacle_8c_a4e2d7666dbbf9ed45e1c23e327d7e59e}{belongs\+\_\+to\+\_\+tab} (\hyperlink{struct_point}{Point} point, \hyperlink{struct_point}{Point} $\ast$tableau, int taille)
+\begin{DoxyCompactList}\small\item\em Teste l\textquotesingle{}appartenance d\textquotesingle{}un point (2 coordonnées x et y) à un tableau. \end{DoxyCompactList}\item 
+int \hyperlink{obstacle_8c_abe2438846b458617075b83ba19cbdaa0}{test\+\_\+collision} (\hyperlink{struct_board}{Board} $\ast$mur, \hyperlink{struct_serpent}{Serpent} $\ast$$\ast$tab\+\_\+serpent, int nb\+\_\+snakes, \hyperlink{struct_point}{Point} point, int id\+\_\+snake)
+\begin{DoxyCompactList}\small\item\em Teste la collision d\textquotesingle{}un serpent avec le mur ou un autre serpent. \end{DoxyCompactList}\item 
+\hypertarget{obstacle_8c_a47e86039ea17eebe4fa81567d558f957}{}void {\bfseries add\+\_\+walls\+\_\+inside} (\hyperlink{struct_board}{Board} $\ast$b)\label{obstacle_8c_a47e86039ea17eebe4fa81567d558f957}
+
+\item 
+void \hyperlink{obstacle_8c_ad44be14f4ef6100373c68d5ba139a95c}{delete\+\_\+too\+\_\+close\+\_\+walls} (\hyperlink{struct_board}{Board} $\ast$b)
+\begin{DoxyCompactList}\small\item\em Supprime les murs trop proches des positions de départ. \end{DoxyCompactList}\item 
+int \hyperlink{obstacle_8c_a43418d7cd3d6f436a8c0d49305246dc0}{is\+\_\+cell\+\_\+free} (\hyperlink{struct_point}{Point} p, \hyperlink{struct_board}{Board} $\ast$b, \hyperlink{struct_serpent}{Serpent} $\ast$$\ast$tab\+\_\+serpent, int nb\+\_\+snakes)
+\begin{DoxyCompactList}\small\item\em Teste si une case est libre. \end{DoxyCompactList}\item 
+int \hyperlink{obstacle_8c_ac3dee7e53ed3da2065e17f1ee8b34d07}{okay\+\_\+to\+\_\+add\+\_\+wall} (\hyperlink{struct_point}{Point} p, \hyperlink{struct_board}{Board} $\ast$b, \hyperlink{struct_serpent}{Serpent} $\ast$$\ast$tab\+\_\+serpent, int nb\+\_\+snakes)
+\begin{DoxyCompactList}\small\item\em Teste si on peut ajouter un mur. \end{DoxyCompactList}\item 
+void \hyperlink{obstacle_8c_ad5891c5b7963e004f35429d06a1ae02c}{add\+\_\+wall} (\hyperlink{struct_board}{Board} $\ast$b, \hyperlink{struct_serpent}{Serpent} $\ast$$\ast$tab\+\_\+serpent, int nb\+\_\+snakes)
+\begin{DoxyCompactList}\small\item\em Ajoute un nouveau mur sur le plateau. \end{DoxyCompactList}\item 
+\hypertarget{obstacle_8c_ad757f886e77e9ec40649c5ae10d7992d}{}void {\bfseries free\+\_\+board} (\hyperlink{struct_board}{Board} $\ast$b)\label{obstacle_8c_ad757f886e77e9ec40649c5ae10d7992d}
+
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -22,11 +43,86 @@ Fichier permettant la création des murs et des positions de départ des serpent
 Les Mixtes 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
-21/03/2016
+18/04/2016
 \end{DoxyDate}
-Contient l\textquotesingle{}initialisation du \char`\"{}plateau\char`\"{} 
+Contient l\textquotesingle{}initialisation du \char`\"{}plateau\char`\"{} et des murs et des fonctions de gestion des collisions 
 
 \subsection{Function Documentation}
+\hypertarget{obstacle_8c_ad5891c5b7963e004f35429d06a1ae02c}{}\index{obstacle.\+c@{obstacle.\+c}!add\+\_\+wall@{add\+\_\+wall}}
+\index{add\+\_\+wall@{add\+\_\+wall}!obstacle.\+c@{obstacle.\+c}}
+\subsubsection[{add\+\_\+wall}]{\setlength{\rightskip}{0pt plus 5cm}add\+\_\+wall (
+\begin{DoxyParamCaption}
+\item[{{\bf Board} $\ast$}]{b, }
+\item[{{\bf Serpent} $\ast$$\ast$}]{tab\+\_\+serpent, }
+\item[{int}]{nb\+\_\+snakes}
+\end{DoxyParamCaption}
+)}\label{obstacle_8c_ad5891c5b7963e004f35429d06a1ae02c}
+
+
+Ajoute un nouveau mur sur le plateau. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & Le plateau de jeu \\
+\hline
+{\em tab\+\_\+serpent} & Le tableau contenant tous les serpents jouant dans la partie \\
+\hline
+{\em nb\+\_\+snakes} & Le nombre de serpents dans la partie\\
+\hline
+\end{DoxyParams}
+Génère un mur à une position aléatoire tant qu\textquotesingle{}il n\textquotesingle{}a pas une position correcte puis l\textquotesingle{}ajoute au plateau
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{obstacle_8c_a4e2d7666dbbf9ed45e1c23e327d7e59e}{}\index{obstacle.\+c@{obstacle.\+c}!belongs\+\_\+to\+\_\+tab@{belongs\+\_\+to\+\_\+tab}}
+\index{belongs\+\_\+to\+\_\+tab@{belongs\+\_\+to\+\_\+tab}!obstacle.\+c@{obstacle.\+c}}
+\subsubsection[{belongs\+\_\+to\+\_\+tab}]{\setlength{\rightskip}{0pt plus 5cm}int belongs\+\_\+to\+\_\+tab (
+\begin{DoxyParamCaption}
+\item[{{\bf Point}}]{point, }
+\item[{{\bf Point} $\ast$}]{tableau, }
+\item[{int}]{taille}
+\end{DoxyParamCaption}
+)}\label{obstacle_8c_a4e2d7666dbbf9ed45e1c23e327d7e59e}
+
+
+Teste l\textquotesingle{}appartenance d\textquotesingle{}un point (2 coordonnées x et y) à un tableau. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & Le point dont on veut tester l\textquotesingle{}appartenance au tableau \\
+\hline
+{\em tableau} & Le tableau de points dans lequel on veut tester l\textquotesingle{}appartenance \\
+\hline
+{\em taille} & La taille du tableau\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 si le point appartient au tableau 
+
+0 sinon 
+\end{DoxyReturn}
+\hypertarget{obstacle_8c_ad44be14f4ef6100373c68d5ba139a95c}{}\index{obstacle.\+c@{obstacle.\+c}!delete\+\_\+too\+\_\+close\+\_\+walls@{delete\+\_\+too\+\_\+close\+\_\+walls}}
+\index{delete\+\_\+too\+\_\+close\+\_\+walls@{delete\+\_\+too\+\_\+close\+\_\+walls}!obstacle.\+c@{obstacle.\+c}}
+\subsubsection[{delete\+\_\+too\+\_\+close\+\_\+walls}]{\setlength{\rightskip}{0pt plus 5cm}void delete\+\_\+too\+\_\+close\+\_\+walls (
+\begin{DoxyParamCaption}
+\item[{{\bf Board} $\ast$}]{b}
+\end{DoxyParamCaption}
+)}\label{obstacle_8c_ad44be14f4ef6100373c68d5ba139a95c}
+
+
+Supprime les murs trop proches des positions de départ. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & Le plateau créé précédemment\\
+\hline
+\end{DoxyParams}
+En partant des positions de départ, on supprime les murs à moins de 5 cases de celles-\/ci dans les directions données au départ lors de l\textquotesingle{}initialisation
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
 \hypertarget{obstacle_8c_a1bb6d5e97f9c0ea85cec0dfc047ae669}{}\index{obstacle.\+c@{obstacle.\+c}!init\+\_\+board1@{init\+\_\+board1}}
 \index{init\+\_\+board1@{init\+\_\+board1}!obstacle.\+c@{obstacle.\+c}}
 \subsubsection[{init\+\_\+board1}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Board} init\+\_\+board1 (
@@ -36,7 +132,7 @@ Contient l\textquotesingle{}initialisation du \char`\"{}plateau\char`\"{}
 )}\label{obstacle_8c_a1bb6d5e97f9c0ea85cec0dfc047ae669}
 
 
-Initialise le plateau. 
+Initialise le plateau de base. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -44,5 +140,125 @@ Initialise le plateau.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Le plateau avec ses murs et positions de départs 
+Le plateau avec ses murs et 4 positions de départs 
+\end{DoxyReturn}
+\hypertarget{obstacle_8c_a4f392d338ba735131630de96f83307a3}{}\index{obstacle.\+c@{obstacle.\+c}!init\+\_\+board\+\_\+1v1@{init\+\_\+board\+\_\+1v1}}
+\index{init\+\_\+board\+\_\+1v1@{init\+\_\+board\+\_\+1v1}!obstacle.\+c@{obstacle.\+c}}
+\subsubsection[{init\+\_\+board\+\_\+1v1}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Board} init\+\_\+board\+\_\+1v1 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{obstacle_8c_a4f392d338ba735131630de96f83307a3}
+
+
+Initialise le plateau spécifique au 1v1. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+Pour le 1 contre 1, il n\textquotesingle{}y a plus que deux positions de départ \+: à gauche et à droite.
+
+La largeur du plateau est aussi deux fois plus grande que sa hauteur.
+
+\begin{DoxyReturn}{Returns}
+Le plateau avec ses murs et 2 positions de départs 
+\end{DoxyReturn}
+\hypertarget{obstacle_8c_a43418d7cd3d6f436a8c0d49305246dc0}{}\index{obstacle.\+c@{obstacle.\+c}!is\+\_\+cell\+\_\+free@{is\+\_\+cell\+\_\+free}}
+\index{is\+\_\+cell\+\_\+free@{is\+\_\+cell\+\_\+free}!obstacle.\+c@{obstacle.\+c}}
+\subsubsection[{is\+\_\+cell\+\_\+free}]{\setlength{\rightskip}{0pt plus 5cm}is\+\_\+cell\+\_\+free (
+\begin{DoxyParamCaption}
+\item[{{\bf Point}}]{p, }
+\item[{{\bf Board} $\ast$}]{b, }
+\item[{{\bf Serpent} $\ast$$\ast$}]{tab\+\_\+serpent, }
+\item[{int}]{nb\+\_\+snakes}
+\end{DoxyParamCaption}
+)}\label{obstacle_8c_a43418d7cd3d6f436a8c0d49305246dc0}
+
+
+Teste si une case est libre. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & La case à tester \\
+\hline
+{\em b} & Le plateau de jeu \\
+\hline
+{\em tab\+\_\+serpent} & Le tableau contenant tous les serpents jouant dans la partie \\
+\hline
+{\em nb\+\_\+snakes} & Le nombre de serpents dans la partie\\
+\hline
+\end{DoxyParams}
+Utilise la fonction appartient\+\_\+tableau pour savoir si la case testée est contenue dans le tableau des murs ou dans le corps d\textquotesingle{}un des serpents du jeu.
+
+\begin{DoxyReturn}{Returns}
+1 si la case est vide 
+
+0 sinon 
+\end{DoxyReturn}
+\hypertarget{obstacle_8c_ac3dee7e53ed3da2065e17f1ee8b34d07}{}\index{obstacle.\+c@{obstacle.\+c}!okay\+\_\+to\+\_\+add\+\_\+wall@{okay\+\_\+to\+\_\+add\+\_\+wall}}
+\index{okay\+\_\+to\+\_\+add\+\_\+wall@{okay\+\_\+to\+\_\+add\+\_\+wall}!obstacle.\+c@{obstacle.\+c}}
+\subsubsection[{okay\+\_\+to\+\_\+add\+\_\+wall}]{\setlength{\rightskip}{0pt plus 5cm}okay\+\_\+to\+\_\+add\+\_\+wall (
+\begin{DoxyParamCaption}
+\item[{{\bf Point}}]{p, }
+\item[{{\bf Board} $\ast$}]{b, }
+\item[{{\bf Serpent} $\ast$$\ast$}]{tab\+\_\+serpent, }
+\item[{int}]{nb\+\_\+snakes}
+\end{DoxyParamCaption}
+)}\label{obstacle_8c_ac3dee7e53ed3da2065e17f1ee8b34d07}
+
+
+Teste si on peut ajouter un mur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Case à tester \\
+\hline
+{\em b} & Le plateau de jeu \\
+\hline
+{\em tab\+\_\+serpent} & Tableau contenant tous les serpents jouant dans la partie \\
+\hline
+{\em nb\+\_\+snakes} & Nombre de serpents dans la partie\\
+\hline
+\end{DoxyParams}
+Utilise la fonction is\+\_\+cell\+\_\+free pour savoir si la case testée est libre et vérifie que le mur à ajouter n\textquotesingle{}est pas situé à moins de trois cases de la tête d\textquotesingle{}un serpent
+
+\begin{DoxyReturn}{Returns}
+1 si on peut ajouter le mur 
+
+0 sinon 
+\end{DoxyReturn}
+\hypertarget{obstacle_8c_abe2438846b458617075b83ba19cbdaa0}{}\index{obstacle.\+c@{obstacle.\+c}!test\+\_\+collision@{test\+\_\+collision}}
+\index{test\+\_\+collision@{test\+\_\+collision}!obstacle.\+c@{obstacle.\+c}}
+\subsubsection[{test\+\_\+collision}]{\setlength{\rightskip}{0pt plus 5cm}int test\+\_\+collision (
+\begin{DoxyParamCaption}
+\item[{{\bf Board} $\ast$}]{mur, }
+\item[{{\bf Serpent} $\ast$$\ast$}]{tab\+\_\+serpent, }
+\item[{int}]{nb\+\_\+snakes, }
+\item[{{\bf Point}}]{point, }
+\item[{int}]{id\+\_\+snake}
+\end{DoxyParamCaption}
+)}\label{obstacle_8c_abe2438846b458617075b83ba19cbdaa0}
+
+
+Teste la collision d\textquotesingle{}un serpent avec le mur ou un autre serpent. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mur} & Le plateau contenant un tableau de points correspondant aux emplacements des murs \\
+\hline
+{\em tab\+\_\+serpent} & Le tableau de serpent \+: nécessaire pour la collision avec les autres serpents \\
+\hline
+{\em nb\+\_\+snakes} & Le nombre de serpents = longueur du tableau tab\+\_\+serpent \\
+\hline
+{\em point} & La tête du serpent à tester \\
+\hline
+{\em id\+\_\+snake} & L\textquotesingle{}identifiant du serpent à tester\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 s\textquotesingle{}il n\textquotesingle{}y a pas de collision 
+
+Sinon, l\textquotesingle{}identifiant du serpent qui entre en collision avec le mur ou un autre serpent 
 \end{DoxyReturn}

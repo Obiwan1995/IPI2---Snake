@@ -8,6 +8,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -24,9 +32,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Snake vs Schlanga
-   &#160;<span id="projectnumber">0.5</span>
+   &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">Version améliorée du jeu Snake sur Nokia</div>
+   <div id="projectbrief">Création d&#39;une variante du jeu Snake existant sur les anciens téléphones Nokia</div>
   </td>
  </tr>
  </tbody>
@@ -66,6 +74,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>Globals</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('game_8h.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -80,7 +103,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#define-members">Macros</a> &#124;
@@ -93,7 +115,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>Header du fichier <a class="el" href="game_8c.html" title="Fichier qui gère le jeu. ">game.c</a>.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;../lib/SDL/include/SDL/SDL.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="snake_8h_source.html">snake.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="obstacle_8h_source.html">obstacle.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for game.h:</div>
 <div class="dyncontent">
@@ -121,14 +143,12 @@ Macros</h2></td></tr>
 <tr class="separator:acfbc006ea433ad708fdee3e82996e721"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a79d10e672abb49ad63eeaa8aaef57c38"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8h.html#a79d10e672abb49ad63eeaa8aaef57c38">BLUE</a>&#160;&#160;&#160;0x000000FF</td></tr>
 <tr class="separator:a79d10e672abb49ad63eeaa8aaef57c38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac3553b3932cbfeeac4526ce7ca0336b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8h.html#aac3553b3932cbfeeac4526ce7ca0336b">SPEED</a>&#160;&#160;&#160;100</td></tr>
-<tr class="separator:aac3553b3932cbfeeac4526ce7ca0336b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a32ed6647b4edc5caeeb75c312bc1024a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8h.html#a32ed6647b4edc5caeeb75c312bc1024a">play</a> (SDL_Surface *sdlScreen, int nbSnakes)</td></tr>
-<tr class="memdesc:a32ed6647b4edc5caeeb75c312bc1024a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fait tourner le jeu, boucle principale.  <a href="#a32ed6647b4edc5caeeb75c312bc1024a">More...</a><br /></td></tr>
-<tr class="separator:a32ed6647b4edc5caeeb75c312bc1024a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bd87ffa626489bf6be5140af0d8366b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0bd87ffa626489bf6be5140af0d8366b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>play</b> (SDL_Surface *sdlScreen, <a class="el" href="struct_board.html">Board</a> board, int nbSnakes, int nSpeedInit)</td></tr>
+<tr class="separator:a0bd87ffa626489bf6be5140af0d8366b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55883363797dcb303093fb68cd97109c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8h.html#a55883363797dcb303093fb68cd97109c">paint</a> (SDL_Surface *sdlScreen, int x, int y, int nId)</td></tr>
 <tr class="memdesc:a55883363797dcb303093fb68cd97109c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Colorie SIZE_CASE*SIZE_CASE pixels en x, y, pour les serpents ou le mur (la couleur dépend du nId)  <a href="#a55883363797dcb303093fb68cd97109c">More...</a><br /></td></tr>
 <tr class="separator:a55883363797dcb303093fb68cd97109c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -139,7 +159,7 @@ Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Header du fichier <a class="el" href="game_8c.html" title="Fichier qui gère le jeu. ">game.c</a>. </p>
 <dl class="section author"><dt>Author</dt><dd>Les Mixtes </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>21/03/2016</dd></dl>
+<dl class="section date"><dt>Date</dt><dd>18/04/2016</dd></dl>
 <p>Contient les déclarations des fonctions utiles dans la gestion du jeu </p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a class="anchor" id="a7b3b25cba33b07c303f3060fe41887f6"></a>
@@ -207,19 +227,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aac3553b3932cbfeeac4526ce7ca0336b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SPEED&#160;&#160;&#160;100</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Nombre de ms entre chaque pas de temps </p>
-
-</div>
-</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a class="anchor" id="a55883363797dcb303093fb68cd97109c"></a>
 <div class="memitem">
@@ -264,42 +271,6 @@ Functions</h2></td></tr>
     <tr><td class="paramname">x</td><td>Le x de la case à colorier </td></tr>
     <tr><td class="paramname">y</td><td>Le y de la case à colorier </td></tr>
     <tr><td class="paramname">nId</td><td>L'identifiant du propriétaire de la case à colorier</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a32ed6647b4edc5caeeb75c312bc1024a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void play </td>
-          <td>(</td>
-          <td class="paramtype">SDL_Surface *&#160;</td>
-          <td class="paramname"><em>sdlScreen</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>nbSnakes</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Fait tourner le jeu, boucle principale. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">sdlScreen</td><td>L'écran affiché à l'utilisateur </td></tr>
-    <tr><td class="paramname">nbSnakes</td><td>Le nombre de serpents</td></tr>
   </table>
   </dd>
 </dl>
@@ -358,11 +329,15 @@ Functions</h2></td></tr>
 </div>
 </div>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Mon Mar 21 2016 21:35:00 for Snake vs Schlanga by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.9.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="game_8h.html">game.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
+  </ul>
+</div>
 </body>
 </html>
