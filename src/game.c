@@ -1,7 +1,7 @@
 /**
  * @file game.c
  * @author Les Mixtes
- * @date 19/03/2016
+ * @date 18/04/2016
  * @brief Fichier qui gère le jeu
  * @details Contient la boucle principale du jeu ainsi que les divers affichages
  */
@@ -16,7 +16,11 @@
  * @brief      Fait tourner le jeu, boucle principale
  *
  * @param       sdlScreen       L'écran affiché à l'utilisateur
+ * @param       board           Le plateau de jeu
  * @param       nbSnakes        Le nombre de serpents
+ * @param       nSpeedInit      La vitesse initiale de tous les serpents
+ *
+ * @details     Initialise les serpents puis le plateau avant de rentrer dans la boucle de jeu qui ne s'arrête que lorsqu'une collision est détectée.
  *
  * @return     void
  */
@@ -105,7 +109,7 @@ void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit)
 
             for (i = 1; i < nbSnakes; i++)
             {
-                deplacement_ia(snakes[i], board, nbSnakes, snakes);
+                move_random_ia(snakes[i], board, nbSnakes, snakes);
             }
             i = 0;
             while(!nResGame && i < nbSnakes)
@@ -116,7 +120,6 @@ void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit)
 
             SDL_FillRect(sdlScreen, NULL, SDL_MapRGB(sdlScreen->format, 255, 255, 255)); 
 
-            int i;
             for (i=0; i< board.nSize; i++)
             {
                 paint(sdlScreen, board.pPtsMur[i].x, board.pPtsMur[i].y, 0);
@@ -171,6 +174,7 @@ void paint(SDL_Surface* sdlScreen, int x, int y, int nId)
             color = BLUE;
             break;
         default:
+            fprintf(stderr, "Trop de snake pour les couleurs disponibles\n");
             exit(1);
     }
 

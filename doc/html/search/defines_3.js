@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['red',['RED',['../game_8h.html#a8d23feea868a983c8c2b661e1e16972f',1,'game.h']]]
+  ['nb_5fsnakes',['NB_SNAKES',['../main_8c.html#aa753e553079bc62ff731963cb995b8fd',1,'main.c']]]
 ];

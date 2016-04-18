@@ -1,9 +1,9 @@
 /**
  * @file snake.c
  * @author Les Mixtes
- * @date 17/04/2016
+ * @date 18/04/2016
  * @brief Fichier permettant la gestion des serpents
- * @details Contient toutes les fonctions utiles à la gestion des serpents : initialisation, déplacements et gestion des collisions
+ * @details Contient toutes les fonctions utiles à la gestion des serpents : initialisation et déplacements
  */
 
 #include "snake.h"
@@ -11,13 +11,13 @@
 /**
  * @fn         Serpent* init_snake(Serpent *snake, int id, int speed, int dir, Point pos)
  *
- * @brief      initialise le serpent : donne une valeur à chaque champ de la structure
+ * @brief      Initialise le serpent : donne une valeur à chaque champ de la structure
  *
- * @param      	snake           serpent à initialiser
- * @param		id              id du serpent
- * @param		speed			vitesse du serpent
- * @param		dir 			direction du serpent
- * @param		pos 			position initiale du serpent
+ * @param      	snake 		Le serpent à initialiser
+ * @param		id 			L'identifiant du serpent
+ * @param		speed 		La vitesse du serpent
+ * @param		dir 		La direction du serpent
+ * @param		pos 		La position initiale du serpent
  *
  * @return     Le serpent passé en paramètre avec des valeurs pour chaque champ de sa structure
  */
@@ -39,13 +39,16 @@ void init_snake(Serpent* snake, int id, int speed, int dir, Point pos)
 
 /**
  *
- * @fn         void Right(Serpent *snake)
+ * @fn         	void Right(Serpent *snake)
  * 
  * @brief       Change la direction et le serpent lorsque le déplacement choisi par le joueur est la droite.
+ *
+ * @param      	snake  serpent à déplacer
+ *
  * @details		Enumération des 4 cas selon la direction actuelle du serpent
  * @details		On ajoute une case de plus au tableau du serpent qui correspond à la position de la nouvelle tête.
  *
- * @param      snake  serpent à déplacer
+ * @return 		void
  */
 
 void Left(Serpent *snake)
@@ -92,13 +95,16 @@ void Left(Serpent *snake)
 
 /**
  *
- * @fn         void Forward(Serpent *snake)
+ * @fn         	void Forward(Serpent *snake)
  * 
  * @brief      	Change la direction et le serpent lorsque le déplacement choisi par le joueur est tout droit (il continue dans sa direction actuelle).
+ *
+ * @param      	snake  serpent à déplacer
+ *
  * @details		Enumération des 4 cas selon la direction actuelle du serpent
  * @details   	On ajoute une case de plus au tableau du serpent qui correspond à la position de la nouvelle tête.
  *
- * @param      snake  serpent à déplacer
+ * @return 		void
  */
 
 void Forward(Serpent *snake)
@@ -142,13 +148,16 @@ void Forward(Serpent *snake)
 
 /**
  *
- * @fn         void Left(Serpent *snake)
+ * @fn         	void Left(Serpent *snake)
  * 
  * @brief      	Change la direction et le serpent lorsque le déplacement choisi par le joueur est la gauche.		
+ *
+ * @param      	snake  serpent à déplacer
+ *
  * @details		Enumération des 4 cas selon la direction actuelle du serpent
  * @details	   	On ajoute une case de plus au tableau du serpent qui correspond à la position de la nouvelle tête.
  *
- * @param      snake  serpent à déplacer
+ * @return 		void
  */
 
 void Right(Serpent *snake)
@@ -203,6 +212,7 @@ void Right(Serpent *snake)
  *
  * @details		Supprime un serpent de la mémoire en supprimant son tableau de points puis sa structure complète
  *
+ * @return void
  */
 
 void free_snake(Serpent* snake) 

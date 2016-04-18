@@ -8,6 +8,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -24,9 +32,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Snake vs Schlanga
-   &#160;<span id="projectnumber">0.5</span>
+   &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">Version améliorée du jeu Snake sur Nokia</div>
+   <div id="projectbrief">Création d&#39;une variante du jeu Snake existant sur les anciens téléphones Nokia</div>
   </td>
  </tr>
  </tbody>
@@ -66,6 +74,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>Globals</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('obstacle_8h.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -80,11 +103,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
-<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">obstacle.h File Reference</div>  </div>
@@ -94,6 +115,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>Header du fichier <a class="el" href="obstacle_8c.html" title="Fichier permettant la création des murs et des positions de départ des serpents. ">obstacle.c</a>.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="snake_8h_source.html">snake.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for obstacle.h:</div>
 <div class="dyncontent">
@@ -111,57 +133,163 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_point.html">Point</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_board.html">Board</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a94ed08e31d2f3a38d35f0cb89c762f04"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obstacle_8h.html#a94ed08e31d2f3a38d35f0cb89c762f04">BOARD_HEIGHT</a>&#160;&#160;&#160;40</td></tr>
-<tr class="separator:a94ed08e31d2f3a38d35f0cb89c762f04"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1cd139e8d1f7ae83f54c8d477313d8ea"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obstacle_8h.html#a1cd139e8d1f7ae83f54c8d477313d8ea">BOARD_WIDTH</a>&#160;&#160;&#160;40</td></tr>
-<tr class="separator:a1cd139e8d1f7ae83f54c8d477313d8ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a1bb6d5e97f9c0ea85cec0dfc047ae669"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_board.html">Board</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obstacle_8h.html#a1bb6d5e97f9c0ea85cec0dfc047ae669">init_board1</a> ()</td></tr>
-<tr class="memdesc:a1bb6d5e97f9c0ea85cec0dfc047ae669"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise le plateau.  <a href="#a1bb6d5e97f9c0ea85cec0dfc047ae669">More...</a><br /></td></tr>
+<tr class="memdesc:a1bb6d5e97f9c0ea85cec0dfc047ae669"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise le plateau de base.  <a href="#a1bb6d5e97f9c0ea85cec0dfc047ae669">More...</a><br /></td></tr>
 <tr class="separator:a1bb6d5e97f9c0ea85cec0dfc047ae669"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f392d338ba735131630de96f83307a3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_board.html">Board</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obstacle_8h.html#a4f392d338ba735131630de96f83307a3">init_board_1v1</a> ()</td></tr>
+<tr class="memdesc:a4f392d338ba735131630de96f83307a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise le plateau spécifique au 1v1.  <a href="#a4f392d338ba735131630de96f83307a3">More...</a><br /></td></tr>
+<tr class="separator:a4f392d338ba735131630de96f83307a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e2d7666dbbf9ed45e1c23e327d7e59e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obstacle_8h.html#a4e2d7666dbbf9ed45e1c23e327d7e59e">belongs_to_tab</a> (<a class="el" href="struct_point.html">Point</a> point, <a class="el" href="struct_point.html">Point</a> *tableau, int taille)</td></tr>
+<tr class="memdesc:a4e2d7666dbbf9ed45e1c23e327d7e59e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teste l'appartenance d'un point (2 coordonnées x et y) à un tableau.  <a href="#a4e2d7666dbbf9ed45e1c23e327d7e59e">More...</a><br /></td></tr>
+<tr class="separator:a4e2d7666dbbf9ed45e1c23e327d7e59e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe2438846b458617075b83ba19cbdaa0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obstacle_8h.html#abe2438846b458617075b83ba19cbdaa0">test_collision</a> (<a class="el" href="struct_board.html">Board</a> *mur, <a class="el" href="struct_serpent.html">Serpent</a> **tab_serpent, int nb_snakes, <a class="el" href="struct_point.html">Point</a> point, int id_snake)</td></tr>
+<tr class="memdesc:abe2438846b458617075b83ba19cbdaa0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teste la collision d'un serpent avec le mur ou un autre serpent.  <a href="#abe2438846b458617075b83ba19cbdaa0">More...</a><br /></td></tr>
+<tr class="separator:abe2438846b458617075b83ba19cbdaa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47e86039ea17eebe4fa81567d558f957"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a47e86039ea17eebe4fa81567d558f957"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>add_walls_inside</b> (<a class="el" href="struct_board.html">Board</a> *b)</td></tr>
+<tr class="separator:a47e86039ea17eebe4fa81567d558f957"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad44be14f4ef6100373c68d5ba139a95c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obstacle_8h.html#ad44be14f4ef6100373c68d5ba139a95c">delete_too_close_walls</a> (<a class="el" href="struct_board.html">Board</a> *b)</td></tr>
+<tr class="memdesc:ad44be14f4ef6100373c68d5ba139a95c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supprime les murs trop proches des positions de départ.  <a href="#ad44be14f4ef6100373c68d5ba139a95c">More...</a><br /></td></tr>
+<tr class="separator:ad44be14f4ef6100373c68d5ba139a95c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f8d7d716e767e23404b4e5afd654522"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obstacle_8h.html#a7f8d7d716e767e23404b4e5afd654522">is_cell_free</a> (<a class="el" href="struct_point.html">Point</a> p, <a class="el" href="struct_board.html">Board</a> *b, <a class="el" href="struct_serpent.html">Serpent</a> **tab_serpent, int nb_snakes)</td></tr>
+<tr class="memdesc:a7f8d7d716e767e23404b4e5afd654522"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teste si une case est libre.  <a href="#a7f8d7d716e767e23404b4e5afd654522">More...</a><br /></td></tr>
+<tr class="separator:a7f8d7d716e767e23404b4e5afd654522"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc02215591ee4acb37889a39837a7ad0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obstacle_8h.html#acc02215591ee4acb37889a39837a7ad0">okay_to_add_wall</a> (<a class="el" href="struct_point.html">Point</a> p, <a class="el" href="struct_board.html">Board</a> *b, <a class="el" href="struct_serpent.html">Serpent</a> **tab_serpent, int nb_snakes)</td></tr>
+<tr class="memdesc:acc02215591ee4acb37889a39837a7ad0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teste si on peut ajouter un mur.  <a href="#acc02215591ee4acb37889a39837a7ad0">More...</a><br /></td></tr>
+<tr class="separator:acc02215591ee4acb37889a39837a7ad0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92c318e3584d506652ad891c86b6bb34"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obstacle_8h.html#a92c318e3584d506652ad891c86b6bb34">add_wall</a> (<a class="el" href="struct_board.html">Board</a> *b, <a class="el" href="struct_serpent.html">Serpent</a> **tab_serpent, int nb_snakes)</td></tr>
+<tr class="memdesc:a92c318e3584d506652ad891c86b6bb34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute un nouveau mur sur le plateau.  <a href="#a92c318e3584d506652ad891c86b6bb34">More...</a><br /></td></tr>
+<tr class="separator:a92c318e3584d506652ad891c86b6bb34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad757f886e77e9ec40649c5ae10d7992d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad757f886e77e9ec40649c5ae10d7992d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>free_board</b> (<a class="el" href="struct_board.html">Board</a> *b)</td></tr>
+<tr class="separator:ad757f886e77e9ec40649c5ae10d7992d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Header du fichier <a class="el" href="obstacle_8c.html" title="Fichier permettant la création des murs et des positions de départ des serpents. ">obstacle.c</a>. </p>
 <dl class="section author"><dt>Author</dt><dd>Les Mixtes </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>21/03/2016</dd></dl>
+<dl class="section date"><dt>Date</dt><dd>18/04/2016</dd></dl>
 <p>Contient les déclarations des structures et des fonctions utiles dans la gestion du plateau </p>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="a94ed08e31d2f3a38d35f0cb89c762f04"></a>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a92c318e3584d506652ad891c86b6bb34"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define BOARD_HEIGHT&#160;&#160;&#160;40</td>
+          <td class="memname">void add_wall </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_board.html">Board</a> *&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_serpent.html">Serpent</a> **&#160;</td>
+          <td class="paramname"><em>tab_serpent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nb_snakes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Hauteur du plateau de jeu </p>
+
+<p>Ajoute un nouveau mur sur le plateau. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">b</td><td>Le plateau de jeu </td></tr>
+    <tr><td class="paramname">tab_serpent</td><td>Le tableau contenant tous les serpents jouant dans la partie </td></tr>
+    <tr><td class="paramname">nb_snakes</td><td>Le nombre de serpents dans la partie</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Génère un mur à une position aléatoire tant qu'il n'a pas une position correcte puis l'ajoute au plateau</p>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a1cd139e8d1f7ae83f54c8d477313d8ea"></a>
+<a class="anchor" id="a4e2d7666dbbf9ed45e1c23e327d7e59e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define BOARD_WIDTH&#160;&#160;&#160;40</td>
+          <td class="memname">int belongs_to_tab </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_point.html">Point</a>&#160;</td>
+          <td class="paramname"><em>point</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_point.html">Point</a> *&#160;</td>
+          <td class="paramname"><em>tableau</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>taille</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Largeur du plateau de jeu </p>
+
+<p>Teste l'appartenance d'un point (2 coordonnées x et y) à un tableau. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">point</td><td>Le point dont on veut tester l'appartenance au tableau </td></tr>
+    <tr><td class="paramname">tableau</td><td>Le tableau de points dans lequel on veut tester l'appartenance </td></tr>
+    <tr><td class="paramname">taille</td><td>La taille du tableau</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 si le point appartient au tableau </dd>
+<dd>
+0 sinon </dd></dl>
 
 </div>
 </div>
-<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="ad44be14f4ef6100373c68d5ba139a95c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void delete_too_close_walls </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_board.html">Board</a> *&#160;</td>
+          <td class="paramname"><em>b</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Supprime les murs trop proches des positions de départ. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">b</td><td>Le plateau créé précédemment</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>En partant des positions de départ, on supprime les murs à moins de 5 cases de celles-ci dans les directions données au départ lors de l'initialisation</p>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a1bb6d5e97f9c0ea85cec0dfc047ae669"></a>
 <div class="memitem">
 <div class="memproto">
@@ -175,23 +303,218 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Initialise le plateau. </p>
+<p>Initialise le plateau de base. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">void</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Le plateau avec ses murs et positions de départs </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Le plateau avec ses murs et 4 positions de départs </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a4f392d338ba735131630de96f83307a3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_board.html">Board</a> init_board_1v1 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialise le plateau spécifique au 1v1. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Pour le 1 contre 1, il n'y a plus que deux positions de départ : à gauche et à droite.</p>
+<p>La largeur du plateau est aussi deux fois plus grande que sa hauteur.</p>
+<dl class="section return"><dt>Returns</dt><dd>Le plateau avec ses murs et 2 positions de départs </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a7f8d7d716e767e23404b4e5afd654522"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int is_cell_free </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_point.html">Point</a>&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_board.html">Board</a> *&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_serpent.html">Serpent</a> **&#160;</td>
+          <td class="paramname"><em>tab_serpent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nb_snakes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Teste si une case est libre. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>La case à tester </td></tr>
+    <tr><td class="paramname">b</td><td>Le plateau de jeu </td></tr>
+    <tr><td class="paramname">tab_serpent</td><td>Le tableau contenant tous les serpents jouant dans la partie </td></tr>
+    <tr><td class="paramname">nb_snakes</td><td>Le nombre de serpents dans la partie</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Utilise la fonction appartient_tableau pour savoir si la case testée est contenue dans le tableau des murs ou dans le corps d'un des serpents du jeu.</p>
+<dl class="section return"><dt>Returns</dt><dd>1 si la case est vide </dd>
+<dd>
+0 sinon </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="acc02215591ee4acb37889a39837a7ad0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int okay_to_add_wall </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_point.html">Point</a>&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_board.html">Board</a> *&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_serpent.html">Serpent</a> **&#160;</td>
+          <td class="paramname"><em>tab_serpent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nb_snakes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Teste si on peut ajouter un mur. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>Case à tester </td></tr>
+    <tr><td class="paramname">b</td><td>Le plateau de jeu </td></tr>
+    <tr><td class="paramname">tab_serpent</td><td>Tableau contenant tous les serpents jouant dans la partie </td></tr>
+    <tr><td class="paramname">nb_snakes</td><td>Nombre de serpents dans la partie</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Utilise la fonction is_cell_free pour savoir si la case testée est libre et vérifie que le mur à ajouter n'est pas situé à moins de trois cases de la tête d'un serpent</p>
+<dl class="section return"><dt>Returns</dt><dd>1 si on peut ajouter le mur </dd>
+<dd>
+0 sinon </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="abe2438846b458617075b83ba19cbdaa0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int test_collision </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_board.html">Board</a> *&#160;</td>
+          <td class="paramname"><em>mur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_serpent.html">Serpent</a> **&#160;</td>
+          <td class="paramname"><em>tab_serpent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nb_snakes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_point.html">Point</a>&#160;</td>
+          <td class="paramname"><em>point</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id_snake</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Teste la collision d'un serpent avec le mur ou un autre serpent. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mur</td><td>Le plateau contenant un tableau de points correspondant aux emplacements des murs </td></tr>
+    <tr><td class="paramname">tab_serpent</td><td>Le tableau de serpent : nécessaire pour la collision avec les autres serpents </td></tr>
+    <tr><td class="paramname">nb_snakes</td><td>Le nombre de serpents = longueur du tableau tab_serpent </td></tr>
+    <tr><td class="paramname">point</td><td>La tête du serpent à tester </td></tr>
+    <tr><td class="paramname">id_snake</td><td>L'identifiant du serpent à tester</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 s'il n'y a pas de collision </dd>
+<dd>
+Sinon, l'identifiant du serpent qui entre en collision avec le mur ou un autre serpent </dd></dl>
 
 </div>
 </div>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Mon Mar 21 2016 21:35:00 for Snake vs Schlanga by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.9.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="obstacle_8h.html">obstacle.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
+  </ul>
+</div>
 </body>
 </html>

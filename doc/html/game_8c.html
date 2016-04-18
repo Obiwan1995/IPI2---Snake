@@ -8,6 +8,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -24,9 +32,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Snake vs Schlanga
-   &#160;<span id="projectnumber">0.5</span>
+   &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">Version améliorée du jeu Snake sur Nokia</div>
+   <div id="projectbrief">Création d&#39;une variante du jeu Snake existant sur les anciens téléphones Nokia</div>
   </td>
  </tr>
  </tbody>
@@ -66,6 +74,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>Globals</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('game_8c.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -80,7 +103,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
@@ -92,6 +114,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>Fichier qui gère le jeu.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="game_8h_source.html">game.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="ia_8c.html">ia.c</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for game.c:</div>
 <div class="dyncontent">
@@ -102,9 +125,9 @@ Include dependency graph for game.c:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a5686b30aedd5f4d9c895f85214c7aa24"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8c.html#a5686b30aedd5f4d9c895f85214c7aa24">play</a> (SDL_Surface *sdlScreen, int nbSnakes)</td></tr>
-<tr class="memdesc:a5686b30aedd5f4d9c895f85214c7aa24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fait tourner le jeu, boucle principale.  <a href="#a5686b30aedd5f4d9c895f85214c7aa24">More...</a><br /></td></tr>
-<tr class="separator:a5686b30aedd5f4d9c895f85214c7aa24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bd87ffa626489bf6be5140af0d8366b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0bd87ffa626489bf6be5140af0d8366b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>play</b> (SDL_Surface *sdlScreen, <a class="el" href="struct_board.html">Board</a> board, int nbSnakes, int nSpeedInit)</td></tr>
+<tr class="separator:a0bd87ffa626489bf6be5140af0d8366b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46baed0d67949c129bec3f7f2f663844"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8c.html#a46baed0d67949c129bec3f7f2f663844">paint</a> (SDL_Surface *sdlScreen, int x, int y, int nId)</td></tr>
 <tr class="memdesc:a46baed0d67949c129bec3f7f2f663844"><td class="mdescLeft">&#160;</td><td class="mdescRight">Colorie SIZE_CASE*SIZE_CASE pixels en x, y, pour les serpents ou le mur (la couleur dépend du nId)  <a href="#a46baed0d67949c129bec3f7f2f663844">More...</a><br /></td></tr>
 <tr class="separator:a46baed0d67949c129bec3f7f2f663844"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -115,7 +138,7 @@ Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Fichier qui gère le jeu. </p>
 <dl class="section author"><dt>Author</dt><dd>Les Mixtes </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>19/03/2016</dd></dl>
+<dl class="section date"><dt>Date</dt><dd>18/04/2016</dd></dl>
 <p>Contient la boucle principale du jeu ainsi que les divers affichages </p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a class="anchor" id="a46baed0d67949c129bec3f7f2f663844"></a>
@@ -161,42 +184,6 @@ Functions</h2></td></tr>
     <tr><td class="paramname">x</td><td>Le x de la case à colorier </td></tr>
     <tr><td class="paramname">y</td><td>Le y de la case à colorier </td></tr>
     <tr><td class="paramname">nId</td><td>L'identifiant du propriétaire de la case à colorier</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a5686b30aedd5f4d9c895f85214c7aa24"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">play </td>
-          <td>(</td>
-          <td class="paramtype">SDL_Surface *&#160;</td>
-          <td class="paramname"><em>sdlScreen</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>nbSnakes</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Fait tourner le jeu, boucle principale. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">sdlScreen</td><td>L'écran affiché à l'utilisateur </td></tr>
-    <tr><td class="paramname">nbSnakes</td><td>Le nombre de serpents</td></tr>
   </table>
   </dd>
 </dl>
@@ -255,11 +242,15 @@ Functions</h2></td></tr>
 </div>
 </div>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Mon Mar 21 2016 21:35:00 for Snake vs Schlanga by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.9.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="game_8c.html">game.c</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -8,6 +8,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -24,9 +32,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Snake vs Schlanga
-   &#160;<span id="projectnumber">0.5</span>
+   &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">Version améliorée du jeu Snake sur Nokia</div>
+   <div id="projectbrief">Création d&#39;une variante du jeu Snake existant sur les anciens téléphones Nokia</div>
   </td>
  </tr>
  </tbody>
@@ -66,6 +74,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>Globals</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('snake_8c.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -80,7 +103,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
@@ -102,7 +124,7 @@ Include dependency graph for snake.c:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aeec7bcbb0a7f1528c6150cea20d83f90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="snake_8c.html#aeec7bcbb0a7f1528c6150cea20d83f90">init_snake</a> (<a class="el" href="struct_serpent.html">Serpent</a> *snake, int id, int speed, int dir, <a class="el" href="struct_point.html">Point</a> pos)</td></tr>
-<tr class="memdesc:aeec7bcbb0a7f1528c6150cea20d83f90"><td class="mdescLeft">&#160;</td><td class="mdescRight">initialise le serpent : donne une valeur à chaque champ de la structure  <a href="#aeec7bcbb0a7f1528c6150cea20d83f90">More...</a><br /></td></tr>
+<tr class="memdesc:aeec7bcbb0a7f1528c6150cea20d83f90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise le serpent : donne une valeur à chaque champ de la structure.  <a href="#aeec7bcbb0a7f1528c6150cea20d83f90">More...</a><br /></td></tr>
 <tr class="separator:aeec7bcbb0a7f1528c6150cea20d83f90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ab39c5db14b489238d731176838e667"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="snake_8c.html#a3ab39c5db14b489238d731176838e667">Left</a> (<a class="el" href="struct_serpent.html">Serpent</a> *snake)</td></tr>
 <tr class="memdesc:a3ab39c5db14b489238d731176838e667"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change la direction et le serpent lorsque le déplacement choisi par le joueur est la gauche.  <a href="#a3ab39c5db14b489238d731176838e667">More...</a><br /></td></tr>
@@ -113,64 +135,16 @@ Functions</h2></td></tr>
 <tr class="memitem:a89100897980e51855920fdb91793d4e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="snake_8c.html#a89100897980e51855920fdb91793d4e8">Right</a> (<a class="el" href="struct_serpent.html">Serpent</a> *snake)</td></tr>
 <tr class="memdesc:a89100897980e51855920fdb91793d4e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change la direction et le serpent lorsque le déplacement choisi par le joueur est la droite.  <a href="#a89100897980e51855920fdb91793d4e8">More...</a><br /></td></tr>
 <tr class="separator:a89100897980e51855920fdb91793d4e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3bbb036c9c1de1a55a5b4c02324982a6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="snake_8c.html#a3bbb036c9c1de1a55a5b4c02324982a6">appartient_tableau</a> (<a class="el" href="struct_point.html">Point</a> point, <a class="el" href="struct_point.html">Point</a> *tableau, int taille)</td></tr>
-<tr class="memdesc:a3bbb036c9c1de1a55a5b4c02324982a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teste l'appartenance d'un point (2 coordonnées x et y) à un tableau.  <a href="#a3bbb036c9c1de1a55a5b4c02324982a6">More...</a><br /></td></tr>
-<tr class="separator:a3bbb036c9c1de1a55a5b4c02324982a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6108f746af34c7093095fa6d51659e5e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="snake_8c.html#a6108f746af34c7093095fa6d51659e5e">test_collision</a> (<a class="el" href="struct_board.html">Board</a> *mur, <a class="el" href="struct_serpent.html">Serpent</a> **tab_serpent, int nb_snakes)</td></tr>
-<tr class="memdesc:a6108f746af34c7093095fa6d51659e5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teste la collision d'un serpent avec le mur ou un autre serpent.  <a href="#a6108f746af34c7093095fa6d51659e5e">More...</a><br /></td></tr>
-<tr class="separator:a6108f746af34c7093095fa6d51659e5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af38375ebbeb7fb3e36374711468b3e8d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="snake_8c.html#af38375ebbeb7fb3e36374711468b3e8d">free_snake</a> (<a class="el" href="struct_serpent.html">Serpent</a> *snake)</td></tr>
+<tr class="memdesc:af38375ebbeb7fb3e36374711468b3e8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supprime un serpent.  <a href="#af38375ebbeb7fb3e36374711468b3e8d">More...</a><br /></td></tr>
+<tr class="separator:af38375ebbeb7fb3e36374711468b3e8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Fichier permettant la gestion des serpents. </p>
 <dl class="section author"><dt>Author</dt><dd>Les Mixtes </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>17/03/2016</dd></dl>
-<p>Contient toutes les fonctions utiles à la gestion des serpents : initialisation, déplacements et gestion des collisions </p>
+<dl class="section date"><dt>Date</dt><dd>18/04/2016</dd></dl>
+<p>Contient toutes les fonctions utiles à la gestion des serpents : initialisation et déplacements </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a3bbb036c9c1de1a55a5b4c02324982a6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int appartient_tableau </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_point.html">Point</a>&#160;</td>
-          <td class="paramname"><em>point</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="struct_point.html">Point</a> *&#160;</td>
-          <td class="paramname"><em>tableau</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>taille</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Teste l'appartenance d'un point (2 coordonnées x et y) à un tableau. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">point</td><td>point dont on veut tester l'appartenance au tableau </td></tr>
-    <tr><td class="paramname">tableau</td><td>tableau de points </td></tr>
-    <tr><td class="paramname">taille</td><td>taille du tableau</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>0 si le point n'appartient pas au tableau </dd>
-<dd>
-1 sinon </dd></dl>
-
-</div>
-</div>
 <a class="anchor" id="a40af0c3301e6a0d90261c056a3afba28"></a>
 <div class="memitem">
 <div class="memproto">
@@ -186,14 +160,41 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Change la direction et le serpent lorsque le déplacement choisi par le joueur est tout droit (il continue dans sa direction actuelle). </p>
-<p>Enumération des 4 cas selon la direction actuelle du serpent</p>
-<p>On ajoute une case de plus au tableau du serpent qui correspond à la position de la nouvelle tête.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">snake</td><td>serpent à déplacer </td></tr>
+    <tr><td class="paramname">snake</td><td>serpent à déplacer</td></tr>
   </table>
   </dd>
 </dl>
+<p>Enumération des 4 cas selon la direction actuelle du serpent</p>
+<p>On ajoute une case de plus au tableau du serpent qui correspond à la position de la nouvelle tête.</p>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af38375ebbeb7fb3e36374711468b3e8d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">free_snake </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_serpent.html">Serpent</a> *&#160;</td>
+          <td class="paramname"><em>snake</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Supprime un serpent. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">snake</td><td><a class="el" href="struct_serpent.html">Serpent</a> à supprimer</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Supprime un serpent de la mémoire en supprimant son tableau de points puis sa structure complète</p>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
 </div>
 </div>
@@ -239,14 +240,14 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>initialise le serpent : donne une valeur à chaque champ de la structure </p>
+<p>Initialise le serpent : donne une valeur à chaque champ de la structure. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">snake</td><td>serpent à initialiser </td></tr>
-    <tr><td class="paramname">id</td><td>id du serpent </td></tr>
-    <tr><td class="paramname">speed</td><td>vitesse du serpent </td></tr>
-    <tr><td class="paramname">dir</td><td>direction du serpent </td></tr>
-    <tr><td class="paramname">pos</td><td>position initiale du serpent</td></tr>
+    <tr><td class="paramname">snake</td><td>Le serpent à initialiser </td></tr>
+    <tr><td class="paramname">id</td><td>L'identifiant du serpent </td></tr>
+    <tr><td class="paramname">speed</td><td>La vitesse du serpent </td></tr>
+    <tr><td class="paramname">dir</td><td>La direction du serpent </td></tr>
+    <tr><td class="paramname">pos</td><td>La position initiale du serpent</td></tr>
   </table>
   </dd>
 </dl>
@@ -269,14 +270,15 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Change la direction et le serpent lorsque le déplacement choisi par le joueur est la gauche. </p>
-<p>Enumération des 4 cas selon la direction actuelle du serpent</p>
-<p>On ajoute une case de plus au tableau du serpent qui correspond à la position de la nouvelle tête.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">snake</td><td>serpent à déplacer </td></tr>
+    <tr><td class="paramname">snake</td><td>serpent à déplacer</td></tr>
   </table>
   </dd>
 </dl>
+<p>Enumération des 4 cas selon la direction actuelle du serpent</p>
+<p>On ajoute une case de plus au tableau du serpent qui correspond à la position de la nouvelle tête.</p>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
 </div>
 </div>
@@ -295,68 +297,28 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Change la direction et le serpent lorsque le déplacement choisi par le joueur est la droite. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">snake</td><td>serpent à déplacer</td></tr>
+  </table>
+  </dd>
+</dl>
 <p>Enumération des 4 cas selon la direction actuelle du serpent</p>
 <p>On ajoute une case de plus au tableau du serpent qui correspond à la position de la nouvelle tête.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">snake</td><td>serpent à déplacer </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="a6108f746af34c7093095fa6d51659e5e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int test_collision </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_board.html">Board</a> *&#160;</td>
-          <td class="paramname"><em>mur</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="struct_serpent.html">Serpent</a> **&#160;</td>
-          <td class="paramname"><em>tab_serpent</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>nb_snakes</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Teste la collision d'un serpent avec le mur ou un autre serpent. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">mur</td><td>plateau contenant un tableau de points correspondant aux emplacements des murs </td></tr>
-    <tr><td class="paramname">tab_serpent</td><td>tableau de serpent : nécessaire pour la collision avec les autres serpents </td></tr>
-    <tr><td class="paramname">nb_snakes</td><td>nombre de serpents = longueur du tableau tab_serpent</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>0 s'il n'y a pas de collision </dd>
-<dd>
-Sinon, l'id du serpent qui entre en collision avec le mur ou un autre serpent </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
 </div>
 </div>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Mon Mar 21 2016 21:35:00 for Snake vs Schlanga by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.9.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="snake_8c.html">snake.c</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
+  </ul>
+</div>
 </body>
 </html>

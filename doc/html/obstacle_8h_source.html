@@ -8,6 +8,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -24,9 +32,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Snake vs Schlanga
-   &#160;<span id="projectnumber">0.5</span>
+   &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">Version améliorée du jeu Snake sur Nokia</div>
+   <div id="projectbrief">Création d&#39;une variante du jeu Snake existant sur les anciens téléphones Nokia</div>
   </td>
  </tr>
  </tbody>
@@ -67,6 +75,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('obstacle_8h_source.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -91,38 +113,54 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define OBSTACLE_H_</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="snake_8h.html">snake.h</a>&quot;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="obstacle_8h.html#a94ed08e31d2f3a38d35f0cb89c762f04">   16</a></span>&#160;<span class="preprocessor">#define BOARD_HEIGHT 40</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="obstacle_8h.html#a1cd139e8d1f7ae83f54c8d477313d8ea">   18</a></span>&#160;<span class="preprocessor">#define BOARD_WIDTH 40</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="struct_point.html">   24</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">int</span> x;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">int</span> y;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;} <a class="code" href="struct_point.html">Point</a>;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="struct_board.html">   36</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">int</span> nNbPos;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">int</span> nSize;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="struct_point.html">Point</a>* pPtsMur;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="struct_point.html">Point</a>* pPtsPositions;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">int</span>* pnDirs;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;} <a class="code" href="struct_board.html">Board</a>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<a class="code" href="struct_board.html">Board</a> <a class="code" href="obstacle_8h.html#a1bb6d5e97f9c0ea85cec0dfc047ae669">init_board1</a>();</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="struct_board.html">   25</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">int</span> nBoardWidth;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">int</span> nBoardHeight;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">int</span> nNbPos;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">int</span> nSize;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="struct_point.html">Point</a>* pPtsMur;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="struct_point.html">Point</a>* pPtsPositions;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">int</span>* pnDirs;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;} <a class="code" href="struct_board.html">Board</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<a class="code" href="struct_board.html">Board</a> <a class="code" href="obstacle_8h.html#a1bb6d5e97f9c0ea85cec0dfc047ae669">init_board1</a>();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<a class="code" href="struct_board.html">Board</a> <a class="code" href="obstacle_8h.html#a4f392d338ba735131630de96f83307a3">init_board_1v1</a>();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordtype">int</span> <a class="code" href="obstacle_8h.html#a4e2d7666dbbf9ed45e1c23e327d7e59e">belongs_to_tab</a>(<a class="code" href="struct_point.html">Point</a> point, <a class="code" href="struct_point.html">Point</a>* tableau, <span class="keywordtype">int</span> taille);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keywordtype">int</span> <a class="code" href="obstacle_8h.html#abe2438846b458617075b83ba19cbdaa0">test_collision</a>(<a class="code" href="struct_board.html">Board</a>* mur, <a class="code" href="struct_serpent.html">Serpent</a>** tab_serpent, <span class="keywordtype">int</span> nb_snakes, <a class="code" href="struct_point.html">Point</a> point, <span class="keywordtype">int</span> id_snake);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordtype">void</span> add_walls_inside(<a class="code" href="struct_board.html">Board</a>* b);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keywordtype">void</span> <a class="code" href="obstacle_8h.html#ad44be14f4ef6100373c68d5ba139a95c">delete_too_close_walls</a>(<a class="code" href="struct_board.html">Board</a> *b);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keywordtype">int</span> <a class="code" href="obstacle_8h.html#a7f8d7d716e767e23404b4e5afd654522">is_cell_free</a>(<a class="code" href="struct_point.html">Point</a> p, <a class="code" href="struct_board.html">Board</a>* b, <a class="code" href="struct_serpent.html">Serpent</a>** tab_serpent, <span class="keywordtype">int</span> nb_snakes);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keywordtype">int</span> <a class="code" href="obstacle_8h.html#acc02215591ee4acb37889a39837a7ad0">okay_to_add_wall</a>(<a class="code" href="struct_point.html">Point</a> p, <a class="code" href="struct_board.html">Board</a>* b, <a class="code" href="struct_serpent.html">Serpent</a>** tab_serpent, <span class="keywordtype">int</span> nb_snakes);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keywordtype">void</span> <a class="code" href="obstacle_8h.html#a92c318e3584d506652ad891c86b6bb34">add_wall</a>(<a class="code" href="struct_board.html">Board</a>* b, <a class="code" href="struct_serpent.html">Serpent</a>** tab_serpent, <span class="keywordtype">int</span> nb_snakes);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keywordtype">void</span> free_board(<a class="code" href="struct_board.html">Board</a>* b);</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="struct_point_html"><div class="ttname"><a href="struct_point.html">Point</a></div><div class="ttdef"><b>Definition:</b> obstacle.h:24</div></div>
-<div class="ttc" id="obstacle_8h_html_a1bb6d5e97f9c0ea85cec0dfc047ae669"><div class="ttname"><a href="obstacle_8h.html#a1bb6d5e97f9c0ea85cec0dfc047ae669">init_board1</a></div><div class="ttdeci">Board init_board1()</div><div class="ttdoc">Initialise le plateau. </div><div class="ttdef"><b>Definition:</b> obstacle.c:21</div></div>
-<div class="ttc" id="struct_board_html"><div class="ttname"><a href="struct_board.html">Board</a></div><div class="ttdef"><b>Definition:</b> obstacle.h:36</div></div>
+<div class="ttc" id="obstacle_8h_html_a7f8d7d716e767e23404b4e5afd654522"><div class="ttname"><a href="obstacle_8h.html#a7f8d7d716e767e23404b4e5afd654522">is_cell_free</a></div><div class="ttdeci">int is_cell_free(Point p, Board *b, Serpent **tab_serpent, int nb_snakes)</div><div class="ttdoc">Teste si une case est libre. </div><div class="ttdef"><b>Definition:</b> obstacle.c:541</div></div>
+<div class="ttc" id="obstacle_8h_html_a92c318e3584d506652ad891c86b6bb34"><div class="ttname"><a href="obstacle_8h.html#a92c318e3584d506652ad891c86b6bb34">add_wall</a></div><div class="ttdeci">void add_wall(Board *b, Serpent **tab_serpent, int nb_snakes)</div><div class="ttdoc">Ajoute un nouveau mur sur le plateau. </div><div class="ttdef"><b>Definition:</b> obstacle.c:631</div></div>
+<div class="ttc" id="obstacle_8h_html_abe2438846b458617075b83ba19cbdaa0"><div class="ttname"><a href="obstacle_8h.html#abe2438846b458617075b83ba19cbdaa0">test_collision</a></div><div class="ttdeci">int test_collision(Board *mur, Serpent **tab_serpent, int nb_snakes, Point point, int id_snake)</div><div class="ttdoc">Teste la collision d&#39;un serpent avec le mur ou un autre serpent. </div><div class="ttdef"><b>Definition:</b> obstacle.c:170</div></div>
+<div class="ttc" id="obstacle_8h_html_acc02215591ee4acb37889a39837a7ad0"><div class="ttname"><a href="obstacle_8h.html#acc02215591ee4acb37889a39837a7ad0">okay_to_add_wall</a></div><div class="ttdeci">int okay_to_add_wall(Point p, Board *b, Serpent **tab_serpent, int nb_snakes)</div><div class="ttdoc">Teste si on peut ajouter un mur. </div><div class="ttdef"><b>Definition:</b> obstacle.c:574</div></div>
+<div class="ttc" id="obstacle_8h_html_ad44be14f4ef6100373c68d5ba139a95c"><div class="ttname"><a href="obstacle_8h.html#ad44be14f4ef6100373c68d5ba139a95c">delete_too_close_walls</a></div><div class="ttdeci">void delete_too_close_walls(Board *b)</div><div class="ttdoc">Supprime les murs trop proches des positions de départ. </div><div class="ttdef"><b>Definition:</b> obstacle.c:478</div></div>
+<div class="ttc" id="obstacle_8h_html_a4e2d7666dbbf9ed45e1c23e327d7e59e"><div class="ttname"><a href="obstacle_8h.html#a4e2d7666dbbf9ed45e1c23e327d7e59e">belongs_to_tab</a></div><div class="ttdeci">int belongs_to_tab(Point point, Point *tableau, int taille)</div><div class="ttdoc">Teste l&#39;appartenance d&#39;un point (2 coordonnées x et y) à un tableau. </div><div class="ttdef"><b>Definition:</b> obstacle.c:136</div></div>
+<div class="ttc" id="struct_point_html"><div class="ttname"><a href="struct_point.html">Point</a></div><div class="ttdef"><b>Definition:</b> snake.h:25</div></div>
+<div class="ttc" id="obstacle_8h_html_a4f392d338ba735131630de96f83307a3"><div class="ttname"><a href="obstacle_8h.html#a4f392d338ba735131630de96f83307a3">init_board_1v1</a></div><div class="ttdeci">Board init_board_1v1()</div><div class="ttdoc">Initialise le plateau spécifique au 1v1. </div><div class="ttdef"><b>Definition:</b> obstacle.c:83</div></div>
+<div class="ttc" id="obstacle_8h_html_a1bb6d5e97f9c0ea85cec0dfc047ae669"><div class="ttname"><a href="obstacle_8h.html#a1bb6d5e97f9c0ea85cec0dfc047ae669">init_board1</a></div><div class="ttdeci">Board init_board1()</div><div class="ttdoc">Initialise le plateau de base. </div><div class="ttdef"><b>Definition:</b> obstacle.c:22</div></div>
+<div class="ttc" id="struct_board_html"><div class="ttname"><a href="struct_board.html">Board</a></div><div class="ttdef"><b>Definition:</b> obstacle.h:25</div></div>
+<div class="ttc" id="struct_serpent_html"><div class="ttname"><a href="struct_serpent.html">Serpent</a></div><div class="ttdef"><b>Definition:</b> snake.h:38</div></div>
+<div class="ttc" id="snake_8h_html"><div class="ttname"><a href="snake_8h.html">snake.h</a></div><div class="ttdoc">Header du fichier snake.c. </div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Mon Mar 21 2016 21:35:00 for Snake vs Schlanga by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.9.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="obstacle_8h.html">obstacle.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
+  </ul>
+</div>
 </body>
 </html>

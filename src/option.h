@@ -1,7 +1,7 @@
 /**
  * @file option.h
  * @author Les Mixtes
- * @date 01/04/2016
+ * @date 18/04/2016
  * @brief Header du fichier option.c
  * @details Prend en charge le menu des options
  */

@@ -1,7 +1,7 @@
 /**
  * @file obstacle.h
  * @author Les Mixtes
- * @date 17/04/2016
+ * @date 18/04/2016
  * @brief Header du fichier obstacle.c
  * @details Contient les déclarations des structures et des fonctions utiles dans la gestion du plateau
  */
@@ -35,7 +35,7 @@ typedef struct
 
 Board init_board1();
 Board init_board_1v1();
-int appartient_tableau(Point point, Point* tableau, int taille);
+int belongs_to_tab(Point point, Point* tableau, int taille);
 int test_collision(Board* mur, Serpent** tab_serpent, int nb_snakes, Point point, int id_snake);
 void add_walls_inside(Board* b);
 void delete_too_close_walls(Board *b);

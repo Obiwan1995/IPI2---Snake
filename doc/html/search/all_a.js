@@ -1,9 +1,6 @@
 var searchData=
 [
-  ['serpent',['Serpent',['../struct_serpent.html',1,'']]],
-  ['setpixel',['setPixel',['../game_8c.html#a2d22163827217dad3828cb9b80215bbc',1,'setPixel(SDL_Surface *surface, int x, int y, Uint32 color):&#160;game.c'],['../game_8h.html#af16e2307d16c262a30a859ca3dc9c3ac',1,'setPixel(SDL_Surface *surface, int x, int y, Uint32 color):&#160;game.c']]],
-  ['size_5fcase',['SIZE_CASE',['../game_8h.html#a2a94d2f61c849b4aeed9684aae52c8c1',1,'game.h']]],
-  ['snake_2ec',['snake.c',['../snake_8c.html',1,'']]],
-  ['snake_2eh',['snake.h',['../snake_8h.html',1,'']]],
-  ['speed',['SPEED',['../game_8h.html#aac3553b3932cbfeeac4526ce7ca0336b',1,'game.h']]]
+  ['p_5fgain_5fsize',['P_GAIN_SIZE',['../snake_8h.html#a2bd8d77eb71ec19ca11bce2506ea4bc3',1,'snake.h']]],
+  ['paint',['paint',['../game_8c.html#a46baed0d67949c129bec3f7f2f663844',1,'paint(SDL_Surface *sdlScreen, int x, int y, int nId):&#160;game.c'],['../game_8h.html#a55883363797dcb303093fb68cd97109c',1,'paint(SDL_Surface *sdlScreen, int x, int y, int nId):&#160;game.c']]],
+  ['point',['Point',['../struct_point.html',1,'']]]
 ];

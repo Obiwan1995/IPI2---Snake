@@ -1,7 +1,7 @@
 /**
  * @file main.c
  * @author Les Mixtes
- * @date 17/04/2016
+ * @date 18/04/2016
  * @brief Fichier principal du jeu
  * @details Contient la fonction principale du snake qui permet de lancer le jeu avec le menu
  */
@@ -14,7 +14,7 @@
 /** Hauteur du Menu */
 #define MENU_HEIGHT 600
 /** Nombre de serpents */
-#define NB_SNAKE 3
+#define NB_SNAKES 3
 
 int main(int argc, char *argv[])
 {
@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
     int nMenu;
     int nBoard = BOARD_BASE;
     int nSpeedInit = SPEED_MEDIUM;
-    int nNbSnake = NB_SNAKE;
+    int nNbSnake = NB_SNAKES;
     int nWalls = BOARD_WITH_WALLS;
     srand(time(NULL));
 
@@ -71,6 +71,7 @@ int main(int argc, char *argv[])
                                 board = init_board1();
                                 break;
                             case BOARD_1V1:
+                                nNbSnake = 2;
                                 board = init_board_1v1();
                                 break;
                             case BIG_BOARD:

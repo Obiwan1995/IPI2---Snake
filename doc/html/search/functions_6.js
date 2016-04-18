@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['setpixel',['setPixel',['../game_8c.html#a2d22163827217dad3828cb9b80215bbc',1,'setPixel(SDL_Surface *surface, int x, int y, Uint32 color):&#160;game.c'],['../game_8h.html#af16e2307d16c262a30a859ca3dc9c3ac',1,'setPixel(SDL_Surface *surface, int x, int y, Uint32 color):&#160;game.c']]]
+  ['move_5frandom_5fia',['move_random_ia',['../ia_8c.html#a56edf63e554b1c8be4d61a6cad1f9af5',1,'move_random_ia(Serpent *ia, Board board, int nbSnakes, Serpent **snakes):&#160;ia.c'],['../ia_8h.html#a56edf63e554b1c8be4d61a6cad1f9af5',1,'move_random_ia(Serpent *ia, Board board, int nbSnakes, Serpent **snakes):&#160;ia.c']]]
 ];

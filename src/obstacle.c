@@ -1,9 +1,9 @@
 /**
  * @file obstacle.c
  * @author Les Mixtes
- * @date 17/04/2016
+ * @date 18/04/2016
  * @brief Fichier permettant la création des murs et des positions de départ des serpents
- * @details Contient l'initialisation du "plateau" et des murs
+ * @details Contient l'initialisation du "plateau" et des murs et des fonctions de gestion des collisions
  */
 
 #include <stdio.h>
@@ -74,14 +74,17 @@ Board init_board1()
  *
  * @param      void
  *
+ * @details    Pour le 1 contre 1, il n'y a plus que deux positions de départ : à gauche et à droite.
+ * @details    La largeur du plateau est aussi deux fois plus grande que sa hauteur.
+ *
  * @return     Le plateau avec ses murs et 2 positions de départs
  */
 
 Board init_board_1v1()
 {
 	Board B;
-	B.nBoardWidth = 50;
 	B.nBoardHeight = 25;
+	B.nBoardWidth = 2*B.nBoardHeight;
 
 	B.nSize = 2*B.nBoardWidth+2*B.nBoardHeight-4;
 	B.pPtsMur = (Point*)malloc(B.nSize*sizeof(Point));
@@ -118,19 +121,19 @@ Board init_board_1v1()
 }
 
 /**
- * @fn 		int appartient_tableau(Point point, Point* tableau, int taille)
+ * @fn 		int belongs_to_tab(Point point, Point* tableau, int taille)
  * 
  * @brief   Teste l'appartenance d'un point (2 coordonnées x et y) à un tableau
  *
- * @param  point    point dont on veut tester l'appartenance au tableau
- * @param  tableau  tableau de points
- * @param  taille   taille du tableau
+ * @param  point    Le point dont on veut tester l'appartenance au tableau
+ * @param  tableau  Le tableau de points dans lequel on veut tester l'appartenance
+ * @param  taille   La taille du tableau
  *
- * @return 0 si le point n'appartient pas au tableau
- * @return 1 sinon
+ * @return 1 si le point appartient au tableau
+ * @return 0 sinon
  */
 
-int appartient_tableau(Point point, Point* tableau, int taille) 
+int belongs_to_tab(Point point, Point* tableau, int taille) 
 {
 	int i=0;
 	int flag=0;
@@ -154,30 +157,30 @@ int appartient_tableau(Point point, Point* tableau, int taille)
  *
  * @brief      Teste la collision d'un serpent avec le mur ou un autre serpent
  *
- * @param  	mur          	Plateau contenant un tableau de points correspondant aux emplacements des murs
- * @param  	tab_serpent  	Tableau de serpent : nécessaire pour la collision avec les autres serpents
- * @param  	nb_snakes  		Nombre de serpents = longueur du tableau tab_serpent
- * @param 	point 			Tête du serpent à tester
- * @param 	id_snake		Identifiant du serpent à tester
+ * @param  	mur          	Le plateau contenant un tableau de points correspondant aux emplacements des murs
+ * @param  	tab_serpent  	Le tableau de serpent : nécessaire pour la collision avec les autres serpents
+ * @param  	nb_snakes  		Le nombre de serpents = longueur du tableau tab_serpent
+ * @param 	point 			La tête du serpent à tester
+ * @param 	id_snake		L'identifiant du serpent à tester
  *
  * @return  0 s'il n'y a pas de collision
- * @return	Sinon, l'id du serpent qui entre en collision avec le mur ou un autre serpent
+ * @return	Sinon, l'identifiant du serpent qui entre en collision avec le mur ou un autre serpent
  */
 
 int test_collision(Board* mur, Serpent** tab_serpent, int nb_snakes, Point point, int id_snake) 
 {
 	int i;
-	if (appartient_tableau(point, mur->pPtsMur, mur->nSize)) 
+	if (belongs_to_tab(point, mur->pPtsMur, mur->nSize)) 
 	{
-		return 1;
+		return id_snake;
 	}
 	else 
 	{
 		for (i=0; i<nb_snakes; i++) 
 		{
-			if ((i+1 != id_snake && appartient_tableau(point, tab_serpent[i]->tab, tab_serpent[i]->taille)) || (i+1 == id_snake && appartient_tableau(point, tab_serpent[i]->tab, tab_serpent[i]->taille-1)))
+			if ((i+1 != id_snake && belongs_to_tab(point, tab_serpent[i]->tab, tab_serpent[i]->taille)) || (i+1 == id_snake && belongs_to_tab(point, tab_serpent[i]->tab, tab_serpent[i]->taille-1)))
 			{
-				return 1;
+				return id_snake;
 			}
 		}
 	}
@@ -190,6 +193,12 @@ int test_collision(Board* mur, Serpent** tab_serpent, int nb_snakes, Point point
  * @brief      Ajoute des murs à l'intérieur du plateau
  *
  * @param	   b 		Le plateau créé précédemment
+ *
+ * @details    Ajoute des murs de formes prédéfinies, selon le nombre de cases qu'il comporte
+ * @details    Avec 3 cases, on a soit une ligne, soit un angle
+ * @details	   Avec 4 cases, on crée un carré
+ * @details    Avec 5 cases, on choisit soit une croix, un carré avec une case en plus ou un grand angle
+ * @details	   A la fin, cette fonction supprime les murs trop proches des positions de départ
  *
  * @return     void
  */
@@ -455,15 +464,15 @@ void add_walls_inside(Board* b)
 }
 
 /**
- * @fn         void delete_too_close_walls(Board* b)
+ * @fn         	void delete_too_close_walls(Board* b)
  *
- * @brief      Supprime les murs trop proches des positions de départ
+ * @brief      	Supprime les murs trop proches des positions de départ
  *
- * @param	   b 		Le plateau créé précédemment
+ * @param	   	b 		Le plateau créé précédemment
  *
  * @details 	En partant des positions de départ, on supprime les murs à moins de 5 cases de celles-ci dans les directions données au départ lors de l'initialisation
  *
- * @return     void
+ * @return     	void
  */
 
 void delete_too_close_walls(Board* b)
@@ -518,26 +527,27 @@ void delete_too_close_walls(Board* b)
  *
  * @brief      Teste si une case est libre
  *
- * @param	   p 			Case à tester
+ * @param	   p 			La case à tester
  * @param	   b 			Le plateau de jeu
- * @param	   tab_serpent 	Tableau contenant tous les serpents jouant dans la partie
- * @param 	   nb_snakes	Nombre de serpents dans la partie
+ * @param	   tab_serpent 	Le tableau contenant tous les serpents jouant dans la partie
+ * @param 	   nb_snakes	Le nombre de serpents dans la partie
  *
  * @details	   Utilise la fonction appartient_tableau pour savoir si la case testée est contenue dans le tableau des murs ou dans le corps d'un des serpents du jeu.
  *
- * @return     1 si la case est vide, 0 sinon
+ * @return     1 si la case est vide
+ * @return	   0 sinon
  */
 
 int is_cell_free(Point p, Board* b, Serpent** tab_serpent, int nb_snakes)
 {
-	if (appartient_tableau(p, b->pPtsMur, b->nSize))
+	if (belongs_to_tab(p, b->pPtsMur, b->nSize))
 	{
 		return 0;
 	}
 	int i;
 	for (i = 0; i < nb_snakes; i++)
 	{
-		if (appartient_tableau(p, tab_serpent[i]->tab, tab_serpent[i]->taille))
+		if (belongs_to_tab(p, tab_serpent[i]->tab, tab_serpent[i]->taille))
 		{
 			return 0;
 		}
@@ -557,7 +567,8 @@ int is_cell_free(Point p, Board* b, Serpent** tab_serpent, int nb_snakes)
  *
  * @details	   Utilise la fonction is_cell_free pour savoir si la case testée est libre et vérifie que le mur à ajouter n'est pas situé à moins de trois cases de la tête d'un serpent
  *
- * @return     1 si on peut ajouter le mur, 0 sinon
+ * @return     1 si on peut ajouter le mur
+ * @return 	   0 sinon
  */
 
 int okay_to_add_wall(Point p, Board* b, Serpent** tab_serpent, int nb_snakes)
@@ -609,8 +620,8 @@ int okay_to_add_wall(Point p, Board* b, Serpent** tab_serpent, int nb_snakes)
  * @brief      Ajoute un nouveau mur sur le plateau
  *
  * @param	   b 			Le plateau de jeu
- * @param	   tab_serpent 	Tableau contenant tous les serpents jouant dans la partie
- * @param 	   nb_snakes	Nombre de serpents dans la partie
+ * @param	   tab_serpent 	Le tableau contenant tous les serpents jouant dans la partie
+ * @param 	   nb_snakes	Le nombre de serpents dans la partie
  *
  * @details	   Génère un mur à une position aléatoire tant qu'il n'a pas une position correcte puis l'ajoute au plateau
  *
