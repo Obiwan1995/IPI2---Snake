@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
     SDL_Event event;
     int nMenu;
     int nBoard = BOARD_BASE;
-    int nSpeedInit = SPEED_MEDIUM;
+    int nSpeedInit = SPEED_EASY;
     int nNbSnake = NB_SNAKE;
     int nWalls = BOARD_WITH_WALLS;
     srand(time(NULL));
@@ -110,12 +110,10 @@ int main(int argc, char *argv[])
                 break;
         }
 
-
         //SDL_FillRect(sdlScreen, NULL, SDL_MapRGB(sdlScreen->format, 20, 20, 20));
         SDL_BlitSurface(sdlMenu, NULL, sdlScreen, &sdlPosMenu);
         SDL_Flip(sdlScreen);
     }
-
 
     SDL_FreeSurface(sdlMenu);
     SDL_Quit();

@@ -205,8 +205,13 @@ void Right(Serpent *snake)
  *
  */
 
-void free_snake(Serpent* snake) 
-{
-	free(snake->tab);
+void free_snake(Serpent** snake, int nbSnake) 
+{	
+	int i;
+	for (i=0; i<nbSnake; i++)
+	{
+		free(snake[i]->tab);
+		free(snake[i]);
+	}
 	free(snake);
 }

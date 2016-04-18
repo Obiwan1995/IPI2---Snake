@@ -632,7 +632,10 @@ void add_wall(Board* b, Serpent** tab_serpent, int nb_snakes)
 	b->pPtsMur[b->nSize-1] = p;
 }
 
-void free_board(Board* b)
+void free_board(Board b)
 {
-	
+	 free(b.pPtsMur);
+     free(b.pPtsPositions);
+     free(b.pnDirs);
+     
 }

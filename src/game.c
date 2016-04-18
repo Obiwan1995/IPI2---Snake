@@ -136,6 +136,8 @@ void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit)
             previousTime = actualTime;
         }
     }
+    free_snake(snakes, nbSnakes);
+    free_board(board);
     sleep(2);
 }
 
