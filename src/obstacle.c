@@ -643,6 +643,17 @@ void add_wall(Board* b, Serpent** tab_serpent, int nb_snakes)
 	b->pPtsMur[b->nSize-1] = p;
 }
 
+/**
+ * @fn void free_board(Board b)
+ *
+ * @brief      Supprime la mémoire allouée au board
+ *
+ * @param[in]  b     board dont on veut supprimer la mémoire
+ * 
+ * @details 	Supprime les points du mur, les points correspondant aux positions de départ
+				et la direction des positions de départ
+ */
+
 void free_board(Board b)
 {
 	 free(b.pPtsMur);
