@@ -111,12 +111,10 @@ int main(int argc, char *argv[])
                 break;
         }
 
-
         //SDL_FillRect(sdlScreen, NULL, SDL_MapRGB(sdlScreen->format, 20, 20, 20));
         SDL_BlitSurface(sdlMenu, NULL, sdlScreen, &sdlPosMenu);
         SDL_Flip(sdlScreen);
     }
-
 
     SDL_FreeSurface(sdlMenu);
     SDL_Quit();
