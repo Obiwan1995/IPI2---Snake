@@ -9,6 +9,7 @@
  #include "game.h"
  #include "ia.c"
  #include <stdio.h>
+ #include <unistd.h>
 
 /**
  * @fn         play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit)
