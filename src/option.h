@@ -12,11 +12,11 @@
 #include "../lib/SDL/include/SDL/SDL.h"
 
 /** Niveau facile : 200 ms entre chaque déplacement des serpents */
-#define SPEED_EASY 200
+#define SPEED_EASY 250
 /** Niveau moyen : 120 ms entre chaque déplacement des serpents */
 #define SPEED_MEDIUM 120
 /** Niveau difficile : 80 ms entre chaque déplacement des serpents */
-#define SPEED_HARD 80
+#define SPEED_HARD 60
 
 /** Plateau de base */
 #define BOARD_BASE 1

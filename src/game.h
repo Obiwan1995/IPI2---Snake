@@ -15,14 +15,16 @@
 /** Taille d'une case en pixels */
 #define SIZE_CASE 15
 
-/** Couleur noire */
-#define BLACK 0x00696969
+/** Couleur des murs */
+#define WALL 0x005C5C5C
  /** Couleur rouge */
-#define RED 0x00DF2020
+#define RED 0x00B50000
  /** Couleur verte */
-#define GREEN 0x0000FF00
+#define GREEN 0x004FEB3B
  /** Couleur bleue */
-#define BLUE 0x000000FF
+#define BLUE 0x0000046E
+ /** Couleur jaune */
+#define YELLOW 0x00D9D20B
 
 void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit);
 void paint(SDL_Surface* sdlScreen, int x, int y, int nId);

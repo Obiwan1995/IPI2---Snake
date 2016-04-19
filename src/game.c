@@ -171,7 +171,7 @@ void paint(SDL_Surface* sdlScreen, int x, int y, int nId)
     switch(nId)
     {
         case 0:
-            color = BLACK;
+            color = WALL;
             break;
         case 1:
             color = GREEN;
@@ -181,6 +181,9 @@ void paint(SDL_Surface* sdlScreen, int x, int y, int nId)
             break;
         case 3:
             color = BLUE;
+            break;
+        case 4:
+            color = YELLOW;
             break;
         default:
             fprintf(stderr, "Trop de snake pour les couleurs disponibles\n");
