@@ -13,5 +13,6 @@
 
 void move_random_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes);
 void move_def_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes);
+int min(int a, int b, int c);
 
 #endif

@@ -14,7 +14,7 @@
 /** Hauteur du Menu */
 #define MENU_HEIGHT 600
 /** Nombre de serpents */
-#define NB_SNAKES 3
+#define NB_SNAKES 2
 
 int main(int argc, char *argv[])
 {

@@ -110,7 +110,7 @@ void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit)
 
             for (i = 1; i < nbSnakes; i++)
             {
-                move_random_ia(snakes[i], board, nbSnakes, snakes);
+                move_def_ia(snakes[i], board, nbSnakes, snakes);
             }
             i = 0;
             while(!nResGame && i < nbSnakes)
