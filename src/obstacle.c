@@ -614,6 +614,40 @@ int okay_to_add_wall(Point p, Board* b, Serpent** tab_serpent, int nb_snakes)
 }
 
 /**
+ * @fn         int nb_obstacles_around(Point centre, Board* b, Serpent** tab_serpent, int nb_snakes, Serpent* snake)
+ *
+ * @brief     	Compte le nombre d'obstacles autour du serpent passé en paramètre
+ *
+ * @param	   centre 		Le centre du carré à tester (ne fonctionne qu'avec un carré de taille 3x3)
+ * @param 	   b 			Le plateau de jeu
+ * @param	   tab_serpent 	Le tableau contenant tous les serpents jouant dans la partie
+ * @param 	   nb_snakes	Le nombre de serpents dans la partie
+ * @param 	   snake 		Le serpent dont on veut connaître le nombre d'obstacles dans les environs
+ *
+ * @return     void
+ */
+
+int nb_obstacles_around(Point centre, Board* b, Serpent** tab_serpent, int nb_snakes, Serpent* snake)
+{
+	int i, j;
+	Point p;
+	int res = 0;
+	for (i = centre.x-1; i <= centre.x+1; i++)
+	{
+		for (j = centre.y-1; j <= centre.y+1; j++)
+		{
+			p.x = i;
+			p.y = j;
+			if (test_collision(b, tab_serpent, nb_snakes, p, snake->id) == snake->id)
+			{
+				res++;
+			}
+		}
+	}
+	return res;
+}
+
+/**
  * @fn         add_wall(Board* b, Serpent** tab_serpent, int nb_snakes)
  *
  * @brief      Ajoute un nouveau mur sur le plateau
