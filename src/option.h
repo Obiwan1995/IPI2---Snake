@@ -26,11 +26,11 @@
 #define BIG_BOARD 3
 
 /** Pas de murs au milieu */
-#define BOARD_WITHOUT_WALLS 0
+#define BOARD_WITHOUT_WALLS 2
 /** Murs au milieu */
 #define BOARD_WITH_WALLS 1
 
-void option(SDL_Surface* sdlScreen, int* pNbSnakes, int* pBoard, int* pSpeedInit);
+void option(SDL_Surface* sdlScreen, int* pNbSnakes, int* pBoard, int* pSpeedInit, int* pWalls);
 void aide(SDL_Surface* sdlScreen);
 
 #endif

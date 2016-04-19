@@ -10,7 +10,7 @@
 #include "option.h"
 
 /** Largeur du Menu */
-#define MENU_WIDTH 600
+#define MENU_WIDTH 800
 /** Hauteur du Menu */
 #define MENU_HEIGHT 600
 /** Nombre de serpents */
@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
     SDL_WM_SetCaption("Snake.. SNAKE !", NULL);
     SDL_ShowCursor(SDL_DISABLE);
 
-    sdlMenu = SDL_LoadBMP("../images/MenuV1.bmp");
+    sdlMenu = SDL_LoadBMP("../images/Menu.bmp");
     sdlPosMenu.x = 0;
     sdlPosMenu.y = 0;
 
@@ -82,7 +82,7 @@ int main(int argc, char *argv[])
                             default:
                                 break;
                         }
-                        if (nWalls)
+                        if (nWalls == 1)
                         {
                             add_walls_inside(&board);
                         }
@@ -95,7 +95,7 @@ int main(int argc, char *argv[])
                         sdlScreen = SDL_SetVideoMode(MENU_WIDTH, MENU_HEIGHT, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
                         break;
                     case SDLK_o: // Option
-                        option(sdlScreen, &nNbSnake, &nBoard, &nSpeedInit);
+                        option(sdlScreen, &nNbSnake, &nBoard, &nSpeedInit, &nWalls);
                         break;
                     case SDLK_a: // Help
                     case SDLK_h:

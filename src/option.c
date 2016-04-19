@@ -22,23 +22,38 @@
  * @return     void
  */
 
-void option(SDL_Surface* sdlScreen, int* pNbSnakes, int* pBoard, int* pSpeedInit)
+void option(SDL_Surface* sdlScreen, int* pNbSnakes, int* pBoard, int* pSpeedInit, int* pWalls)
 {
     SDL_Surface *sdlOption;
     SDL_Rect sdlPosOption;
+    int nSpeed;
     int nInOption = 1;
     int nChoice = 0;
     int nKeyUp = 1;
 
     sdlPosOption.x = 0;
     sdlPosOption.y = 0;
+    switch(*pSpeedInit)
+    {
+        case SPEED_EASY:
+            nSpeed = 1;
+            break;
+        case SPEED_MEDIUM:
+            nSpeed = 2;
+            break;
+        case SPEED_HARD:
+            nSpeed = 3;
+            break;
+        default:
+            break;
+    }
 
     SDL_Event event;
     while(nInOption)
     {
         char strImage[100] = "";
-        sprintf(strImage, "../images/lac%d", *pBoard);
-        printf("../images/lac%d speed : %d menu : %d\n", *pBoard, *pSpeedInit, nChoice);
+        sprintf(strImage, "../images/Menu%d%d%d%d.bmp", nSpeed, *pNbSnakes, *pBoard, *pWalls);
+        printf("../images/lac%d speed : %d / %d menu : %d\n", *pBoard, nSpeed, *pSpeedInit, nChoice);
         sdlOption = SDL_LoadBMP(strImage);
         SDL_BlitSurface(sdlOption, NULL, sdlScreen, &sdlPosOption);
         SDL_Flip(sdlScreen);
@@ -53,15 +68,11 @@ void option(SDL_Surface* sdlScreen, int* pNbSnakes, int* pBoard, int* pSpeedInit
             case SDL_KEYDOWN:
                 switch(event.key.keysym.sym)
                 {
-                    case SDLK_ESCAPE: // Leave Game
-                    case SDLK_q:
-                    case SDLK_p:
-                        nInOption = 0;
-                        SDL_FreeSurface(sdlOption);
-                        break;
                     case SDLK_UP:
                         if (nKeyUp)
-                            nChoice = (nChoice+1)%2;
+                            nChoice = nChoice-1;
+                        if (nChoice == -1)
+                            nChoice = 3;
                         nKeyUp = 0;
                         break;
                     case SDLK_RIGHT:
@@ -70,35 +81,67 @@ void option(SDL_Surface* sdlScreen, int* pNbSnakes, int* pBoard, int* pSpeedInit
                             switch(nChoice)
                             {
                                 case 0:
-                                    switch(*pBoard)
+                                    switch(*pSpeedInit)
                                     {
-                                        case BOARD_BASE:
-                                            *pBoard = BOARD_1V1;
-                                            *pNbSnakes = 2;
+                                        case SPEED_EASY:
+                                            *pSpeedInit = SPEED_MEDIUM;
+                                            nSpeed = 2;
                                             break;
-                                        case BOARD_1V1:
-                                            *pBoard = BIG_BOARD;
-                                            *pNbSnakes = 3;
+                                        case SPEED_MEDIUM:
+                                            *pSpeedInit = SPEED_HARD;
+                                            nSpeed = 3;
                                             break;
-                                        case BIG_BOARD:
-                                            *pBoard = BOARD_BASE;
-                                            *pNbSnakes = 1;
+                                        case SPEED_HARD:
+                                            *pSpeedInit = SPEED_EASY;
+                                            nSpeed = 1;
                                             break;
                                         default:
                                             break;
                                     }
                                     break;
                                 case 1:
-                                    switch(*pSpeedInit)
+                                    switch(*pNbSnakes)
                                     {
-                                        case SPEED_EASY:
-                                            *pSpeedInit = SPEED_MEDIUM;
+                                        case 1:
+                                            *pNbSnakes = 2;
                                             break;
-                                        case SPEED_MEDIUM:
-                                            *pSpeedInit = SPEED_HARD;
+                                        case 2:
+                                            *pNbSnakes = 3;
                                             break;
-                                        case SPEED_HARD:
-                                            *pSpeedInit = SPEED_EASY;
+                                        case 3:
+                                            *pNbSnakes = 4;
+                                            break;
+                                        case 4:
+                                            *pNbSnakes = 1;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                    break;
+                                case 2:
+                                    switch(*pBoard)
+                                    {
+                                        case BOARD_BASE:
+                                            *pBoard = BOARD_1V1;
+                                            break;
+                                        case BOARD_1V1:
+                                            *pBoard = BIG_BOARD;
+                                            break;
+                                        case BIG_BOARD:
+                                            *pBoard = BOARD_BASE;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                    break;
+                                case 3:
+                                    switch(*pWalls)
+                                    {
+                                        case BOARD_WITH_WALLS:
+                                            *pWalls = BOARD_WITHOUT_WALLS;
+                                            break;
+                                        case BOARD_WITHOUT_WALLS:
+                                            *pWalls = BOARD_WITH_WALLS;
                                             break;
                                         default:
                                             break;
@@ -116,35 +159,67 @@ void option(SDL_Surface* sdlScreen, int* pNbSnakes, int* pBoard, int* pSpeedInit
                             switch(nChoice)
                             {
                                 case 0:
-                                    switch(*pBoard)
+                                    switch(*pSpeedInit)
                                     {
-                                        case BOARD_BASE:
-                                            *pBoard = BIG_BOARD;
-                                            *pNbSnakes = 3;
+                                        case SPEED_EASY:
+                                            *pSpeedInit = SPEED_HARD;
+                                            nSpeed = 3;
                                             break;
-                                        case BOARD_1V1:
-                                            *pBoard = BOARD_BASE;
-                                            *pNbSnakes = 1;
+                                        case SPEED_MEDIUM:
+                                            *pSpeedInit = SPEED_EASY;
+                                            nSpeed = 1;
                                             break;
-                                        case BIG_BOARD:
-                                            *pBoard = BOARD_1V1;
-                                            *pNbSnakes = 2;
+                                        case SPEED_HARD:
+                                            *pSpeedInit = SPEED_MEDIUM;
+                                            nSpeed = 2;
                                             break;
                                         default:
                                             break;
                                     }
                                     break;
                                 case 1:
-                                    switch(*pSpeedInit)
+                                    switch(*pNbSnakes)
                                     {
-                                        case SPEED_EASY:
-                                            *pSpeedInit = SPEED_HARD;
+                                        case 1:
+                                            *pNbSnakes = 4;
                                             break;
-                                        case SPEED_MEDIUM:
-                                            *pSpeedInit = SPEED_EASY;
+                                        case 2:
+                                            *pNbSnakes = 1;
                                             break;
-                                        case SPEED_HARD:
-                                            *pSpeedInit = SPEED_MEDIUM;
+                                        case 3:
+                                            *pNbSnakes = 2;
+                                            break;
+                                        case 4:
+                                            *pNbSnakes = 3;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                    break;
+                                case 2:
+                                    switch(*pBoard)
+                                    {
+                                        case BOARD_BASE:
+                                            *pBoard = BIG_BOARD;
+                                            break;
+                                        case BOARD_1V1:
+                                            *pBoard = BOARD_BASE;
+                                            break;
+                                        case BIG_BOARD:
+                                            *pBoard = BOARD_1V1;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                    break;
+                                case 3:
+                                    switch(*pWalls)
+                                    {
+                                        case BOARD_WITH_WALLS:
+                                            *pWalls = BOARD_WITHOUT_WALLS;
+                                            break;
+                                        case BOARD_WITHOUT_WALLS:
+                                            *pWalls = BOARD_WITH_WALLS;
                                             break;
                                         default:
                                             break;
@@ -158,12 +233,12 @@ void option(SDL_Surface* sdlScreen, int* pNbSnakes, int* pBoard, int* pSpeedInit
                         break;
                     case SDLK_DOWN:
                         if (nKeyUp)
-                            nChoice = nChoice-1;
-                        if (nChoice == -1)
-                            nChoice = 1;
+                            nChoice = (nChoice+1)%4;
                         nKeyUp = 0;
                         break;
                     default:
+                        nInOption = 0;
+                        SDL_FreeSurface(sdlOption);
                         break;
                 }
                 break;
@@ -187,6 +262,8 @@ void option(SDL_Surface* sdlScreen, int* pNbSnakes, int* pBoard, int* pSpeedInit
 
 void aide(SDL_Surface* sdlScreen)
 {
+    return;
+
     SDL_Surface *sdlAide;
     SDL_Rect sdlPosAide;
     sdlAide = SDL_LoadBMP("../images/MenuV2.bmp");
