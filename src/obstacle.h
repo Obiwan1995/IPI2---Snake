@@ -12,7 +12,6 @@
 #include <stdlib.h>
 #include "snake.h"
 
-
  /** Structure du plateau :
 - nBoardWidth : la largeur du plateau
 - nBoardHeight : la hauteur du plateau
@@ -20,7 +19,9 @@
 - nSize : le nombre de cases du mur du plateau
 - pPtsMur : les cases correspondant au mur
 - pPtsPositions : les points correspondant aux positions de départ
-- pnDirs : la direction des positions de départ */
+- pnDirs : la direction des positions de départ 
+- tunnels : les tunnels du plateau 
+- nNbTunnels : le nombre de tunnels sur le plateau */
 
 typedef struct
 {
@@ -31,6 +32,8 @@ typedef struct
 	Point* pPtsMur;
 	Point* pPtsPositions;
 	int* pnDirs;
+	Tunnel* tunnels;
+	int nNbTunnels;
 } Board;
 
 Board init_board1();
@@ -42,6 +45,7 @@ void delete_too_close_walls(Board *b);
 int is_cell_free(Point p, Board* b, Serpent** tab_serpent, int nb_snakes);
 int okay_to_add_wall(Point p, Board* b, Serpent** tab_serpent, int nb_snakes);
 void add_wall(Board* b, Serpent** tab_serpent, int nb_snakes);
+void add_tunnels(Board* b);
 void free_board(Board b);
 
 #endif

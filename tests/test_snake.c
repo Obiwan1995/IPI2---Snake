@@ -27,7 +27,8 @@ static int setup(void **state)
 
 static int teardown(void **state) 
 {
-    free(*state);
+    Serpent* snake = (*state);
+    free_snake(snake);
     return 0;
 }
 
@@ -179,6 +180,8 @@ static void test_collision_no_collision_forward(void ** state)
     // 1 time forward
     Forward(snake);
     assert_int_equal(test_collision(&b, snakes, nb_snakes, snake->tete, snake->id), 0);
+    free_board(b);
+    free_snakes(snakes, nb_snakes);
 }
 
 static void test_collision_no_collision_left(void ** state)
@@ -191,6 +194,8 @@ static void test_collision_no_collision_left(void ** state)
     // Turn left
     Left(snake);
     assert_int_equal(test_collision(&b, snakes, nb_snakes, snake->tete, snake->id), 0);
+    free_board(b);
+    free_snakes(snakes, nb_snakes);
 }
 
 static void test_collision_no_collision_right(void ** state)
@@ -203,6 +208,8 @@ static void test_collision_no_collision_right(void ** state)
     // Turn right
     Right(snake);
     assert_int_equal(test_collision(&b, snakes, nb_snakes, snake->tete, snake->id), 0);
+    free_board(b);
+    free_snakes(snakes, nb_snakes);
 }
 
 static void test_collision_head_body(void ** state)
@@ -224,6 +231,8 @@ static void test_collision_head_body(void ** state)
     snake->tete.x = X;
     snake->tete.y = Y-9;
     assert_int_equal(test_collision(&b, snakes, nb_snakes, snake->tete, snake->id), 1);
+    free_board(b);
+    free_snakes(snakes, nb_snakes);
 }
 
 static void test_collision_head_wall_forward(void ** state)
@@ -242,6 +251,8 @@ static void test_collision_head_wall_forward(void ** state)
 
     Forward(snake);    
     assert_int_equal(test_collision(&b, snakes, nb_snakes, snake->tete, snake->id), 1);
+    free_board(b);
+    free_snakes(snakes, nb_snakes);
 }
 
 static void test_collision_head_wall_left(void ** state)
@@ -260,6 +271,8 @@ static void test_collision_head_wall_left(void ** state)
 
     Left(snake);    
     assert_int_equal(test_collision(&b, snakes, nb_snakes, snake->tete, snake->id), 1);
+    free_board(b);
+    free_snakes(snakes, nb_snakes);
 }
 
 static void test_collision_head_wall_right(void ** state)
@@ -278,6 +291,8 @@ static void test_collision_head_wall_right(void ** state)
 
     Right(snake); 
     assert_int_equal(test_collision(&b, snakes, nb_snakes, snake->tete, snake->id), 1);
+    free_board(b);
+    free_snakes(snakes, nb_snakes);
 }
 
 static void test_collision_two_snakes_head_head(void ** state)
@@ -302,6 +317,8 @@ static void test_collision_two_snakes_head_head(void ** state)
     snake2->tete.x = X;
     snake2->tete.y = Y;
     assert_int_equal(test_collision(&b, snakes, nb_snakes, snake->tete, snake2->id), snake2->id);
+    free_snakes(snakes, nb_snakes);
+    free_board(b);
 }
 
 static void test_collision_two_snakes_head_body(void ** state)
@@ -334,6 +351,8 @@ static void test_collision_two_snakes_head_body(void ** state)
     snake->tete.x = X+1;
     snake->tete.y = Y+10;
     assert_int_equal(test_collision(&b, snakes, nb_snakes, snake->tete, snake->id), 1);
+    free_snakes(snakes, nb_snakes);
+    free_board(b);
 }
 
 int main(void) 

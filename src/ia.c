@@ -135,3 +135,21 @@ void move_random_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes)
 		}
 	}
 }
+
+/**
+* @fn         void move_def_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes)
+*
+* @brief      Fait bouger le serpent contrôlé par l'IA défensive
+*
+* @param      ia 		Le serpent contrôlé par l'IA défensive
+* @param 	  board 	Le plateau de jeu
+* @param 	  nbSnakes	Le nombre de serpents dans la partie
+* @param 	  snakes 	Le tableau contenant tous les serpents de la partie	  
+*
+* @return     void
+*/
+
+void move_def_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes)
+{
+	
+}

@@ -205,8 +205,8 @@ int test_collision(Board* mur, Serpent** tab_serpent, int nb_snakes, Point point
 void add_walls_inside(Board* b)
 {
 	int nNbCases = b->nBoardWidth * b->nBoardHeight;
-	int nMin = 5; // 5% du nombre total de cases
-	int nMax = 10; // 10% du nombre total de cases
+	int nMin = 3; // 3% du nombre total de cases
+	int nMax = 7; // 7% du nombre total de cases
 	int n = b->nSize;
 	int nNbWalls = (rand()%(nMin * nNbCases)+(nMax - nMin)*nNbCases)/100;
 	
