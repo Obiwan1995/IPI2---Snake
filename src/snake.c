@@ -204,25 +204,58 @@ void Right(Serpent *snake)
 }
 
 /**
- * @fn 			free_snake(Serpent** snake, int nbSnake)
+ * @fn 			enter_tunnel(Serpent* snake, Tunnel t)
+ *
+ * @brief		Fait bouger un serpent à travers un tunnel
+ *
+ * @param 		snake 		Le serpent à déplacer
+ * @param		tunnel 		Le tunnel emprunté
+ *
+ * @return 		void
+ */
+
+void enter_tunnel(Serpent* snake, Tunnel tunnel)
+{
+
+}
+
+/**
+ * @fn 			free_snakes(Serpent** snakes, int nbSnake)
  *
  * @brief		Supprime la mémoire allouée au tableau de serpents
  *
- * @param 		snake 		Le tableau de serpents à supprimer
- * 				nbSnake 	Le nombre de serpents dans le tableau
+ * @param 		snakes		Le tableau de serpents à supprimer
+ * @param		nbSnake 	Le nombre de serpents dans le tableau
  *
  * @details		Supprime un tableau de serpents de la mémoire en supprimant pour chaque serpent son tableau de points puis sa structure complète
  *
  * @return 		void
  */
 
-void free_snake(Serpent** snake, int nbSnake) 
+void free_snakes(Serpent** snakes, int nbSnake) 
 {	
 	int i;
 	for (i=0; i<nbSnake; i++)
 	{
-		free(snake[i]->tab);
-		free(snake[i]);
+		free_snake(snakes[i]);
 	}
+	free(snakes);
+}
+
+/**
+ * @fn 			free_snake(Serpent* snake)
+ *
+ * @brief		Supprime la mémoire allouée à un serpent
+ *
+ * @param 		snake 		Le serpent à supprimer
+ *
+ * @details		Supprime le tableau de points du serpent puis sa structure complète
+ *
+ * @return 		void
+ */
+
+void free_snake(Serpent* snake)
+{
+	free(snake->tab);
 	free(snake);
 }

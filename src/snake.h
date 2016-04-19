@@ -27,6 +27,7 @@ typedef struct {
 	int y;
 } Point;
 
+
 /** Structure de Serpent avec plusieurs champs qui le caractérise :
 - un identifiant : permet de reconnaitre le serpent
 - une vitesse
@@ -44,10 +45,25 @@ typedef struct {
 	Direction dir;
 } Serpent;
 
+
+/** Structure d'un tunnel :
+- entree : l'entrée du tunnel
+- sorties : les sorties du tunnel
+- nNbSorties : le nombre de sorties du tunnel */
+
+typedef struct
+{
+	Point entree;
+	Point* sorties;
+	int nNbSorties;
+} Tunnel;
+
 void init_snake(Serpent* snake, int id, int speed, int dir, Point pos);
 void Right(Serpent* snake);
 void Forward(Serpent* snake);
 void Left(Serpent* snake);
-void free_snake(Serpent** snake, int nbSnake);
+void enter_tunnel(Serpent* snake, Tunnel tunnel);
+void free_snakes(Serpent** snake, int nbSnake);
+void free_snake(Serpent* snake);
 
 #endif
