@@ -119,6 +119,12 @@ void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit)
                 i++;
             }
 
+            int nRandWalls = rand()%100;
+            if (nRandWalls < 10)
+            {
+                add_wall(&board, snakes, nbSnakes);
+            }
+
             SDL_FillRect(sdlScreen, NULL, SDL_MapRGB(sdlScreen->format, 255, 255, 255)); 
 
             for (i=0; i< board.nSize; i++)
