@@ -62,7 +62,7 @@ void init_snake(Serpent* snake, int id, int speed, int dir, Point pos);
 void Right(Serpent* snake);
 void Forward(Serpent* snake);
 void Left(Serpent* snake);
-void enter_tunnel(Serpent* snake, Tunnel tunnel);
+void enter_tunnel(Serpent* snake, Tunnel* tunnel);
 void free_snakes(Serpent** snake, int nbSnake);
 void free_snake(Serpent* snake);
 

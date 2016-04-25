@@ -44,10 +44,12 @@ void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit)
         board.nNbPos--;
         if(board.nNbPos < 0)
         {
-            fprintf(stderr, "Trop de snake pour les positions disponibles\n");
+            fprintf(stderr, "Trop de snakes pour les positions disponibles\n");
             exit(1);
         }
     }
+
+    add_tunnels(&board, snakes, nbSnakes);
 
     int nDir = 0;
     int nKeyUp = 0;
@@ -110,13 +112,18 @@ void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit)
 
             for (i = 1; i < nbSnakes; i++)
             {
-                move_def_ia(snakes[i], board, nbSnakes, snakes);
+                move_random_ia(snakes[i], board, nbSnakes, snakes);
             }
             i = 0;
             while(!nResGame && i < nbSnakes)
             {
                 nResGame = test_collision(&board, snakes, nbSnakes, snakes[i]->tete, snakes[i]->id);
                 i++;
+            }
+
+            for (i = 0; i < nbSnakes; i++)
+            {
+                handle_tunnels(snakes[i], &board);
             }
 
             int nRandWalls = rand()%100;
@@ -130,6 +137,16 @@ void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit)
             for (i=0; i< board.nSize; i++)
             {
                 paint(sdlScreen, board.pPtsMur[i].x, board.pPtsMur[i].y, 0);
+            }
+            int k;
+            for (i = 0; i < board.nNbTunnels; i++)
+            {
+                Tunnel* t = board.pTunnels[i];
+                paint(sdlScreen, t->entree.x, t->entree.y, 5);
+                for (k = 0; k < t->nNbSorties; k++)
+                {
+                    paint(sdlScreen, t->sorties[k].x, t->sorties[k].y, 5);
+                }
             }
             int j;
             for (j = 0; j < nbSnakes; j++)
@@ -184,6 +201,9 @@ void paint(SDL_Surface* sdlScreen, int x, int y, int nId)
             break;
         case 4:
             color = YELLOW;
+            break;
+        case 5:
+            color = TUNNEL;
             break;
         default:
             fprintf(stderr, "Trop de snake pour les couleurs disponibles\n");

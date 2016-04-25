@@ -24,6 +24,8 @@ Board init_board1()
 	B.nBoardWidth = 40;
 	B.nBoardHeight = 40;
 
+	B.nNbTunnels = 0;
+
 	B.nSize = 2*B.nBoardWidth+2*B.nBoardHeight-4;
 	B.pPtsMur = (Point*)malloc(B.nSize*sizeof(Point));
 
@@ -84,6 +86,8 @@ Board init_board_1v1()
 	Board B;
 	B.nBoardHeight = 25;
 	B.nBoardWidth = 2*B.nBoardHeight;
+
+	B.nNbTunnels = 0;
 
 	B.nSize = 2*B.nBoardWidth+2*B.nBoardHeight-4;
 	B.pPtsMur = (Point*)malloc(B.nSize*sizeof(Point));
@@ -551,6 +555,13 @@ int is_cell_free(Point p, Board* b, Serpent** tab_serpent, int nb_snakes)
 			return 0;
 		}
 	}
+	for (i = 0; i < b->nNbTunnels; i++)
+	{
+		if (belongs_to_tunnel(p, b->pTunnels[i]))
+		{
+			return 0;
+		}
+	}
 	return 1;
 }
 
@@ -666,7 +677,7 @@ void add_wall(Board* b, Serpent** tab_serpent, int nb_snakes)
 	Point p;
 	p.x = rand()%(b->nBoardWidth-2)+1;
 	p.y = rand()%(b->nBoardHeight-2)+1;
-	while(!okay_to_add_wall(p, b, tab_serpent, nb_snakes))
+	while(!is_cell_free(p, b, tab_serpent, nb_snakes))
 	{
 		p.x = rand()%(b->nBoardWidth-2)+1;
 		p.y = rand()%(b->nBoardHeight-2)+1;
@@ -674,6 +685,110 @@ void add_wall(Board* b, Serpent** tab_serpent, int nb_snakes)
 	b->nSize++;
 	b->pPtsMur = (Point*) realloc(b->pPtsMur, b->nSize*sizeof(Point));
 	b->pPtsMur[b->nSize-1] = p;
+}
+
+/**
+ * @fn 		int belongs_to_tunnel(Point point, Tunnel* t)
+ * 
+ * @brief  Teste l'appartenance d'un point (2 coordonnées x et y) à un tunnel (entrée et sorties)
+ *
+ * @param  p    Le point dont on veut tester l'appartenance au tunnel
+ * @param  t  	Le tunnel dans lequel on veut tester l'appartenance
+ *
+ * @return 1 si le point appartient au tunnel
+ * @return 0 sinon
+ */
+
+int belongs_to_tunnel(Point p, Tunnel* t)
+{
+	if (p.x == t->entree.x && p.y == t->entree.y)
+	{
+		return 1;
+	}
+	if (belongs_to_tab(p, t->sorties, t->nNbSorties))
+	{
+		return 1;
+	}
+	return 0;
+}
+
+/**
+ * @fn         add_tunnels(Board* b)
+ *
+ * @brief      Ajoute des tunnels sur le plateau
+ *
+ * @param	   b 			Le plateau de jeu
+ * @param	   tab_serpent 	Le tableau contenant tous les serpents jouant dans la partie
+ * @param 	   nb_snakes	Le nombre de serpents dans la partie
+ *
+ * @details	   Choisis une case aléatoire pour y construire une entrée de tunnel puis n autres cases pour les sorties
+ *
+ * @return     void
+ */
+
+void add_tunnels(Board* b, Serpent** tab_serpent, int nb_snakes)
+{
+	int nb_tunnels = rand()%3+1;
+	b->pTunnels = (Tunnel**) malloc(nb_tunnels*sizeof(Tunnel*));
+	Point p, p2;
+	int i, j;
+
+	for (i = 0; i < nb_tunnels; i++)
+	{
+		p.x = rand()%(b->nBoardWidth-2)+1;
+		p.y = rand()%(b->nBoardHeight-2)+1;
+		while(!is_cell_free(p, b, tab_serpent, nb_snakes))
+		{
+			p.x = rand()%(b->nBoardWidth-2)+1;
+			p.y = rand()%(b->nBoardHeight-2)+1;
+		}
+		b->nNbTunnels++;
+
+		b->pTunnels[i] = (Tunnel *) malloc(sizeof(Tunnel));
+
+		b->pTunnels[i]->entree = p;
+		b->pTunnels[i]->nNbSorties = rand()%3+1;
+		b->pTunnels[i]->sorties = (Point *) malloc(b->pTunnels[i]->nNbSorties*sizeof(Point));
+
+		for (j = 0; j < b->pTunnels[i]->nNbSorties; j++)
+		{
+			p2.x = rand()%(b->nBoardWidth-2)+1;
+			p2.y = rand()%(b->nBoardHeight-2)+1;
+			while(!is_cell_free(p2, b, tab_serpent, nb_snakes))
+			{
+				p2.x = rand()%(b->nBoardWidth-2)+1;
+				p2.y = rand()%(b->nBoardHeight-2)+1;
+			}
+			b->pTunnels[i]->sorties[j] = p2;
+		}
+	}
+}
+
+/**
+ * @fn 		 	void handle_tunnels(Serpent* s, Board* b)
+ *
+ * @brief      	Permet la gestion des tunnels
+ *
+ * @param 		s 	  Serpent à tester
+ * @param		b     Plateau contenant le tableau des tunnels
+ * 
+ * @details		Teste si un serpent arrive sur une entrée d'un tunnel puis le fait entrer dans ce tunnel le cas échéant
+ *
+ * @return 		void
+ */
+
+
+void handle_tunnels(Serpent* s, Board* b)
+{
+	int i;
+	for (i = 0; i < b->nNbTunnels; i++)
+	{
+		Tunnel* t = b->pTunnels[i];
+		if (s->tete.x == t->entree.x && s->tete.y == t->entree.y)
+		{
+			enter_tunnel(s, t);
+		}
+	}
 }
 
 /**
@@ -685,6 +800,8 @@ void add_wall(Board* b, Serpent** tab_serpent, int nb_snakes)
  * 
  * @details 	Supprime les points du mur, les points correspondant aux positions de départ
 				et la direction des positions de départ
+ *
+ * @return 		void
  */
 
 void free_board(Board b)

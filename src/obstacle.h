@@ -32,7 +32,7 @@ typedef struct
 	Point* pPtsMur;
 	Point* pPtsPositions;
 	int* pnDirs;
-	Tunnel* tunnels;
+	Tunnel** pTunnels;
 	int nNbTunnels;
 } Board;
 
@@ -46,7 +46,9 @@ int is_cell_free(Point p, Board* b, Serpent** tab_serpent, int nb_snakes);
 int okay_to_add_wall(Point p, Board* b, Serpent** tab_serpent, int nb_snakes);
 int nb_obstacles_around(Point centre, Board* b, Serpent** tab_serpent, int nb_snakes, Serpent* snake);
 void add_wall(Board* b, Serpent** tab_serpent, int nb_snakes);
-void add_tunnels(Board* b);
+int belongs_to_tunnel(Point p, Tunnel* t);
+void add_tunnels(Board* b, Serpent** tab_serpent, int nb_snakes);
+void handle_tunnels(Serpent* s, Board* b);
 void free_board(Board b);
 
 #endif
