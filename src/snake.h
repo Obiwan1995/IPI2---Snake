@@ -13,7 +13,7 @@
 #include <stdlib.h>
 
 /** Probabilité que le serpent grandisse à chaque pas de temps (en pourcentage) */
-#define P_GAIN_SIZE 40
+#define P_GAIN_SIZE 10
 
 /** Direction du serpent : haut, droite, bas ou gauche */
 typedef enum Direction {top, right, bot, left} Direction;
