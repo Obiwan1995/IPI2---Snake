@@ -25,6 +25,8 @@
 #define BLUE 0x0000046E
  /** Couleur jaune */
 #define YELLOW 0x00D9D20B
+ /** Couleur des tunnels */
+#define TUNNEL 0x00BD8C22
 
 void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit);
 void paint(SDL_Surface* sdlScreen, int x, int y, int nId);

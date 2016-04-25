@@ -204,7 +204,7 @@ void Right(Serpent *snake)
 }
 
 /**
- * @fn 			enter_tunnel(Serpent* snake, Tunnel t)
+ * @fn 			enter_tunnel(Serpent* snake, Tunnel* t)
  *
  * @brief		Fait bouger un serpent à travers un tunnel
  *
@@ -214,9 +214,11 @@ void Right(Serpent *snake)
  * @return 		void
  */
 
-void enter_tunnel(Serpent* snake, Tunnel tunnel)
+void enter_tunnel(Serpent* snake, Tunnel* tunnel)
 {
-
+	int rand_sortie = rand()%(tunnel->nNbSorties);
+	snake->tete.x = tunnel->sorties[rand_sortie].x;
+	snake->tete.y = tunnel->sorties[rand_sortie].y;
 }
 
 /**
