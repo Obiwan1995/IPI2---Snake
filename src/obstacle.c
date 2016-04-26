@@ -638,7 +638,7 @@ int okay_to_add_wall(Point p, Board* b, Serpent** tab_serpent, int nb_snakes)
  * @return     void
  */
 
-int nb_obstacles_around(Point centre, Board* b, Serpent** tab_serpent, int nb_snakes, Serpent* snake)
+int nb_obstacles_around_3(Point centre, Board* b, Serpent** tab_serpent, int nb_snakes, Serpent* snake)
 {
 	int i, j;
 	Point p;
@@ -646,6 +646,26 @@ int nb_obstacles_around(Point centre, Board* b, Serpent** tab_serpent, int nb_sn
 	for (i = centre.x-1; i <= centre.x+1; i++)
 	{
 		for (j = centre.y-1; j <= centre.y+1; j++)
+		{
+			p.x = i;
+			p.y = j;
+			if (test_collision(b, tab_serpent, nb_snakes, p, snake->id) == snake->id)
+			{
+				res++;
+			}
+		}
+	}
+	return res;
+}
+
+int nb_obstacles_around_5(Point centre, Board* b, Serpent** tab_serpent, int nb_snakes, Serpent* snake)
+{
+	int i, j;
+	Point p;
+	int res = 0;
+	for (i = centre.x-2; i <= centre.x+2; i++)
+	{
+		for (j = centre.y-2; j <= centre.y+2; j++)
 		{
 			p.x = i;
 			p.y = j;

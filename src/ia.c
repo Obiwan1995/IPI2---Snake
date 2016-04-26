@@ -140,9 +140,9 @@ void move_random_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes)
 Direction minimum(int choix, Point centre_right, Point centre_forward, Point centre_left, Board* b, Serpent** tab_serpent, int nb_snakes, Serpent* snake) 
 {
 	Direction res;
-	int nb_obs_right = nb_obstacles_around(centre_right, b, tab_serpent, nb_snakes, snake);
-	int nb_obs_left = nb_obstacles_around(centre_left, b, tab_serpent, nb_snakes, snake);
-	int nb_obstacles_forward = nb_obstacles_around(centre_forward, b, tab_serpent, nb_snakes, snake);
+	int nb_obs_right = nb_obstacles_around_5(centre_right, b, tab_serpent, nb_snakes, snake);
+	int nb_obs_left = nb_obstacles_around_5(centre_left, b, tab_serpent, nb_snakes, snake);
+	int nb_obstacles_forward = nb_obstacles_around_5(centre_forward, b, tab_serpent, nb_snakes, snake);
 
 	int rdm = rand()%2;
 
@@ -303,12 +303,12 @@ void move_def_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes)
 	switch(ia->dir)
 	{	
 	    case top:
-	    	centre_right.x = ia->tete.x + 2;
+	    	centre_right.x = ia->tete.x + 3;
 	    	centre_right.y = ia->tete.y;
-	    	centre_left.x = ia->tete.x - 2;
+	    	centre_left.x = ia->tete.x - 3;
 	    	centre_left.y = ia->tete.y;
 	    	centre_forward.x = ia->tete.x;
-	    	centre_forward.y = ia->tete.y - 2;
+	    	centre_forward.y = ia->tete.y - 3;
 
 	    	pt_right.x = ia->tete.x+1;
 	    	pt_right.y = ia->tete.y;
@@ -320,10 +320,10 @@ void move_def_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes)
 
 	    case right:
 	    	centre_right.x = ia->tete.x;
-	    	centre_right.y = ia->tete.y + 2;
+	    	centre_right.y = ia->tete.y + 3;
 	    	centre_left.x = ia->tete.x;
-	    	centre_left.y = ia->tete.y - 2;
-	    	centre_forward.x = ia->tete.x + 2;
+	    	centre_left.y = ia->tete.y - 3;
+	    	centre_forward.x = ia->tete.x + 3;
 	    	centre_forward.y = ia->tete.y;
 
 	   		pt_right.x = ia->tete.x;
@@ -335,12 +335,12 @@ void move_def_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes)
 	        break;
 
 	     case bot:
-	     	centre_right.x = ia->tete.x - 2;
+	     	centre_right.x = ia->tete.x - 3;
 	    	centre_right.y = ia->tete.y;
-	    	centre_left.x = ia->tete.x + 2;
+	    	centre_left.x = ia->tete.x + 3;
 	    	centre_left.y = ia->tete.y;
 	    	centre_forward.x = ia->tete.x;
-	    	centre_forward.y = ia->tete.y + 2;
+	    	centre_forward.y = ia->tete.y + 3;
 
 	     	pt_right.x = ia->tete.x-1;
 	    	pt_right.y = ia->tete.y;
@@ -352,10 +352,10 @@ void move_def_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes)
 
 	    case left:
 	    	centre_right.x = ia->tete.x;
-	    	centre_right.y = ia->tete.y - 2;
+	    	centre_right.y = ia->tete.y - 3;
 	    	centre_left.x = ia->tete.x;
-	    	centre_left.y = ia->tete.y + 2;
-	    	centre_forward.x = ia->tete.x - 2;
+	    	centre_left.y = ia->tete.y + 3;
+	    	centre_forward.x = ia->tete.x - 3;
 	    	centre_forward.y = ia->tete.y;
 
 	    	pt_right.x = ia->tete.x;
