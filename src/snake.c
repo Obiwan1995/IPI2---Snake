@@ -1,7 +1,7 @@
 /**
  * @file snake.c
  * @author Les Mixtes
- * @date 18/04/2016
+ * @date 26/04/2016
  * @brief Fichier permettant la gestion des serpents
  * @details Contient toutes les fonctions utiles à la gestion des serpents : initialisation et déplacements
  */

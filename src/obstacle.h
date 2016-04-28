@@ -1,7 +1,7 @@
 /**
  * @file obstacle.h
  * @author Les Mixtes
- * @date 18/04/2016
+ * @date 26/04/2016
  * @brief Header du fichier obstacle.c
  * @details Contient les déclarations des structures et des fonctions utiles dans la gestion du plateau
  */

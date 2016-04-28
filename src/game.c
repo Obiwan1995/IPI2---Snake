@@ -1,7 +1,7 @@
 /**
  * @file game.c
  * @author Les Mixtes
- * @date 18/04/2016
+ * @date 28/04/2016
  * @brief Fichier qui gère le jeu
  * @details Contient la boucle principale du jeu ainsi que les divers affichages
  */
@@ -139,15 +139,9 @@ void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit)
             {
                 paint(sdlScreen, board.pPtsMur[i].x, board.pPtsMur[i].y, 0);
             }
-            int k;
             for (i = 0; i < board.nNbTunnels; i++)
             {
-                Tunnel* t = board.pTunnels[i];
-                paint(sdlScreen, t->entree.x, t->entree.y, 5);
-                for (k = 0; k < t->nNbSorties; k++)
-                {
-                    paint(sdlScreen, t->sorties[k].x, t->sorties[k].y, 5);
-                }
+                paint(sdlScreen, board.pTunnels[i]->entree.x, board.pTunnels[i]->entree.y, 5);
             }
             int j;
             for (j = 0; j < nbSnakes; j++)
@@ -207,7 +201,7 @@ void paint(SDL_Surface* sdlScreen, int x, int y, int nId)
             color = TUNNEL;
             break;
         default:
-            fprintf(stderr, "Trop de snake pour les couleurs disponibles\n");
+            fprintf(stderr, "Trop de snakes pour les couleurs disponibles\n");
             exit(1);
     }
 
@@ -219,6 +213,70 @@ void paint(SDL_Surface* sdlScreen, int x, int y, int nId)
             if (!((i == 0 || i == SIZE_CASE || i == 1 || i == SIZE_CASE-1) && (j == 0 || j == SIZE_CASE || j == 1 || j == SIZE_CASE-1)))
                 setPixel(sdlScreen, x*SIZE_CASE+i, y*SIZE_CASE+j, color);
         }    
+    }
+}
+
+/**
+ * @fn         paintBonus(SDL_Surface* sdlScreen, Bonus bonus)
+ *
+ * @brief      Colorie un bonus en forme de losange
+ *
+ * @param       sdlScreen     L'écran affiché à l'utilisateur
+ * @param       bonus         Le bonus à colorier
+ *
+ * @return     void
+ */
+
+void paintBonus(SDL_Surface* sdlScreen, Bonus bonus)
+{
+    Uint32 color;
+    if (bonus.effect == self)
+    {
+        color = GREEN;
+    }
+    else
+    {
+        color = RED;
+    }
+
+    int i, j;
+    if (SIZE_CASE%2 == 0)
+    {
+        for (i = 0; i < SIZE_CASE/2; i++)
+        {
+            for (j = SIZE_CASE/2-i; j <= SIZE_CASE/2+i; j++)
+            {
+                setPixel(sdlScreen, bonus.point.x*SIZE_CASE+j, bonus.point.y*SIZE_CASE+i, color);
+            }    
+        }
+        for (j = 0; j < SIZE_CASE; j++)
+        {
+            setPixel(sdlScreen, bonus.point.x*SIZE_CASE+j, bonus.point.y*SIZE_CASE+SIZE_CASE/2, color);
+        }  
+        for (i = (SIZE_CASE-2)/2; i > 0; i--)
+        {
+            for (j = SIZE_CASE/2-i; j <= SIZE_CASE/2+i; j++)
+            {
+                setPixel(sdlScreen, bonus.point.x*SIZE_CASE+j, bonus.point.y*SIZE_CASE+(SIZE_CASE-i), color);
+            }    
+        }
+    }
+    else
+    {
+        for (i = 0; i < (SIZE_CASE+1)/2; i++)
+        {
+            for (j = (SIZE_CASE+1)/2-i; j < (SIZE_CASE+1)/2+i; j++)
+            {
+                setPixel(sdlScreen, bonus.point.x*SIZE_CASE+j, bonus.point.y*SIZE_CASE+i, color);
+            }    
+        }
+        for (i = (SIZE_CASE-1)/2; i >= 0; i--)
+        {
+            for (j = (SIZE_CASE+1)/2-i; j < (SIZE_CASE+1)/2+i; j++)
+            {
+                setPixel(sdlScreen, bonus.point.x*SIZE_CASE+j, bonus.point.y*SIZE_CASE+(SIZE_CASE-i), color);
+            }    
+        }
     }
 }
 

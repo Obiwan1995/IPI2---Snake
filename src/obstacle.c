@@ -1,7 +1,7 @@
 /**
  * @file obstacle.c
  * @author Les Mixtes
- * @date 18/04/2016
+ * @date 26/04/2016
  * @brief Fichier permettant la création des murs et des positions de départ des serpents
  * @details Contient l'initialisation du "plateau" et des murs et des fonctions de gestion des collisions
  */
@@ -772,12 +772,12 @@ void add_tunnels(Board* b, Serpent** tab_serpent, int nb_snakes)
 
 		for (j = 0; j < b->pTunnels[i]->nNbSorties; j++)
 		{
-			p2.x = rand()%(b->nBoardWidth-2)+1;
-			p2.y = rand()%(b->nBoardHeight-2)+1;
+			p2.x = rand()%(b->nBoardWidth-6)+3;
+			p2.y = rand()%(b->nBoardHeight-6)+3;
 			while(!is_cell_free(p2, b, tab_serpent, nb_snakes))
 			{
-				p2.x = rand()%(b->nBoardWidth-2)+1;
-				p2.y = rand()%(b->nBoardHeight-2)+1;
+				p2.x = rand()%(b->nBoardWidth-6)+3;
+				p2.y = rand()%(b->nBoardHeight-6)+3;
 			}
 			b->pTunnels[i]->sorties[j] = p2;
 		}

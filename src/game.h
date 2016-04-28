@@ -1,7 +1,7 @@
 /**
  * @file game.h
  * @author Les Mixtes
- * @date 18/04/2016
+ * @date 27/04/2016
  * @brief Header du fichier game.c
  * @details Contient les déclarations des fonctions utiles dans la gestion du jeu
  */
@@ -11,6 +11,7 @@
 
 #include "../lib/SDL/include/SDL/SDL.h"
 #include "obstacle.h"
+#include "bonus.h"
 
 /** Taille d'une case en pixels */
 #define SIZE_CASE 15
@@ -30,6 +31,7 @@
 
 void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit);
 void paint(SDL_Surface* sdlScreen, int x, int y, int nId);
+void paintBonus(SDL_Surface* sdlScreen, Bonus bonus);
 void setPixel(SDL_Surface *surface, int x, int y, Uint32 color);
 
 #endif
