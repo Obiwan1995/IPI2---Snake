@@ -168,7 +168,7 @@ Direction minimum(int choix, Point centre_right, Point centre_forward, Point cen
 				}
 				else 
 				{
-					res = snake->dir;
+					res = top;
 				}
 			}
 			else if (nb_obs_left == nb_obstacles_forward)
@@ -179,7 +179,7 @@ Direction minimum(int choix, Point centre_right, Point centre_forward, Point cen
 				}
 				else 
 				{
-					res = snake->dir;
+					res = top;
 				}
 			}
 
@@ -191,7 +191,7 @@ Direction minimum(int choix, Point centre_right, Point centre_forward, Point cen
 				}
 				else 
 				{
-					res = snake->dir;
+					res = top;
 				}
 			}
 			else if (nb_obs_left < nb_obstacles_forward)
@@ -200,7 +200,7 @@ Direction minimum(int choix, Point centre_right, Point centre_forward, Point cen
 			}
 			else 
 			{
-				res = snake->dir;
+				res = top;
 			}
 
 			break;
@@ -214,7 +214,7 @@ Direction minimum(int choix, Point centre_right, Point centre_forward, Point cen
 				}
 				else 
 				{
-					res = snake->dir;
+					res = top;
 				}
 			}
 			else if (nb_obs_left < nb_obstacles_forward) 
@@ -223,7 +223,7 @@ Direction minimum(int choix, Point centre_right, Point centre_forward, Point cen
 			}
 			else 
 			{
-				res = snake->dir;
+				res = top;
 			}
 			break;
 
@@ -236,12 +236,12 @@ Direction minimum(int choix, Point centre_right, Point centre_forward, Point cen
 				}
 				else 
 				{
-					res = snake->dir;
+					res = top;
 				}
 			}
 		   	else if (nb_obstacles_forward < nb_obs_right)
 		   	{
-		   		res = snake->dir;
+		   		res = top;
 		   	}
 		   	else 
 		   	{
@@ -385,11 +385,11 @@ void move_def_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes)
 				Left(ia);
 			}
 			else if (test_collision(&board, snakes, nbSnakes, pt_forward, ia->id) == 0)
-				{
-					Forward(ia);
-				}
+			{
+				Forward(ia);
+			}
 		}
-		else 
+		else if (minimum (0, centre_right, centre_forward, centre_left, &board, snakes, nbSnakes, ia) == top)
 		{
 			if (test_collision(&board, snakes, nbSnakes, pt_forward, ia->id) == 0)
 			{
@@ -419,7 +419,7 @@ void move_def_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes)
 				Forward(ia);
 			}
 		}
-		else 
+		else if (minimum (1, centre_right, centre_forward, centre_left, &board, snakes, nbSnakes, ia) == top)
 		{
 			if (test_collision(&board, snakes, nbSnakes, pt_forward, ia->id) == 0) 
 			{
@@ -444,16 +444,16 @@ void move_def_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes)
 				Left(ia);
 			}
 			else if (test_collision(&board, snakes, nbSnakes, pt_right, ia->id) == 0 )
-				{
-					Right(ia);
-				}
+			{
+				Right(ia);
+			}
 		}
-		else 
+		else if (minimum(2, centre_right, centre_forward, centre_left, &board, snakes, nbSnakes, ia) == right)
 		{
 			if (test_collision(&board, snakes, nbSnakes, pt_right, ia->id) == 0 )
-				{
-					Right(ia);
-				}
+			{
+				Right(ia);
+			}
 			else if (test_collision(&board, snakes, nbSnakes, pt_left, ia->id) == 0)
 			{
 				Left(ia);
