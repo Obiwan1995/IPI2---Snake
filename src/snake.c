@@ -31,10 +31,27 @@ void init_snake(Serpent* snake, int id, int speed, int dir, Point pos)
 	snake->tete.y = pos.y;
 	snake->dir = dir;
 
-	snake->taille = 1;
+	snake->taille = 2;
 	snake->tab = (Point*)malloc(snake->taille*sizeof(Point)) ;
 	snake->tab[0].x=snake->tete.x;
 	snake->tab[0].y=snake->tete.y;
+
+	switch (dir) {
+			case top :
+				snake->tete.y -= 1;
+				break;
+			case right :
+				snake->tete.x += 1;
+				break;
+			case bot :
+				snake->tete.y += 1;
+				break;
+			case left :
+				snake->tete.x -= 1;
+				break;
+	}
+	snake->tab[1].x=snake->tete.x;
+	snake->tab[1].y=snake->tete.y;
 }
 
 /**
