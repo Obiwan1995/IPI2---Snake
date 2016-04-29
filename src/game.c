@@ -49,6 +49,31 @@ void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit)
         }
     }
 
+    //premier affichage
+    SDL_FillRect(sdlScreen, NULL, SDL_MapRGB(sdlScreen->format, 255, 255, 255)); 
+
+    for (i=0; i< board.nSize; i++)
+    {
+        paint(sdlScreen, board.pPtsMur[i].x, board.pPtsMur[i].y, 0);
+    }
+    for (i = 0; i < board.nNbTunnels; i++)
+    {
+        paint(sdlScreen, board.pTunnels[i]->entree.x, board.pTunnels[i]->entree.y, 5);
+    }
+    int j;
+    for (j = 0; j < nbSnakes; j++)
+    {
+        for (i=0; i < snakes[j]->taille; i++)
+        {
+            paint(sdlScreen, snakes[j]->tab[i].x, snakes[j]->tab[i].y, j+1);
+        }
+    }
+    SDL_Flip(sdlScreen);
+
+    sleep(STARTING_TIMER);
+
+
+
     add_tunnels(&board, snakes, nbSnakes);
 
     int nDir = 0;
