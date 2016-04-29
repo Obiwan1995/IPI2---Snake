@@ -772,12 +772,12 @@ void add_tunnels(Board* b, Serpent** tab_serpent, int nb_snakes)
 
 		for (j = 0; j < b->pTunnels[i]->nNbSorties; j++)
 		{
-			p2.x = rand()%(b->nBoardWidth-6)+3;
-			p2.y = rand()%(b->nBoardHeight-6)+3;
+			p2.x = rand()%(b->nBoardWidth-10)+5;
+			p2.y = rand()%(b->nBoardHeight-10)+5;
 			while(!is_cell_free(p2, b, tab_serpent, nb_snakes))
 			{
-				p2.x = rand()%(b->nBoardWidth-6)+3;
-				p2.y = rand()%(b->nBoardHeight-6)+3;
+				p2.x = rand()%(b->nBoardWidth-10)+5;
+				p2.y = rand()%(b->nBoardHeight-10)+5;
 			}
 			b->pTunnels[i]->sorties[j] = p2;
 		}
