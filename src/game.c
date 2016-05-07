@@ -1,7 +1,7 @@
 /**
  * @file game.c
  * @author Les Mixtes
- * @date 28/04/2016
+ * @date 7/05/2016
  * @brief Fichier qui gère le jeu
  * @details Contient la boucle principale du jeu ainsi que les divers affichages
  */
@@ -152,10 +152,60 @@ void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit)
                 handle_tunnels(snakes[i], &board);
             }
 
+            for (i = 0; i < nbSnakes; i++)
+            {
+                for (j = 0; j < board.nNbBonus; j++)
+                {
+                    Bonus* bonus = board.pTabBonus[j];
+                    if (snakes[i]->tete.x == bonus->point.x && snakes[i]->tete.y == bonus->point.y)
+                    {
+                        if (bonus->effect == self)
+                        {
+                            take_bonus(snakes[i], &board, j);
+                        }
+                        else
+                        {
+                            int k;
+                            for (k = 0; k < nbSnakes; k++)
+                            {
+                                if (k != i)
+                                {
+                                    take_bonus(snakes[k], &board, j);
+                                }
+                            }
+                        }
+                        if (bonus->duration != 0)
+                        {
+                            bonus->startTimer = SDL_GetTicks();
+                        }
+                        delete_bonus_board(&board, j);
+                    }
+                }
+                
+                for (j = 0; j < snakes[i]->nNbBonus; j++)
+                {
+                    Bonus* bonus = snakes[i]->tabBonus[j];
+                    if (actualTime - bonus->startTimer >= bonus->duration*1000) 
+                    {
+                        delete_bonus_snake(snakes[i], j);
+                    }
+                    else
+                    {
+
+                    }
+                }
+            }
+
             int nRandWalls = rand()%100;
             if (nRandWalls < 10)
             {
                 add_wall(&board, snakes, nbSnakes);
+            }
+
+            int nRandBonus = rand()%100;
+            if (nRandBonus < P_ADD_BONUS)
+            {
+                add_bonus(&board, snakes, nbSnakes);
             }
 
             SDL_FillRect(sdlScreen, NULL, SDL_MapRGB(sdlScreen->format, 255, 255, 255)); 
@@ -167,6 +217,10 @@ void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit)
             for (i = 0; i < board.nNbTunnels; i++)
             {
                 paint(sdlScreen, board.pTunnels[i]->entree.x, board.pTunnels[i]->entree.y, 5);
+            }
+            for (i = 0; i < board.nNbBonus; i++)
+            {
+                paintBonus(sdlScreen, board.pTabBonus[i]);
             }
             int j;
             for (j = 0; j < nbSnakes; j++)
@@ -252,10 +306,10 @@ void paint(SDL_Surface* sdlScreen, int x, int y, int nId)
  * @return     void
  */
 
-void paintBonus(SDL_Surface* sdlScreen, Bonus bonus)
+void paintBonus(SDL_Surface* sdlScreen, Bonus* bonus)
 {
     Uint32 color;
-    if (bonus.effect == self)
+    if (bonus->effect == self)
     {
         color = GREEN;
     }
@@ -271,18 +325,18 @@ void paintBonus(SDL_Surface* sdlScreen, Bonus bonus)
         {
             for (j = SIZE_CASE/2-i; j <= SIZE_CASE/2+i; j++)
             {
-                setPixel(sdlScreen, bonus.point.x*SIZE_CASE+j, bonus.point.y*SIZE_CASE+i, color);
+                setPixel(sdlScreen, bonus->point.x*SIZE_CASE+j, bonus->point.y*SIZE_CASE+i, color);
             }    
         }
         for (j = 0; j < SIZE_CASE; j++)
         {
-            setPixel(sdlScreen, bonus.point.x*SIZE_CASE+j, bonus.point.y*SIZE_CASE+SIZE_CASE/2, color);
+            setPixel(sdlScreen, bonus->point.x*SIZE_CASE+j, bonus->point.y*SIZE_CASE+SIZE_CASE/2, color);
         }  
         for (i = (SIZE_CASE-2)/2; i > 0; i--)
         {
             for (j = SIZE_CASE/2-i; j <= SIZE_CASE/2+i; j++)
             {
-                setPixel(sdlScreen, bonus.point.x*SIZE_CASE+j, bonus.point.y*SIZE_CASE+(SIZE_CASE-i), color);
+                setPixel(sdlScreen, bonus->point.x*SIZE_CASE+j, bonus->point.y*SIZE_CASE+(SIZE_CASE-i), color);
             }    
         }
     }
@@ -292,14 +346,14 @@ void paintBonus(SDL_Surface* sdlScreen, Bonus bonus)
         {
             for (j = (SIZE_CASE+1)/2-i; j < (SIZE_CASE+1)/2+i; j++)
             {
-                setPixel(sdlScreen, bonus.point.x*SIZE_CASE+j, bonus.point.y*SIZE_CASE+i, color);
+                setPixel(sdlScreen, bonus->point.x*SIZE_CASE+j, bonus->point.y*SIZE_CASE+i, color);
             }    
         }
         for (i = (SIZE_CASE-1)/2; i >= 0; i--)
         {
             for (j = (SIZE_CASE+1)/2-i; j < (SIZE_CASE+1)/2+i; j++)
             {
-                setPixel(sdlScreen, bonus.point.x*SIZE_CASE+j, bonus.point.y*SIZE_CASE+(SIZE_CASE-i), color);
+                setPixel(sdlScreen, bonus->point.x*SIZE_CASE+j, bonus->point.y*SIZE_CASE+(SIZE_CASE-i), color);
             }    
         }
     }

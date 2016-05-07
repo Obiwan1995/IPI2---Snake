@@ -10,7 +10,6 @@
 #define _game_h_
 
 #include "../lib/SDL/include/SDL/SDL.h"
-#include "obstacle.h"
 #include "bonus.h"
 
 /** Taille d'une case en pixels */
@@ -29,12 +28,12 @@
 /** Couleur des tunnels */
 #define TUNNEL 0x00BD8C22
  
-/** Seconde avant le début du jeu */
+/** Nombre de secondes avant le début du jeu */
 #define STARTING_TIMER 3
 
 void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit);
 void paint(SDL_Surface* sdlScreen, int x, int y, int nId);
-void paintBonus(SDL_Surface* sdlScreen, Bonus bonus);
+void paintBonus(SDL_Surface* sdlScreen, Bonus* bonus);
 void setPixel(SDL_Surface *surface, int x, int y, Uint32 color);
 
 #endif
