@@ -23,7 +23,8 @@
 - tunnels : les tunnels du plateau 
 - nNbTunnels : le nombre de tunnels sur le plateau 
 - un tableau de bonus présents sur le plateau 
-- le nombre de bonus présents sur le plateau */
+- le nombre de bonus présents sur le plateau 
+- un booléen permettant de savoir si les murs sont en train de se refermer */
 
 typedef struct
 {
@@ -38,6 +39,7 @@ typedef struct
 	int nNbTunnels;
 	Bonus** pTabBonus;
 	int nNbBonus;
+	int nClosingWalls;
 } Board;
 
 Board init_board1();

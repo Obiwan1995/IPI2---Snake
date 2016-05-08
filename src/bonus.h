@@ -22,6 +22,7 @@
 void add_bonus(Board* b, Serpent** tab_serpent, int nb_snakes);
 void take_bonus(Serpent* s, Board* b, int index);
 void reverse_snake(Serpent* s);
+void close_walls(Board* b, int nWallsRow);
 void delete_bonus_board(Board* b, int index);
 void delete_bonus_snake(Serpent* s, int index);
 

@@ -133,19 +133,188 @@ void reverse_snake(Serpent* s)
 	{
 		case top:
 			s->dir = bot;
+			Point bas;
+			bas.x = s->tete.x;
+			bas.y = s->tete.y+1;
+			if (belongs_to_tab(bas, s->tab, s->taille))
+			{
+				Point gauche, droite;
+				gauche.x = s->tete.x-1;
+				gauche.y = s->tete.y;
+				droite.x = s->tete.x+1;
+				droite.y = s->tete.y;
+				int random = rand()%2;
+				if (random == 0)
+				{
+					if (belongs_to_tab(gauche, s->tab, s->taille))
+					{
+						s->dir = right;
+					}
+					else
+					{
+						s->dir = left;
+					}
+				}
+				else
+				{
+					if (belongs_to_tab(droite, s->tab, s->taille))
+					{
+						s->dir = left;
+					}
+					else
+					{
+						s->dir = right;
+					}
+				}
+			}
 			break;
 
 		case right:
 			s->dir = left;
+			Point gauche;
+			gauche.x = s->tete.x-1;
+			gauche.y = s->tete.y;
+			if (belongs_to_tab(gauche, s->tab, s->taille))
+			{
+				Point haut, bas;
+				haut.x = s->tete.x;
+				haut.y = s->tete.y-1;
+				bas.x = s->tete.x;
+				bas.y = s->tete.y+1;
+				int random = rand()%2;
+				if (random == 0)
+				{
+					if (belongs_to_tab(haut, s->tab, s->taille))
+					{
+						s->dir = bot;
+					}
+					else
+					{
+						s->dir = top;
+					}
+				}
+				else
+				{
+					if (belongs_to_tab(bas, s->tab, s->taille))
+					{
+						s->dir = top;
+					}
+					else
+					{
+						s->dir = bot;
+					}
+				}
+			}
 			break;
 
 		case bot:
 			s->dir = top;
+			Point haut;
+			haut.x = s->tete.x;
+			haut.y = s->tete.y-1;
+			if (belongs_to_tab(haut, s->tab, s->taille))
+			{
+				Point gauche, droite;
+				gauche.x = s->tete.x-1;
+				gauche.y = s->tete.y;
+				droite.x = s->tete.x+1;
+				droite.y = s->tete.y;
+				int random = rand()%2;
+				if (random == 0)
+				{
+					if (belongs_to_tab(gauche, s->tab, s->taille))
+					{
+						s->dir = right;
+					}
+					else
+					{
+						s->dir = left;
+					}
+				}
+				else
+				{
+					if (belongs_to_tab(droite, s->tab, s->taille))
+					{
+						s->dir = left;
+					}
+					else
+					{
+						s->dir = right;
+					}
+				}
+			}
 			break;
 
 		default:
 			s->dir = right;
+			Point droite;
+			droite.x = s->tete.x+1;
+			droite.y = s->tete.y;
+			if (belongs_to_tab(droite, s->tab, s->taille))
+			{
+				Point haut, bas;
+				haut.x = s->tete.x;
+				haut.y = s->tete.y-1;
+				bas.x = s->tete.x;
+				bas.y = s->tete.y+1;
+				int random = rand()%2;
+				if (random == 0)
+				{
+					if (belongs_to_tab(haut, s->tab, s->taille))
+					{
+						s->dir = bot;
+					}
+					else
+					{
+						s->dir = top;
+					}
+				}
+				else
+				{
+					if (belongs_to_tab(bas, s->tab, s->taille))
+					{
+						s->dir = top;
+					}
+					else
+					{
+						s->dir = bot;
+					}
+				}
+			}
 			break;
+	}
+}
+
+/**
+ * @fn 			close_walls(Board* b, int nWallsRow)
+ *
+ * @brief 		Permet de remplir le plateau avec des murs
+ *
+ * @param 		b 			Le plateau de jeu
+ * @param 		nWallsRow 	La rangée courante des murs
+ *
+ * @details 	Rajoute une rangée de murs au plateau en fonction de la rangée actuelle
+ * 
+ * @return 		void
+ */
+
+void close_walls(Board* b, int nWallsRow)
+{
+	int n = b->nSize;
+	b->nSize += 2*(b->nBoardWidth-nWallsRow-nWallsRow-1)+2*(b->nBoardHeight-nWallsRow-nWallsRow-1);
+	b->pPtsMur = realloc(b->pPtsMur, b->nSize*sizeof(Point));
+	int i, j;
+	for (i = nWallsRow; i < b->nBoardWidth-nWallsRow; i++)
+	{
+		for (j = nWallsRow; j < b->nBoardHeight-nWallsRow; ++j)
+		{
+			if (i == nWallsRow || j == nWallsRow || i == b->nBoardWidth-nWallsRow-1 || j == b->nBoardHeight-nWallsRow-1)
+			{
+				b->pPtsMur[n].x = i;
+				b->pPtsMur[n].y = j;
+				n++;
+			}
+		}
 	}
 }
 

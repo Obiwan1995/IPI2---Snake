@@ -67,6 +67,8 @@ Board init_board1()
 	B.pPtsPositions[3].y = B.nBoardHeight/2;
 	B.pnDirs[3] = right;
 
+	B.nClosingWalls = 0;
+
 	return B;
 }
 
@@ -123,6 +125,8 @@ Board init_board_1v1()
 	B.pPtsPositions[1].x = B.nBoardWidth*5/6.f;
 	B.pPtsPositions[1].y = B.nBoardHeight/2;
 	B.pnDirs[1] = left;
+
+	B.nClosingWalls = 0;
 
 	return B;
 }
