@@ -1,7 +1,7 @@
 all: play
  
 play: main.c option.o game.o snake.o obstacle.o bonus.o
-	gcc -o play main.c option.o game.o snake.o obstacle.o bonus.o -std=c99 -Wall `sdl-config --libs`
+	gcc -o play main.c option.o game.o snake.o obstacle.o bonus.o -std=c99 -Wall -lm `sdl-config --libs`
 
 option.o: option.c option.h
 	gcc -o option.o -c option.c -std=c99 -Wall
@@ -18,10 +18,10 @@ obstacle.o: obstacle.c obstacle.h
 bonus.o: bonus.c bonus.h
 	gcc -o bonus.o -c bonus.c -std=c99 -Wall
 
-test: ../tests/test_snake.c snake.o obstacle.o
-	gcc -o ../tests/test_snake ../tests/test_snake.c snake.o obstacle.o -std=c99 -Wall -l cmocka
+test: ../tests/test_main.c snake.o obstacle.o
+	gcc -o ../tests/test_main ../tests/test_main.c snake.o obstacle.o -std=c99 -Wall -l cmocka
  
 clean:
 	rm -f *.o
 	rm -f play
-	rm -f ../tests/test_snake
+	rm -f ../tests/test_main

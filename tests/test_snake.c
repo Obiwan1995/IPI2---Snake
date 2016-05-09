@@ -7,6 +7,7 @@
 #include "../src/obstacle.h"
 
 #define UNIT_TESTING 1
+
 #define ID 1
 #define SPEED 10
 #define DIR top
@@ -27,8 +28,6 @@ static int setup(void **state)
 
 static int teardown(void **state) 
 {
-    Serpent* snake = (*state);
-    free_snake(snake);
     return 0;
 }
 
@@ -37,12 +36,15 @@ static void test_init_snake(void **state)
     Serpent* snake = *state;
     assert_int_equal(snake->id, ID);
     assert_int_equal(snake->dir, DIR);
-    assert_int_equal(snake->taille, 1);
+    assert_int_equal(snake->taille, 2);
     assert_int_equal(snake->tete.x, X);
-    assert_int_equal(snake->tete.y, Y);
+    assert_int_equal(snake->tete.y, Y-1);
     assert_non_null(snake->tab);
     assert_int_equal(snake->tab[0].x, X);
     assert_int_equal(snake->tab[0].y, Y);
+    assert_int_equal(snake->tab[1].x, X);
+    assert_int_equal(snake->tab[1].y, Y-1);
+    free_snake(snake);
 }
 
 static void test_forward_top_snake(void ** state)
@@ -51,7 +53,8 @@ static void test_forward_top_snake(void ** state)
     Forward(snake);
     assert_non_null(snake);
     assert_int_equal(snake->tete.x, X);
-    assert_int_equal(snake->tete.y, Y-1);
+    assert_int_equal(snake->tete.y, Y-2);
+    free_snake(snake);
 }
 
 static void test_forward_right_snake(void ** state)
@@ -61,7 +64,8 @@ static void test_forward_right_snake(void ** state)
     Forward(snake);
     assert_non_null(snake);
     assert_int_equal(snake->tete.x, X+1);
-    assert_int_equal(snake->tete.y, Y);
+    assert_int_equal(snake->tete.y, Y-1);
+    free_snake(snake);
 }
 
 static void test_forward_bot_snake(void ** state)
@@ -71,7 +75,8 @@ static void test_forward_bot_snake(void ** state)
     Forward(snake);
     assert_non_null(snake);
     assert_int_equal(snake->tete.x, X);
-    assert_int_equal(snake->tete.y, Y+1);
+    assert_int_equal(snake->tete.y, Y);
+    free_snake(snake);
 }
 
 static void test_forward_left_snake(void ** state)
@@ -81,7 +86,8 @@ static void test_forward_left_snake(void ** state)
     Forward(snake);
     assert_non_null(snake);
     assert_int_equal(snake->tete.x, X-1);
-    assert_int_equal(snake->tete.y, Y);
+    assert_int_equal(snake->tete.y, Y-1);
+    free_snake(snake);
 }
 
 static void test_turn_left_top_snake(void ** state)
@@ -90,8 +96,9 @@ static void test_turn_left_top_snake(void ** state)
     Left(snake);
     assert_non_null(snake);
     assert_int_equal(snake->tete.x, X-1);
-    assert_int_equal(snake->tete.y, Y);
+    assert_int_equal(snake->tete.y, Y-1);
     assert_int_equal(snake->dir, left);
+    free_snake(snake);
 }
 
 static void test_turn_left_right_snake(void ** state)
@@ -101,8 +108,9 @@ static void test_turn_left_right_snake(void ** state)
     Left(snake);
     assert_non_null(snake);
     assert_int_equal(snake->tete.x, X);
-    assert_int_equal(snake->tete.y, Y-1);
+    assert_int_equal(snake->tete.y, Y-2);
     assert_int_equal(snake->dir, top);
+    free_snake(snake);
 }
 
 static void test_turn_left_bot_snake(void ** state)
@@ -112,8 +120,9 @@ static void test_turn_left_bot_snake(void ** state)
     Left(snake);
     assert_non_null(snake);
     assert_int_equal(snake->tete.x, X+1);
-    assert_int_equal(snake->tete.y, Y);
+    assert_int_equal(snake->tete.y, Y-1);
     assert_int_equal(snake->dir, right);
+    free_snake(snake);
 }
 
 static void test_turn_left_left_snake(void ** state)
@@ -123,8 +132,9 @@ static void test_turn_left_left_snake(void ** state)
     Left(snake);
     assert_non_null(snake);
     assert_int_equal(snake->tete.x, X);
-    assert_int_equal(snake->tete.y, Y+1);
+    assert_int_equal(snake->tete.y, Y);
     assert_int_equal(snake->dir, bot);
+    free_snake(snake);
 }
 
 static void test_turn_right_top_snake(void ** state)
@@ -133,8 +143,9 @@ static void test_turn_right_top_snake(void ** state)
     Right(snake);
     assert_non_null(snake);
     assert_int_equal(snake->tete.x, X+1);
-    assert_int_equal(snake->tete.y, Y);
+    assert_int_equal(snake->tete.y, Y-1);
     assert_int_equal(snake->dir, right);
+    free_snake(snake);
 }
 
 static void test_turn_right_right_snake(void ** state)
@@ -144,8 +155,9 @@ static void test_turn_right_right_snake(void ** state)
     Right(snake);
     assert_non_null(snake);
     assert_int_equal(snake->tete.x, X);
-    assert_int_equal(snake->tete.y, Y+1);
+    assert_int_equal(snake->tete.y, Y);
     assert_int_equal(snake->dir, bot);
+    free_snake(snake);
 }
 
 static void test_turn_right_bot_snake(void ** state)
@@ -155,8 +167,9 @@ static void test_turn_right_bot_snake(void ** state)
     Right(snake);
     assert_non_null(snake);
     assert_int_equal(snake->tete.x, X-1);
-    assert_int_equal(snake->tete.y, Y);
+    assert_int_equal(snake->tete.y, Y-1);
     assert_int_equal(snake->dir, left);
+    free_snake(snake);
 }
 
 static void test_turn_right_left_snake(void ** state)
@@ -166,8 +179,9 @@ static void test_turn_right_left_snake(void ** state)
     Right(snake);
     assert_non_null(snake);
     assert_int_equal(snake->tete.x, X);
-    assert_int_equal(snake->tete.y, Y-1);
+    assert_int_equal(snake->tete.y, Y-2);
     assert_int_equal(snake->dir, top);
+    free_snake(snake);
 }
 
 static void test_collision_no_collision_forward(void ** state)
@@ -353,35 +367,4 @@ static void test_collision_two_snakes_head_body(void ** state)
     assert_int_equal(test_collision(&b, snakes, nb_snakes, snake->tete, snake->id), 1);
     free_snakes(snakes, nb_snakes);
     free_board(b);
-}
-
-int main(void) 
-{
-    const struct CMUnitTest tests[] = 
-    {
-        cmocka_unit_test_setup_teardown(test_init_snake, setup, teardown), 
-        cmocka_unit_test_setup_teardown(test_forward_top_snake, setup, teardown),
-        cmocka_unit_test_setup_teardown(test_forward_right_snake, setup, teardown),
-        cmocka_unit_test_setup_teardown(test_forward_bot_snake, setup, teardown),
-        cmocka_unit_test_setup_teardown(test_forward_left_snake, setup, teardown), 
-        cmocka_unit_test_setup_teardown(test_turn_left_top_snake, setup, teardown), 
-        cmocka_unit_test_setup_teardown(test_turn_left_right_snake, setup, teardown),
-        cmocka_unit_test_setup_teardown(test_turn_left_bot_snake, setup, teardown),
-        cmocka_unit_test_setup_teardown(test_turn_left_left_snake, setup, teardown),
-        cmocka_unit_test_setup_teardown(test_turn_right_top_snake, setup, teardown),
-        cmocka_unit_test_setup_teardown(test_turn_right_right_snake, setup, teardown),
-        cmocka_unit_test_setup_teardown(test_turn_right_bot_snake, setup, teardown),
-        cmocka_unit_test_setup_teardown(test_turn_right_left_snake, setup, teardown),
-        cmocka_unit_test_setup_teardown(test_collision_no_collision_forward, setup, teardown),
-        cmocka_unit_test_setup_teardown(test_collision_no_collision_left, setup, teardown),
-        cmocka_unit_test_setup_teardown(test_collision_no_collision_right, setup, teardown),
-        cmocka_unit_test_setup_teardown(test_collision_head_body, setup, teardown),
-        cmocka_unit_test_setup_teardown(test_collision_head_wall_forward, setup, teardown),
-        cmocka_unit_test_setup_teardown(test_collision_head_wall_left, setup, teardown),
-        cmocka_unit_test_setup_teardown(test_collision_head_wall_right, setup, teardown),
-        cmocka_unit_test_setup_teardown(test_collision_two_snakes_head_head, setup, teardown),
-        cmocka_unit_test_setup_teardown(test_collision_two_snakes_head_body, setup, teardown)
-    };
-
-    return cmocka_run_group_tests(tests, NULL, NULL);
 }

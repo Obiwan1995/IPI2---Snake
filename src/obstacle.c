@@ -1,7 +1,7 @@
 /**
  * @file obstacle.c
  * @author Les Mixtes
- * @date 26/04/2016
+ * @date 7/05/2016
  * @brief Fichier permettant la création des murs et des positions de départ des serpents
  * @details Contient l'initialisation du "plateau" et des murs et des fonctions de gestion des collisions
  */
@@ -25,6 +25,8 @@ Board init_board1()
 	B.nBoardHeight = 40;
 
 	B.nNbTunnels = 0;
+
+	B.nNbBonus = 0;
 
 	B.nSize = 2*B.nBoardWidth+2*B.nBoardHeight-4;
 	B.pPtsMur = (Point*)malloc(B.nSize*sizeof(Point));
@@ -65,6 +67,8 @@ Board init_board1()
 	B.pPtsPositions[3].y = B.nBoardHeight/2;
 	B.pnDirs[3] = right;
 
+	B.nClosingWalls = 0;
+
 	return B;
 }
 
@@ -88,6 +92,8 @@ Board init_board_1v1()
 	B.nBoardWidth = 2*B.nBoardHeight;
 
 	B.nNbTunnels = 0;
+
+	B.nNbBonus = 0;
 
 	B.nSize = 2*B.nBoardWidth+2*B.nBoardHeight-4;
 	B.pPtsMur = (Point*)malloc(B.nSize*sizeof(Point));
@@ -119,6 +125,8 @@ Board init_board_1v1()
 	B.pPtsPositions[1].x = B.nBoardWidth*5/6.f;
 	B.pPtsPositions[1].y = B.nBoardHeight/2;
 	B.pnDirs[1] = left;
+
+	B.nClosingWalls = 0;
 
 	return B;
 }
@@ -535,7 +543,7 @@ void delete_too_close_walls(Board* b)
  * @param	   tab_serpent 	Le tableau contenant tous les serpents jouant dans la partie
  * @param 	   nb_snakes	Le nombre de serpents dans la partie
  *
- * @details	   Utilise la fonction appartient_tableau pour savoir si la case testée est contenue dans le tableau des murs ou dans le corps d'un des serpents du jeu.
+ * @details	   Utilise la fonction appartient_tableau pour savoir si la case testée est contenue dans le tableau des murs, dans le corps d'un des serpents, dans le tableau des tunnels ou dans le tableau des bonus.
  *
  * @return     1 si la case est vide
  * @return	   0 sinon
@@ -558,6 +566,13 @@ int is_cell_free(Point p, Board* b, Serpent** tab_serpent, int nb_snakes)
 	for (i = 0; i < b->nNbTunnels; i++)
 	{
 		if (belongs_to_tunnel(p, b->pTunnels[i]))
+		{
+			return 0;
+		}
+	}
+	for (i = 0; i < b->nNbBonus; i++)
+	{
+		if (b->pTabBonus[i]->point.x == p.x && b->pTabBonus[i]->point.y == p.y)
 		{
 			return 0;
 		}
@@ -772,12 +787,12 @@ void add_tunnels(Board* b, Serpent** tab_serpent, int nb_snakes)
 
 		for (j = 0; j < b->pTunnels[i]->nNbSorties; j++)
 		{
-			p2.x = rand()%(b->nBoardWidth-6)+3;
-			p2.y = rand()%(b->nBoardHeight-6)+3;
+			p2.x = rand()%(b->nBoardWidth-10)+5;
+			p2.y = rand()%(b->nBoardHeight-10)+5;
 			while(!is_cell_free(p2, b, tab_serpent, nb_snakes))
 			{
-				p2.x = rand()%(b->nBoardWidth-6)+3;
-				p2.y = rand()%(b->nBoardHeight-6)+3;
+				p2.x = rand()%(b->nBoardWidth-10)+5;
+				p2.y = rand()%(b->nBoardHeight-10)+5;
 			}
 			b->pTunnels[i]->sorties[j] = p2;
 		}
@@ -818,15 +833,25 @@ void handle_tunnels(Serpent* s, Board* b)
  *
  * @param		b     Plateau dont on veut supprimer la mémoire
  * 
- * @details 	Supprime les points du mur, les points correspondant aux positions de départ
-				et la direction des positions de départ
+ * @details 	Supprime les points du mur, les points correspondant aux positions de départ, la direction des positions de départ, les tunnels et les bonus du plateau
  *
  * @return 		void
  */
 
 void free_board(Board b)
 {
-	 free(b.pPtsMur);
-     free(b.pPtsPositions);
-     free(b.pnDirs);
+	free(b.pPtsMur);
+	free(b.pPtsPositions);
+	free(b.pnDirs);
+	int i;
+	for (i = 0; i < b.nNbTunnels; i++)
+	{
+		free(b.pTunnels[i]);
+	}
+	free(b.pTunnels);
+	for (i = 0; i < b.nNbBonus; i++)
+	{
+		free(b.pTabBonus[i]);
+	}
+	free(b.pTabBonus);
 }

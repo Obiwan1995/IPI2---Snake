@@ -1,7 +1,7 @@
 /**
  * @file snake.c
  * @author Les Mixtes
- * @date 26/04/2016
+ * @date 7/05/2016
  * @brief Fichier permettant la gestion des serpents
  * @details Contient toutes les fonctions utiles à la gestion des serpents : initialisation et déplacements
  */
@@ -30,9 +30,10 @@ void init_snake(Serpent* snake, int id, int speed, int dir, Point pos)
 	snake->tete.x = pos.x;
 	snake->tete.y = pos.y;
 	snake->dir = dir;
+	snake->nNbBonus = 0;
 
 	snake->taille = 2;
-	snake->tab = (Point*)malloc(snake->taille*sizeof(Point)) ;
+	snake->tab = (Point*)malloc(snake->taille*sizeof(Point));
 	snake->tab[0].x=snake->tete.x;
 	snake->tab[0].y=snake->tete.y;
 
@@ -268,7 +269,7 @@ void free_snakes(Serpent** snakes, int nbSnake)
  *
  * @param 		snake 		Le serpent à supprimer
  *
- * @details		Supprime le tableau de points du serpent puis sa structure complète
+ * @details		Supprime le tableau de points du serpent, son tableau de bonus puis sa structure complète
  *
  * @return 		void
  */
