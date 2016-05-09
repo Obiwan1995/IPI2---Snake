@@ -176,6 +176,7 @@ void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit)
                         Bonus* bonus = board.pTabBonus[i];
                         if (snakes[k]->tete.x == bonus->point.x && snakes[k]->tete.y == bonus->point.y)
                         {
+                            printf("BONUS : %d\n", bonus->type);
                             if (bonus->type == closing_walls)
                             {
                                 closingWallsTimer = SDL_GetTicks();
