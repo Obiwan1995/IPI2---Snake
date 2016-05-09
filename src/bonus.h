@@ -13,9 +13,6 @@
 #include <math.h>
 #include "obstacle.h"
 
-/** Probabilité d'apparation des bonus en pourcentage */
-#define P_ADD_BONUS 5
-
 /** Durée par défaut des bonus en secondes */
 #define DEFAULT_DURATION 5
 

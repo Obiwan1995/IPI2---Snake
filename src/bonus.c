@@ -44,7 +44,7 @@ void add_bonus(Board* b, Serpent** tab_serpent, int nb_snakes)
 	}
 	Bonus* bonus = (Bonus*) malloc(sizeof(Bonus));
 	bonus->point = p;
-	bonus->type = rand()%NB_TYPES;
+	bonus->type = closing_walls;
 	bonus->effect = rand()%2;
 	if (bonus->type == reverse || bonus->type == clean || bonus->type == change_snake)
 	{

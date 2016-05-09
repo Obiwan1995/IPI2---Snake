@@ -27,6 +27,7 @@ void init_snake(Serpent* snake, int id, int speed, int dir, Point pos)
 {
 	snake->id = id ;
 	snake->vitesse = speed;
+	snake->vivant = 1;
 	snake->tete.x = pos.x;
 	snake->tete.y = pos.y;
 	snake->dir = dir;

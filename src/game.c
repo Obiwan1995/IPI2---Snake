@@ -72,23 +72,27 @@ void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit)
 
     sleep(STARTING_TIMER);
 
-
-
     add_tunnels(&board, snakes, nbSnakes);
 
     int nDir = 0;
     int nKeyUp = 0;
     int nInGame = 1;
-    int nResGame = 0;
     int actualTime = 0;
-    int previousTime = 0;
     int nWallsRow = 1;
     int closingWallsTimer = 0;
 
+    int nbSnakesAlive = nbSnakes;
 
-    while(nInGame && !nResGame)
+    int previousTime[nbSnakes+1];
+    for (i=0; i < nbSnakes+1; i++)
+    {
+        previousTime[i] = 0;
+    }
+
+    while(nInGame)
     {
         actualTime = SDL_GetTicks();
+
         SDL_PollEvent(&event);
         switch(event.type)
         {
@@ -123,137 +127,132 @@ void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit)
                 break;
         }
 
-        if (board.nClosingWalls && actualTime - closingWallsTimer > 1000)
+        if (board.nClosingWalls && actualTime - closingWallsTimer > WALLS_CLOSING_TIMER)
         {
             close_walls(&board, nWallsRow);
             closingWallsTimer = SDL_GetTicks();
             nWallsRow++;
         }
 
-        if (actualTime - previousTime > snakes[0]->vitesse)
+        int k;
+        for (k = 0; k < nbSnakes; ++k)
         {
-            switch(nDir)
+            if (actualTime - previousTime[k] > snakes[k]->vitesse && snakes[k]->vivant)
             {
-                case 0:
-                    Forward(snakes[0]);
-                    break;
-                case 1:
-                    Right(snakes[0]);
-                    break;
-                case 2:
-                    Left(snakes[0]);
-                    break;
-            }
+                previousTime[k] = actualTime;
 
-            for (i = 1; i < nbSnakes; i++)
-            {
-                move_def_ia(snakes[i], board, nbSnakes, snakes);
-            }
-
-            i = 0;
-            while(!nResGame && i < nbSnakes)
-            {
-                nResGame = test_collision(&board, snakes, nbSnakes, snakes[i]->tete, snakes[i]->id);
-                i++;
-            }
-
-            for (i = 0; i < nbSnakes; i++)
-            {
-                handle_tunnels(snakes[i], &board);
-            }
-
-            for (i = 0; i < nbSnakes; i++)
-            {
-                for (j = 0; j < board.nNbBonus; j++)
+                if (k == 0)
                 {
-                    Bonus* bonus = board.pTabBonus[j];
-                    if (snakes[i]->tete.x == bonus->point.x && snakes[i]->tete.y == bonus->point.y)
+                    switch(nDir)
                     {
-                        if (bonus->type != closing_walls)
+                        case 0:
+                            Forward(snakes[0]);
+                            break;
+                        case 1:
+                            Right(snakes[0]);
+                            break;
+                        case 2:
+                            Left(snakes[0]);
+                            break;
+                    }
+                    nDir = 0;
+                }
+                else
+                    move_def_ia(snakes[k], board, nbSnakes, snakes);
+
+                handle_tunnels(snakes[k], &board);
+                
+                if(test_collision(&board, snakes, nbSnakes, snakes[k]->tete, snakes[k]->id))
+                {
+                    snakes[k]->vivant = 0;
+                    --nbSnakesAlive;
+                    if (nbSnakesAlive < 2)
+                        nInGame = 0;
+                }
+                else
+                {
+                    for (i = 0; i < board.nNbBonus; i++)
+                    {
+                        Bonus* bonus = board.pTabBonus[i];
+                        if (snakes[k]->tete.x == bonus->point.x && snakes[k]->tete.y == bonus->point.y)
                         {
-                            if (bonus->effect == self)
+                            if (bonus->type == closing_walls)
                             {
-                                take_bonus(snakes[i], &board, j);
+                                closingWallsTimer = SDL_GetTicks();
+                                board.nClosingWalls = 1;
                             }
                             else
                             {
-                                int k;
-                                for (k = 0; k < nbSnakes; k++)
+                                if (bonus->effect == self)
                                 {
-                                    if (k != i)
+                                    take_bonus(snakes[k], &board, i);// à changer en take_bonus(snakes[j], board.pTabBonus[i])
+                                }
+                                else
+                                {
+                                    for (j = 0; j < nbSnakes; j++)
                                     {
-                                        take_bonus(snakes[k], &board, j);
+                                        if (j != k)
+                                            take_bonus(snakes[j], &board, i);// à changer en take_bonus(snakes[j], board.pTabBonus[i])
                                     }
                                 }
                             }
+
+                            if (bonus->duration != 0)
+                                bonus->startTimer = SDL_GetTicks();
+
+                            delete_bonus_board(&board, i);
                         }
-                        else
-                        {
-                            closingWallsTimer = SDL_GetTicks();
-                            board.nClosingWalls = 1;
-                        }
-                        if (bonus->duration != 0)
-                        {
-                            bonus->startTimer = SDL_GetTicks();
-                        }
-                        delete_bonus_board(&board, j);
                     }
-                }
-                
-                for (j = 0; j < snakes[i]->nNbBonus; j++)
-                {
-                    Bonus* bonus = snakes[i]->tabBonus[j];
-                    if (actualTime - bonus->startTimer >= bonus->duration*1000) 
+                    
+                    for (j = 0; j < snakes[k]->nNbBonus; j++)
                     {
-                        delete_bonus_snake(snakes[i], j);
-                    }
-                    else
-                    {
+                        Bonus* bonus = snakes[k]->tabBonus[j];
+                        if (actualTime - bonus->startTimer >= bonus->duration*1000) 
+                        {
+                            delete_bonus_snake(snakes[k], j);
+                        }
                     }
                 }
             }
-
-            int nRandWalls = rand()%100;
-            if (nRandWalls < 10)
-            {
-                add_wall(&board, snakes, nbSnakes);
-            }
-
-            int nRandBonus = rand()%100;
-            if (nRandBonus < P_ADD_BONUS)
-            {
-                add_bonus(&board, snakes, nbSnakes);
-            }
-
-            SDL_FillRect(sdlScreen, NULL, SDL_MapRGB(sdlScreen->format, 255, 255, 255)); 
-
-            for (i=0; i< board.nSize; i++)
-            {
-                paint(sdlScreen, board.pPtsMur[i].x, board.pPtsMur[i].y, 0);
-            }
-            
-            for (i = 0; i < board.nNbTunnels; i++)
-            {
-                paint(sdlScreen, board.pTunnels[i]->entree.x, board.pTunnels[i]->entree.y, 5);
-            }
-            for (i = 0; i < board.nNbBonus; i++)
-            {
-                paintBonus(sdlScreen, board.pTabBonus[i]);
-            }
-            
-            for (j = 0; j < nbSnakes; j++)
-            {
-                for (i=0; i < snakes[j]->taille; i++)
-                {
-                    paint(sdlScreen, snakes[j]->tab[i].x, snakes[j]->tab[i].y, j+1);
-                }
-            }
-
-            SDL_Flip(sdlScreen);
-
-            nDir = 0;
-            previousTime = actualTime;
         }
+
+        if (actualTime - previousTime[nbSnakes] > ADDING_OBJECT_TIMER)
+        {
+            previousTime[nbSnakes] = actualTime;
+
+            int nRandObject = rand()%100;
+            if (nRandObject < P_ADD_WALL)
+                add_wall(&board, snakes, nbSnakes);
+            else if (nRandObject > P_ADD_BONUS)
+                add_bonus(&board, snakes, nbSnakes);
+        }
+
+        SDL_FillRect(sdlScreen, NULL, SDL_MapRGB(sdlScreen->format, 255, 255, 255)); 
+        
+        for (i = 0; i < board.nNbTunnels; i++)
+        {
+            paint(sdlScreen, board.pTunnels[i]->entree.x, board.pTunnels[i]->entree.y, 5);
+        }
+        for (i = 0; i < board.nNbBonus; i++)
+        {
+            paintBonus(sdlScreen, board.pTabBonus[i]);
+        }
+            
+        for (j = 0; j < nbSnakes; j++)
+        {
+            for (i=0; i < snakes[j]->taille; i++)
+            {
+                paint(sdlScreen, snakes[j]->tab[i].x, snakes[j]->tab[i].y, j+1);
+            }
+        }
+
+        for (i=0; i< board.nSize; i++)
+        {
+            paint(sdlScreen, board.pPtsMur[i].x, board.pPtsMur[i].y, 0);
+        }
+
+        SDL_Flip(sdlScreen);
+
     }
     free_snakes(snakes, nbSnakes);
     free_board(board);

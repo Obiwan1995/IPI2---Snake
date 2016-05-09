@@ -57,6 +57,7 @@ typedef enum Direction {top, right, bot, left} Direction;
 - une vitesse
 - une taille (est modifiée au cours du jeu)
 - la probabilité que le serpent grandisse à chaque pas de temps
+- un booléen vivant pour savoir s'il bouge encore
 - un tableau de points qui représente le serpent 
 - un point correspondant à la tête du serpent
 - une direction : la direction du serpent 
@@ -68,6 +69,7 @@ typedef struct {
 	int vitesse;
 	int taille;
 	int pGainSize;
+	int vivant;
 	Point* tab;
 	Point tete;
 	Direction dir;
