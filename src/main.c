@@ -78,7 +78,7 @@ int main(int argc, char *argv[])
                                 board = init_board_1v1();
                                 break;
                             case BIG_BOARD:
-                                board = init_board1();
+                                board = init_board_big();
                                 break;
                             default:
                                 break;

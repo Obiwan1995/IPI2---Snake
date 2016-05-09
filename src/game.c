@@ -209,7 +209,6 @@ void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit)
                     }
                     else
                     {
-
                     }
                 }
             }
@@ -241,7 +240,7 @@ void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit)
             {
                 paintBonus(sdlScreen, board.pTabBonus[i]);
             }
-            int j;
+            
             for (j = 0; j < nbSnakes; j++)
             {
                 for (i=0; i < snakes[j]->taille; i++)

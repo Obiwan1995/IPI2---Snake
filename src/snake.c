@@ -33,6 +33,7 @@ void init_snake(Serpent* snake, int id, int speed, int dir, Point pos)
 	snake->nNbBonus = 0;
 
 	snake->taille = 2;
+	snake->pGainSize = P_GAIN_SIZE;
 	snake->tab = (Point*)malloc(snake->taille*sizeof(Point));
 	snake->tab[0].x=snake->tete.x;
 	snake->tab[0].y=snake->tete.y;
@@ -93,7 +94,7 @@ void Left(Serpent *snake)
 	//soit on fait ca : ajout de la tete et déplacement des autres cases : le serpent ne grandit pas
 	//sinon :le serpent grandit
 	int rng=rand()%100;
-	if (rng > P_GAIN_SIZE)
+	if (rng > snake->pGainSize)
 	{
 		int i;
 		for (i=1; i<snake->taille; i++)
@@ -146,7 +147,7 @@ void Forward(Serpent *snake)
 	//soit on fait ca : ajout de la tete et déplacement des autres cases : le serpent ne grandit pas
 	//sinon :le serpent grandit
 	int rng=rand()%100;
-	if (rng > P_GAIN_SIZE)
+	if (rng > snake->pGainSize)
 	{
 		int i;
 		for (i=1; i<snake->taille; i++)
@@ -203,7 +204,7 @@ void Right(Serpent *snake)
 	//soit on fait ca : ajout de la tete et déplacement des autres cases : le serpent ne grandit pas
 	//sinon :le serpent grandit
 	int rng=rand()%100;
-	if (rng > P_GAIN_SIZE)
+	if (rng > snake->pGainSize)
 	{
 		int i;
 		for (i=1; i<snake->taille; i++)

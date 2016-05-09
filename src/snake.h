@@ -24,8 +24,11 @@ typedef struct {
 	int y;
 } Point;
 
+
+// BONUS A FAIRE : increase_speed, decrease_speed, reverse_keys, change_snake
+
 /** Type du bonus : affecte soit la vitesse, soit la taille du serpent, soit l'emplacement de la tête et de la queue, soit le corps du serpent en le supprimant, soit les touches en les inversant */
-typedef enum Type {increase_speed, decrease_speed, increase_size, decrease_size, reverse, clean, reverse_keys, closing_walls, NB_TYPES} Type;
+typedef enum Type {increase_speed, decrease_speed, increase_size, decrease_size, reverse, clean, reverse_keys, closing_walls, change_snake, NB_TYPES} Type;
 
 /** Effet du bonus : pour soi ou pour les autres */
 typedef enum Effect {self, others} Effect;
@@ -35,15 +38,13 @@ typedef enum Effect {self, others} Effect;
 - Son effet
 - Le point où il est situé 
 - L'heure à laquelle il commence a être utilisé 
-- Sa durée en secondes
-- Le nombre de références vers ce bonus */
+- Sa durée en secondes */
 typedef struct {
 	Type type;
 	Effect effect;
 	Point point;
 	int startTimer;
 	int duration;
-	int nbRef;
 } Bonus;
 
 
@@ -55,6 +56,7 @@ typedef enum Direction {top, right, bot, left} Direction;
 - un identifiant : permet de reconnaitre le serpent
 - une vitesse
 - une taille (est modifiée au cours du jeu)
+- la probabilité que le serpent grandisse à chaque pas de temps
 - un tableau de points qui représente le serpent 
 - un point correspondant à la tête du serpent
 - une direction : la direction du serpent 
@@ -65,6 +67,7 @@ typedef struct {
 	int id;
 	int vitesse;
 	int taille;
+	int pGainSize;
 	Point* tab;
 	Point tete;
 	Direction dir;

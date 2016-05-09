@@ -1,7 +1,7 @@
 /**
  * @file bonus.c
  * @author Les Mixtes
- * @date 7/05/2016
+ * @date 9/05/2016
  * @brief Fichier permettant la gestion des bonus
  * @details Contient toutes les fonctions utiles à la gestion des bonus : ajout de bonus, assignation du bonus à un serpent
  */
@@ -42,11 +42,11 @@ void add_bonus(Board* b, Serpent** tab_serpent, int nb_snakes)
 	{
 		b->pTabBonus = realloc(b->pTabBonus, (b->nNbBonus+1)*sizeof(Bonus*));
 	}
-	Bonus* bonus = (Bonus *) malloc(sizeof(Bonus));
+	Bonus* bonus = (Bonus*) malloc(sizeof(Bonus));
 	bonus->point = p;
 	bonus->type = rand()%NB_TYPES;
 	bonus->effect = rand()%2;
-	if (bonus->type == reverse || bonus->type == clean)
+	if (bonus->type == reverse || bonus->type == clean || bonus->type == change_snake)
 	{
 		bonus->duration = 0;
 	}
@@ -54,7 +54,6 @@ void add_bonus(Board* b, Serpent** tab_serpent, int nb_snakes)
 	{
 		bonus->duration = DEFAULT_DURATION;
 	}
-	bonus->nbRef = 0;
 	b->pTabBonus[b->nNbBonus] = bonus;
 	b->nNbBonus++;
 }
@@ -84,6 +83,7 @@ void take_bonus(Serpent* s, Board* b, int index)
 				break;
 
 			case clean:
+				clean_snake(s);
 				break;
 
 			default:
@@ -92,6 +92,19 @@ void take_bonus(Serpent* s, Board* b, int index)
 	}
 	else
 	{
+		switch (b->pTabBonus[index]->type)
+		{
+			case increase_size:
+				s->pGainSize = 100;
+				break;
+
+			case decrease_size:
+				s->pGainSize = 0;
+				break;
+
+			default:
+				break;
+		}
 		if (s->nNbBonus == 0)
 		{
 			s->tabBonus = (Bonus**) malloc(sizeof(Bonus*));
@@ -101,7 +114,6 @@ void take_bonus(Serpent* s, Board* b, int index)
 			s->tabBonus = realloc(s->tabBonus, (s->nNbBonus+1)*sizeof(Bonus*));
 		}
 		s->tabBonus[s->nNbBonus] = b->pTabBonus[index];
-		s->tabBonus[s->nNbBonus]->nbRef++;
 		s->nNbBonus++;
 	}
 }
@@ -138,33 +150,16 @@ void reverse_snake(Serpent* s)
 			bas.y = s->tete.y+1;
 			if (belongs_to_tab(bas, s->tab, s->taille))
 			{
-				Point gauche, droite;
+				Point gauche;
 				gauche.x = s->tete.x-1;
 				gauche.y = s->tete.y;
-				droite.x = s->tete.x+1;
-				droite.y = s->tete.y;
-				int random = rand()%2;
-				if (random == 0)
+				if (belongs_to_tab(gauche, s->tab, s->taille))
 				{
-					if (belongs_to_tab(gauche, s->tab, s->taille))
-					{
-						s->dir = right;
-					}
-					else
-					{
-						s->dir = left;
-					}
+					s->dir = left;
 				}
 				else
 				{
-					if (belongs_to_tab(droite, s->tab, s->taille))
-					{
-						s->dir = left;
-					}
-					else
-					{
-						s->dir = right;
-					}
+					s->dir = right;
 				}
 			}
 			break;
@@ -176,33 +171,16 @@ void reverse_snake(Serpent* s)
 			gauche.y = s->tete.y;
 			if (belongs_to_tab(gauche, s->tab, s->taille))
 			{
-				Point haut, bas;
+				Point haut;
 				haut.x = s->tete.x;
 				haut.y = s->tete.y-1;
-				bas.x = s->tete.x;
-				bas.y = s->tete.y+1;
-				int random = rand()%2;
-				if (random == 0)
+				if (belongs_to_tab(haut, s->tab, s->taille))
 				{
-					if (belongs_to_tab(haut, s->tab, s->taille))
-					{
-						s->dir = bot;
-					}
-					else
-					{
-						s->dir = top;
-					}
+					s->dir = bot;
 				}
 				else
 				{
-					if (belongs_to_tab(bas, s->tab, s->taille))
-					{
-						s->dir = top;
-					}
-					else
-					{
-						s->dir = bot;
-					}
+					s->dir = top;
 				}
 			}
 			break;
@@ -214,33 +192,16 @@ void reverse_snake(Serpent* s)
 			haut.y = s->tete.y-1;
 			if (belongs_to_tab(haut, s->tab, s->taille))
 			{
-				Point gauche, droite;
+				Point gauche;
 				gauche.x = s->tete.x-1;
 				gauche.y = s->tete.y;
-				droite.x = s->tete.x+1;
-				droite.y = s->tete.y;
-				int random = rand()%2;
-				if (random == 0)
+				if (belongs_to_tab(gauche, s->tab, s->taille))
 				{
-					if (belongs_to_tab(gauche, s->tab, s->taille))
-					{
-						s->dir = right;
-					}
-					else
-					{
-						s->dir = left;
-					}
+					s->dir = right;
 				}
 				else
 				{
-					if (belongs_to_tab(droite, s->tab, s->taille))
-					{
-						s->dir = left;
-					}
-					else
-					{
-						s->dir = right;
-					}
+					s->dir = left;
 				}
 			}
 			break;
@@ -252,37 +213,40 @@ void reverse_snake(Serpent* s)
 			droite.y = s->tete.y;
 			if (belongs_to_tab(droite, s->tab, s->taille))
 			{
-				Point haut, bas;
+				Point haut;
 				haut.x = s->tete.x;
 				haut.y = s->tete.y-1;
-				bas.x = s->tete.x;
-				bas.y = s->tete.y+1;
-				int random = rand()%2;
-				if (random == 0)
+				if (belongs_to_tab(haut, s->tab, s->taille))
 				{
-					if (belongs_to_tab(haut, s->tab, s->taille))
-					{
-						s->dir = bot;
-					}
-					else
-					{
-						s->dir = top;
-					}
+					s->dir = bot;
 				}
 				else
 				{
-					if (belongs_to_tab(bas, s->tab, s->taille))
-					{
-						s->dir = top;
-					}
-					else
-					{
-						s->dir = bot;
-					}
+					s->dir = top;
 				}
 			}
 			break;
 	}
+}
+
+/**
+ * @fn 			clean_snake(Serpent* s)
+ *
+ * @brief 		Permet de supprimer le corps du serpent
+ *
+ * @param 		s 		Le serpent à modifier
+ *
+ * @details		Free le tableau de points du serpent puis remet la tête dans le tableau
+ * 
+ * @return 		void
+ */
+
+void clean_snake(Serpent* s)
+{
+	free(s->tab);
+	s->tab = (Point*) malloc(sizeof(Point));
+	s->tab[0] = s->tete;
+	s->taille = 1;
 }
 
 /**
@@ -353,6 +317,15 @@ void delete_bonus_board(Board* b, int index)
 
 void delete_bonus_snake(Serpent* s, int index)
 {
+	switch(s->tabBonus[index]->type)
+	{
+		case increase_size:
+		case decrease_size:
+			s->pGainSize = P_GAIN_SIZE;
+
+		default:
+			break;
+	}
 	s->nNbBonus--;
 	s->tabBonus[index] = s->tabBonus[s->nNbBonus];
 	s->tabBonus = realloc(s->tabBonus, s->nNbBonus*sizeof(Bonus*));

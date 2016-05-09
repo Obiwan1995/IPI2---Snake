@@ -43,6 +43,7 @@ typedef struct
 } Board;
 
 Board init_board1();
+Board init_board_big();
 Board init_board_1v1();
 int belongs_to_tab(Point point, Point* tableau, int taille);
 int test_collision(Board* mur, Serpent** tab_serpent, int nb_snakes, Point point, int id_snake);

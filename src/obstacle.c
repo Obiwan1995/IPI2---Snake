@@ -73,6 +73,70 @@ Board init_board1()
 }
 
 /**
+ * @fn         Board init_board_big()
+ *
+ * @brief      Initialise le grand plateau
+ *
+ * @param      void
+ *
+ * @return     Le plateau avec ses murs et 4 positions de départs
+ */
+
+Board init_board_big()
+{
+	Board B;
+	B.nBoardWidth = 70;
+	B.nBoardHeight = 45;
+
+	B.nNbTunnels = 0;
+
+	B.nNbBonus = 0;
+
+	B.nSize = 2*B.nBoardWidth+2*B.nBoardHeight-4;
+	B.pPtsMur = (Point*)malloc(B.nSize*sizeof(Point));
+
+	int i, j, n;
+	n = 0;
+	for (i = 1; i <= B.nBoardWidth; ++i)
+	{
+		for (j = 1; j <= B.nBoardHeight; ++j)
+		{
+			if (i == 1 || j == 1 || i == B.nBoardWidth || j == B.nBoardHeight)
+			{
+				B.pPtsMur[n].x = (i-1);
+				B.pPtsMur[n].y = (j-1);
+				n++;
+			}
+		}
+	}
+
+	B.nNbPos = 4;
+
+	B.pPtsPositions = (Point*)malloc(B.nNbPos*sizeof(Point));
+	B.pnDirs = (int*)malloc(B.nNbPos*sizeof(int));
+
+	B.pPtsPositions[0].x = B.nBoardWidth/2;
+	B.pPtsPositions[0].y = B.nBoardHeight/6;
+	B.pnDirs[0] = bot;
+
+	B.pPtsPositions[1].x = (B.nBoardWidth*5)/6;
+	B.pPtsPositions[1].y = B.nBoardHeight/2;
+	B.pnDirs[1] = left;
+
+	B.pPtsPositions[2].x = B.nBoardWidth/2;
+	B.pPtsPositions[2].y = (B.nBoardHeight*5)/6;
+	B.pnDirs[2] = top;
+
+	B.pPtsPositions[3].x = B.nBoardWidth/6;
+	B.pPtsPositions[3].y = B.nBoardHeight/2;
+	B.pnDirs[3] = right;
+
+	B.nClosingWalls = 0;
+
+	return B;
+}
+
+/**
  * @fn         Board init_board_1v1()
  *
  * @brief      Initialise le plateau spécifique au 1v1
