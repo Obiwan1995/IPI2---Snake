@@ -25,7 +25,7 @@ typedef struct {
 } Point;
 
 
-// BONUS A FAIRE : increase_speed, decrease_speed, reverse_keys, change_snake
+// BONUS A FAIRE : reverse_keys
 
 /** Type du bonus : affecte soit la vitesse, soit la taille du serpent, soit l'emplacement de la tête et de la queue, soit le corps du serpent en le supprimant, soit les touches en les inversant */
 typedef enum Type {increase_speed, decrease_speed, increase_size, decrease_size, reverse, clean, reverse_keys, closing_walls, change_snake, NB_TYPES} Type;

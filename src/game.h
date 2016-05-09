@@ -30,16 +30,16 @@
  
 /** Nombre de secondes avant le début du jeu */
 #define STARTING_TIMER 3
- /** Nombre de secondes lorsque le mur avance**/
+/** Nombre de secondes lorsque le mur avance */
 #define WALLS_CLOSING_TIMER 1000
- /** Nombre de secondes lorsqu'on ajoute un object**/
+/** Nombre de secondes lorsqu'on ajoute un objet */
 #define ADDING_OBJECT_TIMER 150
 
 
-/** Probabilité d'apparation de murs en pourcentage */
+/** Probabilité d'apparation des murs en pourcentage */
 #define P_ADD_WALL 10
 /**  1 - Probabilité d'apparation des bonus en pourcentage */
-#define P_ADD_BONUS 94
+#define P_ADD_BONUS 95
 
 void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit);
 void paint(SDL_Surface* sdlScreen, int x, int y, int nId);

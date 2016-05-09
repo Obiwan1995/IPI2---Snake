@@ -17,9 +17,10 @@
 #define DEFAULT_DURATION 5
 
 void add_bonus(Board* b, Serpent** tab_serpent, int nb_snakes);
-void take_bonus(Serpent* s, Board* b, int index);
+void take_bonus(Serpent* s, Bonus* bonus);
 void reverse_snake(Serpent* s);
 void clean_snake(Serpent* s);
+void change_snakes(Serpent** snakes, int nb_snakes, int index);
 void close_walls(Board* b, int nWallsRow);
 void delete_bonus_board(Board* b, int index);
 void delete_bonus_snake(Serpent* s, int index);

@@ -236,26 +236,26 @@ int belongs_to_tab(Point point, Point* tableau, int taille)
  * @param  	tab_serpent  	Le tableau de serpent : nécessaire pour la collision avec les autres serpents
  * @param  	nb_snakes  		Le nombre de serpents = longueur du tableau tab_serpent
  * @param 	point 			La tête du serpent à tester
- * @param 	id_snake		L'identifiant du serpent à tester
+ * @param 	index			La position du serpent à tester dans le tableau des serpents
  *
  * @return  0 s'il n'y a pas de collision
  * @return	Sinon, l'identifiant du serpent qui entre en collision avec le mur ou un autre serpent
  */
 
-int test_collision(Board* mur, Serpent** tab_serpent, int nb_snakes, Point point, int id_snake) 
+int test_collision(Board* mur, Serpent** tab_serpent, int nb_snakes, Point point, int index) 
 {
 	int i;
 	if (belongs_to_tab(point, mur->pPtsMur, mur->nSize)) 
 	{
-		return id_snake;
+		return 1;
 	}
 	else 
 	{
 		for (i=0; i<nb_snakes; i++) 
 		{
-			if ((i+1 != id_snake && belongs_to_tab(point, tab_serpent[i]->tab, tab_serpent[i]->taille)) || (i+1 == id_snake && belongs_to_tab(point, tab_serpent[i]->tab, tab_serpent[i]->taille-1)))
+			if ((i != index && belongs_to_tab(point, tab_serpent[i]->tab, tab_serpent[i]->taille)) || (i == index && belongs_to_tab(point, tab_serpent[i]->tab, tab_serpent[i]->taille-1)))
 			{
-				return id_snake;
+				return 1;
 			}
 		}
 	}
