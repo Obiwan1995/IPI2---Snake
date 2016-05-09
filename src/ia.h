@@ -13,6 +13,8 @@
 
 void move_random_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes);
 void move_def_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes);
-Direction minimum(int choix, Point centre_right, Point centre_forward, Point centre_left, Board* b, Serpent** tab_serpent, int nb_snakes, Serpent* snake);
+void move_off_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes);
 
+Direction minimum(int choix, Point centre_right, Point centre_forward, Point centre_left, Board* b, Serpent** tab_serpent, int nb_snakes, Serpent* snake);
+Direction minimum_2(int choix, Serpent** snakes, int nb_snakes, Serpent* ia, Point pt_right, Point pt_left, Point pt_forward);
 #endif

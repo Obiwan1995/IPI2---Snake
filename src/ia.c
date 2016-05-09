@@ -149,7 +149,7 @@ Direction minimum(int choix, Point centre_right, Point centre_forward, Point cen
 	switch(choix) 
 	{
 		case -1:
-			if (nb_obs_right == nb_obs_left)
+			if ((nb_obs_right == nb_obs_left) && (nb_obs_right < nb_obstacles_forward))
 			{
 				if (rdm == 0) 
 				{
@@ -160,7 +160,7 @@ Direction minimum(int choix, Point centre_right, Point centre_forward, Point cen
 					res = left;
 				}
 			}
-			else if (nb_obs_right == nb_obstacles_forward)
+			else if ((nb_obs_right == nb_obstacles_forward) && (nb_obs_right < nb_obs_left))
 			{
 				if (rdm == 0) 
 				{
@@ -171,7 +171,7 @@ Direction minimum(int choix, Point centre_right, Point centre_forward, Point cen
 					res = top;
 				}
 			}
-			else if (nb_obs_left == nb_obstacles_forward)
+			else if ((nb_obs_left == nb_obstacles_forward) && (nb_obs_left < nb_obstacles_forward))
 			{
 				if (rdm == 0) 
 				{
@@ -463,3 +463,280 @@ void move_def_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes)
 		}
 	}
 }
+
+
+Direction minimum_2(int choix, Serpent** snakes, int nb_snakes, Serpent* ia, Point pt_right, Point pt_left, Point pt_forward) 
+{
+
+	Direction res;
+	int dist_forward = sqrt(((pt_forward.x-snakes[1]->tete.x)^2)+((pt_forward.y-snakes[1]->tete.y)^2));
+	int dist_right = sqrt(((pt_right.x-snakes[1]->tete.x)^2)+((pt_right.y-snakes[1]->tete.y)^2));
+	int dist_left = sqrt(((pt_left.x-snakes[1]->tete.x)^2)+((pt_left.y-snakes[1]->tete.y)^2));
+
+	int rdm = rand()%2;
+
+	switch(choix) 
+	{
+		case -1:
+			if (dist_right == dist_left)
+			{
+				if (rdm == 0) 
+				{
+					res = right;
+				}
+				else 
+				{
+					res = left;
+				}
+			}
+			else if (dist_right == dist_forward)
+			{
+				if (rdm == 0) 
+				{
+					res = right;
+				}
+				else 
+				{
+					res = top;
+				}
+			}
+			else if (dist_left == dist_forward)
+			{
+				if (rdm == 0) 
+				{
+					res = left;
+				}
+				else 
+				{
+					res = top;
+				}
+			}
+
+			else if (dist_right < dist_left) 
+			{
+				if (dist_right < dist_forward) 
+				{
+					res=right;
+				}
+				else 
+				{
+					res = top;
+				}
+			}
+			else if (dist_left < dist_forward)
+			{
+				res = left;
+			}
+			else 
+			{
+				res = top;
+			}
+
+			break;
+
+		case 0: //on ne compare pas right
+		    if (dist_left == dist_forward)
+			{
+				if (rdm == 0) 
+				{
+					res = left;
+				}
+				else 
+				{
+					res = top;
+				}
+			}
+			else if (dist_left < dist_forward) 
+			{
+				res=left;
+			}
+			else 
+			{
+				res = top;
+			}
+			break;
+
+		case 1: //on ne compare pas left
+		    if (dist_right == dist_forward)
+			{
+				if (rdm == 0) 
+				{
+					res = right;
+				}
+				else 
+				{
+					res = top;
+				}
+			}
+		   	else if (dist_forward < dist_right)
+		   	{
+		   		res = top;
+		   	}
+		   	else 
+		   	{
+		   		res = right;
+		   	}
+		   	break;
+
+		case 2: //on ne compte pas forward
+		    if (dist_right == dist_left)
+			{
+				if (rdm == 0) 
+				{
+					res = right;
+				}
+				else 
+				{
+					res = left;
+				}
+			}
+			else if (dist_right < dist_left)
+			{
+				res = right;
+			}
+			else 
+			{
+				res = left;
+			}
+			break;
+	}
+	return res;
+}
+
+
+void move_off_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes)
+{
+	Point pt_left;
+	Point pt_forward;
+	Point pt_right;
+	switch(ia->dir)
+	{	
+	    case top:
+	    	pt_right.x = ia->tete.x+1;
+	    	pt_right.y = ia->tete.y;
+			pt_left.x = ia->tete.x-1;
+			pt_left.y = ia->tete.y;
+			pt_forward.x = ia->tete.x;
+			pt_forward.y = ia->tete.y-1;
+	        break;
+	    case right:
+	   		pt_right.x = ia->tete.x;
+	    	pt_right.y = ia->tete.y+1;
+			pt_left.x = ia->tete.x;
+			pt_left.y = ia->tete.y-1;
+			pt_forward.x = ia->tete.x+1;
+			pt_forward.y = ia->tete.y;
+	        break;
+	     case bot:
+	     	pt_right.x = ia->tete.x-1;
+	    	pt_right.y = ia->tete.y;
+			pt_left.x = ia->tete.x+1;
+			pt_left.y = ia->tete.y;
+			pt_forward.x = ia->tete.x;
+			pt_forward.y = ia->tete.y+1;
+	        break;
+	    case left:
+	    	pt_right.x = ia->tete.x;
+	    	pt_right.y = ia->tete.y-1;
+			pt_left.x = ia->tete.x;
+			pt_left.y = ia->tete.y+1;
+			pt_forward.x = ia->tete.x-1;
+			pt_forward.y = ia->tete.y;
+	        break;
+	}
+
+	Direction min = minimum_2(0, snakes, nbSnakes, ia, pt_right, pt_left, pt_forward);
+
+	if (min == right) 
+	{
+		if (test_collision(&board, snakes, nbSnakes, pt_right, ia->id) == 0) 
+		{
+			Right(ia);
+		}
+
+		else if (minimum_2(0, snakes, nbSnakes, ia, pt_right, pt_left, pt_forward) == left ) 
+		{
+			if (test_collision(&board, snakes, nbSnakes, pt_left, ia->id) == 0)
+			{
+				Left(ia);
+			}
+			else if (test_collision(&board, snakes, nbSnakes, pt_forward, ia->id) == 0)
+			{
+				Forward(ia);
+			}
+			else
+			{
+				Right(ia);
+			}
+		}
+		else if (test_collision(&board, snakes, nbSnakes, pt_forward, ia->id) == 0)
+		{
+			Forward(ia);				
+		}
+		else 
+		{
+			Left(ia);
+		}
+	}
+	else if (min == left)
+	{
+		if (test_collision(&board, snakes, nbSnakes, pt_left, ia->id) == 0)
+		{
+			Left(ia);
+		}
+		else if (minimum_2 (1, snakes, nbSnakes, ia, pt_right, pt_left, pt_forward) == right) 
+		{
+			if (test_collision(&board, snakes, nbSnakes, pt_right, ia->id) == 0) 
+			{
+				Right(ia);
+			}
+			else if (test_collision(&board, snakes, nbSnakes, pt_forward, ia->id) == 0) 
+			{
+				Forward(ia);
+			}
+			else
+			{
+				Left(ia);
+			}
+		}
+		else if (test_collision(&board, snakes, nbSnakes, pt_forward, ia->id) == 0) 
+		{
+			Forward(ia);
+		}
+		else 
+		{
+			Right(ia);
+		}
+	}
+	else 
+	{
+		if (test_collision(&board, snakes, nbSnakes, pt_forward, ia->id) == 0)
+		{
+			Forward(ia);
+		}
+		else if (minimum_2(2, snakes, nbSnakes, ia, pt_right, pt_left, pt_forward) == left)
+		{
+			if (test_collision(&board, snakes, nbSnakes, pt_left, ia->id) == 0)
+			{
+				Left(ia);
+			}
+			else if (test_collision(&board, snakes, nbSnakes, pt_right, ia->id) == 0 )
+			{
+				Right(ia);
+			}
+			else
+			{
+				Forward(ia);
+			}
+		}
+		else if (test_collision(&board, snakes, nbSnakes, pt_right, ia->id) == 0 )
+		{
+			Right(ia);
+		}
+		else 
+		{
+			Left(ia);
+		}
+	}
+}
+
