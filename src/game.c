@@ -125,6 +125,7 @@ void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit)
                             if (pause)
                             {
                                 pause = 0;
+                                nDir = 0;
                             }
                             else
                             {
