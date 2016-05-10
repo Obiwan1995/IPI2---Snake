@@ -143,7 +143,7 @@ Direction minimum(int choix, Point centre_right, Point centre_forward, Point cen
 	int nb_obs_right = nb_obstacles_around_5(centre_right, b, tab_serpent, nb_snakes, snake);
 	int nb_obs_left = nb_obstacles_around_5(centre_left, b, tab_serpent, nb_snakes, snake);
 	int nb_obstacles_forward = nb_obstacles_around_5(centre_forward, b, tab_serpent, nb_snakes, snake);
-
+	
 	int rdm = rand()%2;
 
 	switch(choix) 
@@ -162,25 +162,11 @@ Direction minimum(int choix, Point centre_right, Point centre_forward, Point cen
 			}
 			else if ((nb_obs_right == nb_obstacles_forward) && (nb_obs_right < nb_obs_left))
 			{
-				if (rdm == 0) 
-				{
-					res = right;
-				}
-				else 
-				{
-					res = top;
-				}
+				res = right;
 			}
 			else if ((nb_obs_left == nb_obstacles_forward) && (nb_obs_left < nb_obstacles_forward))
 			{
-				if (rdm == 0) 
-				{
-					res = left;
-				}
-				else 
-				{
-					res = top;
-				}
+				res = left;
 			}
 
 			else if (nb_obs_right < nb_obs_left) 
@@ -377,20 +363,15 @@ void move_def_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes)
 		{
 			Right(ia);
 		}
-
 		else if (minimum (0, centre_right, centre_forward, centre_left, &board, snakes, nbSnakes, ia) == left ) 
 		{
 			if (test_collision(&board, snakes, nbSnakes, pt_left, ia->id) == 0)
 			{
 				Left(ia);
 			}
-			else if (test_collision(&board, snakes, nbSnakes, pt_forward, ia->id) == 0)
-			{
-				Forward(ia);
-			}
 			else
 			{
-				Right(ia);
+				Forward(ia);
 			}
 		}
 		else if (test_collision(&board, snakes, nbSnakes, pt_forward, ia->id) == 0)
@@ -414,13 +395,9 @@ void move_def_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes)
 			{
 				Right(ia);
 			}
-			else if (test_collision(&board, snakes, nbSnakes, pt_forward, ia->id) == 0) 
-			{
-				Forward(ia);
-			}
 			else
 			{
-				Left(ia);
+				Forward(ia);
 			}
 		}
 		else if (test_collision(&board, snakes, nbSnakes, pt_forward, ia->id) == 0) 
@@ -444,13 +421,9 @@ void move_def_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes)
 			{
 				Left(ia);
 			}
-			else if (test_collision(&board, snakes, nbSnakes, pt_right, ia->id) == 0 )
-			{
-				Right(ia);
-			}
 			else
 			{
-				Forward(ia);
+				Right(ia);
 			}
 		}
 		else if (test_collision(&board, snakes, nbSnakes, pt_right, ia->id) == 0 )

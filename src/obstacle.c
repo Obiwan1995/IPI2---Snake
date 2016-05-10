@@ -757,6 +757,27 @@ int nb_obstacles_around_5(Point centre, Board* b, Serpent** tab_serpent, int nb_
 	return res;
 }
 
+
+int nb_obstacles_around_9(Point centre, Board* b, Serpent** tab_serpent, int nb_snakes, Serpent* snake)
+{
+	int i, j;
+	Point p;
+	int res = 0;
+	for (i = centre.x-4; i <= centre.x+4; i++)
+	{
+		for (j = centre.y-4; j <= centre.y+4; j++)
+		{
+			p.x = i;
+			p.y = j;
+			if (test_collision(b, tab_serpent, nb_snakes, p, snake->id) == snake->id)
+			{
+				res++;
+			}
+		}
+	}
+	return res;
+}
+
 /**
  * @fn         add_wall(Board* b, Serpent** tab_serpent, int nb_snakes)
  *
