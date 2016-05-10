@@ -77,6 +77,7 @@ void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit)
     int nDir = 0;
     int nKeyUp = 0;
     int nInGame = 1;
+    int nRandBonus = P_ADD_BONUS;
     int actualTime = 0;
     int nWallsRow = 1;
     int closingWallsTimer = 0;
@@ -197,6 +198,10 @@ void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit)
                             {
                                 change_snakes(snakes, nbSnakes, k);
                             }
+                            else if(bonus->type == more_bonus)
+                            {
+                                nRandBonus -= (7.0/100.0*nRandBonus);
+                            }
                             else
                             {
                                 if (bonus->effect == self)
@@ -239,7 +244,7 @@ void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit)
             int nRandObject = rand()%100;
             if (nRandObject < P_ADD_WALL)
                 add_wall(&board, snakes, nbSnakes);
-            else if (nRandObject > P_ADD_BONUS)
+            else if (nRandObject > nRandBonus)
                 add_bonus(&board, snakes, nbSnakes);
         }
 
@@ -342,13 +347,20 @@ void paint(SDL_Surface* sdlScreen, int x, int y, int nId)
 void paintBonus(SDL_Surface* sdlScreen, Bonus* bonus)
 {
     Uint32 color;
-    if (bonus->effect == self)
+    if (bonus->type == closing_walls || bonus->type == more_bonus)
     {
-        color = GREEN;
+        color = GLOBAL_BONUS;
     }
     else
     {
-        color = RED;
+        if (bonus->effect == self)
+        {
+            color = SELF_BONUS;
+        }
+        else
+        {
+            color = RED;
+        }
     }
 
     int i, j;
