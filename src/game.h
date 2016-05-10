@@ -27,17 +27,21 @@
 #define YELLOW 0x00D9D20B
 /** Couleur des tunnels */
 #define TUNNEL 0x00BD8C22
+/** Couleur des bonus qui affectent le serpent qui le prend */
+#define SELF_BONUS 0x0008690F
+/** Couleur des bonus globaux */
+#define GLOBAL_BONUS 0x009C008F
  
 /** Nombre de secondes / 3 avant le début du jeu */
 #define STARTING_TIMER 1
 /** Nombre de secondes lorsque le mur avance */
-#define WALLS_CLOSING_TIMER 1000
+#define WALLS_CLOSING_TIMER 2000
 /** Nombre de secondes lorsqu'on ajoute un objet */
 #define ADDING_OBJECT_TIMER 150
 
 
 /** Probabilité d'apparation des murs en pourcentage */
-#define P_ADD_WALL 10
+#define P_ADD_WALL 7
 /**  1 - Probabilité d'apparation des bonus en pourcentage */
 #define P_ADD_BONUS 95
 

@@ -732,7 +732,7 @@ int nb_obstacles_around_3(Point centre, Board* b, Serpent** tab_serpent, int nb_
 		{
 			p.x = i;
 			p.y = j;
-			if (test_collision(b, tab_serpent, nb_snakes, p, snake->id) == snake->id)
+			if (test_collision(b, tab_serpent, nb_snakes, p, snake->id) == 1)
 			{
 				res++;
 			}
@@ -752,7 +752,7 @@ int nb_obstacles_around_5(Point centre, Board* b, Serpent** tab_serpent, int nb_
 		{
 			p.x = i;
 			p.y = j;
-			if (test_collision(b, tab_serpent, nb_snakes, p, snake->id) == snake->id)
+			if (test_collision(b, tab_serpent, nb_snakes, p, snake->id) == 1)
 			{
 				res++;
 			}
@@ -773,7 +773,7 @@ int nb_obstacles_around_9(Point centre, Board* b, Serpent** tab_serpent, int nb_
 		{
 			p.x = i;
 			p.y = j;
-			if (test_collision(b, tab_serpent, nb_snakes, p, snake->id) == snake->id)
+			if (test_collision(b, tab_serpent, nb_snakes, p, snake->id) == 1)
 			{
 				res++;
 			}
