@@ -143,16 +143,27 @@ void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit)
 
                 if (k == 0)
                 {
+                    if (snakes[k]->reverse)
+                    {
+                        if (nDir == 1)
+                        {
+                            nDir = 2;
+                        }
+                        else if (nDir == 2)
+                        {
+                            nDir = 1;
+                        }
+                    }
                     switch(nDir)
                     {
                         case 0:
-                            Forward(snakes[0]);
+                            Forward(snakes[k]);
                             break;
                         case 1:
-                            Right(snakes[0]);
+                            Right(snakes[k]);
                             break;
                         case 2:
-                            Left(snakes[0]);
+                            Left(snakes[k]);
                             break;
                     }
                     nDir = 0;

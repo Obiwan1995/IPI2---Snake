@@ -80,55 +80,62 @@ void add_bonus(Board* b, Serpent** tab_serpent, int nb_snakes)
 
 void take_bonus(Serpent* s, Bonus* bonus)
 {
-	if (bonus->duration == 0)
+	if (s->vivant)
 	{
-		switch(bonus->type)
+		if (bonus->duration == 0)
 		{
-			case reverse:
-				reverse_snake(s);
-				break;
+			switch(bonus->type)
+			{
+				case reverse:
+					reverse_snake(s);
+					break;
 
-			case clean:
-				clean_snake(s);
-				break;
+				case clean:
+					clean_snake(s);
+					break;
 
-			default:
-				break;
-		}
-	}
-	else
-	{
-		switch (bonus->type)
-		{
-			case increase_size:
-				s->pGainSize = 100;
-				break;
-
-			case decrease_size:
-				s->pGainSize = 0;
-				break;
-
-			case increase_speed:
-				s->vitesse -= (int)(0.25*s->vitesse);
-				break;
-
-			case decrease_speed:
-				s->vitesse += (int)(0.25*s->vitesse);
-				break;
-
-			default:
-				break;
-		}
-		if (s->nNbBonus == 0)
-		{
-			s->tabBonus = (Bonus**) malloc(sizeof(Bonus*));
+				default:
+					break;
+			}
 		}
 		else
 		{
-			s->tabBonus = realloc(s->tabBonus, (s->nNbBonus+1)*sizeof(Bonus*));
+			switch (bonus->type)
+			{
+				case increase_size:
+					s->pGainSize = 100;
+					break;
+
+				case decrease_size:
+					s->pGainSize = 0;
+					break;
+
+				case increase_speed:
+					s->vitesse -= (int)(0.25*s->vitesse);
+					break;
+
+				case decrease_speed:
+					s->vitesse += (int)(0.25*s->vitesse);
+					break;
+
+				case reverse_keys:
+					s->reverse = 1;
+					break;
+
+				default:
+					break;
+			}
+			if (s->nNbBonus == 0)
+			{
+				s->tabBonus = (Bonus**) malloc(sizeof(Bonus*));
+			}
+			else
+			{
+				s->tabBonus = realloc(s->tabBonus, (s->nNbBonus+1)*sizeof(Bonus*));
+			}
+			s->tabBonus[s->nNbBonus] = bonus;
+			s->nNbBonus++;
 		}
-		s->tabBonus[s->nNbBonus] = bonus;
-		s->nNbBonus++;
 	}
 }
 
@@ -386,6 +393,10 @@ void delete_bonus_snake(Serpent* s, int index)
 
 		case decrease_speed:
 			s->vitesse -= (int)(1.0/5.0*s->vitesse);
+			break;
+
+		case reverse_keys:
+			s->reverse = 0;
 			break;
 
 		default:

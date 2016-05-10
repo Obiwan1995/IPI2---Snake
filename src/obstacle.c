@@ -245,6 +245,10 @@ int belongs_to_tab(Point point, Point* tableau, int taille)
 int test_collision(Board* mur, Serpent** tab_serpent, int nb_snakes, Point point, int index) 
 {
 	int i;
+	if (point.x <= 0 || point.x >= mur->nBoardWidth || point.y <= 0 || point.y >= mur->nBoardHeight)
+	{
+		return 1;
+	}
 	if (belongs_to_tab(point, mur->pPtsMur, mur->nSize)) 
 	{
 		return 1;
@@ -912,10 +916,16 @@ void free_board(Board b)
 	{
 		free(b.pTunnels[i]);
 	}
-	free(b.pTunnels);
+	if (b.nNbTunnels > 0)
+	{
+		free(b.pTunnels);
+	}
 	for (i = 0; i < b.nNbBonus; i++)
 	{
 		free(b.pTabBonus[i]);
 	}
-	free(b.pTabBonus);
+	if (b.nNbBonus > 0)
+	{
+		free(b.pTabBonus);
+	}
 }
