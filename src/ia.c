@@ -66,13 +66,13 @@ void move_random_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes)
 	}
 	int collision_forward = test_collision(&board, snakes, nbSnakes, pt_forward, ia->id);
 
-	if (collision_forward == ia->id) 
+	if (collision_forward) 
 	{
 		int rdm = rand()%2;
 		if (rdm == 0)
 		{
 			int collision_left = test_collision(&board, snakes, nbSnakes, pt_left, ia->id);
-			if (collision_left == ia->id) 
+			if (collision_left) 
 			{
 				Right(ia);
 			}
@@ -84,7 +84,7 @@ void move_random_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes)
 		else
 		{
 			int collision_right = test_collision(&board, snakes, nbSnakes, pt_right, ia->id);
-			if (collision_right == ia->id) 
+			if (collision_right) 
 			{
 				Left(ia);
 			}
@@ -104,10 +104,10 @@ void move_random_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes)
 		else if(rdm >= 90 && rdm < 95)
 		{
 			int collision_left = test_collision(&board, snakes, nbSnakes, pt_left, ia->id);
-			if (collision_left == ia->id && test_collision(&board, snakes, nbSnakes, pt_right, ia->id) == 0) 
-				{
-					Right(ia);
-				}
+			if (collision_left && test_collision(&board, snakes, nbSnakes, pt_right, ia->id) == 0) 
+			{
+				Right(ia);
+			}
 			else if (collision_left == 0)
 			{
 				Left(ia);
@@ -120,7 +120,7 @@ void move_random_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes)
 		else
 		{
 			int collision_right = test_collision(&board, snakes, nbSnakes, pt_right, ia->id);
-			if (collision_right == ia->id && test_collision(&board, snakes, nbSnakes, pt_left, ia->id) == 0) 
+			if (collision_right && test_collision(&board, snakes, nbSnakes, pt_left, ia->id) == 0) 
 			{
 				Left(ia);
 			}

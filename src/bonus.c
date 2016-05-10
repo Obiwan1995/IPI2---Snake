@@ -45,7 +45,14 @@ void add_bonus(Board* b, Serpent** tab_serpent, int nb_snakes)
 	Bonus* bonus = (Bonus*) malloc(sizeof(Bonus));
 	bonus->point = p;
 	bonus->type = rand()%NB_TYPES;
-	bonus->effect = rand()%2;
+	if (bonus->type == change_snake)
+	{
+		bonus->effect = self;
+	}
+	else
+	{
+		bonus->effect = rand()%2;
+	}
 	if (bonus->type == reverse || bonus->type == clean || bonus->type == change_snake)
 	{
 		bonus->duration = 0;
@@ -59,62 +66,76 @@ void add_bonus(Board* b, Serpent** tab_serpent, int nb_snakes)
 }
 
 /**
- * @fn 			take_bonus(Serpent* s, Board* b, int index)
+ * @fn 			take_bonus(Serpent* s, Bonus* bonus)
  *
  * @brief 		Permet de gérer la prise d'un bonus par un serpent
  *
  * @param 		s 		Le serpent qui prend le bonus
- * @param 		b 		Le plateau de jeu
- * @param 		index 	L'indice du bonus pris par le serpent dans le tableau des bonus du plateau
+ * @param 		bonus 	Le bonus pris par le serpent
  *
  * @details 	Copie le bonus du tableau des bonus du plateau vers le tableau des bonus du serpent
  * 
  * @return 		void
  */
 
-void take_bonus(Serpent* s, Board* b, int index)
+void take_bonus(Serpent* s, Bonus* bonus)
 {
-	if (b->pTabBonus[index]->duration == 0)
+	if (s->vivant)
 	{
-		switch(b->pTabBonus[index]->type)
+		if (bonus->duration == 0)
 		{
-			case reverse:
-				reverse_snake(s);
-				break;
+			switch(bonus->type)
+			{
+				case reverse:
+					reverse_snake(s);
+					break;
 
-			case clean:
-				clean_snake(s);
-				break;
+				case clean:
+					clean_snake(s);
+					break;
 
-			default:
-				break;
-		}
-	}
-	else
-	{
-		switch (b->pTabBonus[index]->type)
-		{
-			case increase_size:
-				s->pGainSize = 100;
-				break;
-
-			case decrease_size:
-				s->pGainSize = 0;
-				break;
-
-			default:
-				break;
-		}
-		if (s->nNbBonus == 0)
-		{
-			s->tabBonus = (Bonus**) malloc(sizeof(Bonus*));
+				default:
+					break;
+			}
 		}
 		else
 		{
-			s->tabBonus = realloc(s->tabBonus, (s->nNbBonus+1)*sizeof(Bonus*));
+			switch (bonus->type)
+			{
+				case increase_size:
+					s->pGainSize = 100;
+					break;
+
+				case decrease_size:
+					s->pGainSize = 0;
+					break;
+
+				case increase_speed:
+					s->vitesse -= (int)(0.25*s->vitesse);
+					break;
+
+				case decrease_speed:
+					s->vitesse += (int)(0.25*s->vitesse);
+					break;
+
+				case reverse_keys:
+					s->reverse = 1;
+					break;
+
+				default:
+					break;
+			}
+			if (s->nNbBonus == 0)
+			{
+				s->tabBonus = (Bonus**) malloc(sizeof(Bonus*));
+			}
+			else
+			{
+				s->tabBonus = realloc(s->tabBonus, (s->nNbBonus+1)*sizeof(Bonus*));
+			}
+			s->tabBonus[s->nNbBonus] = bonus;
+			s->nNbBonus++;
 		}
-		s->tabBonus[s->nNbBonus] = b->pTabBonus[index];
-		s->nNbBonus++;
 	}
 }
 
@@ -250,6 +271,48 @@ void clean_snake(Serpent* s)
 }
 
 /**
+ * @fn 			void change_snakes(Serpent* s, Serpent** snakes)
+ *
+ * @brief 		Permet d'échanger deux serpents
+ *
+ * @param 		s 			Le serpent qui a pris le bonus
+ * @param 		snakes 		Le tableau de serpents dans la partie
+ * @param 		index  		L'indice du serpent qui a pris le bonus dans le tableau des serpents
+ *
+ * @details		Si le serpent qui a pris le bonus est le joueur, on l'échange aléatoirement avec l'un des autres serpents.
+ * @details 	Si le serpent qui a pris le bonus est géré par un IA, on échange celui-ci avec celui du joueur
+ * 
+ * @return 		void
+ */
+
+void change_snakes(Serpent** snakes, int nb_snakes, int index)
+{
+	Serpent* player = snakes[0];
+	if (player)
+	{
+		int snakesIndex[nb_snakes-1];
+		int n = 0;
+		int i;
+		for(i = 1; i < nb_snakes; i++)
+		{
+			if (snakes[i]->vivant)
+			{
+				snakesIndex[n] = i;
+				n++;
+			}
+		}
+		int randIndex = snakesIndex[rand()%n];
+		snakes[0] = snakes[randIndex];
+		snakes[randIndex] = player;
+	}
+	else
+	{
+		snakes[0] = snakes[index];
+		snakes[index] = player;
+	}
+}
+
+/**
  * @fn 			close_walls(Board* b, int nWallsRow)
  *
  * @brief 		Permet de remplir le plateau avec des murs
@@ -322,6 +385,19 @@ void delete_bonus_snake(Serpent* s, int index)
 		case increase_size:
 		case decrease_size:
 			s->pGainSize = P_GAIN_SIZE;
+			break;
+
+		case increase_speed:
+			s->vitesse += (int)(1.0/3.0*s->vitesse);
+			break;
+
+		case decrease_speed:
+			s->vitesse -= (int)(1.0/5.0*s->vitesse);
+			break;
+
+		case reverse_keys:
+			s->reverse = 0;
+			break;
 
 		default:
 			break;

@@ -13,6 +13,7 @@ static void test_init_board1(void ** state)
 	assert_non_null(&b);
 	assert_int_equal(b.nNbPos, 4);
 	assert_int_equal(b.nNbTunnels, 0);
+	assert_int_equal(b.nNbBonus, 0);
 	free_board(b);
 }
 
@@ -22,6 +23,7 @@ static void test_init_board_1v1(void ** state)
 	assert_non_null(&b);
 	assert_int_equal(b.nNbPos, 2);
 	assert_int_equal(b.nNbTunnels, 0);
+	assert_int_equal(b.nNbBonus, 0);
 	assert_int_equal(b.nBoardWidth, 2*b.nBoardHeight);
 	free_board(b);
 }

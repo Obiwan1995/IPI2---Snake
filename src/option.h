@@ -1,7 +1,7 @@
 /**
  * @file option.h
  * @author Les Mixtes
- * @date 18/04/2016
+ * @date 10/05/2016
  * @brief Header du fichier option.c
  * @details Prend en charge le menu des options
  */
@@ -11,11 +11,11 @@
 
 #include "../lib/SDL/include/SDL/SDL.h"
 
-/** Niveau facile : 200 ms entre chaque déplacement des serpents */
-#define SPEED_EASY 2000
+/** Niveau facile : 250 ms entre chaque déplacement des serpents */
+#define SPEED_EASY 250
 /** Niveau moyen : 120 ms entre chaque déplacement des serpents */
 #define SPEED_MEDIUM 120
-/** Niveau difficile : 80 ms entre chaque déplacement des serpents */
+/** Niveau difficile : 60 ms entre chaque déplacement des serpents */
 #define SPEED_HARD 60
 
 /** Plateau de base */

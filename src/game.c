@@ -143,16 +143,27 @@ void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit)
 
                 if (k == 0)
                 {
+                    if (snakes[k]->reverse)
+                    {
+                        if (nDir == 1)
+                        {
+                            nDir = 2;
+                        }
+                        else if (nDir == 2)
+                        {
+                            nDir = 1;
+                        }
+                    }
                     switch(nDir)
                     {
                         case 0:
-                            Forward(snakes[0]);
+                            Forward(snakes[k]);
                             break;
                         case 1:
-                            Right(snakes[0]);
+                            Right(snakes[k]);
                             break;
                         case 2:
-                            Left(snakes[0]);
+                            Left(snakes[k]);
                             break;
                     }
                     nDir = 0;
@@ -162,7 +173,7 @@ void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit)
 
                 handle_tunnels(snakes[k], &board);
                 
-                if(test_collision(&board, snakes, nbSnakes, snakes[k]->tete, snakes[k]->id))
+                if(test_collision(&board, snakes, nbSnakes, snakes[k]->tete, k))
                 {
                     snakes[k]->vivant = 0;
                     --nbSnakesAlive;
@@ -176,23 +187,28 @@ void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit)
                         Bonus* bonus = board.pTabBonus[i];
                         if (snakes[k]->tete.x == bonus->point.x && snakes[k]->tete.y == bonus->point.y)
                         {
+                            printf("BONUS : %d\n", bonus->type);
                             if (bonus->type == closing_walls)
                             {
                                 closingWallsTimer = SDL_GetTicks();
                                 board.nClosingWalls = 1;
                             }
+                            else if(bonus->type == change_snake)
+                            {
+                                change_snakes(snakes, nbSnakes, k);
+                            }
                             else
                             {
                                 if (bonus->effect == self)
                                 {
-                                    take_bonus(snakes[k], &board, i);// à changer en take_bonus(snakes[j], board.pTabBonus[i])
+                                    take_bonus(snakes[k], board.pTabBonus[i]);
                                 }
                                 else
                                 {
                                     for (j = 0; j < nbSnakes; j++)
                                     {
                                         if (j != k)
-                                            take_bonus(snakes[j], &board, i);// à changer en take_bonus(snakes[j], board.pTabBonus[i])
+                                            take_bonus(snakes[j], board.pTabBonus[i]);
                                     }
                                 }
                             }
