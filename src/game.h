@@ -28,8 +28,8 @@
 /** Couleur des tunnels */
 #define TUNNEL 0x00BD8C22
  
-/** Nombre de secondes avant le début du jeu */
-#define STARTING_TIMER 3
+/** Nombre de secondes / 3 avant le début du jeu */
+#define STARTING_TIMER 1
 /** Nombre de secondes lorsque le mur avance */
 #define WALLS_CLOSING_TIMER 1000
 /** Nombre de secondes lorsqu'on ajoute un objet */

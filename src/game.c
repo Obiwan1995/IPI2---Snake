@@ -68,9 +68,34 @@ void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit)
             paint(sdlScreen, snakes[j]->tab[i].x, snakes[j]->tab[i].y, j+1);
         }
     }
-    SDL_Flip(sdlScreen);
 
-    sleep(STARTING_TIMER);
+    int k;
+    for (k = 0; k < 3; ++k)
+    {
+        int id;
+        switch(k)
+        {
+            case 0:
+                id = 2;
+                break;
+            case 1:
+                id = 4;
+                break;
+            case 2:
+                id = 1;
+                break;
+        }
+        for (j = -1; j < 2; ++j)
+        {
+            for (i = -1; i < 2; ++i)
+            {
+                paint(sdlScreen, (board.nBoardWidth/2)+j, (board.nBoardHeight/2)+i, id);
+            }
+        }
+        SDL_Flip(sdlScreen);
+        sleep(STARTING_TIMER);
+    }
+
 
     add_tunnels(&board, snakes, nbSnakes);
 
@@ -134,7 +159,6 @@ void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit)
             nWallsRow++;
         }
 
-        int k;
         for (k = 0; k < nbSnakes; ++k)
         {
             if (actualTime - previousTime[k] > snakes[k]->vitesse && snakes[k]->vivant)
@@ -270,9 +294,29 @@ void play(SDL_Surface* sdlScreen, Board board, int nbSnakes, int nSpeedInit)
         SDL_Flip(sdlScreen);
 
     }
+
+    SDL_Surface *sdlOption;
+    SDL_Rect sdlPosOption;
+
+    sdlPosOption.x = 0;
+    sdlPosOption.y = 0;
+    if (snakes[0]->vivant)
+    {
+        sdlOption = SDL_LoadBMP("../images/Victoire.bmp"); 
+    }
+    else
+    {
+        sdlOption = SDL_LoadBMP("../images/Defaite.bmp"); 
+    }
+
+    SDL_FreeSurface(sdlScreen);
+    sdlScreen = SDL_SetVideoMode(800, 600, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
+    SDL_BlitSurface(sdlOption, NULL, sdlScreen, &sdlPosOption);
+    SDL_Flip(sdlScreen);
+    sleep(4);
+
     free_snakes(snakes, nbSnakes);
     free_board(board);
-    sleep(2);
 }
 
 /**
