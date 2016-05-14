@@ -1,7 +1,7 @@
 /**
  * @file bonus.c
  * @author Les Mixtes
- * @date 9/05/2016
+ * @date 14/05/2016
  * @brief Fichier permettant la gestion des bonus
  * @details Contient toutes les fonctions utiles à la gestion des bonus : ajout de bonus, assignation du bonus à un serpent
  */
@@ -111,11 +111,11 @@ void take_bonus(Serpent* s, Bonus* bonus)
 					break;
 
 				case increase_speed:
-					s->vitesse -= (int)(0.25*s->vitesse);
+					s->vitesse = round(0.75*s->vitesse);
 					break;
 
 				case decrease_speed:
-					s->vitesse += (int)(0.25*s->vitesse);
+					s->vitesse = round(1.25*s->vitesse);
 					break;
 
 				case reverse_keys:
@@ -271,7 +271,7 @@ void clean_snake(Serpent* s)
 }
 
 /**
- * @fn 			void change_snakes(Serpent* s, Serpent** snakes)
+ * @fn 			void change_snakes(Serpent* s, Serpent** snakes, int index)
  *
  * @brief 		Permet d'échanger deux serpents
  *
@@ -288,7 +288,7 @@ void clean_snake(Serpent* s)
 void change_snakes(Serpent** snakes, int nb_snakes, int index)
 {
 	Serpent* player = snakes[0];
-	if (player)
+	if (index == 0)
 	{
 		int snakesIndex[nb_snakes-1];
 		int n = 0;
@@ -388,11 +388,11 @@ void delete_bonus_snake(Serpent* s, int index)
 			break;
 
 		case increase_speed:
-			s->vitesse += (int)(1.0/3.0*s->vitesse);
+			s->vitesse = (int)(4.0/3.0*s->vitesse);
 			break;
 
 		case decrease_speed:
-			s->vitesse -= (int)(1.0/5.0*s->vitesse);
+			s->vitesse = (int)(4.0/5.0*s->vitesse);
 			break;
 
 		case reverse_keys:

@@ -1,7 +1,7 @@
 /**
  * @file obstacle.c
  * @author Les Mixtes
- * @date 7/05/2016
+ * @date 14/05/2016
  * @brief Fichier permettant la création des murs et des positions de départ des serpents
  * @details Contient l'initialisation du "plateau" et des murs et des fonctions de gestion des collisions
  */
@@ -853,7 +853,6 @@ int belongs_to_tunnel(Point p, Tunnel* t)
 void add_tunnels(Board* b, Serpent** tab_serpent, int nb_snakes)
 {
 	int nb_tunnels = rand()%3+1;
-	b->pTunnels = (Tunnel**) malloc(nb_tunnels*sizeof(Tunnel*));
 	Point p, p2;
 	int i, j;
 
@@ -868,13 +867,22 @@ void add_tunnels(Board* b, Serpent** tab_serpent, int nb_snakes)
 		}
 		b->nNbTunnels++;
 
+		if (i == 0)
+		{
+			b->pTunnels = (Tunnel**)malloc(sizeof(Tunnel *));
+		}
+		else
+		{
+			b->pTunnels = realloc(b->pTunnels, b->nNbTunnels*sizeof(Tunnel *));
+		}
+
 		b->pTunnels[i] = (Tunnel *) malloc(sizeof(Tunnel));
 
 		b->pTunnels[i]->entree = p;
-		b->pTunnels[i]->nNbSorties = rand()%3+1;
-		b->pTunnels[i]->sorties = (Point *) malloc(b->pTunnels[i]->nNbSorties*sizeof(Point));
+		b->pTunnels[i]->nNbSorties = 0;
+		int nb_sorties = rand()%3+1;
 
-		for (j = 0; j < b->pTunnels[i]->nNbSorties; j++)
+		for (j = 0; j < nb_sorties; j++)
 		{
 			p2.x = rand()%(b->nBoardWidth-10)+5;
 			p2.y = rand()%(b->nBoardHeight-10)+5;
@@ -882,6 +890,15 @@ void add_tunnels(Board* b, Serpent** tab_serpent, int nb_snakes)
 			{
 				p2.x = rand()%(b->nBoardWidth-10)+5;
 				p2.y = rand()%(b->nBoardHeight-10)+5;
+			}
+			b->pTunnels[i]->nNbSorties++;
+			if (j == 0)
+			{
+				b->pTunnels[i]->sorties = (Point *) malloc(sizeof(Point));
+			}
+			else
+			{
+				b->pTunnels[i]->sorties = realloc(b->pTunnels[i]->sorties, b->pTunnels[i]->nNbSorties*sizeof(Point));
 			}
 			b->pTunnels[i]->sorties[j] = p2;
 		}
@@ -935,6 +952,7 @@ void free_board(Board b)
 	int i;
 	for (i = 0; i < b.nNbTunnels; i++)
 	{
+		free(b.pTunnels[i]->sorties);
 		free(b.pTunnels[i]);
 	}
 	if (b.nNbTunnels > 0)
