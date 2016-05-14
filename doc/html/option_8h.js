@@ -9,5 +9,5 @@ var option_8h =
     [ "SPEED_HARD", "option_8h.html#a68e6623a38582ae1b0a4eb40462de67e", null ],
     [ "SPEED_MEDIUM", "option_8h.html#a1f488b2f93d768345629eb1a33b18a95", null ],
     [ "aide", "option_8h.html#ac628d3acfa0d2db2f18f3a988b585ef1", null ],
-    [ "option", "option_8h.html#a517a6721a42ca4a311fd769cb6981bcd", null ]
+    [ "option", "option_8h.html#a0bb2abbf38215a549d3e3b2f88927a7e", null ]
 ];

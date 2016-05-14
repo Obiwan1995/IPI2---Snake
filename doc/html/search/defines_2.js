@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['menu_5fheight',['MENU_HEIGHT',['../main_8c.html#aaa3f89d08a9fcf0af415b012b8138ebf',1,'main.c']]],
-  ['menu_5fwidth',['MENU_WIDTH',['../main_8c.html#ae64f028be3d52d84433789a433ba4034',1,'main.c']]]
+  ['default_5fduration',['DEFAULT_DURATION',['../bonus_8h.html#a5705d5a4ff9c55f77a23a5e6b8d1af69',1,'bonus.h']]]
 ];

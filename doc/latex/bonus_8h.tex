@@ -1,0 +1,252 @@
+\hypertarget{bonus_8h}{}\section{Référence du fichier src/bonus.h}
+\label{bonus_8h}\index{src/bonus.\+h@{src/bonus.\+h}}
+
+
+Header du fichier \hyperlink{bonus_8c}{bonus.\+c}.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}obstacle.\+h\char`\"{}}\\*
+Graphe des dépendances par inclusion de bonus.\+h\+:
+% FIG 0
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+% FIG 1
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{bonus_8h_a5705d5a4ff9c55f77a23a5e6b8d1af69}{D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+U\+R\+A\+T\+I\+ON}~5
+\end{DoxyCompactItemize}
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{bonus_8h_a0e115af4dfcb254654573d46a03ea916}{add\+\_\+bonus} (\hyperlink{struct_board}{Board} $\ast$b, \hyperlink{struct_serpent}{Serpent} $\ast$$\ast$tab\+\_\+serpent, int nb\+\_\+snakes)
+\begin{DoxyCompactList}\small\item\em Ajoute un bonus sur le plateau. \end{DoxyCompactList}\item 
+void \hyperlink{bonus_8h_a768eec8af85609c2c374553f36ce0dd1}{take\+\_\+bonus} (\hyperlink{struct_serpent}{Serpent} $\ast$s, \hyperlink{struct_bonus}{Bonus} $\ast$bonus)
+\begin{DoxyCompactList}\small\item\em Permet de gérer la prise d\textquotesingle{}un bonus par un serpent. \end{DoxyCompactList}\item 
+void \hyperlink{bonus_8h_aeb39e891aa6febbd9aa23649c48fd2da}{reverse\+\_\+snake} (\hyperlink{struct_serpent}{Serpent} $\ast$s)
+\begin{DoxyCompactList}\small\item\em Permet d\textquotesingle{}échanger la tête et la queue du serpent. \end{DoxyCompactList}\item 
+void \hyperlink{bonus_8h_ad0b39bf25001311ee6eb377b1cd20c39}{clean\+\_\+snake} (\hyperlink{struct_serpent}{Serpent} $\ast$s)
+\begin{DoxyCompactList}\small\item\em Permet de supprimer le corps du serpent. \end{DoxyCompactList}\item 
+void \hyperlink{bonus_8h_a599755e82d28b50e3390900858a91dc6}{change\+\_\+snakes} (\hyperlink{struct_serpent}{Serpent} $\ast$$\ast$snakes, int nb\+\_\+snakes, int index)
+\begin{DoxyCompactList}\small\item\em Permet d\textquotesingle{}échanger deux serpents. \end{DoxyCompactList}\item 
+void \hyperlink{bonus_8h_ab6870a1c1f7d76611a7757ce09e2cff4}{close\+\_\+walls} (\hyperlink{struct_board}{Board} $\ast$b, int n\+Walls\+Row)
+\begin{DoxyCompactList}\small\item\em Permet de remplir le plateau avec des murs. \end{DoxyCompactList}\item 
+void \hyperlink{bonus_8h_a17a515ba56440f822a8d7f06ebef2f83}{delete\+\_\+bonus\+\_\+board} (\hyperlink{struct_board}{Board} $\ast$b, int index)
+\begin{DoxyCompactList}\small\item\em Permet de supprimer un bonus du plateau. \end{DoxyCompactList}\item 
+void \hyperlink{bonus_8h_a066e315b94ace4a62e79577d76ff7559}{delete\+\_\+bonus\+\_\+snake} (\hyperlink{struct_serpent}{Serpent} $\ast$s, int index)
+\begin{DoxyCompactList}\small\item\em Permet de supprimer un bonus d\textquotesingle{}un serpent. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Header du fichier \hyperlink{bonus_8c}{bonus.\+c}. 
+
+\begin{DoxyAuthor}{Auteur}
+Les Mixtes 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+9/05/2016
+\end{DoxyDate}
+Contient les déclarations des structures et des fonctions utiles dans la gestion des bonus 
+
+\subsection{Documentation des macros}
+\index{bonus.\+h@{bonus.\+h}!D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+U\+R\+A\+T\+I\+ON@{D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+U\+R\+A\+T\+I\+ON}}
+\index{D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+U\+R\+A\+T\+I\+ON@{D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+U\+R\+A\+T\+I\+ON}!bonus.\+h@{bonus.\+h}}
+\subsubsection[{\texorpdfstring{D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+U\+R\+A\+T\+I\+ON}{DEFAULT_DURATION}}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+U\+R\+A\+T\+I\+ON~5}\hypertarget{bonus_8h_a5705d5a4ff9c55f77a23a5e6b8d1af69}{}\label{bonus_8h_a5705d5a4ff9c55f77a23a5e6b8d1af69}
+Durée par défaut des bonus en secondes 
+
+\subsection{Documentation des fonctions}
+\index{bonus.\+h@{bonus.\+h}!add\+\_\+bonus@{add\+\_\+bonus}}
+\index{add\+\_\+bonus@{add\+\_\+bonus}!bonus.\+h@{bonus.\+h}}
+\subsubsection[{\texorpdfstring{add\+\_\+bonus(\+Board $\ast$b, Serpent $\ast$$\ast$tab\+\_\+serpent, int nb\+\_\+snakes)}{add_bonus(Board *b, Serpent **tab_serpent, int nb_snakes)}}]{\setlength{\rightskip}{0pt plus 5cm}void add\+\_\+bonus (
+\begin{DoxyParamCaption}
+\item[{{\bf Board} $\ast$}]{b, }
+\item[{{\bf Serpent} $\ast$$\ast$}]{tab\+\_\+serpent, }
+\item[{int}]{nb\+\_\+snakes}
+\end{DoxyParamCaption}
+)}\hypertarget{bonus_8h_a0e115af4dfcb254654573d46a03ea916}{}\label{bonus_8h_a0e115af4dfcb254654573d46a03ea916}
+
+
+Ajoute un bonus sur le plateau. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em b} & Le plateau de jeu \\
+\hline
+{\em tab\+\_\+serpent} & Le tableaux des serpents dans la partie \\
+\hline
+{\em nb\+\_\+snakes} & Le nombre de serpents dans la partie\\
+\hline
+\end{DoxyParams}
+Génère une case aléatoire pour le nouveau bonus tant que celle-\/ci n\textquotesingle{}est pas libre. Ensuite, crée un bonus de type aléatoire et ayant un effet aléatoire et l\textquotesingle{}ajoute au tableau des bonus du plateau.
+
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+\index{bonus.\+h@{bonus.\+h}!change\+\_\+snakes@{change\+\_\+snakes}}
+\index{change\+\_\+snakes@{change\+\_\+snakes}!bonus.\+h@{bonus.\+h}}
+\subsubsection[{\texorpdfstring{change\+\_\+snakes(\+Serpent $\ast$$\ast$snakes, int nb\+\_\+snakes, int index)}{change_snakes(Serpent **snakes, int nb_snakes, int index)}}]{\setlength{\rightskip}{0pt plus 5cm}void change\+\_\+snakes (
+\begin{DoxyParamCaption}
+\item[{{\bf Serpent} $\ast$$\ast$}]{snakes, }
+\item[{int}]{nb\+\_\+snakes, }
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)}\hypertarget{bonus_8h_a599755e82d28b50e3390900858a91dc6}{}\label{bonus_8h_a599755e82d28b50e3390900858a91dc6}
+
+
+Permet d\textquotesingle{}échanger deux serpents. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em snakes} & Le tableau de serpents dans la partie \\
+\hline
+{\em nb\+\_\+snakes} & Le nombre de serpents dans la partie \\
+\hline
+{\em index} & L\textquotesingle{}indice du serpent qui a pris le bonus dans le tableau des serpents\\
+\hline
+\end{DoxyParams}
+Si le serpent qui a pris le bonus est le joueur, on l\textquotesingle{}échange aléatoirement avec l\textquotesingle{}un des autres serpents.
+
+Si le serpent qui a pris le bonus est géré par un IA, on échange celui-\/ci avec celui du joueur
+
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+\index{bonus.\+h@{bonus.\+h}!clean\+\_\+snake@{clean\+\_\+snake}}
+\index{clean\+\_\+snake@{clean\+\_\+snake}!bonus.\+h@{bonus.\+h}}
+\subsubsection[{\texorpdfstring{clean\+\_\+snake(\+Serpent $\ast$s)}{clean_snake(Serpent *s)}}]{\setlength{\rightskip}{0pt plus 5cm}void clean\+\_\+snake (
+\begin{DoxyParamCaption}
+\item[{{\bf Serpent} $\ast$}]{s}
+\end{DoxyParamCaption}
+)}\hypertarget{bonus_8h_ad0b39bf25001311ee6eb377b1cd20c39}{}\label{bonus_8h_ad0b39bf25001311ee6eb377b1cd20c39}
+
+
+Permet de supprimer le corps du serpent. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em s} & Le serpent à modifier\\
+\hline
+\end{DoxyParams}
+Free le tableau de points du serpent puis remet la tête dans le tableau
+
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+\index{bonus.\+h@{bonus.\+h}!close\+\_\+walls@{close\+\_\+walls}}
+\index{close\+\_\+walls@{close\+\_\+walls}!bonus.\+h@{bonus.\+h}}
+\subsubsection[{\texorpdfstring{close\+\_\+walls(\+Board $\ast$b, int n\+Walls\+Row)}{close_walls(Board *b, int nWallsRow)}}]{\setlength{\rightskip}{0pt plus 5cm}void close\+\_\+walls (
+\begin{DoxyParamCaption}
+\item[{{\bf Board} $\ast$}]{b, }
+\item[{int}]{n\+Walls\+Row}
+\end{DoxyParamCaption}
+)}\hypertarget{bonus_8h_ab6870a1c1f7d76611a7757ce09e2cff4}{}\label{bonus_8h_ab6870a1c1f7d76611a7757ce09e2cff4}
+
+
+Permet de remplir le plateau avec des murs. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em b} & Le plateau de jeu \\
+\hline
+{\em n\+Walls\+Row} & La rangée courante des murs\\
+\hline
+\end{DoxyParams}
+Rajoute une rangée de murs au plateau en fonction de la rangée actuelle
+
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+\index{bonus.\+h@{bonus.\+h}!delete\+\_\+bonus\+\_\+board@{delete\+\_\+bonus\+\_\+board}}
+\index{delete\+\_\+bonus\+\_\+board@{delete\+\_\+bonus\+\_\+board}!bonus.\+h@{bonus.\+h}}
+\subsubsection[{\texorpdfstring{delete\+\_\+bonus\+\_\+board(\+Board $\ast$b, int index)}{delete_bonus_board(Board *b, int index)}}]{\setlength{\rightskip}{0pt plus 5cm}void delete\+\_\+bonus\+\_\+board (
+\begin{DoxyParamCaption}
+\item[{{\bf Board} $\ast$}]{b, }
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)}\hypertarget{bonus_8h_a17a515ba56440f822a8d7f06ebef2f83}{}\label{bonus_8h_a17a515ba56440f822a8d7f06ebef2f83}
+
+
+Permet de supprimer un bonus du plateau. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em b} & Le plateau de jeu \\
+\hline
+{\em index} & L\textquotesingle{}indice du bonus pris par le serpent dans le tableau des bonus du plateau\\
+\hline
+\end{DoxyParams}
+Réorganise le tableau des bonus du plateau ou le supprime entièrement en fonction du nombre de bonus présents
+
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+\index{bonus.\+h@{bonus.\+h}!delete\+\_\+bonus\+\_\+snake@{delete\+\_\+bonus\+\_\+snake}}
+\index{delete\+\_\+bonus\+\_\+snake@{delete\+\_\+bonus\+\_\+snake}!bonus.\+h@{bonus.\+h}}
+\subsubsection[{\texorpdfstring{delete\+\_\+bonus\+\_\+snake(\+Serpent $\ast$s, int index)}{delete_bonus_snake(Serpent *s, int index)}}]{\setlength{\rightskip}{0pt plus 5cm}void delete\+\_\+bonus\+\_\+snake (
+\begin{DoxyParamCaption}
+\item[{{\bf Serpent} $\ast$}]{s, }
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)}\hypertarget{bonus_8h_a066e315b94ace4a62e79577d76ff7559}{}\label{bonus_8h_a066e315b94ace4a62e79577d76ff7559}
+
+
+Permet de supprimer un bonus d\textquotesingle{}un serpent. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em s} & Le serpent possédant le bonus à supprimer \\
+\hline
+{\em index} & L\textquotesingle{}indice du bonus pris par le serpent dans le tableau des bonus du serpent\\
+\hline
+\end{DoxyParams}
+Réorganise le tableau des bonus du serpent ou le supprime entièrement en fonction du nombre de bonus possédés
+
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+\index{bonus.\+h@{bonus.\+h}!reverse\+\_\+snake@{reverse\+\_\+snake}}
+\index{reverse\+\_\+snake@{reverse\+\_\+snake}!bonus.\+h@{bonus.\+h}}
+\subsubsection[{\texorpdfstring{reverse\+\_\+snake(\+Serpent $\ast$s)}{reverse_snake(Serpent *s)}}]{\setlength{\rightskip}{0pt plus 5cm}void reverse\+\_\+snake (
+\begin{DoxyParamCaption}
+\item[{{\bf Serpent} $\ast$}]{s}
+\end{DoxyParamCaption}
+)}\hypertarget{bonus_8h_aeb39e891aa6febbd9aa23649c48fd2da}{}\label{bonus_8h_aeb39e891aa6febbd9aa23649c48fd2da}
+
+
+Permet d\textquotesingle{}échanger la tête et la queue du serpent. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em s} & Le serpent à modifier\\
+\hline
+\end{DoxyParams}
+Echange toutes les cases du tableau correspondant au corps du serpent puis replace la tête à la place de la queue. Enfin, modifie la direction du serpent en choisissant la direction opposée à l\textquotesingle{}actuelle.
+
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+\index{bonus.\+h@{bonus.\+h}!take\+\_\+bonus@{take\+\_\+bonus}}
+\index{take\+\_\+bonus@{take\+\_\+bonus}!bonus.\+h@{bonus.\+h}}
+\subsubsection[{\texorpdfstring{take\+\_\+bonus(\+Serpent $\ast$s, Bonus $\ast$bonus)}{take_bonus(Serpent *s, Bonus *bonus)}}]{\setlength{\rightskip}{0pt plus 5cm}void take\+\_\+bonus (
+\begin{DoxyParamCaption}
+\item[{{\bf Serpent} $\ast$}]{s, }
+\item[{{\bf Bonus} $\ast$}]{bonus}
+\end{DoxyParamCaption}
+)}\hypertarget{bonus_8h_a768eec8af85609c2c374553f36ce0dd1}{}\label{bonus_8h_a768eec8af85609c2c374553f36ce0dd1}
+
+
+Permet de gérer la prise d\textquotesingle{}un bonus par un serpent. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em s} & Le serpent qui prend le bonus \\
+\hline
+{\em bonus} & Le bonus pris par le serpent\\
+\hline
+\end{DoxyParams}
+Copie le bonus du tableau des bonus du plateau vers le tableau des bonus du serpent
+
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}

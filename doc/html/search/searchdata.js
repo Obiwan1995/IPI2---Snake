@@ -1,12 +1,13 @@
 var indexSectionsWithContent =
 {
-  0: "abdfgilmnoprst",
-  1: "bps",
-  2: "gimos",
-  3: "abdfilmoprst",
-  4: "d",
-  5: "d",
-  6: "bgmnprs"
+  0: "abcdefghilmnoprstwy",
+  1: "bpst",
+  2: "bgimos",
+  3: "abcdefhilmnoprst",
+  4: "det",
+  5: "det",
+  6: "abdgmnprstwy",
+  7: "s"
 };
 
 var indexSectionNames =
@@ -17,17 +18,19 @@ var indexSectionNames =
   3: "functions",
   4: "typedefs",
   5: "enums",
-  6: "defines"
+  6: "defines",
+  7: "pages"
 };
 
 var indexSectionLabels =
 {
-  0: "All",
-  1: "Data Structures",
-  2: "Files",
-  3: "Functions",
-  4: "Typedefs",
-  5: "Enumerations",
-  6: "Macros"
+  0: "Tout",
+  1: "Structures de données",
+  2: "Fichiers",
+  3: "Fonctions",
+  4: "Définitions de type",
+  5: "Énumérations",
+  6: "Macros",
+  7: "Pages"
 };
 

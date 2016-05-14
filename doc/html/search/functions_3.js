@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['forward',['Forward',['../snake_8c.html#a40af0c3301e6a0d90261c056a3afba28',1,'Forward(Serpent *snake):&#160;snake.c'],['../snake_8h.html#a40af0c3301e6a0d90261c056a3afba28',1,'Forward(Serpent *snake):&#160;snake.c']]],
-  ['free_5fboard',['free_board',['../obstacle_8c.html#a92913020637471129fd0f07dbf3a7396',1,'free_board(Board b):&#160;obstacle.c'],['../obstacle_8h.html#a92913020637471129fd0f07dbf3a7396',1,'free_board(Board b):&#160;obstacle.c']]],
-  ['free_5fsnake',['free_snake',['../snake_8c.html#a3666302f1c4fdf0c1d9aa607fd3089ad',1,'free_snake(Serpent **snake, int nbSnake):&#160;snake.c'],['../snake_8h.html#a060858e980e83fc0d53a31d0eb56ead7',1,'free_snake(Serpent **snake, int nbSnake):&#160;snake.c']]]
+  ['delete_5fbonus_5fboard',['delete_bonus_board',['../bonus_8c.html#a6c746fbf3d41ff30121ec55eb2e7f67c',1,'delete_bonus_board(Board *b, int index):&#160;bonus.c'],['../bonus_8h.html#a17a515ba56440f822a8d7f06ebef2f83',1,'delete_bonus_board(Board *b, int index):&#160;bonus.c']]],
+  ['delete_5fbonus_5fsnake',['delete_bonus_snake',['../bonus_8c.html#a6ebc4ecdcb58c8e5fe1b4b9d555064e5',1,'delete_bonus_snake(Serpent *s, int index):&#160;bonus.c'],['../bonus_8h.html#a066e315b94ace4a62e79577d76ff7559',1,'delete_bonus_snake(Serpent *s, int index):&#160;bonus.c']]],
+  ['delete_5ftoo_5fclose_5fwalls',['delete_too_close_walls',['../obstacle_8c.html#ad44be14f4ef6100373c68d5ba139a95c',1,'delete_too_close_walls(Board *b):&#160;obstacle.c'],['../obstacle_8h.html#ad44be14f4ef6100373c68d5ba139a95c',1,'delete_too_close_walls(Board *b):&#160;obstacle.c']]]
 ];

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['red',['RED',['../game_8h.html#a8d23feea868a983c8c2b661e1e16972f',1,'game.h']]],
-  ['right',['Right',['../snake_8c.html#a89100897980e51855920fdb91793d4e8',1,'Right(Serpent *snake):&#160;snake.c'],['../snake_8h.html#a89100897980e51855920fdb91793d4e8',1,'Right(Serpent *snake):&#160;snake.c']]]
+  ['nb_5fobstacles_5faround_5f3',['nb_obstacles_around_3',['../obstacle_8c.html#a4a5b0b32868d0b3cadbd8bc09c14d42a',1,'nb_obstacles_around_3(Point centre, Board *b, Serpent **tab_serpent, int nb_snakes, Serpent *snake):&#160;obstacle.c'],['../obstacle_8h.html#a4a5b0b32868d0b3cadbd8bc09c14d42a',1,'nb_obstacles_around_3(Point centre, Board *b, Serpent **tab_serpent, int nb_snakes, Serpent *snake):&#160;obstacle.c']]],
+  ['nb_5fobstacles_5faround_5f5',['nb_obstacles_around_5',['../obstacle_8c.html#a41cc2f21fada26ff3689a1c64b463092',1,'nb_obstacles_around_5(Point centre, Board *b, Serpent **tab_serpent, int nb_snakes, Serpent *snake):&#160;obstacle.c'],['../obstacle_8h.html#a41cc2f21fada26ff3689a1c64b463092',1,'nb_obstacles_around_5(Point centre, Board *b, Serpent **tab_serpent, int nb_snakes, Serpent *snake):&#160;obstacle.c']]],
+  ['nb_5fsnakes',['NB_SNAKES',['../main_8c.html#aa753e553079bc62ff731963cb995b8fd',1,'main.c']]]
 ];

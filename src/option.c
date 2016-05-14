@@ -10,7 +10,7 @@
  #include <stdio.h>
 
 /**
- * @fn         option(SDL_Surface* sdlScreen, int* pNbSnakes, int *pBoard, int* pSpeedInit)
+ * @fn         option(SDL_Surface* sdlScreen, int* pNbSnakes, int *pBoard, int* pSpeedInit, int* pWalls)
  *
  * @brief      Gère les options du jeu
  *
@@ -18,6 +18,7 @@
  * @param       pNbSnakes       Le nombre de serpents
  * @param       pBoard          Le type de plateau utilisé actuellement
  * @param       pSpeedInit      La vitesse initiale définie actuellement
+ * @param       pWalls          Le booléen indiquant s'il y a des murs au milieu du plateau ou non
  *
  * @return     void
  */

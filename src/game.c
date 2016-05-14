@@ -402,7 +402,7 @@ void paint(SDL_Surface* sdlScreen, int x, int y, int nId)
 }
 
 /**
- * @fn         paintBonus(SDL_Surface* sdlScreen, Bonus bonus)
+ * @fn         paintBonus(SDL_Surface* sdlScreen, Bonus* bonus)
  *
  * @brief      Colorie un bonus en forme de losange
  *

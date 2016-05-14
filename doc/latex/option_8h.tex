@@ -1,126 +1,129 @@
-\hypertarget{option_8h}{}\section{option.\+h File Reference}
-\label{option_8h}\index{option.\+h@{option.\+h}}
+\hypertarget{option_8h}{}\section{Référence du fichier src/option.h}
+\label{option_8h}\index{src/option.\+h@{src/option.\+h}}
 
 
 Header du fichier \hyperlink{option_8c}{option.\+c}.  
 
 
 {\ttfamily \#include \char`\"{}../lib/\+S\+D\+L/include/\+S\+D\+L/\+S\+D\+L.\+h\char`\"{}}\\*
-Include dependency graph for option.\+h\+:
+Graphe des dépendances par inclusion de option.\+h\+:
 % FIG 0
-This graph shows which files directly or indirectly include this file\+:
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
 % FIG 1
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{option_8h_aff7085d5a3acc5031d63849da6ccdc0d}{S\+P\+E\+E\+D\+\_\+\+E\+A\+S\+Y}~200
+\#define \hyperlink{option_8h_aff7085d5a3acc5031d63849da6ccdc0d}{S\+P\+E\+E\+D\+\_\+\+E\+A\+SY}~250
 \item 
-\#define \hyperlink{option_8h_a1f488b2f93d768345629eb1a33b18a95}{S\+P\+E\+E\+D\+\_\+\+M\+E\+D\+I\+U\+M}~120
+\#define \hyperlink{option_8h_a1f488b2f93d768345629eb1a33b18a95}{S\+P\+E\+E\+D\+\_\+\+M\+E\+D\+I\+UM}~120
 \item 
-\#define \hyperlink{option_8h_a68e6623a38582ae1b0a4eb40462de67e}{S\+P\+E\+E\+D\+\_\+\+H\+A\+R\+D}~80
+\#define \hyperlink{option_8h_a68e6623a38582ae1b0a4eb40462de67e}{S\+P\+E\+E\+D\+\_\+\+H\+A\+RD}~60
 \item 
-\#define \hyperlink{option_8h_ad116eb5c074b64947ce3be02d7db6325}{B\+O\+A\+R\+D\+\_\+\+B\+A\+S\+E}~1
+\#define \hyperlink{option_8h_ad116eb5c074b64947ce3be02d7db6325}{B\+O\+A\+R\+D\+\_\+\+B\+A\+SE}~1
 \item 
 \#define \hyperlink{option_8h_a6812cbb88427685ba50b8b6af9615fa4}{B\+O\+A\+R\+D\+\_\+1\+V1}~2
 \item 
-\#define \hyperlink{option_8h_a2c0bc836fee790167f5a001b65374bd4}{B\+I\+G\+\_\+\+B\+O\+A\+R\+D}~3
+\#define \hyperlink{option_8h_a2c0bc836fee790167f5a001b65374bd4}{B\+I\+G\+\_\+\+B\+O\+A\+RD}~3
 \item 
-\#define \hyperlink{option_8h_a798e353cfcfb2486fe97f7c06f71731b}{B\+O\+A\+R\+D\+\_\+\+W\+I\+T\+H\+O\+U\+T\+\_\+\+W\+A\+L\+L\+S}~0
+\#define \hyperlink{option_8h_a798e353cfcfb2486fe97f7c06f71731b}{B\+O\+A\+R\+D\+\_\+\+W\+I\+T\+H\+O\+U\+T\+\_\+\+W\+A\+L\+LS}~2
 \item 
-\#define \hyperlink{option_8h_abead64102a34375baeae01d5df3be4c3}{B\+O\+A\+R\+D\+\_\+\+W\+I\+T\+H\+\_\+\+W\+A\+L\+L\+S}~1
+\#define \hyperlink{option_8h_abead64102a34375baeae01d5df3be4c3}{B\+O\+A\+R\+D\+\_\+\+W\+I\+T\+H\+\_\+\+W\+A\+L\+LS}~1
 \end{DoxyCompactItemize}
-\subsection*{Functions}
+\subsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{option_8h_a517a6721a42ca4a311fd769cb6981bcd}{option} (S\+D\+L\+\_\+\+Surface $\ast$sdl\+Screen, int $\ast$p\+Nb\+Snakes, int $\ast$p\+Board, int $\ast$p\+Speed\+Init)
+void \hyperlink{option_8h_a0bb2abbf38215a549d3e3b2f88927a7e}{option} (S\+D\+L\+\_\+\+Surface $\ast$sdl\+Screen, int $\ast$p\+Nb\+Snakes, int $\ast$p\+Board, int $\ast$p\+Speed\+Init, int $\ast$p\+Walls)
 \begin{DoxyCompactList}\small\item\em Gère les options du jeu. \end{DoxyCompactList}\item 
 void \hyperlink{option_8h_ac628d3acfa0d2db2f18f3a988b585ef1}{aide} (S\+D\+L\+\_\+\+Surface $\ast$sdl\+Screen)
 \begin{DoxyCompactList}\small\item\em Affiche l\textquotesingle{}aide du jeu. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
+\subsection{Description détaillée}
 Header du fichier \hyperlink{option_8c}{option.\+c}. 
 
-\begin{DoxyAuthor}{Author}
+\begin{DoxyAuthor}{Auteur}
 Les Mixtes 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
-18/04/2016
+10/05/2016
 \end{DoxyDate}
 Prend en charge le menu des options 
 
-\subsection{Macro Definition Documentation}
-\hypertarget{option_8h_a2c0bc836fee790167f5a001b65374bd4}{}\index{option.\+h@{option.\+h}!B\+I\+G\+\_\+\+B\+O\+A\+R\+D@{B\+I\+G\+\_\+\+B\+O\+A\+R\+D}}
-\index{B\+I\+G\+\_\+\+B\+O\+A\+R\+D@{B\+I\+G\+\_\+\+B\+O\+A\+R\+D}!option.\+h@{option.\+h}}
-\subsubsection[{B\+I\+G\+\_\+\+B\+O\+A\+R\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+I\+G\+\_\+\+B\+O\+A\+R\+D~3}\label{option_8h_a2c0bc836fee790167f5a001b65374bd4}
-Grand plateau \hypertarget{option_8h_a6812cbb88427685ba50b8b6af9615fa4}{}\index{option.\+h@{option.\+h}!B\+O\+A\+R\+D\+\_\+1\+V1@{B\+O\+A\+R\+D\+\_\+1\+V1}}
+\subsection{Documentation des macros}
+\index{option.\+h@{option.\+h}!B\+I\+G\+\_\+\+B\+O\+A\+RD@{B\+I\+G\+\_\+\+B\+O\+A\+RD}}
+\index{B\+I\+G\+\_\+\+B\+O\+A\+RD@{B\+I\+G\+\_\+\+B\+O\+A\+RD}!option.\+h@{option.\+h}}
+\subsubsection[{\texorpdfstring{B\+I\+G\+\_\+\+B\+O\+A\+RD}{BIG_BOARD}}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+I\+G\+\_\+\+B\+O\+A\+RD~3}\hypertarget{option_8h_a2c0bc836fee790167f5a001b65374bd4}{}\label{option_8h_a2c0bc836fee790167f5a001b65374bd4}
+Grand plateau \index{option.\+h@{option.\+h}!B\+O\+A\+R\+D\+\_\+1\+V1@{B\+O\+A\+R\+D\+\_\+1\+V1}}
 \index{B\+O\+A\+R\+D\+\_\+1\+V1@{B\+O\+A\+R\+D\+\_\+1\+V1}!option.\+h@{option.\+h}}
-\subsubsection[{B\+O\+A\+R\+D\+\_\+1\+V1}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+O\+A\+R\+D\+\_\+1\+V1~2}\label{option_8h_a6812cbb88427685ba50b8b6af9615fa4}
-Plateau 1 contre 1 \hypertarget{option_8h_ad116eb5c074b64947ce3be02d7db6325}{}\index{option.\+h@{option.\+h}!B\+O\+A\+R\+D\+\_\+\+B\+A\+S\+E@{B\+O\+A\+R\+D\+\_\+\+B\+A\+S\+E}}
-\index{B\+O\+A\+R\+D\+\_\+\+B\+A\+S\+E@{B\+O\+A\+R\+D\+\_\+\+B\+A\+S\+E}!option.\+h@{option.\+h}}
-\subsubsection[{B\+O\+A\+R\+D\+\_\+\+B\+A\+S\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+O\+A\+R\+D\+\_\+\+B\+A\+S\+E~1}\label{option_8h_ad116eb5c074b64947ce3be02d7db6325}
-Plateau de base \hypertarget{option_8h_abead64102a34375baeae01d5df3be4c3}{}\index{option.\+h@{option.\+h}!B\+O\+A\+R\+D\+\_\+\+W\+I\+T\+H\+\_\+\+W\+A\+L\+L\+S@{B\+O\+A\+R\+D\+\_\+\+W\+I\+T\+H\+\_\+\+W\+A\+L\+L\+S}}
-\index{B\+O\+A\+R\+D\+\_\+\+W\+I\+T\+H\+\_\+\+W\+A\+L\+L\+S@{B\+O\+A\+R\+D\+\_\+\+W\+I\+T\+H\+\_\+\+W\+A\+L\+L\+S}!option.\+h@{option.\+h}}
-\subsubsection[{B\+O\+A\+R\+D\+\_\+\+W\+I\+T\+H\+\_\+\+W\+A\+L\+L\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+O\+A\+R\+D\+\_\+\+W\+I\+T\+H\+\_\+\+W\+A\+L\+L\+S~1}\label{option_8h_abead64102a34375baeae01d5df3be4c3}
-Murs au milieu \hypertarget{option_8h_a798e353cfcfb2486fe97f7c06f71731b}{}\index{option.\+h@{option.\+h}!B\+O\+A\+R\+D\+\_\+\+W\+I\+T\+H\+O\+U\+T\+\_\+\+W\+A\+L\+L\+S@{B\+O\+A\+R\+D\+\_\+\+W\+I\+T\+H\+O\+U\+T\+\_\+\+W\+A\+L\+L\+S}}
-\index{B\+O\+A\+R\+D\+\_\+\+W\+I\+T\+H\+O\+U\+T\+\_\+\+W\+A\+L\+L\+S@{B\+O\+A\+R\+D\+\_\+\+W\+I\+T\+H\+O\+U\+T\+\_\+\+W\+A\+L\+L\+S}!option.\+h@{option.\+h}}
-\subsubsection[{B\+O\+A\+R\+D\+\_\+\+W\+I\+T\+H\+O\+U\+T\+\_\+\+W\+A\+L\+L\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+O\+A\+R\+D\+\_\+\+W\+I\+T\+H\+O\+U\+T\+\_\+\+W\+A\+L\+L\+S~0}\label{option_8h_a798e353cfcfb2486fe97f7c06f71731b}
-Pas de murs au milieu \hypertarget{option_8h_aff7085d5a3acc5031d63849da6ccdc0d}{}\index{option.\+h@{option.\+h}!S\+P\+E\+E\+D\+\_\+\+E\+A\+S\+Y@{S\+P\+E\+E\+D\+\_\+\+E\+A\+S\+Y}}
-\index{S\+P\+E\+E\+D\+\_\+\+E\+A\+S\+Y@{S\+P\+E\+E\+D\+\_\+\+E\+A\+S\+Y}!option.\+h@{option.\+h}}
-\subsubsection[{S\+P\+E\+E\+D\+\_\+\+E\+A\+S\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+P\+E\+E\+D\+\_\+\+E\+A\+S\+Y~200}\label{option_8h_aff7085d5a3acc5031d63849da6ccdc0d}
-Niveau facile \+: 200 ms entre chaque déplacement des serpents \hypertarget{option_8h_a68e6623a38582ae1b0a4eb40462de67e}{}\index{option.\+h@{option.\+h}!S\+P\+E\+E\+D\+\_\+\+H\+A\+R\+D@{S\+P\+E\+E\+D\+\_\+\+H\+A\+R\+D}}
-\index{S\+P\+E\+E\+D\+\_\+\+H\+A\+R\+D@{S\+P\+E\+E\+D\+\_\+\+H\+A\+R\+D}!option.\+h@{option.\+h}}
-\subsubsection[{S\+P\+E\+E\+D\+\_\+\+H\+A\+R\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+P\+E\+E\+D\+\_\+\+H\+A\+R\+D~80}\label{option_8h_a68e6623a38582ae1b0a4eb40462de67e}
-Niveau difficile \+: 80 ms entre chaque déplacement des serpents \hypertarget{option_8h_a1f488b2f93d768345629eb1a33b18a95}{}\index{option.\+h@{option.\+h}!S\+P\+E\+E\+D\+\_\+\+M\+E\+D\+I\+U\+M@{S\+P\+E\+E\+D\+\_\+\+M\+E\+D\+I\+U\+M}}
-\index{S\+P\+E\+E\+D\+\_\+\+M\+E\+D\+I\+U\+M@{S\+P\+E\+E\+D\+\_\+\+M\+E\+D\+I\+U\+M}!option.\+h@{option.\+h}}
-\subsubsection[{S\+P\+E\+E\+D\+\_\+\+M\+E\+D\+I\+U\+M}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+P\+E\+E\+D\+\_\+\+M\+E\+D\+I\+U\+M~120}\label{option_8h_a1f488b2f93d768345629eb1a33b18a95}
+\subsubsection[{\texorpdfstring{B\+O\+A\+R\+D\+\_\+1\+V1}{BOARD_1V1}}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+O\+A\+R\+D\+\_\+1\+V1~2}\hypertarget{option_8h_a6812cbb88427685ba50b8b6af9615fa4}{}\label{option_8h_a6812cbb88427685ba50b8b6af9615fa4}
+Plateau 1 contre 1 \index{option.\+h@{option.\+h}!B\+O\+A\+R\+D\+\_\+\+B\+A\+SE@{B\+O\+A\+R\+D\+\_\+\+B\+A\+SE}}
+\index{B\+O\+A\+R\+D\+\_\+\+B\+A\+SE@{B\+O\+A\+R\+D\+\_\+\+B\+A\+SE}!option.\+h@{option.\+h}}
+\subsubsection[{\texorpdfstring{B\+O\+A\+R\+D\+\_\+\+B\+A\+SE}{BOARD_BASE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+O\+A\+R\+D\+\_\+\+B\+A\+SE~1}\hypertarget{option_8h_ad116eb5c074b64947ce3be02d7db6325}{}\label{option_8h_ad116eb5c074b64947ce3be02d7db6325}
+Plateau de base \index{option.\+h@{option.\+h}!B\+O\+A\+R\+D\+\_\+\+W\+I\+T\+H\+\_\+\+W\+A\+L\+LS@{B\+O\+A\+R\+D\+\_\+\+W\+I\+T\+H\+\_\+\+W\+A\+L\+LS}}
+\index{B\+O\+A\+R\+D\+\_\+\+W\+I\+T\+H\+\_\+\+W\+A\+L\+LS@{B\+O\+A\+R\+D\+\_\+\+W\+I\+T\+H\+\_\+\+W\+A\+L\+LS}!option.\+h@{option.\+h}}
+\subsubsection[{\texorpdfstring{B\+O\+A\+R\+D\+\_\+\+W\+I\+T\+H\+\_\+\+W\+A\+L\+LS}{BOARD_WITH_WALLS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+O\+A\+R\+D\+\_\+\+W\+I\+T\+H\+\_\+\+W\+A\+L\+LS~1}\hypertarget{option_8h_abead64102a34375baeae01d5df3be4c3}{}\label{option_8h_abead64102a34375baeae01d5df3be4c3}
+Murs au milieu \index{option.\+h@{option.\+h}!B\+O\+A\+R\+D\+\_\+\+W\+I\+T\+H\+O\+U\+T\+\_\+\+W\+A\+L\+LS@{B\+O\+A\+R\+D\+\_\+\+W\+I\+T\+H\+O\+U\+T\+\_\+\+W\+A\+L\+LS}}
+\index{B\+O\+A\+R\+D\+\_\+\+W\+I\+T\+H\+O\+U\+T\+\_\+\+W\+A\+L\+LS@{B\+O\+A\+R\+D\+\_\+\+W\+I\+T\+H\+O\+U\+T\+\_\+\+W\+A\+L\+LS}!option.\+h@{option.\+h}}
+\subsubsection[{\texorpdfstring{B\+O\+A\+R\+D\+\_\+\+W\+I\+T\+H\+O\+U\+T\+\_\+\+W\+A\+L\+LS}{BOARD_WITHOUT_WALLS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+O\+A\+R\+D\+\_\+\+W\+I\+T\+H\+O\+U\+T\+\_\+\+W\+A\+L\+LS~2}\hypertarget{option_8h_a798e353cfcfb2486fe97f7c06f71731b}{}\label{option_8h_a798e353cfcfb2486fe97f7c06f71731b}
+Pas de murs au milieu \index{option.\+h@{option.\+h}!S\+P\+E\+E\+D\+\_\+\+E\+A\+SY@{S\+P\+E\+E\+D\+\_\+\+E\+A\+SY}}
+\index{S\+P\+E\+E\+D\+\_\+\+E\+A\+SY@{S\+P\+E\+E\+D\+\_\+\+E\+A\+SY}!option.\+h@{option.\+h}}
+\subsubsection[{\texorpdfstring{S\+P\+E\+E\+D\+\_\+\+E\+A\+SY}{SPEED_EASY}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+P\+E\+E\+D\+\_\+\+E\+A\+SY~250}\hypertarget{option_8h_aff7085d5a3acc5031d63849da6ccdc0d}{}\label{option_8h_aff7085d5a3acc5031d63849da6ccdc0d}
+Niveau facile \+: 250 ms entre chaque déplacement des serpents \index{option.\+h@{option.\+h}!S\+P\+E\+E\+D\+\_\+\+H\+A\+RD@{S\+P\+E\+E\+D\+\_\+\+H\+A\+RD}}
+\index{S\+P\+E\+E\+D\+\_\+\+H\+A\+RD@{S\+P\+E\+E\+D\+\_\+\+H\+A\+RD}!option.\+h@{option.\+h}}
+\subsubsection[{\texorpdfstring{S\+P\+E\+E\+D\+\_\+\+H\+A\+RD}{SPEED_HARD}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+P\+E\+E\+D\+\_\+\+H\+A\+RD~60}\hypertarget{option_8h_a68e6623a38582ae1b0a4eb40462de67e}{}\label{option_8h_a68e6623a38582ae1b0a4eb40462de67e}
+Niveau difficile \+: 60 ms entre chaque déplacement des serpents \index{option.\+h@{option.\+h}!S\+P\+E\+E\+D\+\_\+\+M\+E\+D\+I\+UM@{S\+P\+E\+E\+D\+\_\+\+M\+E\+D\+I\+UM}}
+\index{S\+P\+E\+E\+D\+\_\+\+M\+E\+D\+I\+UM@{S\+P\+E\+E\+D\+\_\+\+M\+E\+D\+I\+UM}!option.\+h@{option.\+h}}
+\subsubsection[{\texorpdfstring{S\+P\+E\+E\+D\+\_\+\+M\+E\+D\+I\+UM}{SPEED_MEDIUM}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+P\+E\+E\+D\+\_\+\+M\+E\+D\+I\+UM~120}\hypertarget{option_8h_a1f488b2f93d768345629eb1a33b18a95}{}\label{option_8h_a1f488b2f93d768345629eb1a33b18a95}
 Niveau moyen \+: 120 ms entre chaque déplacement des serpents 
 
-\subsection{Function Documentation}
-\hypertarget{option_8h_ac628d3acfa0d2db2f18f3a988b585ef1}{}\index{option.\+h@{option.\+h}!aide@{aide}}
+\subsection{Documentation des fonctions}
+\index{option.\+h@{option.\+h}!aide@{aide}}
 \index{aide@{aide}!option.\+h@{option.\+h}}
-\subsubsection[{aide}]{\setlength{\rightskip}{0pt plus 5cm}void aide (
+\subsubsection[{\texorpdfstring{aide(\+S\+D\+L\+\_\+\+Surface $\ast$sdl\+Screen)}{aide(SDL_Surface *sdlScreen)}}]{\setlength{\rightskip}{0pt plus 5cm}void aide (
 \begin{DoxyParamCaption}
 \item[{S\+D\+L\+\_\+\+Surface $\ast$}]{sdl\+Screen}
 \end{DoxyParamCaption}
-)}\label{option_8h_ac628d3acfa0d2db2f18f3a988b585ef1}
+)}\hypertarget{option_8h_ac628d3acfa0d2db2f18f3a988b585ef1}{}\label{option_8h_ac628d3acfa0d2db2f18f3a988b585ef1}
 
 
 Affiche l\textquotesingle{}aide du jeu. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Paramètres}
 {\em sdl\+Screen} & L\textquotesingle{}écran affiché à l\textquotesingle{}utilisateur\\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Renvoie}
 void 
 \end{DoxyReturn}
-\hypertarget{option_8h_a517a6721a42ca4a311fd769cb6981bcd}{}\index{option.\+h@{option.\+h}!option@{option}}
+\index{option.\+h@{option.\+h}!option@{option}}
 \index{option@{option}!option.\+h@{option.\+h}}
-\subsubsection[{option}]{\setlength{\rightskip}{0pt plus 5cm}void option (
+\subsubsection[{\texorpdfstring{option(\+S\+D\+L\+\_\+\+Surface $\ast$sdl\+Screen, int $\ast$p\+Nb\+Snakes, int $\ast$p\+Board, int $\ast$p\+Speed\+Init, int $\ast$p\+Walls)}{option(SDL_Surface *sdlScreen, int *pNbSnakes, int *pBoard, int *pSpeedInit, int *pWalls)}}]{\setlength{\rightskip}{0pt plus 5cm}void option (
 \begin{DoxyParamCaption}
 \item[{S\+D\+L\+\_\+\+Surface $\ast$}]{sdl\+Screen, }
 \item[{int $\ast$}]{p\+Nb\+Snakes, }
 \item[{int $\ast$}]{p\+Board, }
-\item[{int $\ast$}]{p\+Speed\+Init}
+\item[{int $\ast$}]{p\+Speed\+Init, }
+\item[{int $\ast$}]{p\+Walls}
 \end{DoxyParamCaption}
-)}\label{option_8h_a517a6721a42ca4a311fd769cb6981bcd}
+)}\hypertarget{option_8h_a0bb2abbf38215a549d3e3b2f88927a7e}{}\label{option_8h_a0bb2abbf38215a549d3e3b2f88927a7e}
 
 
 Gère les options du jeu. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Paramètres}
 {\em sdl\+Screen} & L\textquotesingle{}écran affiché à l\textquotesingle{}utilisateur \\
 \hline
 {\em p\+Nb\+Snakes} & Le nombre de serpents \\
 \hline
 {\em p\+Board} & Le type de plateau utilisé actuellement \\
 \hline
-{\em p\+Speed\+Init} & La vitesse initiale définie actuellement\\
+{\em p\+Speed\+Init} & La vitesse initiale définie actuellement \\
+\hline
+{\em p\+Walls} & Le booléen indiquant s\textquotesingle{}il y a des murs au milieu du plateau ou non\\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Renvoie}
 void 
 \end{DoxyReturn}

@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['p_5fgain_5fsize',['P_GAIN_SIZE',['../snake_8h.html#a2bd8d77eb71ec19ca11bce2506ea4bc3',1,'snake.h']]],
-  ['paint',['paint',['../game_8c.html#a46baed0d67949c129bec3f7f2f663844',1,'paint(SDL_Surface *sdlScreen, int x, int y, int nId):&#160;game.c'],['../game_8h.html#a55883363797dcb303093fb68cd97109c',1,'paint(SDL_Surface *sdlScreen, int x, int y, int nId):&#160;game.c']]],
-  ['play',['play',['../game_8c.html#aa77be2ac83b38abb120ca06a1b3ac3e5',1,'play(SDL_Surface *sdlScreen, Board board, int nbSnakes, int nSpeedInit):&#160;game.c'],['../game_8h.html#a0bd87ffa626489bf6be5140af0d8366b',1,'play(SDL_Surface *sdlScreen, Board board, int nbSnakes, int nSpeedInit):&#160;game.c']]],
-  ['point',['Point',['../struct_point.html',1,'']]]
+  ['main_2ec',['main.c',['../main_8c.html',1,'']]],
+  ['menu_5fheight',['MENU_HEIGHT',['../main_8c.html#aaa3f89d08a9fcf0af415b012b8138ebf',1,'main.c']]],
+  ['menu_5fwidth',['MENU_WIDTH',['../main_8c.html#ae64f028be3d52d84433789a433ba4034',1,'main.c']]],
+  ['move_5fdef_5fia',['move_def_ia',['../ia_8c.html#afdfe031849d2d1508a0a5c85e256a131',1,'move_def_ia(Serpent *ia, Board board, int nbSnakes, Serpent **snakes):&#160;ia.c'],['../ia_8h.html#afdfe031849d2d1508a0a5c85e256a131',1,'move_def_ia(Serpent *ia, Board board, int nbSnakes, Serpent **snakes):&#160;ia.c']]],
+  ['move_5frandom_5fia',['move_random_ia',['../ia_8c.html#a56edf63e554b1c8be4d61a6cad1f9af5',1,'move_random_ia(Serpent *ia, Board board, int nbSnakes, Serpent **snakes):&#160;ia.c'],['../ia_8h.html#a56edf63e554b1c8be4d61a6cad1f9af5',1,'move_random_ia(Serpent *ia, Board board, int nbSnakes, Serpent **snakes):&#160;ia.c']]]
 ];

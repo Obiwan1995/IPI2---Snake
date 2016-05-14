@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['nb_5fsnakes',['NB_SNAKES',['../main_8c.html#aa753e553079bc62ff731963cb995b8fd',1,'main.c']]]
+  ['global_5fbonus',['GLOBAL_BONUS',['../game_8h.html#a97a59729c2b479528fb28174723b116f',1,'game.h']]],
+  ['green',['GREEN',['../game_8h.html#acfbc006ea433ad708fdee3e82996e721',1,'game.h']]]
 ];

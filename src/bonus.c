@@ -271,12 +271,12 @@ void clean_snake(Serpent* s)
 }
 
 /**
- * @fn 			void change_snakes(Serpent* s, Serpent** snakes, int index)
+ * @fn 			void change_snakes(Serpent** snakes, int nb_snakes, int index)
  *
  * @brief 		Permet d'échanger deux serpents
  *
- * @param 		s 			Le serpent qui a pris le bonus
  * @param 		snakes 		Le tableau de serpents dans la partie
+ * @param 		nb_snakes 	Le nombre de serpents dans la partie
  * @param 		index  		L'indice du serpent qui a pris le bonus dans le tableau des serpents
  *
  * @details		Si le serpent qui a pris le bonus est le joueur, on l'échange aléatoirement avec l'un des autres serpents.

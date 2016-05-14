@@ -708,9 +708,9 @@ int okay_to_add_wall(Point p, Board* b, Serpent** tab_serpent, int nb_snakes)
 }
 
 /**
- * @fn         int nb_obstacles_around(Point centre, Board* b, Serpent** tab_serpent, int nb_snakes, Serpent* snake)
+ * @fn         int nb_obstacles_around_3(Point centre, Board* b, Serpent** tab_serpent, int nb_snakes, Serpent* snake)
  *
- * @brief     	Compte le nombre d'obstacles autour du serpent passé en paramètre
+ * @brief     	Compte le nombre d'obstacles autour du serpent passé en paramètre dans un carré de taille 5
  *
  * @param	   centre 		Le centre du carré à tester (ne fonctionne qu'avec un carré de taille 3x3)
  * @param 	   b 			Le plateau de jeu
@@ -718,7 +718,10 @@ int okay_to_add_wall(Point p, Board* b, Serpent** tab_serpent, int nb_snakes)
  * @param 	   nb_snakes	Le nombre de serpents dans la partie
  * @param 	   snake 		Le serpent dont on veut connaître le nombre d'obstacles dans les environs
  *
- * @return     void
+ * @details 	La fonction génère tous les points du carré puis teste s'il y a une collision en chaque point.
+ * @details 	Si oui, on incrémente le nombre d'obstacles dans le carré
+ *
+ * @return     Le nombre d'obstacles dans un carré de taille 3 autour du serpent passé en paramètre
  */
 
 int nb_obstacles_around_3(Point centre, Board* b, Serpent** tab_serpent, int nb_snakes, Serpent* snake)
@@ -741,6 +744,23 @@ int nb_obstacles_around_3(Point centre, Board* b, Serpent** tab_serpent, int nb_
 	return res;
 }
 
+/**
+ * @fn         int nb_obstacles_around_5(Point centre, Board* b, Serpent** tab_serpent, int nb_snakes, Serpent* snake)
+ *
+ * @brief     	Compte le nombre d'obstacles autour du serpent passé en paramètre dans un carré de taille 5
+ *
+ * @param	   centre 		Le centre du carré à tester (ne fonctionne qu'avec un carré de taille 5x5)
+ * @param 	   b 			Le plateau de jeu
+ * @param	   tab_serpent 	Le tableau contenant tous les serpents jouant dans la partie
+ * @param 	   nb_snakes	Le nombre de serpents dans la partie
+ * @param 	   snake 		Le serpent dont on veut connaître le nombre d'obstacles dans les environs
+ *
+ * @details 	La fonction génère tous les points du carré puis teste s'il y a une collision en chaque point.
+ * @details 	Si oui, on incrémente le nombre d'obstacles dans le carré
+ *
+ * @return     Le nombre d'obstacles dans un carré de taille 5 autour du serpent passé en paramètre
+ */
+
 int nb_obstacles_around_5(Point centre, Board* b, Serpent** tab_serpent, int nb_snakes, Serpent* snake)
 {
 	int i, j;
@@ -749,27 +769,6 @@ int nb_obstacles_around_5(Point centre, Board* b, Serpent** tab_serpent, int nb_
 	for (i = centre.x-2; i <= centre.x+2; i++)
 	{
 		for (j = centre.y-2; j <= centre.y+2; j++)
-		{
-			p.x = i;
-			p.y = j;
-			if (test_collision(b, tab_serpent, nb_snakes, p, snake->id) == 1)
-			{
-				res++;
-			}
-		}
-	}
-	return res;
-}
-
-
-int nb_obstacles_around_9(Point centre, Board* b, Serpent** tab_serpent, int nb_snakes, Serpent* snake)
-{
-	int i, j;
-	Point p;
-	int res = 0;
-	for (i = centre.x-4; i <= centre.x+4; i++)
-	{
-		for (j = centre.y-4; j <= centre.y+4; j++)
 		{
 			p.x = i;
 			p.y = j;
@@ -837,7 +836,7 @@ int belongs_to_tunnel(Point p, Tunnel* t)
 }
 
 /**
- * @fn         add_tunnels(Board* b)
+ * @fn         add_tunnels(Board* b, Serpent** tab_serpent, int nb_snakes)
  *
  * @brief      Ajoute des tunnels sur le plateau
  *

@@ -1,51 +1,84 @@
-\hypertarget{ia_8c}{}\section{ia.\+c File Reference}
-\label{ia_8c}\index{ia.\+c@{ia.\+c}}
+\hypertarget{ia_8c}{}\section{Référence du fichier src/ia.c}
+\label{ia_8c}\index{src/ia.\+c@{src/ia.\+c}}
 
 
-Fichier permettant la gestion de l\textquotesingle{}I\+A aléatoire.  
+Fichier permettant la gestion de l\textquotesingle{}IA aléatoire.  
 
 
 {\ttfamily \#include \char`\"{}ia.\+h\char`\"{}}\\*
-Include dependency graph for ia.\+c\+:
+Graphe des dépendances par inclusion de ia.\+c\+:
 % FIG 0
-This graph shows which files directly or indirectly include this file\+:
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
 % FIG 1
-\subsection*{Functions}
+\subsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{ia_8c_a56edf63e554b1c8be4d61a6cad1f9af5}{move\+\_\+random\+\_\+ia} (\hyperlink{struct_serpent}{Serpent} $\ast$ia, \hyperlink{struct_board}{Board} board, int nb\+Snakes, \hyperlink{struct_serpent}{Serpent} $\ast$$\ast$snakes)
-\begin{DoxyCompactList}\small\item\em Fait bouger le serpent contrôlé par l\textquotesingle{}I\+A aléatoire. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Fait bouger le serpent contrôlé par l\textquotesingle{}IA aléatoire. \end{DoxyCompactList}\item 
+\hyperlink{snake_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction} {\bfseries minimum} (int choix, \hyperlink{struct_point}{Point} centre\+\_\+right, \hyperlink{struct_point}{Point} centre\+\_\+forward, \hyperlink{struct_point}{Point} centre\+\_\+left, \hyperlink{struct_board}{Board} $\ast$b, \hyperlink{struct_serpent}{Serpent} $\ast$$\ast$tab\+\_\+serpent, int nb\+\_\+snakes, \hyperlink{struct_serpent}{Serpent} $\ast$snake)\hypertarget{ia_8c_a26cf52bb4d4af914ff7c3de88375ab13}{}\label{ia_8c_a26cf52bb4d4af914ff7c3de88375ab13}
+
+\item 
+void \hyperlink{ia_8c_afdfe031849d2d1508a0a5c85e256a131}{move\+\_\+def\+\_\+ia} (\hyperlink{struct_serpent}{Serpent} $\ast$ia, \hyperlink{struct_board}{Board} board, int nb\+Snakes, \hyperlink{struct_serpent}{Serpent} $\ast$$\ast$snakes)
+\begin{DoxyCompactList}\small\item\em Fait bouger le serpent contrôlé par l\textquotesingle{}IA défensive. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
-Fichier permettant la gestion de l\textquotesingle{}I\+A aléatoire. 
+\subsection{Description détaillée}
+Fichier permettant la gestion de l\textquotesingle{}IA aléatoire. 
 
-\begin{DoxyAuthor}{Author}
+\begin{DoxyAuthor}{Auteur}
 Les Mixtes 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
-18/04/2016
+14/05/2016
 \end{DoxyDate}
-Contient la fonction deplacement\+\_\+ia qui permet de faire bouger le serpent contrôlé par l\textquotesingle{}I\+A aléatoire 
+Contient la fonction deplacement\+\_\+ia qui permet de faire bouger le serpent contrôlé par l\textquotesingle{}IA aléatoire 
 
-\subsection{Function Documentation}
-\hypertarget{ia_8c_a56edf63e554b1c8be4d61a6cad1f9af5}{}\index{ia.\+c@{ia.\+c}!move\+\_\+random\+\_\+ia@{move\+\_\+random\+\_\+ia}}
-\index{move\+\_\+random\+\_\+ia@{move\+\_\+random\+\_\+ia}!ia.\+c@{ia.\+c}}
-\subsubsection[{move\+\_\+random\+\_\+ia}]{\setlength{\rightskip}{0pt plus 5cm}void move\+\_\+random\+\_\+ia (
+\subsection{Documentation des fonctions}
+\index{ia.\+c@{ia.\+c}!move\+\_\+def\+\_\+ia@{move\+\_\+def\+\_\+ia}}
+\index{move\+\_\+def\+\_\+ia@{move\+\_\+def\+\_\+ia}!ia.\+c@{ia.\+c}}
+\subsubsection[{\texorpdfstring{move\+\_\+def\+\_\+ia(\+Serpent $\ast$ia, Board board, int nb\+Snakes, Serpent $\ast$$\ast$snakes)}{move_def_ia(Serpent *ia, Board board, int nbSnakes, Serpent **snakes)}}]{\setlength{\rightskip}{0pt plus 5cm}void move\+\_\+def\+\_\+ia (
 \begin{DoxyParamCaption}
 \item[{{\bf Serpent} $\ast$}]{ia, }
 \item[{{\bf Board}}]{board, }
 \item[{int}]{nb\+Snakes, }
 \item[{{\bf Serpent} $\ast$$\ast$}]{snakes}
 \end{DoxyParamCaption}
-)}\label{ia_8c_a56edf63e554b1c8be4d61a6cad1f9af5}
+)}\hypertarget{ia_8c_afdfe031849d2d1508a0a5c85e256a131}{}\label{ia_8c_afdfe031849d2d1508a0a5c85e256a131}
 
 
-Fait bouger le serpent contrôlé par l\textquotesingle{}I\+A aléatoire. 
+Fait bouger le serpent contrôlé par l\textquotesingle{}IA défensive. 
 
 
-\begin{DoxyParams}{Parameters}
-{\em ia} & Le serpent contrôlé par l\textquotesingle{}I\+A aléatoire \\
+\begin{DoxyParams}{Paramètres}
+{\em ia} & Le serpent contrôlé par l\textquotesingle{}IA défensive \\
+\hline
+{\em board} & Le plateau de jeu \\
+\hline
+{\em nb\+Snakes} & Le nombre de serpents dans la partie \\
+\hline
+{\em snakes} & Le tableau contenant tous les serpents de la partie\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+\index{ia.\+c@{ia.\+c}!move\+\_\+random\+\_\+ia@{move\+\_\+random\+\_\+ia}}
+\index{move\+\_\+random\+\_\+ia@{move\+\_\+random\+\_\+ia}!ia.\+c@{ia.\+c}}
+\subsubsection[{\texorpdfstring{move\+\_\+random\+\_\+ia(\+Serpent $\ast$ia, Board board, int nb\+Snakes, Serpent $\ast$$\ast$snakes)}{move_random_ia(Serpent *ia, Board board, int nbSnakes, Serpent **snakes)}}]{\setlength{\rightskip}{0pt plus 5cm}void move\+\_\+random\+\_\+ia (
+\begin{DoxyParamCaption}
+\item[{{\bf Serpent} $\ast$}]{ia, }
+\item[{{\bf Board}}]{board, }
+\item[{int}]{nb\+Snakes, }
+\item[{{\bf Serpent} $\ast$$\ast$}]{snakes}
+\end{DoxyParamCaption}
+)}\hypertarget{ia_8c_a56edf63e554b1c8be4d61a6cad1f9af5}{}\label{ia_8c_a56edf63e554b1c8be4d61a6cad1f9af5}
+
+
+Fait bouger le serpent contrôlé par l\textquotesingle{}IA aléatoire. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em ia} & Le serpent contrôlé par l\textquotesingle{}IA aléatoire \\
 \hline
 {\em board} & Le plateau de jeu \\
 \hline
@@ -58,6 +91,6 @@ Ce serpent va tout droit dans 90\% des cas s\textquotesingle{}il le peut. Il va 
 
 S\textquotesingle{}il ne peut pas aller tout droit, il choisit aléatoirement d\textquotesingle{}aller à droite ou gauche s\textquotesingle{}il ne meurt pas en allant dans cette direction.
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Renvoie}
 void 
 \end{DoxyReturn}

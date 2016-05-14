@@ -53,7 +53,6 @@ int is_cell_free(Point p, Board* b, Serpent** tab_serpent, int nb_snakes);
 int okay_to_add_wall(Point p, Board* b, Serpent** tab_serpent, int nb_snakes);
 int nb_obstacles_around_3(Point centre, Board* b, Serpent** tab_serpent, int nb_snakes, Serpent* snake);
 int nb_obstacles_around_5(Point centre, Board* b, Serpent** tab_serpent, int nb_snakes, Serpent* snake);
-int nb_obstacles_around_9(Point centre, Board* b, Serpent** tab_serpent, int nb_snakes, Serpent* snake);
 void add_wall(Board* b, Serpent** tab_serpent, int nb_snakes);
 int belongs_to_tunnel(Point p, Tunnel* t);
 void add_tunnels(Board* b, Serpent** tab_serpent, int nb_snakes);

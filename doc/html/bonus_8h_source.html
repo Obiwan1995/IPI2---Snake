@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
+<title>Snake vs Schlanga:  Fichier source de src/bonus.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Snake vs Schlanga
+   &#160;<span id="projectnumber">v2.0</span>
+   </div>
+   <div id="projectbrief">Version améliorée du jeu Snake sur les anciens téléphones Nokia</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.11 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Variables&#160;globale</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('bonus_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">bonus.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="bonus_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef _bonus_h_</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define _bonus_h_</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;math.h&gt;</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="obstacle_8h.html">obstacle.h</a>&quot;</span></div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div><div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="bonus_8h.html#a5705d5a4ff9c55f77a23a5e6b8d1af69">   17</a></span>&#160;<span class="preprocessor">#define DEFAULT_DURATION 5</span></div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keywordtype">void</span> <a class="code" href="bonus_8h.html#a0e115af4dfcb254654573d46a03ea916">add_bonus</a>(<a class="code" href="struct_board.html">Board</a>* b, <a class="code" href="struct_serpent.html">Serpent</a>** tab_serpent, <span class="keywordtype">int</span> nb_snakes);</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keywordtype">void</span> <a class="code" href="bonus_8h.html#a768eec8af85609c2c374553f36ce0dd1">take_bonus</a>(<a class="code" href="struct_serpent.html">Serpent</a>* s, <a class="code" href="struct_bonus.html">Bonus</a>* bonus);</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">void</span> <a class="code" href="bonus_8h.html#aeb39e891aa6febbd9aa23649c48fd2da">reverse_snake</a>(<a class="code" href="struct_serpent.html">Serpent</a>* s);</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">void</span> <a class="code" href="bonus_8h.html#ad0b39bf25001311ee6eb377b1cd20c39">clean_snake</a>(<a class="code" href="struct_serpent.html">Serpent</a>* s);</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">void</span> <a class="code" href="bonus_8h.html#a599755e82d28b50e3390900858a91dc6">change_snakes</a>(<a class="code" href="struct_serpent.html">Serpent</a>** snakes, <span class="keywordtype">int</span> nb_snakes, <span class="keywordtype">int</span> index);</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">void</span> <a class="code" href="bonus_8h.html#ab6870a1c1f7d76611a7757ce09e2cff4">close_walls</a>(<a class="code" href="struct_board.html">Board</a>* b, <span class="keywordtype">int</span> nWallsRow);</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">void</span> <a class="code" href="bonus_8h.html#a17a515ba56440f822a8d7f06ebef2f83">delete_bonus_board</a>(<a class="code" href="struct_board.html">Board</a>* b, <span class="keywordtype">int</span> index);</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">void</span> <a class="code" href="bonus_8h.html#a066e315b94ace4a62e79577d76ff7559">delete_bonus_snake</a>(<a class="code" href="struct_serpent.html">Serpent</a>* s, <span class="keywordtype">int</span> index);</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="bonus_8h_html_a0e115af4dfcb254654573d46a03ea916"><div class="ttname"><a href="bonus_8h.html#a0e115af4dfcb254654573d46a03ea916">add_bonus</a></div><div class="ttdeci">void add_bonus(Board *b, Serpent **tab_serpent, int nb_snakes)</div><div class="ttdoc">Ajoute un bonus sur le plateau. </div><div class="ttdef"><b>Definition:</b> bonus.c:27</div></div>
+<div class="ttc" id="bonus_8h_html_aeb39e891aa6febbd9aa23649c48fd2da"><div class="ttname"><a href="bonus_8h.html#aeb39e891aa6febbd9aa23649c48fd2da">reverse_snake</a></div><div class="ttdeci">void reverse_snake(Serpent *s)</div><div class="ttdoc">Permet d&amp;#39;échanger la tête et la queue du serpent. </div><div class="ttdef"><b>Definition:</b> bonus.c:155</div></div>
+<div class="ttc" id="bonus_8h_html_ad0b39bf25001311ee6eb377b1cd20c39"><div class="ttname"><a href="bonus_8h.html#ad0b39bf25001311ee6eb377b1cd20c39">clean_snake</a></div><div class="ttdeci">void clean_snake(Serpent *s)</div><div class="ttdoc">Permet de supprimer le corps du serpent. </div><div class="ttdef"><b>Definition:</b> bonus.c:265</div></div>
+<div class="ttc" id="bonus_8h_html_a599755e82d28b50e3390900858a91dc6"><div class="ttname"><a href="bonus_8h.html#a599755e82d28b50e3390900858a91dc6">change_snakes</a></div><div class="ttdeci">void change_snakes(Serpent **snakes, int nb_snakes, int index)</div><div class="ttdoc">Permet d&amp;#39;échanger deux serpents. </div><div class="ttdef"><b>Definition:</b> bonus.c:288</div></div>
+<div class="ttc" id="bonus_8h_html_a17a515ba56440f822a8d7f06ebef2f83"><div class="ttname"><a href="bonus_8h.html#a17a515ba56440f822a8d7f06ebef2f83">delete_bonus_board</a></div><div class="ttdeci">void delete_bonus_board(Board *b, int index)</div><div class="ttdoc">Permet de supprimer un bonus du plateau. </div><div class="ttdef"><b>Definition:</b> bonus.c:361</div></div>
+<div class="ttc" id="struct_board_html"><div class="ttname"><a href="struct_board.html">Board</a></div><div class="ttdef"><b>Definition:</b> obstacle.h:29</div></div>
+<div class="ttc" id="struct_bonus_html"><div class="ttname"><a href="struct_bonus.html">Bonus</a></div><div class="ttdef"><b>Definition:</b> snake.h:39</div></div>
+<div class="ttc" id="bonus_8h_html_a768eec8af85609c2c374553f36ce0dd1"><div class="ttname"><a href="bonus_8h.html#a768eec8af85609c2c374553f36ce0dd1">take_bonus</a></div><div class="ttdeci">void take_bonus(Serpent *s, Bonus *bonus)</div><div class="ttdoc">Permet de gérer la prise d&amp;#39;un bonus par un serpent. </div><div class="ttdef"><b>Definition:</b> bonus.c:81</div></div>
+<div class="ttc" id="bonus_8h_html_a066e315b94ace4a62e79577d76ff7559"><div class="ttname"><a href="bonus_8h.html#a066e315b94ace4a62e79577d76ff7559">delete_bonus_snake</a></div><div class="ttdeci">void delete_bonus_snake(Serpent *s, int index)</div><div class="ttdoc">Permet de supprimer un bonus d&amp;#39;un serpent. </div><div class="ttdef"><b>Definition:</b> bonus.c:381</div></div>
+<div class="ttc" id="struct_serpent_html"><div class="ttname"><a href="struct_serpent.html">Serpent</a></div><div class="ttdef"><b>Definition:</b> snake.h:65</div></div>
+<div class="ttc" id="bonus_8h_html_ab6870a1c1f7d76611a7757ce09e2cff4"><div class="ttname"><a href="bonus_8h.html#ab6870a1c1f7d76611a7757ce09e2cff4">close_walls</a></div><div class="ttdeci">void close_walls(Board *b, int nWallsRow)</div><div class="ttdoc">Permet de remplir le plateau avec des murs. </div><div class="ttdef"><b>Definition:</b> bonus.c:328</div></div>
+<div class="ttc" id="obstacle_8h_html"><div class="ttname"><a href="obstacle_8h.html">obstacle.h</a></div><div class="ttdoc">Header du fichier obstacle.c. </div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="bonus_8h.html">bonus.h</a></li>
+    <li class="footer">Généré par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
+  </ul>
+</div>
+</body>
+</html>

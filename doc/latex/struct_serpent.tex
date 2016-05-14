@@ -1,4 +1,4 @@
-\hypertarget{struct_serpent}{}\section{Serpent Struct Reference}
+\hypertarget{struct_serpent}{}\section{Référence de la structure Serpent}
 \label{struct_serpent}\index{Serpent@{Serpent}}
 
 
@@ -6,42 +6,62 @@
 
 
 
-Collaboration diagram for Serpent\+:
+Graphe de collaboration de Serpent\+:
 % FIG 0
-\subsection*{Data Fields}
+\subsection*{Champs de données}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{struct_serpent_a7441ef0865bcb3db9b8064dd7375c1ea}{}int {\bfseries id}\label{struct_serpent_a7441ef0865bcb3db9b8064dd7375c1ea}
+int {\bfseries id}\hypertarget{struct_serpent_a7441ef0865bcb3db9b8064dd7375c1ea}{}\label{struct_serpent_a7441ef0865bcb3db9b8064dd7375c1ea}
 
 \item 
-\hypertarget{struct_serpent_a4b512d0a6dcc3c7d7e6dd9a7714852c4}{}int {\bfseries vitesse}\label{struct_serpent_a4b512d0a6dcc3c7d7e6dd9a7714852c4}
+int {\bfseries vitesse}\hypertarget{struct_serpent_a4b512d0a6dcc3c7d7e6dd9a7714852c4}{}\label{struct_serpent_a4b512d0a6dcc3c7d7e6dd9a7714852c4}
 
 \item 
-\hypertarget{struct_serpent_a29bf3fc0ffe4e72e45f0c84ab4f8cd1e}{}int {\bfseries taille}\label{struct_serpent_a29bf3fc0ffe4e72e45f0c84ab4f8cd1e}
+int {\bfseries taille}\hypertarget{struct_serpent_a29bf3fc0ffe4e72e45f0c84ab4f8cd1e}{}\label{struct_serpent_a29bf3fc0ffe4e72e45f0c84ab4f8cd1e}
 
 \item 
-\hypertarget{struct_serpent_ad44190bd0d6846f34b2f440d8b028653}{}\hyperlink{struct_point}{Point} $\ast$ {\bfseries tab}\label{struct_serpent_ad44190bd0d6846f34b2f440d8b028653}
+int {\bfseries p\+Gain\+Size}\hypertarget{struct_serpent_a548c901f9a4e3f1cd78d94e8b9c7f6d4}{}\label{struct_serpent_a548c901f9a4e3f1cd78d94e8b9c7f6d4}
 
 \item 
-\hypertarget{struct_serpent_a7029c13111e60317aa11bbabd7a6dd66}{}\hyperlink{struct_point}{Point} {\bfseries tete}\label{struct_serpent_a7029c13111e60317aa11bbabd7a6dd66}
+int {\bfseries vivant}\hypertarget{struct_serpent_aedecaf717e967a68b10fc0623e8d74f8}{}\label{struct_serpent_aedecaf717e967a68b10fc0623e8d74f8}
 
 \item 
-\hypertarget{struct_serpent_a58d94fa8f7ddf189cd6eabdea4f2346c}{}\hyperlink{snake_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction} {\bfseries dir}\label{struct_serpent_a58d94fa8f7ddf189cd6eabdea4f2346c}
+int {\bfseries reverse}\hypertarget{struct_serpent_ae6ebe94aa9f2d314eb937d8a3042763f}{}\label{struct_serpent_ae6ebe94aa9f2d314eb937d8a3042763f}
+
+\item 
+\hyperlink{struct_point}{Point} $\ast$ {\bfseries tab}\hypertarget{struct_serpent_ad44190bd0d6846f34b2f440d8b028653}{}\label{struct_serpent_ad44190bd0d6846f34b2f440d8b028653}
+
+\item 
+\hyperlink{struct_point}{Point} {\bfseries tete}\hypertarget{struct_serpent_a7029c13111e60317aa11bbabd7a6dd66}{}\label{struct_serpent_a7029c13111e60317aa11bbabd7a6dd66}
+
+\item 
+\hyperlink{snake_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction} {\bfseries dir}\hypertarget{struct_serpent_a58d94fa8f7ddf189cd6eabdea4f2346c}{}\label{struct_serpent_a58d94fa8f7ddf189cd6eabdea4f2346c}
+
+\item 
+\hyperlink{struct_bonus}{Bonus} $\ast$$\ast$ {\bfseries tab\+Bonus}\hypertarget{struct_serpent_a5caf2f6b95504582543aadf9250a9f1f}{}\label{struct_serpent_a5caf2f6b95504582543aadf9250a9f1f}
+
+\item 
+int {\bfseries n\+Nb\+Bonus}\hypertarget{struct_serpent_a8ac28cdfb3bb7a7409393a3e62d83897}{}\label{struct_serpent_a8ac28cdfb3bb7a7409393a3e62d83897}
 
 \end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
+\subsection{Description détaillée}
 Structure de \hyperlink{struct_serpent}{Serpent} avec plusieurs champs qui le caractérise \+:
 \begin{DoxyItemize}
 \item un identifiant \+: permet de reconnaitre le serpent
 \item une vitesse
 \item une taille (est modifiée au cours du jeu)
+\item la probabilité que le serpent grandisse à chaque pas de temps
+\item un booléen vivant pour savoir s\textquotesingle{}il bouge encore
+\item un booléen qui permet de savoir si les contrôles sont inversés
 \item un tableau de points qui représente le serpent
 \item un point correspondant à la tête du serpent
-\item une direction \+: la direction du serpent 
+\item une direction \+: la direction du serpent
+\item un tableau de bonus possédés par le serpent
+\item le nombre de bonus possédés par le serpent 
 \end{DoxyItemize}
 
-The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
 \item 
-\hyperlink{snake_8h}{snake.\+h}\end{DoxyCompactItemize}
+src/\hyperlink{snake_8h}{snake.\+h}\end{DoxyCompactItemize}

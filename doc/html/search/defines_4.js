@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['p_5fgain_5fsize',['P_GAIN_SIZE',['../snake_8h.html#a2bd8d77eb71ec19ca11bce2506ea4bc3',1,'snake.h']]]
+  ['menu_5fheight',['MENU_HEIGHT',['../main_8c.html#aaa3f89d08a9fcf0af415b012b8138ebf',1,'main.c']]],
+  ['menu_5fwidth',['MENU_WIDTH',['../main_8c.html#ae64f028be3d52d84433789a433ba4034',1,'main.c']]]
 ];

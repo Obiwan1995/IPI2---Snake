@@ -6,6 +6,45 @@
  * @details Contient la fonction principale du snake qui permet de lancer le jeu avec le menu
  */
 
+
+/*! \mainpage Snake vs Schlanga - Les Mixtes
+ *
+ * \section intro_sec Introduction
+ *
+ * Dans le cadre de l'UE Programation Impérative du deuxième semestre, nous devions réaliser un projet dont le thème était Snake vs Schlanga.
+ * Nous avons donc créé une variante du jeu Snake disponible sur les anciens téléphones Nokia. 
+ * Ainsi, il y a maintenant plusieurs serpents qui s'affrontent sur un plateau de jeu où la mort est sans pitié.
+ *
+ * <br>
+ * \section install_sec Installation
+ *
+ * \subsection step1 Jeu
+ * Pour jouer au jeu, il suffit d'exécuter le fichier play_game.sh et une fenêtre s'ouvre après quelques instants : c'est parti !
+ * 
+ * \subsection step2 Tests unitaires
+ * Pour lancer les tests unitaires, il suffit d'exécuter le fichier run_tests.sh. Vous devez entrer votre mot de passe car le fichier tente d'installer la librairie cmocka que nous avons utilisé pour créer ces tests unitaires. Après quelques instants, vous pourrez voir le résultat des tests unitaires.
+ *  
+ * <br>
+ * \section jeu Principe du jeu
+ * 
+ * \subsection jeu_base Principes de base
+ * Le joueur doit tenter de survivre le plus longtemps possible sur le plateau de jeu. Pour se déplacer, le joueur peut utiliser les flèches directionnelles ou les touches q et d. Attention, la direction est en fonction de la tête du serpent, ce qui signifie que si le joueur appuie sur la flèche droite, le serpent tourne à droite.
+ * Les murs sont mortels, la taille du plateau est fixe tout au long de la partie.
+ *
+ * \subsection jeu_ia Intelligences artificielles
+ * Les serpents non contrôlés par le joueur sont régis par deux types d'intelligence artificielle : 
+ *      - Une intelligence artificielle aléatoire : celle-ci teste uniquement la prochaine case et évite les collisions. Ses déplacements sont gérés de manière aléatoire.
+ *      - Une intelligence artificielle défensive : celle-ci compte le nombre d'obstacles dans un carré de 5x5 à gauche, devant et à droite du snake. Ensuite, le serpent va dans la direction dans laquelle il y a le moins d'obstacles.
+ *
+ * <br>
+ * \section options Options
+ * Lors du lancement du jeu, le joueur a accès à un menu d'options accessible en appuyant sur la touche "o". Dans ce menu, le joueur peut modifier de nombreux paramètres du jeu :
+ *      - La vitesse des serpents : lent, moyen ou rapide
+ *      - Le nombre de serpents sur le plateau : de 1 à 4
+ *      - Le type de plateau : normal, 1 contre 1 (2 serpents uniquement) ou grand
+ *      - L'existence de murs au milieu du plateau
+ */
+
 #include "game.h"
 #include "option.h"
 

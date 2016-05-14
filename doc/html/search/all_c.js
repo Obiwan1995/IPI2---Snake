@@ -1,11 +1,9 @@
 var searchData=
 [
-  ['serpent',['Serpent',['../struct_serpent.html',1,'']]],
-  ['setpixel',['setPixel',['../game_8c.html#a2d22163827217dad3828cb9b80215bbc',1,'setPixel(SDL_Surface *surface, int x, int y, Uint32 color):&#160;game.c'],['../game_8h.html#af16e2307d16c262a30a859ca3dc9c3ac',1,'setPixel(SDL_Surface *surface, int x, int y, Uint32 color):&#160;game.c']]],
-  ['size_5fcase',['SIZE_CASE',['../game_8h.html#a2a94d2f61c849b4aeed9684aae52c8c1',1,'game.h']]],
-  ['snake_2ec',['snake.c',['../snake_8c.html',1,'']]],
-  ['snake_2eh',['snake.h',['../snake_8h.html',1,'']]],
-  ['speed_5feasy',['SPEED_EASY',['../option_8h.html#aff7085d5a3acc5031d63849da6ccdc0d',1,'option.h']]],
-  ['speed_5fhard',['SPEED_HARD',['../option_8h.html#a68e6623a38582ae1b0a4eb40462de67e',1,'option.h']]],
-  ['speed_5fmedium',['SPEED_MEDIUM',['../option_8h.html#a1f488b2f93d768345629eb1a33b18a95',1,'option.h']]]
+  ['obstacle_2ec',['obstacle.c',['../obstacle_8c.html',1,'']]],
+  ['obstacle_2eh',['obstacle.h',['../obstacle_8h.html',1,'']]],
+  ['okay_5fto_5fadd_5fwall',['okay_to_add_wall',['../obstacle_8c.html#ac3dee7e53ed3da2065e17f1ee8b34d07',1,'okay_to_add_wall(Point p, Board *b, Serpent **tab_serpent, int nb_snakes):&#160;obstacle.c'],['../obstacle_8h.html#acc02215591ee4acb37889a39837a7ad0',1,'okay_to_add_wall(Point p, Board *b, Serpent **tab_serpent, int nb_snakes):&#160;obstacle.c']]],
+  ['option',['option',['../option_8c.html#af8ddd17fc38a79aedbc21b49478f5c5a',1,'option(SDL_Surface *sdlScreen, int *pNbSnakes, int *pBoard, int *pSpeedInit, int *pWalls):&#160;option.c'],['../option_8h.html#a0bb2abbf38215a549d3e3b2f88927a7e',1,'option(SDL_Surface *sdlScreen, int *pNbSnakes, int *pBoard, int *pSpeedInit, int *pWalls):&#160;option.c']]],
+  ['option_2ec',['option.c',['../option_8c.html',1,'']]],
+  ['option_2eh',['option.h',['../option_8h.html',1,'']]]
 ];
