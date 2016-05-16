@@ -33,7 +33,6 @@ var snake_8h =
     ] ],
     [ "enter_tunnel", "snake_8h.html#a1a0c6adf7f19efa91087fe7d195941e1", null ],
     [ "Forward", "snake_8h.html#a40af0c3301e6a0d90261c056a3afba28", null ],
-    [ "free_bonus_snakes", "snake_8h.html#a5f6fcf6c24a95cb46d8cb6c6c9e66b73", null ],
     [ "free_snake", "snake_8h.html#a679f868070350ac62e41fe93a3246dee", null ],
     [ "free_snakes", "snake_8h.html#a4f8f36ebe339b21e611305fca060b0aa", null ],
     [ "init_snake", "snake_8h.html#a5b190c35d94a2f409e490145f83ab5b5", null ],

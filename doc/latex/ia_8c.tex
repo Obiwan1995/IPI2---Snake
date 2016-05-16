@@ -16,7 +16,7 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 void \hyperlink{ia_8c_a56edf63e554b1c8be4d61a6cad1f9af5}{move\+\_\+random\+\_\+ia} (\hyperlink{struct_serpent}{Serpent} $\ast$ia, \hyperlink{struct_board}{Board} board, int nb\+Snakes, \hyperlink{struct_serpent}{Serpent} $\ast$$\ast$snakes)
 \begin{DoxyCompactList}\small\item\em Fait bouger le serpent contrôlé par l\textquotesingle{}IA aléatoire. \end{DoxyCompactList}\item 
 \hyperlink{snake_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction} \hyperlink{ia_8c_a26cf52bb4d4af914ff7c3de88375ab13}{minimum} (int choix, \hyperlink{struct_point}{Point} centre\+\_\+right, \hyperlink{struct_point}{Point} centre\+\_\+forward, \hyperlink{struct_point}{Point} centre\+\_\+left, \hyperlink{struct_board}{Board} $\ast$b, \hyperlink{struct_serpent}{Serpent} $\ast$$\ast$tab\+\_\+serpent, int nb\+\_\+snakes, \hyperlink{struct_serpent}{Serpent} $\ast$snake)
-\begin{DoxyCompactList}\small\item\em Permet de trouver la direction dans laquelle il y ale moins d\textquotesingle{}obstacle afin que l\textquotesingle{}ia évite au maximum les obstacles. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Permet de trouver la direction dans laquelle il y a le moins d\textquotesingle{}obstacles afin que l\textquotesingle{}ia évite au maximum les obstacles. \end{DoxyCompactList}\item 
 void \hyperlink{ia_8c_afdfe031849d2d1508a0a5c85e256a131}{move\+\_\+def\+\_\+ia} (\hyperlink{struct_serpent}{Serpent} $\ast$ia, \hyperlink{struct_board}{Board} board, int nb\+Snakes, \hyperlink{struct_serpent}{Serpent} $\ast$$\ast$snakes)
 \begin{DoxyCompactList}\small\item\em Fait bouger le serpent contrôlé par l\textquotesingle{}IA défensive. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -49,17 +49,17 @@ Contient la fonction deplacement\+\_\+ia qui permet de faire bouger le serpent c
 )}\hypertarget{ia_8c_a26cf52bb4d4af914ff7c3de88375ab13}{}\label{ia_8c_a26cf52bb4d4af914ff7c3de88375ab13}
 
 
-Permet de trouver la direction dans laquelle il y ale moins d\textquotesingle{}obstacle afin que l\textquotesingle{}ia évite au maximum les obstacles. 
+Permet de trouver la direction dans laquelle il y a le moins d\textquotesingle{}obstacles afin que l\textquotesingle{}ia évite au maximum les obstacles. 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em choix} & Permet de faire la différence entre le minimum entre 3 entiers et celui entre deux entiers en différiencant les cas étudiés (suivant les directions à comparer) \\
+{\em choix} & Permet de faire la différence entre le minimum entre 3 entiers et celui entre deux entiers en différenciant les cas étudiés (suivant les directions à comparer) \\
 \hline
-{\em centre\+\_\+right} & \hyperlink{struct_point}{Point} nécessaire pour calculer le nombre d\textquotesingle{}obstacle dans la zone \\
+{\em centre\+\_\+right} & \hyperlink{struct_point}{Point} nécessaire pour calculer le nombre d\textquotesingle{}obstacles dans la zone \\
 \hline
-{\em centre\+\_\+forward} & \hyperlink{struct_point}{Point} nécessaire pour calculer le nombre d\textquotesingle{}obstacle dans la zone \\
+{\em centre\+\_\+forward} & \hyperlink{struct_point}{Point} nécessaire pour calculer le nombre d\textquotesingle{}obstacles dans la zone \\
 \hline
-{\em centre\+\_\+left} & \hyperlink{struct_point}{Point} nécessaire pour calculer le nombre d\textquotesingle{}obstacle dans la zone \\
+{\em centre\+\_\+left} & \hyperlink{struct_point}{Point} nécessaire pour calculer le nombre d\textquotesingle{}obstacles dans la zone \\
 \hline
 {\em tab\+\_\+serpent} & Le tableau des serpents \\
 \hline

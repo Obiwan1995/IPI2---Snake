@@ -166,7 +166,7 @@ Fonctions</h2></td></tr>
 <tr class="memdesc:acc02215591ee4acb37889a39837a7ad0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teste si on peut ajouter un mur.  <a href="#acc02215591ee4acb37889a39837a7ad0">Plus de détails...</a><br /></td></tr>
 <tr class="separator:acc02215591ee4acb37889a39837a7ad0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a5b0b32868d0b3cadbd8bc09c14d42a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obstacle_8h.html#a4a5b0b32868d0b3cadbd8bc09c14d42a">nb_obstacles_around_3</a> (<a class="el" href="struct_point.html">Point</a> centre, <a class="el" href="struct_board.html">Board</a> *b, <a class="el" href="struct_serpent.html">Serpent</a> **tab_serpent, int nb_snakes, <a class="el" href="struct_serpent.html">Serpent</a> *snake)</td></tr>
-<tr class="memdesc:a4a5b0b32868d0b3cadbd8bc09c14d42a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compte le nombre d'obstacles autour du serpent passé en paramètre dans un carré de taille 5.  <a href="#a4a5b0b32868d0b3cadbd8bc09c14d42a">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a4a5b0b32868d0b3cadbd8bc09c14d42a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compte le nombre d'obstacles autour du serpent passé en paramètre dans un carré de taille 3.  <a href="#a4a5b0b32868d0b3cadbd8bc09c14d42a">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a4a5b0b32868d0b3cadbd8bc09c14d42a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41cc2f21fada26ff3689a1c64b463092"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obstacle_8h.html#a41cc2f21fada26ff3689a1c64b463092">nb_obstacles_around_5</a> (<a class="el" href="struct_point.html">Point</a> centre, <a class="el" href="struct_board.html">Board</a> *b, <a class="el" href="struct_serpent.html">Serpent</a> **tab_serpent, int nb_snakes, <a class="el" href="struct_serpent.html">Serpent</a> *snake)</td></tr>
 <tr class="memdesc:a41cc2f21fada26ff3689a1c64b463092"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compte le nombre d'obstacles autour du serpent passé en paramètre dans un carré de taille 5.  <a href="#a41cc2f21fada26ff3689a1c64b463092">Plus de détails...</a><br /></td></tr>
@@ -652,7 +652,7 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Compte le nombre d'obstacles autour du serpent passé en paramètre dans un carré de taille 5. </p>
+<p>Compte le nombre d'obstacles autour du serpent passé en paramètre dans un carré de taille 3. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">centre</td><td>Le centre du carré à tester (ne fonctionne qu'avec un carré de taille 3x3) </td></tr>
@@ -827,7 +827,7 @@ Fonctions</h2></td></tr>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">mur</td><td>Le plateau contenant un tableau de points correspondant aux emplacements des murs </td></tr>
-    <tr><td class="paramname">tab_serpent</td><td>Le tableau de serpent : nécessaire pour la collision avec les autres serpents </td></tr>
+    <tr><td class="paramname">tab_serpent</td><td>Le tableau de serpents : nécessaire pour la collision avec les autres serpents </td></tr>
     <tr><td class="paramname">nb_snakes</td><td>Le nombre de serpents = longueur du tableau tab_serpent </td></tr>
     <tr><td class="paramname">point</td><td>La tête du serpent à tester </td></tr>
     <tr><td class="paramname">index</td><td>La position du serpent à tester dans le tableau des serpents</td></tr>
@@ -836,7 +836,7 @@ Fonctions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd>0 s'il n'y a pas de collision </dd>
 <dd>
-Sinon, l'identifiant du serpent qui entre en collision avec le mur ou un autre serpent </dd></dl>
+1 sinon </dd></dl>
 
 </div>
 </div>

@@ -138,7 +138,7 @@ Fonctions</h2></td></tr>
 <tr class="memdesc:afdfe031849d2d1508a0a5c85e256a131"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fait bouger le serpent contrôlé par l'IA défensive.  <a href="#afdfe031849d2d1508a0a5c85e256a131">Plus de détails...</a><br /></td></tr>
 <tr class="separator:afdfe031849d2d1508a0a5c85e256a131"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26cf52bb4d4af914ff7c3de88375ab13"><td class="memItemLeft" align="right" valign="top"><a class="el" href="snake_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ia_8h.html#a26cf52bb4d4af914ff7c3de88375ab13">minimum</a> (int choix, <a class="el" href="struct_point.html">Point</a> centre_right, <a class="el" href="struct_point.html">Point</a> centre_forward, <a class="el" href="struct_point.html">Point</a> centre_left, <a class="el" href="struct_board.html">Board</a> *b, <a class="el" href="struct_serpent.html">Serpent</a> **tab_serpent, int nb_snakes, <a class="el" href="struct_serpent.html">Serpent</a> *snake)</td></tr>
-<tr class="memdesc:a26cf52bb4d4af914ff7c3de88375ab13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de trouver la direction dans laquelle il y ale moins d'obstacle afin que l'ia évite au maximum les obstacles.  <a href="#a26cf52bb4d4af914ff7c3de88375ab13">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a26cf52bb4d4af914ff7c3de88375ab13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de trouver la direction dans laquelle il y a le moins d'obstacles afin que l'ia évite au maximum les obstacles.  <a href="#a26cf52bb4d4af914ff7c3de88375ab13">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a26cf52bb4d4af914ff7c3de88375ab13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
@@ -207,13 +207,13 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Permet de trouver la direction dans laquelle il y ale moins d'obstacle afin que l'ia évite au maximum les obstacles. </p>
+<p>Permet de trouver la direction dans laquelle il y a le moins d'obstacles afin que l'ia évite au maximum les obstacles. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">choix</td><td>Permet de faire la différence entre le minimum entre 3 entiers et celui entre deux entiers en différiencant les cas étudiés (suivant les directions à comparer) </td></tr>
-    <tr><td class="paramname">centre_right</td><td><a class="el" href="struct_point.html">Point</a> nécessaire pour calculer le nombre d'obstacle dans la zone </td></tr>
-    <tr><td class="paramname">centre_forward</td><td><a class="el" href="struct_point.html">Point</a> nécessaire pour calculer le nombre d'obstacle dans la zone </td></tr>
-    <tr><td class="paramname">centre_left</td><td><a class="el" href="struct_point.html">Point</a> nécessaire pour calculer le nombre d'obstacle dans la zone </td></tr>
+    <tr><td class="paramname">choix</td><td>Permet de faire la différence entre le minimum entre 3 entiers et celui entre deux entiers en différenciant les cas étudiés (suivant les directions à comparer) </td></tr>
+    <tr><td class="paramname">centre_right</td><td><a class="el" href="struct_point.html">Point</a> nécessaire pour calculer le nombre d'obstacles dans la zone </td></tr>
+    <tr><td class="paramname">centre_forward</td><td><a class="el" href="struct_point.html">Point</a> nécessaire pour calculer le nombre d'obstacles dans la zone </td></tr>
+    <tr><td class="paramname">centre_left</td><td><a class="el" href="struct_point.html">Point</a> nécessaire pour calculer le nombre d'obstacles dans la zone </td></tr>
     <tr><td class="paramname">tab_serpent</td><td>Le tableau des serpents </td></tr>
     <tr><td class="paramname">nb_snakes</td><td>Le nombre de serpents </td></tr>
     <tr><td class="paramname">b</td><td>Le plateau de jeu </td></tr>

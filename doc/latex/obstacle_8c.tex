@@ -30,7 +30,7 @@ int \hyperlink{obstacle_8c_a43418d7cd3d6f436a8c0d49305246dc0}{is\+\_\+cell\+\_\+
 int \hyperlink{obstacle_8c_ac3dee7e53ed3da2065e17f1ee8b34d07}{okay\+\_\+to\+\_\+add\+\_\+wall} (\hyperlink{struct_point}{Point} p, \hyperlink{struct_board}{Board} $\ast$b, \hyperlink{struct_serpent}{Serpent} $\ast$$\ast$tab\+\_\+serpent, int nb\+\_\+snakes)
 \begin{DoxyCompactList}\small\item\em Teste si on peut ajouter un mur. \end{DoxyCompactList}\item 
 int \hyperlink{obstacle_8c_a4a5b0b32868d0b3cadbd8bc09c14d42a}{nb\+\_\+obstacles\+\_\+around\+\_\+3} (\hyperlink{struct_point}{Point} centre, \hyperlink{struct_board}{Board} $\ast$b, \hyperlink{struct_serpent}{Serpent} $\ast$$\ast$tab\+\_\+serpent, int nb\+\_\+snakes, \hyperlink{struct_serpent}{Serpent} $\ast$snake)
-\begin{DoxyCompactList}\small\item\em Compte le nombre d\textquotesingle{}obstacles autour du serpent passé en paramètre dans un carré de taille 5. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Compte le nombre d\textquotesingle{}obstacles autour du serpent passé en paramètre dans un carré de taille 3. \end{DoxyCompactList}\item 
 int \hyperlink{obstacle_8c_a41cc2f21fada26ff3689a1c64b463092}{nb\+\_\+obstacles\+\_\+around\+\_\+5} (\hyperlink{struct_point}{Point} centre, \hyperlink{struct_board}{Board} $\ast$b, \hyperlink{struct_serpent}{Serpent} $\ast$$\ast$tab\+\_\+serpent, int nb\+\_\+snakes, \hyperlink{struct_serpent}{Serpent} $\ast$snake)
 \begin{DoxyCompactList}\small\item\em Compte le nombre d\textquotesingle{}obstacles autour du serpent passé en paramètre dans un carré de taille 5. \end{DoxyCompactList}\item 
 void \hyperlink{obstacle_8c_ad5891c5b7963e004f35429d06a1ae02c}{add\+\_\+wall} (\hyperlink{struct_board}{Board} $\ast$b, \hyperlink{struct_serpent}{Serpent} $\ast$$\ast$tab\+\_\+serpent, int nb\+\_\+snakes)
@@ -363,7 +363,7 @@ Utilise la fonction appartient\+\_\+tableau pour savoir si la case testée est c
 )}\hypertarget{obstacle_8c_a4a5b0b32868d0b3cadbd8bc09c14d42a}{}\label{obstacle_8c_a4a5b0b32868d0b3cadbd8bc09c14d42a}
 
 
-Compte le nombre d\textquotesingle{}obstacles autour du serpent passé en paramètre dans un carré de taille 5. 
+Compte le nombre d\textquotesingle{}obstacles autour du serpent passé en paramètre dans un carré de taille 3. 
 
 
 \begin{DoxyParams}{Paramètres}
@@ -471,7 +471,7 @@ Teste la collision d\textquotesingle{}un serpent avec le mur ou un autre serpent
 \begin{DoxyParams}{Paramètres}
 {\em mur} & Le plateau contenant un tableau de points correspondant aux emplacements des murs \\
 \hline
-{\em tab\+\_\+serpent} & Le tableau de serpent \+: nécessaire pour la collision avec les autres serpents \\
+{\em tab\+\_\+serpent} & Le tableau de serpents \+: nécessaire pour la collision avec les autres serpents \\
 \hline
 {\em nb\+\_\+snakes} & Le nombre de serpents = longueur du tableau tab\+\_\+serpent \\
 \hline
@@ -483,5 +483,5 @@ Teste la collision d\textquotesingle{}un serpent avec le mur ou un autre serpent
 \begin{DoxyReturn}{Renvoie}
 0 s\textquotesingle{}il n\textquotesingle{}y a pas de collision 
 
-Sinon, l\textquotesingle{}identifiant du serpent qui entre en collision avec le mur ou un autre serpent 
+1 sinon 
 \end{DoxyReturn}
