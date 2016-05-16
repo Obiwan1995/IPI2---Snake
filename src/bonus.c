@@ -16,7 +16,7 @@
  * @brief 		Ajoute un bonus sur le plateau
  *
  * @param 		b 				Le plateau de jeu
- * @param 		tab_serpent 	Le tableaux des serpents dans la partie
+ * @param 		tab_serpent 	Le tableau des serpents dans la partie
  * @param 		nb_snakes 		Le nombre de serpents dans la partie
  *
  * @details 	Génère une case aléatoire pour le nouveau bonus tant que celle-ci n'est pas libre. Ensuite, crée un bonus de type aléatoire et ayant un effet aléatoire et l'ajoute au tableau des bonus du plateau.
@@ -280,7 +280,7 @@ void clean_snake(Serpent* s)
  * @param 		index  		L'indice du serpent qui a pris le bonus dans le tableau des serpents
  *
  * @details		Si le serpent qui a pris le bonus est le joueur, on l'échange aléatoirement avec l'un des autres serpents.
- * @details 	Si le serpent qui a pris le bonus est géré par un IA, on échange celui-ci avec celui du joueur
+ * @details 	Si le serpent qui a pris le bonus est géré par une IA, on échange celui-ci avec celui du joueur
  * 
  * @return 		void
  */

@@ -3,22 +3,24 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.6"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
 <title>Snake vs Schlanga:  Fichier source de src/option.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript">
   $(document).ready(initResizable);
   $(window).load(resizeHeight);
 </script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
-  $(document).ready(function() { searchBox.OnSelectItem(0); });
+  $(document).ready(function() { init_search(); });
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
@@ -28,7 +30,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td style="padding-left: 0.5em;">
+  <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Snake vs Schlanga
    &#160;<span id="projectnumber">v2.0</span>
    </div>
@@ -39,7 +41,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Généré par Doxygen 1.8.6 -->
+<!-- Généré par Doxygen 1.8.11 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </script>
@@ -92,7 +94,7 @@ $(document).ready(function(){initNavTree('option_8h_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Structures de données</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Définitions de type</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+</div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -106,34 +108,8 @@ $(document).ready(function(){initNavTree('option_8h_source.html','');});
 <div class="title">option.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="option_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef _option_h_</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define _option_h_</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;../lib/SDL/include/SDL/SDL.h&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="option_8h.html#aff7085d5a3acc5031d63849da6ccdc0d">   15</a></span>&#160;<span class="preprocessor">#define SPEED_EASY 250</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="option_8h.html#a1f488b2f93d768345629eb1a33b18a95">   17</a></span>&#160;<span class="preprocessor">#define SPEED_MEDIUM 120</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="option_8h.html#a68e6623a38582ae1b0a4eb40462de67e">   19</a></span>&#160;<span class="preprocessor">#define SPEED_HARD 60</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="option_8h.html#ad116eb5c074b64947ce3be02d7db6325">   22</a></span>&#160;<span class="preprocessor">#define BOARD_BASE 1</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="option_8h.html#a6812cbb88427685ba50b8b6af9615fa4">   24</a></span>&#160;<span class="preprocessor">#define BOARD_1V1 2</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="option_8h.html#a2c0bc836fee790167f5a001b65374bd4">   26</a></span>&#160;<span class="preprocessor">#define BIG_BOARD 3</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="option_8h.html#a798e353cfcfb2486fe97f7c06f71731b">   29</a></span>&#160;<span class="preprocessor">#define BOARD_WITHOUT_WALLS 2</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="option_8h.html#abead64102a34375baeae01d5df3be4c3">   31</a></span>&#160;<span class="preprocessor">#define BOARD_WITH_WALLS 1</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keywordtype">void</span> <a class="code" href="option_8h.html#a0bb2abbf38215a549d3e3b2f88927a7e">option</a>(SDL_Surface* sdlScreen, <span class="keywordtype">int</span>* pNbSnakes, <span class="keywordtype">int</span>* pBoard, <span class="keywordtype">int</span>* pSpeedInit, <span class="keywordtype">int</span>* pWalls);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keywordtype">void</span> <a class="code" href="option_8h.html#ac628d3acfa0d2db2f18f3a988b585ef1">aide</a>(SDL_Surface* sdlScreen);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="option_8h_html_a0bb2abbf38215a549d3e3b2f88927a7e"><div class="ttname"><a href="option_8h.html#a0bb2abbf38215a549d3e3b2f88927a7e">option</a></div><div class="ttdeci">void option(SDL_Surface *sdlScreen, int *pNbSnakes, int *pBoard, int *pSpeedInit, int *pWalls)</div><div class="ttdoc">Gère les options du jeu. </div><div class="ttdef"><b>Definition:</b> option.c:26</div></div>
-<div class="ttc" id="option_8h_html_ac628d3acfa0d2db2f18f3a988b585ef1"><div class="ttname"><a href="option_8h.html#ac628d3acfa0d2db2f18f3a988b585ef1">aide</a></div><div class="ttdeci">void aide(SDL_Surface *sdlScreen)</div><div class="ttdoc">Affiche l&#39;aide du jeu. </div><div class="ttdef"><b>Definition:</b> option.c:354</div></div>
+<a href="option_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef _option_h_</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define _option_h_</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;../lib/SDL/include/SDL/SDL.h&quot;</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div><div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="option_8h.html#aff7085d5a3acc5031d63849da6ccdc0d">   15</a></span>&#160;<span class="preprocessor">#define SPEED_EASY 250</span></div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div><div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="option_8h.html#a1f488b2f93d768345629eb1a33b18a95">   17</a></span>&#160;<span class="preprocessor">#define SPEED_MEDIUM 120</span></div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div><div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="option_8h.html#a68e6623a38582ae1b0a4eb40462de67e">   19</a></span>&#160;<span class="preprocessor">#define SPEED_HARD 60</span></div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div><div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="option_8h.html#ad116eb5c074b64947ce3be02d7db6325">   22</a></span>&#160;<span class="preprocessor">#define BOARD_BASE 1</span></div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div><div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="option_8h.html#a6812cbb88427685ba50b8b6af9615fa4">   24</a></span>&#160;<span class="preprocessor">#define BOARD_1V1 2</span></div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div><div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="option_8h.html#a2c0bc836fee790167f5a001b65374bd4">   26</a></span>&#160;<span class="preprocessor">#define BIG_BOARD 3</span></div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div><div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="option_8h.html#a798e353cfcfb2486fe97f7c06f71731b">   29</a></span>&#160;<span class="preprocessor">#define BOARD_WITHOUT_WALLS 2</span></div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div><div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="option_8h.html#abead64102a34375baeae01d5df3be4c3">   31</a></span>&#160;<span class="preprocessor">#define BOARD_WITH_WALLS 1</span></div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keywordtype">void</span> <a class="code" href="option_8h.html#a0bb2abbf38215a549d3e3b2f88927a7e">option</a>(SDL_Surface* sdlScreen, <span class="keywordtype">int</span>* pNbSnakes, <span class="keywordtype">int</span>* pBoard, <span class="keywordtype">int</span>* pSpeedInit, <span class="keywordtype">int</span>* pWalls);</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keywordtype">void</span> <a class="code" href="option_8h.html#ac628d3acfa0d2db2f18f3a988b585ef1">aide</a>(SDL_Surface* sdlScreen);</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="option_8h_html_a0bb2abbf38215a549d3e3b2f88927a7e"><div class="ttname"><a href="option_8h.html#a0bb2abbf38215a549d3e3b2f88927a7e">option</a></div><div class="ttdeci">void option(SDL_Surface *sdlScreen, int *pNbSnakes, int *pBoard, int *pSpeedInit, int *pWalls)</div><div class="ttdoc">Gère les options du jeu. </div><div class="ttdef"><b>Definition:</b> option.c:26</div></div>
+<div class="ttc" id="option_8h_html_ac628d3acfa0d2db2f18f3a988b585ef1"><div class="ttname"><a href="option_8h.html#ac628d3acfa0d2db2f18f3a988b585ef1">aide</a></div><div class="ttdeci">void aide(SDL_Surface *sdlScreen)</div><div class="ttdoc">Affiche l&amp;#39;aide du jeu. </div><div class="ttdef"><b>Definition:</b> option.c:354</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
@@ -142,7 +118,7 @@ $(document).ready(function(){initNavTree('option_8h_source.html','');});
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="option_8h.html">option.h</a></li>
     <li class="footer">Généré par
     <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>
 </div>
 </body>

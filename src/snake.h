@@ -95,7 +95,6 @@ void Forward(Serpent* snake);
 void Left(Serpent* snake);
 void enter_tunnel(Serpent* snake, Tunnel* tunnel);
 void free_snakes(Serpent** snake, int nbSnake);
-void free_bonus_snakes(Serpent** snakes, int nbSnake);
 void free_snake(Serpent* snake);
 
 #endif

@@ -3,22 +3,24 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.6"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
 <title>Snake vs Schlanga: Référence du fichier src/ia.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript">
   $(document).ready(initResizable);
   $(window).load(resizeHeight);
 </script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
-  $(document).ready(function() { searchBox.OnSelectItem(0); });
+  $(document).ready(function() { init_search(); });
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
@@ -28,7 +30,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td style="padding-left: 0.5em;">
+  <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Snake vs Schlanga
    &#160;<span id="projectnumber">v2.0</span>
    </div>
@@ -39,7 +41,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Généré par Doxygen 1.8.6 -->
+<!-- Généré par Doxygen 1.8.11 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </script>
@@ -92,7 +94,7 @@ $(document).ready(function(){initNavTree('ia_8h.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Structures de données</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Définitions de type</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+</div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -111,20 +113,18 @@ $(document).ready(function(){initNavTree('ia_8h.html','');});
 
 <p>Header du fichier <a class="el" href="ia_8c.html" title="Fichier permettant la gestion de l&#39;IA aléatoire. ">ia.c</a>.  
 <a href="#details">Plus de détails...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="obstacle_8h_source.html">obstacle.h</a>&quot;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="obstacle_8h_source.html">obstacle.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Graphe des dépendances par inclusion de ia.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="ia_8h__incl.png" border="0" usemap="#src_2ia_8h" alt=""/></div>
-<map name="src_2ia_8h" id="src_2ia_8h">
-</map>
+<!-- MAP 0 -->
 </div>
 </div><div class="textblock"><div class="dynheader">
 Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier :</div>
 <div class="dyncontent">
 <div class="center"><img src="ia_8h__dep__incl.png" border="0" usemap="#src_2ia_8hdep" alt=""/></div>
-<map name="src_2ia_8hdep" id="src_2ia_8hdep">
-</map>
+<!-- MAP 1 -->
 </div>
 </div>
 <p><a href="ia_8h_source.html">Aller au code source de ce fichier.</a></p>
@@ -132,14 +132,14 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
 <tr class="memitem:a56edf63e554b1c8be4d61a6cad1f9af5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ia_8h.html#a56edf63e554b1c8be4d61a6cad1f9af5">move_random_ia</a> (<a class="el" href="struct_serpent.html">Serpent</a> *ia, <a class="el" href="struct_board.html">Board</a> board, int nbSnakes, <a class="el" href="struct_serpent.html">Serpent</a> **snakes)</td></tr>
-<tr class="memdesc:a56edf63e554b1c8be4d61a6cad1f9af5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fait bouger le serpent contrôlé par l'IA aléatoire.  <a href="#a56edf63e554b1c8be4d61a6cad1f9af5">Plus de détails...</a><br/></td></tr>
+<tr class="memdesc:a56edf63e554b1c8be4d61a6cad1f9af5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fait bouger le serpent contrôlé par l'IA aléatoire.  <a href="#a56edf63e554b1c8be4d61a6cad1f9af5">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a56edf63e554b1c8be4d61a6cad1f9af5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afdfe031849d2d1508a0a5c85e256a131"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ia_8h.html#afdfe031849d2d1508a0a5c85e256a131">move_def_ia</a> (<a class="el" href="struct_serpent.html">Serpent</a> *ia, <a class="el" href="struct_board.html">Board</a> board, int nbSnakes, <a class="el" href="struct_serpent.html">Serpent</a> **snakes)</td></tr>
-<tr class="memdesc:afdfe031849d2d1508a0a5c85e256a131"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fait bouger le serpent contrôlé par l'IA défensive.  <a href="#afdfe031849d2d1508a0a5c85e256a131">Plus de détails...</a><br/></td></tr>
+<tr class="memdesc:afdfe031849d2d1508a0a5c85e256a131"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fait bouger le serpent contrôlé par l'IA défensive.  <a href="#afdfe031849d2d1508a0a5c85e256a131">Plus de détails...</a><br /></td></tr>
 <tr class="separator:afdfe031849d2d1508a0a5c85e256a131"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73caefb75490a91b11fa01bb731585fc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="snake_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ia_8h.html#a73caefb75490a91b11fa01bb731585fc">minimum</a> (int choix, <a class="el" href="struct_point.html">Point</a> centre_right, <a class="el" href="struct_point.html">Point</a> centre_forward, <a class="el" href="struct_point.html">Point</a> centre_left, <a class="el" href="struct_serpent.html">Serpent</a> **tab_serpent, int nb_snakes, <a class="el" href="struct_serpent.html">Serpent</a> *snake)</td></tr>
-<tr class="memdesc:a73caefb75490a91b11fa01bb731585fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de trouver la direction dans laquelle il y ale moins d'obstacle afin que l'ia évite au maximum les obstacles.  <a href="#a73caefb75490a91b11fa01bb731585fc">Plus de détails...</a><br/></td></tr>
-<tr class="separator:a73caefb75490a91b11fa01bb731585fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26cf52bb4d4af914ff7c3de88375ab13"><td class="memItemLeft" align="right" valign="top"><a class="el" href="snake_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ia_8h.html#a26cf52bb4d4af914ff7c3de88375ab13">minimum</a> (int choix, <a class="el" href="struct_point.html">Point</a> centre_right, <a class="el" href="struct_point.html">Point</a> centre_forward, <a class="el" href="struct_point.html">Point</a> centre_left, <a class="el" href="struct_board.html">Board</a> *b, <a class="el" href="struct_serpent.html">Serpent</a> **tab_serpent, int nb_snakes, <a class="el" href="struct_serpent.html">Serpent</a> *snake)</td></tr>
+<tr class="memdesc:a26cf52bb4d4af914ff7c3de88375ab13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de trouver la direction dans laquelle il y ale moins d'obstacle afin que l'ia évite au maximum les obstacles.  <a href="#a26cf52bb4d4af914ff7c3de88375ab13">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a26cf52bb4d4af914ff7c3de88375ab13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Header du fichier <a class="el" href="ia_8c.html" title="Fichier permettant la gestion de l&#39;IA aléatoire. ">ia.c</a>. </p>
@@ -147,7 +147,7 @@ Fonctions</h2></td></tr>
 <dl class="section date"><dt>Date</dt><dd>18/04/2016</dd></dl>
 <p>Contient les déclarations des structures et des fonctions utiles dans la gestion de l'IA aléatoire </p>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
-<a class="anchor" id="a73caefb75490a91b11fa01bb731585fc"></a>
+<a class="anchor" id="a26cf52bb4d4af914ff7c3de88375ab13"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -174,6 +174,12 @@ Fonctions</h2></td></tr>
           <td></td>
           <td class="paramtype"><a class="el" href="struct_point.html">Point</a>&#160;</td>
           <td class="paramname"><em>centre_left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_board.html">Board</a> *&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -208,13 +214,14 @@ Fonctions</h2></td></tr>
     <tr><td class="paramname">centre_right</td><td><a class="el" href="struct_point.html">Point</a> nécessaire pour calculer le nombre d'obstacle dans la zone </td></tr>
     <tr><td class="paramname">centre_forward</td><td><a class="el" href="struct_point.html">Point</a> nécessaire pour calculer le nombre d'obstacle dans la zone </td></tr>
     <tr><td class="paramname">centre_left</td><td><a class="el" href="struct_point.html">Point</a> nécessaire pour calculer le nombre d'obstacle dans la zone </td></tr>
-    <tr><td class="paramname">tab_serpent</td><td>tableau des serpents </td></tr>
-    <tr><td class="paramname">nb_snakes</td><td>nombre de serpents </td></tr>
-    <tr><td class="paramname">snake</td><td>le serpent à partir duquel on cherche la direction optimale</td></tr>
+    <tr><td class="paramname">tab_serpent</td><td>Le tableau des serpents </td></tr>
+    <tr><td class="paramname">nb_snakes</td><td>Le nombre de serpents </td></tr>
+    <tr><td class="paramname">b</td><td>Le plateau de jeu </td></tr>
+    <tr><td class="paramname">snake</td><td>Le serpent à partir duquel on cherche la direction optimale</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Renvoie</dt><dd>Direction Direction dans laquelle le snake se dirigera , ie direction où il y a le moins d'obstacle </dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Direction Direction dans laquelle le snake se dirigera , ie direction où il y a le moins d'obstacles </dd></dl>
 
 </div>
 </div>
@@ -328,7 +335,7 @@ Fonctions</h2></td></tr>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="ia_8h.html">ia.h</a></li>
     <li class="footer">Généré par
     <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>
 </div>
 </body>

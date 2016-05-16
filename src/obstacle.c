@@ -233,13 +233,13 @@ int belongs_to_tab(Point point, Point* tableau, int taille)
  * @brief      Teste la collision d'un serpent avec le mur ou un autre serpent
  *
  * @param  	mur          	Le plateau contenant un tableau de points correspondant aux emplacements des murs
- * @param  	tab_serpent  	Le tableau de serpent : nécessaire pour la collision avec les autres serpents
+ * @param  	tab_serpent  	Le tableau de serpents : nécessaire pour la collision avec les autres serpents
  * @param  	nb_snakes  		Le nombre de serpents = longueur du tableau tab_serpent
  * @param 	point 			La tête du serpent à tester
  * @param 	index			La position du serpent à tester dans le tableau des serpents
  *
  * @return  0 s'il n'y a pas de collision
- * @return	Sinon, l'identifiant du serpent qui entre en collision avec le mur ou un autre serpent
+ * @return	1 sinon
  */
 
 int test_collision(Board* mur, Serpent** tab_serpent, int nb_snakes, Point point, int index) 
@@ -710,7 +710,7 @@ int okay_to_add_wall(Point p, Board* b, Serpent** tab_serpent, int nb_snakes)
 /**
  * @fn         int nb_obstacles_around_3(Point centre, Board* b, Serpent** tab_serpent, int nb_snakes, Serpent* snake)
  *
- * @brief     	Compte le nombre d'obstacles autour du serpent passé en paramètre dans un carré de taille 5
+ * @brief     	Compte le nombre d'obstacles autour du serpent passé en paramètre dans un carré de taille 3
  *
  * @param	   centre 		Le centre du carré à tester (ne fonctionne qu'avec un carré de taille 3x3)
  * @param 	   b 			Le plateau de jeu

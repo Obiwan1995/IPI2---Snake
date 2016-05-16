@@ -1,50 +1,52 @@
-\hypertarget{snake_8c}{\section{Référence du fichier src/snake.c}
-\label{snake_8c}\index{src/snake.\-c@{src/snake.\-c}}
-}
+\hypertarget{snake_8c}{}\section{Référence du fichier src/snake.c}
+\label{snake_8c}\index{src/snake.\+c@{src/snake.\+c}}
 
 
 Fichier permettant la gestion des serpents.  
 
 
-{\ttfamily \#include \char`\"{}snake.\-h\char`\"{}}\\*
-Graphe des dépendances par inclusion de snake.\-c\-:
+{\ttfamily \#include \char`\"{}snake.\+h\char`\"{}}\\*
+Graphe des dépendances par inclusion de snake.\+c\+:
+% FIG 0
 \subsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{snake_8c_aeec7bcbb0a7f1528c6150cea20d83f90}{init\-\_\-snake} (\hyperlink{struct_serpent}{Serpent} $\ast$snake, int id, int speed, int dir, \hyperlink{struct_point}{Point} pos)
-\begin{DoxyCompactList}\small\item\em Initialise le serpent \-: donne une valeur à chaque champ de la structure. \end{DoxyCompactList}\item 
+void \hyperlink{snake_8c_aeec7bcbb0a7f1528c6150cea20d83f90}{init\+\_\+snake} (\hyperlink{struct_serpent}{Serpent} $\ast$snake, int id, int speed, int dir, \hyperlink{struct_point}{Point} pos)
+\begin{DoxyCompactList}\small\item\em Initialise le serpent \+: donne une valeur à chaque champ de la structure. \end{DoxyCompactList}\item 
 void \hyperlink{snake_8c_a3ab39c5db14b489238d731176838e667}{Left} (\hyperlink{struct_serpent}{Serpent} $\ast$snake)
 \begin{DoxyCompactList}\small\item\em Change la direction et le serpent lorsque le déplacement choisi par le joueur est la gauche. \end{DoxyCompactList}\item 
 void \hyperlink{snake_8c_a40af0c3301e6a0d90261c056a3afba28}{Forward} (\hyperlink{struct_serpent}{Serpent} $\ast$snake)
 \begin{DoxyCompactList}\small\item\em Change la direction et le serpent lorsque le déplacement choisi par le joueur est tout droit (il continue dans sa direction actuelle). \end{DoxyCompactList}\item 
 void \hyperlink{snake_8c_a89100897980e51855920fdb91793d4e8}{Right} (\hyperlink{struct_serpent}{Serpent} $\ast$snake)
 \begin{DoxyCompactList}\small\item\em Change la direction et le serpent lorsque le déplacement choisi par le joueur est la droite. \end{DoxyCompactList}\item 
-void \hyperlink{snake_8c_af3b1193e2bf15f79d8d7cb4d204fe79a}{enter\-\_\-tunnel} (\hyperlink{struct_serpent}{Serpent} $\ast$snake, \hyperlink{struct_tunnel}{Tunnel} $\ast$tunnel)
+void \hyperlink{snake_8c_af3b1193e2bf15f79d8d7cb4d204fe79a}{enter\+\_\+tunnel} (\hyperlink{struct_serpent}{Serpent} $\ast$snake, \hyperlink{struct_tunnel}{Tunnel} $\ast$tunnel)
 \begin{DoxyCompactList}\small\item\em Fait bouger un serpent à travers un tunnel. \end{DoxyCompactList}\item 
-void \hyperlink{snake_8c_a2363b1ab9f3f0a25e6a900c4c4c59936}{free\-\_\-snakes} (\hyperlink{struct_serpent}{Serpent} $\ast$$\ast$snakes, int nb\-Snake)
+void \hyperlink{snake_8c_a2363b1ab9f3f0a25e6a900c4c4c59936}{free\+\_\+snakes} (\hyperlink{struct_serpent}{Serpent} $\ast$$\ast$snakes, int nb\+Snake)
 \begin{DoxyCompactList}\small\item\em Supprime la mémoire allouée au tableau de serpents. \end{DoxyCompactList}\item 
-void \hyperlink{snake_8c_af38375ebbeb7fb3e36374711468b3e8d}{free\-\_\-snake} (\hyperlink{struct_serpent}{Serpent} $\ast$snake)
+void \hyperlink{snake_8c_af38375ebbeb7fb3e36374711468b3e8d}{free\+\_\+snake} (\hyperlink{struct_serpent}{Serpent} $\ast$snake)
 \begin{DoxyCompactList}\small\item\em Supprime la mémoire allouée à un serpent. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Description détaillée}
-Fichier permettant la gestion des serpents. \begin{DoxyAuthor}{Auteur}
+Fichier permettant la gestion des serpents. 
+
+\begin{DoxyAuthor}{Auteur}
 Les Mixtes 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
 7/05/2016
 \end{DoxyDate}
-Contient toutes les fonctions utiles à la gestion des serpents \-: initialisation et déplacements 
+Contient toutes les fonctions utiles à la gestion des serpents \+: initialisation et déplacements 
 
 \subsection{Documentation des fonctions}
-\hypertarget{snake_8c_af3b1193e2bf15f79d8d7cb4d204fe79a}{\index{snake.\-c@{snake.\-c}!enter\-\_\-tunnel@{enter\-\_\-tunnel}}
-\index{enter\-\_\-tunnel@{enter\-\_\-tunnel}!snake.c@{snake.\-c}}
-\subsubsection[{enter\-\_\-tunnel}]{\setlength{\rightskip}{0pt plus 5cm}enter\-\_\-tunnel (
+\index{snake.\+c@{snake.\+c}!enter\+\_\+tunnel@{enter\+\_\+tunnel}}
+\index{enter\+\_\+tunnel@{enter\+\_\+tunnel}!snake.\+c@{snake.\+c}}
+\subsubsection[{\texorpdfstring{enter\+\_\+tunnel(\+Serpent $\ast$snake, Tunnel $\ast$tunnel)}{enter_tunnel(Serpent *snake, Tunnel *tunnel)}}]{\setlength{\rightskip}{0pt plus 5cm}enter\+\_\+tunnel (
 \begin{DoxyParamCaption}
 \item[{{\bf Serpent} $\ast$}]{snake, }
 \item[{{\bf Tunnel} $\ast$}]{t}
 \end{DoxyParamCaption}
-)}}\label{snake_8c_af3b1193e2bf15f79d8d7cb4d204fe79a}
+)}\hypertarget{snake_8c_af3b1193e2bf15f79d8d7cb4d204fe79a}{}\label{snake_8c_af3b1193e2bf15f79d8d7cb4d204fe79a}
 
 
 Fait bouger un serpent à travers un tunnel. 
@@ -59,13 +61,13 @@ Fait bouger un serpent à travers un tunnel.
 \begin{DoxyReturn}{Renvoie}
 void 
 \end{DoxyReturn}
-\hypertarget{snake_8c_a40af0c3301e6a0d90261c056a3afba28}{\index{snake.\-c@{snake.\-c}!Forward@{Forward}}
-\index{Forward@{Forward}!snake.c@{snake.\-c}}
-\subsubsection[{Forward}]{\setlength{\rightskip}{0pt plus 5cm}void Forward (
+\index{snake.\+c@{snake.\+c}!Forward@{Forward}}
+\index{Forward@{Forward}!snake.\+c@{snake.\+c}}
+\subsubsection[{\texorpdfstring{Forward(\+Serpent $\ast$snake)}{Forward(Serpent *snake)}}]{\setlength{\rightskip}{0pt plus 5cm}void Forward (
 \begin{DoxyParamCaption}
 \item[{{\bf Serpent} $\ast$}]{snake}
 \end{DoxyParamCaption}
-)}}\label{snake_8c_a40af0c3301e6a0d90261c056a3afba28}
+)}\hypertarget{snake_8c_a40af0c3301e6a0d90261c056a3afba28}{}\label{snake_8c_a40af0c3301e6a0d90261c056a3afba28}
 
 
 Change la direction et le serpent lorsque le déplacement choisi par le joueur est tout droit (il continue dans sa direction actuelle). 
@@ -82,13 +84,13 @@ On ajoute une case de plus au tableau du serpent qui correspond à la position d
 \begin{DoxyReturn}{Renvoie}
 void 
 \end{DoxyReturn}
-\hypertarget{snake_8c_af38375ebbeb7fb3e36374711468b3e8d}{\index{snake.\-c@{snake.\-c}!free\-\_\-snake@{free\-\_\-snake}}
-\index{free\-\_\-snake@{free\-\_\-snake}!snake.c@{snake.\-c}}
-\subsubsection[{free\-\_\-snake}]{\setlength{\rightskip}{0pt plus 5cm}free\-\_\-snake (
+\index{snake.\+c@{snake.\+c}!free\+\_\+snake@{free\+\_\+snake}}
+\index{free\+\_\+snake@{free\+\_\+snake}!snake.\+c@{snake.\+c}}
+\subsubsection[{\texorpdfstring{free\+\_\+snake(\+Serpent $\ast$snake)}{free_snake(Serpent *snake)}}]{\setlength{\rightskip}{0pt plus 5cm}free\+\_\+snake (
 \begin{DoxyParamCaption}
 \item[{{\bf Serpent} $\ast$}]{snake}
 \end{DoxyParamCaption}
-)}}\label{snake_8c_af38375ebbeb7fb3e36374711468b3e8d}
+)}\hypertarget{snake_8c_af38375ebbeb7fb3e36374711468b3e8d}{}\label{snake_8c_af38375ebbeb7fb3e36374711468b3e8d}
 
 
 Supprime la mémoire allouée à un serpent. 
@@ -103,14 +105,14 @@ Supprime le tableau de points du serpent, son tableau de bonus puis sa structure
 \begin{DoxyReturn}{Renvoie}
 void 
 \end{DoxyReturn}
-\hypertarget{snake_8c_a2363b1ab9f3f0a25e6a900c4c4c59936}{\index{snake.\-c@{snake.\-c}!free\-\_\-snakes@{free\-\_\-snakes}}
-\index{free\-\_\-snakes@{free\-\_\-snakes}!snake.c@{snake.\-c}}
-\subsubsection[{free\-\_\-snakes}]{\setlength{\rightskip}{0pt plus 5cm}free\-\_\-snakes (
+\index{snake.\+c@{snake.\+c}!free\+\_\+snakes@{free\+\_\+snakes}}
+\index{free\+\_\+snakes@{free\+\_\+snakes}!snake.\+c@{snake.\+c}}
+\subsubsection[{\texorpdfstring{free\+\_\+snakes(\+Serpent $\ast$$\ast$snakes, int nb\+Snake)}{free_snakes(Serpent **snakes, int nbSnake)}}]{\setlength{\rightskip}{0pt plus 5cm}free\+\_\+snakes (
 \begin{DoxyParamCaption}
 \item[{{\bf Serpent} $\ast$$\ast$}]{snakes, }
-\item[{int}]{nb\-Snake}
+\item[{int}]{nb\+Snake}
 \end{DoxyParamCaption}
-)}}\label{snake_8c_a2363b1ab9f3f0a25e6a900c4c4c59936}
+)}\hypertarget{snake_8c_a2363b1ab9f3f0a25e6a900c4c4c59936}{}\label{snake_8c_a2363b1ab9f3f0a25e6a900c4c4c59936}
 
 
 Supprime la mémoire allouée au tableau de serpents. 
@@ -119,7 +121,7 @@ Supprime la mémoire allouée au tableau de serpents.
 \begin{DoxyParams}{Paramètres}
 {\em snakes} & Le tableau de serpents à supprimer \\
 \hline
-{\em nb\-Snake} & Le nombre de serpents dans le tableau\\
+{\em nb\+Snake} & Le nombre de serpents dans le tableau\\
 \hline
 \end{DoxyParams}
 Supprime un tableau de serpents de la mémoire en supprimant pour chaque serpent son tableau de points puis sa structure complète
@@ -127,9 +129,9 @@ Supprime un tableau de serpents de la mémoire en supprimant pour chaque serpent
 \begin{DoxyReturn}{Renvoie}
 void 
 \end{DoxyReturn}
-\hypertarget{snake_8c_aeec7bcbb0a7f1528c6150cea20d83f90}{\index{snake.\-c@{snake.\-c}!init\-\_\-snake@{init\-\_\-snake}}
-\index{init\-\_\-snake@{init\-\_\-snake}!snake.c@{snake.\-c}}
-\subsubsection[{init\-\_\-snake}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Serpent} $\ast$ init\-\_\-snake (
+\index{snake.\+c@{snake.\+c}!init\+\_\+snake@{init\+\_\+snake}}
+\index{init\+\_\+snake@{init\+\_\+snake}!snake.\+c@{snake.\+c}}
+\subsubsection[{\texorpdfstring{init\+\_\+snake(\+Serpent $\ast$snake, int id, int speed, int dir, Point pos)}{init_snake(Serpent *snake, int id, int speed, int dir, Point pos)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Serpent} $\ast$ init\+\_\+snake (
 \begin{DoxyParamCaption}
 \item[{{\bf Serpent} $\ast$}]{snake, }
 \item[{int}]{id, }
@@ -137,16 +139,16 @@ void
 \item[{int}]{dir, }
 \item[{{\bf Point}}]{pos}
 \end{DoxyParamCaption}
-)}}\label{snake_8c_aeec7bcbb0a7f1528c6150cea20d83f90}
+)}\hypertarget{snake_8c_aeec7bcbb0a7f1528c6150cea20d83f90}{}\label{snake_8c_aeec7bcbb0a7f1528c6150cea20d83f90}
 
 
-Initialise le serpent \-: donne une valeur à chaque champ de la structure. 
+Initialise le serpent \+: donne une valeur à chaque champ de la structure. 
 
 
 \begin{DoxyParams}{Paramètres}
 {\em snake} & Le serpent à initialiser \\
 \hline
-{\em id} & L'identifiant du serpent \\
+{\em id} & L\textquotesingle{}identifiant du serpent \\
 \hline
 {\em speed} & La vitesse du serpent \\
 \hline
@@ -158,13 +160,13 @@ Initialise le serpent \-: donne une valeur à chaque champ de la structure.
 \begin{DoxyReturn}{Renvoie}
 Le serpent passé en paramètre avec des valeurs pour chaque champ de sa structure 
 \end{DoxyReturn}
-\hypertarget{snake_8c_a3ab39c5db14b489238d731176838e667}{\index{snake.\-c@{snake.\-c}!Left@{Left}}
-\index{Left@{Left}!snake.c@{snake.\-c}}
-\subsubsection[{Left}]{\setlength{\rightskip}{0pt plus 5cm}void Left (
+\index{snake.\+c@{snake.\+c}!Left@{Left}}
+\index{Left@{Left}!snake.\+c@{snake.\+c}}
+\subsubsection[{\texorpdfstring{Left(\+Serpent $\ast$snake)}{Left(Serpent *snake)}}]{\setlength{\rightskip}{0pt plus 5cm}void Left (
 \begin{DoxyParamCaption}
 \item[{{\bf Serpent} $\ast$}]{snake}
 \end{DoxyParamCaption}
-)}}\label{snake_8c_a3ab39c5db14b489238d731176838e667}
+)}\hypertarget{snake_8c_a3ab39c5db14b489238d731176838e667}{}\label{snake_8c_a3ab39c5db14b489238d731176838e667}
 
 
 Change la direction et le serpent lorsque le déplacement choisi par le joueur est la gauche. 
@@ -181,13 +183,13 @@ On ajoute une case de plus au tableau du serpent qui correspond à la position d
 \begin{DoxyReturn}{Renvoie}
 void 
 \end{DoxyReturn}
-\hypertarget{snake_8c_a89100897980e51855920fdb91793d4e8}{\index{snake.\-c@{snake.\-c}!Right@{Right}}
-\index{Right@{Right}!snake.c@{snake.\-c}}
-\subsubsection[{Right}]{\setlength{\rightskip}{0pt plus 5cm}void Right (
+\index{snake.\+c@{snake.\+c}!Right@{Right}}
+\index{Right@{Right}!snake.\+c@{snake.\+c}}
+\subsubsection[{\texorpdfstring{Right(\+Serpent $\ast$snake)}{Right(Serpent *snake)}}]{\setlength{\rightskip}{0pt plus 5cm}void Right (
 \begin{DoxyParamCaption}
 \item[{{\bf Serpent} $\ast$}]{snake}
 \end{DoxyParamCaption}
-)}}\label{snake_8c_a89100897980e51855920fdb91793d4e8}
+)}\hypertarget{snake_8c_a89100897980e51855920fdb91793d4e8}{}\label{snake_8c_a89100897980e51855920fdb91793d4e8}
 
 
 Change la direction et le serpent lorsque le déplacement choisi par le joueur est la droite. 

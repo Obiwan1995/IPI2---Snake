@@ -137,20 +137,20 @@ void move_random_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes)
 }
 
 /**
- * @fn 			Direction minimum(int choix, Point centre_right, Point centre_forward, Point centre_left, Serpent** tab_serpent, int nb_snakes, Serpent* snake)
+ * @fn 		Direction minimum(int choix, Point centre_right, Point centre_forward, Point centre_left, Board* b, Serpent** tab_serpent, int nb_snakes, Serpent* snake)
  * 
- * @brief     Permet de trouver la direction dans laquelle il y ale moins d'obstacle afin que l'ia évite au maximum les obstacles
+ * @brief     Permet de trouver la direction dans laquelle il y a le moins d'obstacles afin que l'ia évite au maximum les obstacles
  *
- * @param  choix           Permet de faire la différence entre le minimum entre 3 entiers et celui entre deux entiers en différiencant les cas étudiés (suivant les directions à comparer)
- * @param  centre_right    Point nécessaire pour calculer le nombre d'obstacle dans la zone
- * @param  centre_forward  Point nécessaire pour calculer le nombre d'obstacle dans la zone
- * @param  centre_left     Point nécessaire pour calculer le nombre d'obstacle dans la zone
- * @param      tab_serpent     tableau des serpents
- * @param  nb_snakes       nombre de serpents
- * @param b					Board 
- * @param      snake           le serpent à partir duquel on cherche la direction optimale
+ * @param  choix           Permet de faire la différence entre le minimum entre 3 entiers et celui entre deux entiers en différenciant les cas étudiés (suivant les directions à comparer)
+ * @param  centre_right    Point nécessaire pour calculer le nombre d'obstacles dans la zone
+ * @param  centre_forward  Point nécessaire pour calculer le nombre d'obstacles dans la zone
+ * @param  centre_left     Point nécessaire pour calculer le nombre d'obstacles dans la zone
+ * @param  tab_serpent     Le tableau des serpents
+ * @param  nb_snakes       Le nombre de serpents
+ * @param  b			   Le plateau de jeu
+ * @param  snake       	   Le serpent à partir duquel on cherche la direction optimale
  *
- * @return     Direction Direction dans laquelle le snake se dirigera , ie direction où il y a le moins d'obstacle
+ * @return  Direction Direction dans laquelle le snake se dirigera , ie direction où il y a le moins d'obstacles
  */
 
 Direction minimum(int choix, Point centre_right, Point centre_forward, Point centre_left, Board* b, Serpent** tab_serpent, int nb_snakes, Serpent* snake) 
