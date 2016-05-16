@@ -3,24 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.11"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
 <title>Snake vs Schlanga: Référence du fichier src/snake.c</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript">
   $(document).ready(initResizable);
   $(window).load(resizeHeight);
 </script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
-  $(document).ready(function() { init_search(); });
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
@@ -30,7 +28,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectalign" style="padding-left: 0.5em;">
+  <td style="padding-left: 0.5em;">
    <div id="projectname">Snake vs Schlanga
    &#160;<span id="projectnumber">v2.0</span>
    </div>
@@ -41,7 +39,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Généré par Doxygen 1.8.11 -->
+<!-- Généré par Doxygen 1.8.6 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </script>
@@ -94,7 +92,7 @@ $(document).ready(function(){initNavTree('snake_8c.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Structures de données</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Définitions de type</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -113,36 +111,37 @@ $(document).ready(function(){initNavTree('snake_8c.html','');});
 
 <p>Fichier permettant la gestion des serpents.  
 <a href="#details">Plus de détails...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="snake_8h_source.html">snake.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="snake_8h_source.html">snake.h</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
 Graphe des dépendances par inclusion de snake.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="snake_8c__incl.png" border="0" usemap="#src_2snake_8c" alt=""/></div>
-<!-- MAP 0 -->
+<map name="src_2snake_8c" id="src_2snake_8c">
+</map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
 <tr class="memitem:aeec7bcbb0a7f1528c6150cea20d83f90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="snake_8c.html#aeec7bcbb0a7f1528c6150cea20d83f90">init_snake</a> (<a class="el" href="struct_serpent.html">Serpent</a> *snake, int id, int speed, int dir, <a class="el" href="struct_point.html">Point</a> pos)</td></tr>
-<tr class="memdesc:aeec7bcbb0a7f1528c6150cea20d83f90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise le serpent : donne une valeur à chaque champ de la structure.  <a href="#aeec7bcbb0a7f1528c6150cea20d83f90">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:aeec7bcbb0a7f1528c6150cea20d83f90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise le serpent : donne une valeur à chaque champ de la structure.  <a href="#aeec7bcbb0a7f1528c6150cea20d83f90">Plus de détails...</a><br/></td></tr>
 <tr class="separator:aeec7bcbb0a7f1528c6150cea20d83f90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ab39c5db14b489238d731176838e667"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="snake_8c.html#a3ab39c5db14b489238d731176838e667">Left</a> (<a class="el" href="struct_serpent.html">Serpent</a> *snake)</td></tr>
-<tr class="memdesc:a3ab39c5db14b489238d731176838e667"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change la direction et le serpent lorsque le déplacement choisi par le joueur est la gauche.  <a href="#a3ab39c5db14b489238d731176838e667">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a3ab39c5db14b489238d731176838e667"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change la direction et le serpent lorsque le déplacement choisi par le joueur est la gauche.  <a href="#a3ab39c5db14b489238d731176838e667">Plus de détails...</a><br/></td></tr>
 <tr class="separator:a3ab39c5db14b489238d731176838e667"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40af0c3301e6a0d90261c056a3afba28"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="snake_8c.html#a40af0c3301e6a0d90261c056a3afba28">Forward</a> (<a class="el" href="struct_serpent.html">Serpent</a> *snake)</td></tr>
-<tr class="memdesc:a40af0c3301e6a0d90261c056a3afba28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change la direction et le serpent lorsque le déplacement choisi par le joueur est tout droit (il continue dans sa direction actuelle).  <a href="#a40af0c3301e6a0d90261c056a3afba28">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a40af0c3301e6a0d90261c056a3afba28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change la direction et le serpent lorsque le déplacement choisi par le joueur est tout droit (il continue dans sa direction actuelle).  <a href="#a40af0c3301e6a0d90261c056a3afba28">Plus de détails...</a><br/></td></tr>
 <tr class="separator:a40af0c3301e6a0d90261c056a3afba28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89100897980e51855920fdb91793d4e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="snake_8c.html#a89100897980e51855920fdb91793d4e8">Right</a> (<a class="el" href="struct_serpent.html">Serpent</a> *snake)</td></tr>
-<tr class="memdesc:a89100897980e51855920fdb91793d4e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change la direction et le serpent lorsque le déplacement choisi par le joueur est la droite.  <a href="#a89100897980e51855920fdb91793d4e8">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a89100897980e51855920fdb91793d4e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change la direction et le serpent lorsque le déplacement choisi par le joueur est la droite.  <a href="#a89100897980e51855920fdb91793d4e8">Plus de détails...</a><br/></td></tr>
 <tr class="separator:a89100897980e51855920fdb91793d4e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3b1193e2bf15f79d8d7cb4d204fe79a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="snake_8c.html#af3b1193e2bf15f79d8d7cb4d204fe79a">enter_tunnel</a> (<a class="el" href="struct_serpent.html">Serpent</a> *snake, <a class="el" href="struct_tunnel.html">Tunnel</a> *tunnel)</td></tr>
-<tr class="memdesc:af3b1193e2bf15f79d8d7cb4d204fe79a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fait bouger un serpent à travers un tunnel.  <a href="#af3b1193e2bf15f79d8d7cb4d204fe79a">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:af3b1193e2bf15f79d8d7cb4d204fe79a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fait bouger un serpent à travers un tunnel.  <a href="#af3b1193e2bf15f79d8d7cb4d204fe79a">Plus de détails...</a><br/></td></tr>
 <tr class="separator:af3b1193e2bf15f79d8d7cb4d204fe79a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2363b1ab9f3f0a25e6a900c4c4c59936"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="snake_8c.html#a2363b1ab9f3f0a25e6a900c4c4c59936">free_snakes</a> (<a class="el" href="struct_serpent.html">Serpent</a> **snakes, int nbSnake)</td></tr>
-<tr class="memdesc:a2363b1ab9f3f0a25e6a900c4c4c59936"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supprime la mémoire allouée au tableau de serpents.  <a href="#a2363b1ab9f3f0a25e6a900c4c4c59936">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a2363b1ab9f3f0a25e6a900c4c4c59936"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supprime la mémoire allouée au tableau de serpents.  <a href="#a2363b1ab9f3f0a25e6a900c4c4c59936">Plus de détails...</a><br/></td></tr>
 <tr class="separator:a2363b1ab9f3f0a25e6a900c4c4c59936"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af38375ebbeb7fb3e36374711468b3e8d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="snake_8c.html#af38375ebbeb7fb3e36374711468b3e8d">free_snake</a> (<a class="el" href="struct_serpent.html">Serpent</a> *snake)</td></tr>
-<tr class="memdesc:af38375ebbeb7fb3e36374711468b3e8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supprime la mémoire allouée à un serpent.  <a href="#af38375ebbeb7fb3e36374711468b3e8d">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:af38375ebbeb7fb3e36374711468b3e8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supprime la mémoire allouée à un serpent.  <a href="#af38375ebbeb7fb3e36374711468b3e8d">Plus de détails...</a><br/></td></tr>
 <tr class="separator:af38375ebbeb7fb3e36374711468b3e8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
@@ -396,7 +395,7 @@ Fonctions</h2></td></tr>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="snake_8c.html">snake.c</a></li>
     <li class="footer">Généré par
     <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
 </div>
 </body>

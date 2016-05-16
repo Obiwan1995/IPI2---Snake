@@ -3,24 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.11"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
 <title>Snake vs Schlanga: Référence du fichier src/obstacle.c</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript">
   $(document).ready(initResizable);
   $(window).load(resizeHeight);
 </script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
-  $(document).ready(function() { init_search(); });
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
@@ -30,7 +28,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectalign" style="padding-left: 0.5em;">
+  <td style="padding-left: 0.5em;">
    <div id="projectname">Snake vs Schlanga
    &#160;<span id="projectnumber">v2.0</span>
    </div>
@@ -41,7 +39,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Généré par Doxygen 1.8.11 -->
+<!-- Généré par Doxygen 1.8.6 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </script>
@@ -94,7 +92,7 @@ $(document).ready(function(){initNavTree('obstacle_8c.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Structures de données</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Définitions de type</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -113,63 +111,64 @@ $(document).ready(function(){initNavTree('obstacle_8c.html','');});
 
 <p>Fichier permettant la création des murs et des positions de départ des serpents.  
 <a href="#details">Plus de détails...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="obstacle_8h_source.html">obstacle.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="obstacle_8h_source.html">obstacle.h</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
 Graphe des dépendances par inclusion de obstacle.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="obstacle_8c__incl.png" border="0" usemap="#src_2obstacle_8c" alt=""/></div>
-<!-- MAP 0 -->
+<map name="src_2obstacle_8c" id="src_2obstacle_8c">
+</map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
 <tr class="memitem:a1bb6d5e97f9c0ea85cec0dfc047ae669"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_board.html">Board</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obstacle_8c.html#a1bb6d5e97f9c0ea85cec0dfc047ae669">init_board1</a> ()</td></tr>
-<tr class="memdesc:a1bb6d5e97f9c0ea85cec0dfc047ae669"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise le plateau de base.  <a href="#a1bb6d5e97f9c0ea85cec0dfc047ae669">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a1bb6d5e97f9c0ea85cec0dfc047ae669"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise le plateau de base.  <a href="#a1bb6d5e97f9c0ea85cec0dfc047ae669">Plus de détails...</a><br/></td></tr>
 <tr class="separator:a1bb6d5e97f9c0ea85cec0dfc047ae669"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01f661f03ada3da28ba1ec33cd9fc609"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_board.html">Board</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obstacle_8c.html#a01f661f03ada3da28ba1ec33cd9fc609">init_board_big</a> ()</td></tr>
-<tr class="memdesc:a01f661f03ada3da28ba1ec33cd9fc609"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise le grand plateau.  <a href="#a01f661f03ada3da28ba1ec33cd9fc609">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a01f661f03ada3da28ba1ec33cd9fc609"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise le grand plateau.  <a href="#a01f661f03ada3da28ba1ec33cd9fc609">Plus de détails...</a><br/></td></tr>
 <tr class="separator:a01f661f03ada3da28ba1ec33cd9fc609"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f392d338ba735131630de96f83307a3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_board.html">Board</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obstacle_8c.html#a4f392d338ba735131630de96f83307a3">init_board_1v1</a> ()</td></tr>
-<tr class="memdesc:a4f392d338ba735131630de96f83307a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise le plateau spécifique au 1v1.  <a href="#a4f392d338ba735131630de96f83307a3">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a4f392d338ba735131630de96f83307a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise le plateau spécifique au 1v1.  <a href="#a4f392d338ba735131630de96f83307a3">Plus de détails...</a><br/></td></tr>
 <tr class="separator:a4f392d338ba735131630de96f83307a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e2d7666dbbf9ed45e1c23e327d7e59e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obstacle_8c.html#a4e2d7666dbbf9ed45e1c23e327d7e59e">belongs_to_tab</a> (<a class="el" href="struct_point.html">Point</a> point, <a class="el" href="struct_point.html">Point</a> *tableau, int taille)</td></tr>
-<tr class="memdesc:a4e2d7666dbbf9ed45e1c23e327d7e59e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teste l'appartenance d'un point (2 coordonnées x et y) à un tableau.  <a href="#a4e2d7666dbbf9ed45e1c23e327d7e59e">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a4e2d7666dbbf9ed45e1c23e327d7e59e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teste l'appartenance d'un point (2 coordonnées x et y) à un tableau.  <a href="#a4e2d7666dbbf9ed45e1c23e327d7e59e">Plus de détails...</a><br/></td></tr>
 <tr class="separator:a4e2d7666dbbf9ed45e1c23e327d7e59e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a141b3cb6a74739e0f20808ba183ee7fa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obstacle_8c.html#a141b3cb6a74739e0f20808ba183ee7fa">test_collision</a> (<a class="el" href="struct_board.html">Board</a> *mur, <a class="el" href="struct_serpent.html">Serpent</a> **tab_serpent, int nb_snakes, <a class="el" href="struct_point.html">Point</a> point, int index)</td></tr>
-<tr class="memdesc:a141b3cb6a74739e0f20808ba183ee7fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teste la collision d'un serpent avec le mur ou un autre serpent.  <a href="#a141b3cb6a74739e0f20808ba183ee7fa">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a141b3cb6a74739e0f20808ba183ee7fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teste la collision d'un serpent avec le mur ou un autre serpent.  <a href="#a141b3cb6a74739e0f20808ba183ee7fa">Plus de détails...</a><br/></td></tr>
 <tr class="separator:a141b3cb6a74739e0f20808ba183ee7fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47e86039ea17eebe4fa81567d558f957"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obstacle_8c.html#a47e86039ea17eebe4fa81567d558f957">add_walls_inside</a> (<a class="el" href="struct_board.html">Board</a> *b)</td></tr>
-<tr class="memdesc:a47e86039ea17eebe4fa81567d558f957"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute des murs à l'intérieur du plateau.  <a href="#a47e86039ea17eebe4fa81567d558f957">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a47e86039ea17eebe4fa81567d558f957"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute des murs à l'intérieur du plateau.  <a href="#a47e86039ea17eebe4fa81567d558f957">Plus de détails...</a><br/></td></tr>
 <tr class="separator:a47e86039ea17eebe4fa81567d558f957"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad44be14f4ef6100373c68d5ba139a95c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obstacle_8c.html#ad44be14f4ef6100373c68d5ba139a95c">delete_too_close_walls</a> (<a class="el" href="struct_board.html">Board</a> *b)</td></tr>
-<tr class="memdesc:ad44be14f4ef6100373c68d5ba139a95c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supprime les murs trop proches des positions de départ.  <a href="#ad44be14f4ef6100373c68d5ba139a95c">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:ad44be14f4ef6100373c68d5ba139a95c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supprime les murs trop proches des positions de départ.  <a href="#ad44be14f4ef6100373c68d5ba139a95c">Plus de détails...</a><br/></td></tr>
 <tr class="separator:ad44be14f4ef6100373c68d5ba139a95c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43418d7cd3d6f436a8c0d49305246dc0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obstacle_8c.html#a43418d7cd3d6f436a8c0d49305246dc0">is_cell_free</a> (<a class="el" href="struct_point.html">Point</a> p, <a class="el" href="struct_board.html">Board</a> *b, <a class="el" href="struct_serpent.html">Serpent</a> **tab_serpent, int nb_snakes)</td></tr>
-<tr class="memdesc:a43418d7cd3d6f436a8c0d49305246dc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teste si une case est libre.  <a href="#a43418d7cd3d6f436a8c0d49305246dc0">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a43418d7cd3d6f436a8c0d49305246dc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teste si une case est libre.  <a href="#a43418d7cd3d6f436a8c0d49305246dc0">Plus de détails...</a><br/></td></tr>
 <tr class="separator:a43418d7cd3d6f436a8c0d49305246dc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3dee7e53ed3da2065e17f1ee8b34d07"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obstacle_8c.html#ac3dee7e53ed3da2065e17f1ee8b34d07">okay_to_add_wall</a> (<a class="el" href="struct_point.html">Point</a> p, <a class="el" href="struct_board.html">Board</a> *b, <a class="el" href="struct_serpent.html">Serpent</a> **tab_serpent, int nb_snakes)</td></tr>
-<tr class="memdesc:ac3dee7e53ed3da2065e17f1ee8b34d07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teste si on peut ajouter un mur.  <a href="#ac3dee7e53ed3da2065e17f1ee8b34d07">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:ac3dee7e53ed3da2065e17f1ee8b34d07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teste si on peut ajouter un mur.  <a href="#ac3dee7e53ed3da2065e17f1ee8b34d07">Plus de détails...</a><br/></td></tr>
 <tr class="separator:ac3dee7e53ed3da2065e17f1ee8b34d07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a5b0b32868d0b3cadbd8bc09c14d42a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obstacle_8c.html#a4a5b0b32868d0b3cadbd8bc09c14d42a">nb_obstacles_around_3</a> (<a class="el" href="struct_point.html">Point</a> centre, <a class="el" href="struct_board.html">Board</a> *b, <a class="el" href="struct_serpent.html">Serpent</a> **tab_serpent, int nb_snakes, <a class="el" href="struct_serpent.html">Serpent</a> *snake)</td></tr>
-<tr class="memdesc:a4a5b0b32868d0b3cadbd8bc09c14d42a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compte le nombre d'obstacles autour du serpent passé en paramètre dans un carré de taille 5.  <a href="#a4a5b0b32868d0b3cadbd8bc09c14d42a">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a4a5b0b32868d0b3cadbd8bc09c14d42a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compte le nombre d'obstacles autour du serpent passé en paramètre dans un carré de taille 5.  <a href="#a4a5b0b32868d0b3cadbd8bc09c14d42a">Plus de détails...</a><br/></td></tr>
 <tr class="separator:a4a5b0b32868d0b3cadbd8bc09c14d42a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41cc2f21fada26ff3689a1c64b463092"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obstacle_8c.html#a41cc2f21fada26ff3689a1c64b463092">nb_obstacles_around_5</a> (<a class="el" href="struct_point.html">Point</a> centre, <a class="el" href="struct_board.html">Board</a> *b, <a class="el" href="struct_serpent.html">Serpent</a> **tab_serpent, int nb_snakes, <a class="el" href="struct_serpent.html">Serpent</a> *snake)</td></tr>
-<tr class="memdesc:a41cc2f21fada26ff3689a1c64b463092"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compte le nombre d'obstacles autour du serpent passé en paramètre dans un carré de taille 5.  <a href="#a41cc2f21fada26ff3689a1c64b463092">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a41cc2f21fada26ff3689a1c64b463092"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compte le nombre d'obstacles autour du serpent passé en paramètre dans un carré de taille 5.  <a href="#a41cc2f21fada26ff3689a1c64b463092">Plus de détails...</a><br/></td></tr>
 <tr class="separator:a41cc2f21fada26ff3689a1c64b463092"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5891c5b7963e004f35429d06a1ae02c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obstacle_8c.html#ad5891c5b7963e004f35429d06a1ae02c">add_wall</a> (<a class="el" href="struct_board.html">Board</a> *b, <a class="el" href="struct_serpent.html">Serpent</a> **tab_serpent, int nb_snakes)</td></tr>
-<tr class="memdesc:ad5891c5b7963e004f35429d06a1ae02c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute un nouveau mur sur le plateau.  <a href="#ad5891c5b7963e004f35429d06a1ae02c">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:ad5891c5b7963e004f35429d06a1ae02c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute un nouveau mur sur le plateau.  <a href="#ad5891c5b7963e004f35429d06a1ae02c">Plus de détails...</a><br/></td></tr>
 <tr class="separator:ad5891c5b7963e004f35429d06a1ae02c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2fa73958013dd3bcc1ff867313568b25"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obstacle_8c.html#a2fa73958013dd3bcc1ff867313568b25">belongs_to_tunnel</a> (<a class="el" href="struct_point.html">Point</a> p, <a class="el" href="struct_tunnel.html">Tunnel</a> *t)</td></tr>
-<tr class="memdesc:a2fa73958013dd3bcc1ff867313568b25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teste l'appartenance d'un point (2 coordonnées x et y) à un tunnel (entrée et sorties)  <a href="#a2fa73958013dd3bcc1ff867313568b25">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a2fa73958013dd3bcc1ff867313568b25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teste l'appartenance d'un point (2 coordonnées x et y) à un tunnel (entrée et sorties)  <a href="#a2fa73958013dd3bcc1ff867313568b25">Plus de détails...</a><br/></td></tr>
 <tr class="separator:a2fa73958013dd3bcc1ff867313568b25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a906470b3c7202c680fceb447d18f2229"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obstacle_8c.html#a906470b3c7202c680fceb447d18f2229">add_tunnels</a> (<a class="el" href="struct_board.html">Board</a> *b, <a class="el" href="struct_serpent.html">Serpent</a> **tab_serpent, int nb_snakes)</td></tr>
-<tr class="memdesc:a906470b3c7202c680fceb447d18f2229"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute des tunnels sur le plateau.  <a href="#a906470b3c7202c680fceb447d18f2229">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a906470b3c7202c680fceb447d18f2229"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute des tunnels sur le plateau.  <a href="#a906470b3c7202c680fceb447d18f2229">Plus de détails...</a><br/></td></tr>
 <tr class="separator:a906470b3c7202c680fceb447d18f2229"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41b3e80b28cbd5e24132a50a44abea69"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obstacle_8c.html#a41b3e80b28cbd5e24132a50a44abea69">handle_tunnels</a> (<a class="el" href="struct_serpent.html">Serpent</a> *s, <a class="el" href="struct_board.html">Board</a> *b)</td></tr>
-<tr class="memdesc:a41b3e80b28cbd5e24132a50a44abea69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet la gestion des tunnels.  <a href="#a41b3e80b28cbd5e24132a50a44abea69">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a41b3e80b28cbd5e24132a50a44abea69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet la gestion des tunnels.  <a href="#a41b3e80b28cbd5e24132a50a44abea69">Plus de détails...</a><br/></td></tr>
 <tr class="separator:a41b3e80b28cbd5e24132a50a44abea69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92913020637471129fd0f07dbf3a7396"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obstacle_8c.html#a92913020637471129fd0f07dbf3a7396">free_board</a> (<a class="el" href="struct_board.html">Board</a> b)</td></tr>
-<tr class="memdesc:a92913020637471129fd0f07dbf3a7396"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supprime la mémoire allouée au plateau.  <a href="#a92913020637471129fd0f07dbf3a7396">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a92913020637471129fd0f07dbf3a7396"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supprime la mémoire allouée au plateau.  <a href="#a92913020637471129fd0f07dbf3a7396">Plus de détails...</a><br/></td></tr>
 <tr class="separator:a92913020637471129fd0f07dbf3a7396"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
@@ -833,7 +832,7 @@ Sinon, l'identifiant du serpent qui entre en collision avec le mur ou un autre s
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="obstacle_8c.html">obstacle.c</a></li>
     <li class="footer">Généré par
     <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
 </div>
 </body>

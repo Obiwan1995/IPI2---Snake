@@ -3,24 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.11"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
 <title>Snake vs Schlanga:  Fichier source de src/ia.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript">
   $(document).ready(initResizable);
   $(window).load(resizeHeight);
 </script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
-  $(document).ready(function() { init_search(); });
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
@@ -30,7 +28,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectalign" style="padding-left: 0.5em;">
+  <td style="padding-left: 0.5em;">
    <div id="projectname">Snake vs Schlanga
    &#160;<span id="projectnumber">v2.0</span>
    </div>
@@ -41,7 +39,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Généré par Doxygen 1.8.11 -->
+<!-- Généré par Doxygen 1.8.6 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </script>
@@ -94,7 +92,7 @@ $(document).ready(function(){initNavTree('ia_8h_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Structures de données</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Définitions de type</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -108,9 +106,22 @@ $(document).ready(function(){initNavTree('ia_8h_source.html','');});
 <div class="title">ia.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="ia_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef IA_H_</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define IA_H_</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="obstacle_8h.html">obstacle.h</a>&quot;</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keywordtype">void</span> <a class="code" href="ia_8h.html#a56edf63e554b1c8be4d61a6cad1f9af5">move_random_ia</a>(<a class="code" href="struct_serpent.html">Serpent</a>* ia, <a class="code" href="struct_board.html">Board</a> board, <span class="keywordtype">int</span> nbSnakes, <a class="code" href="struct_serpent.html">Serpent</a>** snakes);</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keywordtype">void</span> <a class="code" href="ia_8h.html#afdfe031849d2d1508a0a5c85e256a131">move_def_ia</a>(<a class="code" href="struct_serpent.html">Serpent</a>* ia, <a class="code" href="struct_board.html">Board</a> board, <span class="keywordtype">int</span> nbSnakes, <a class="code" href="struct_serpent.html">Serpent</a>** snakes);</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<a class="code" href="snake_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> minimum(<span class="keywordtype">int</span> choix, <a class="code" href="struct_point.html">Point</a> centre_right, <a class="code" href="struct_point.html">Point</a> centre_forward, <a class="code" href="struct_point.html">Point</a> centre_left, <a class="code" href="struct_board.html">Board</a>* b, <a class="code" href="struct_serpent.html">Serpent</a>** tab_serpent, <span class="keywordtype">int</span> nb_snakes, <a class="code" href="struct_serpent.html">Serpent</a>* snake);#endif</div><div class="ttc" id="struct_point_html"><div class="ttname"><a href="struct_point.html">Point</a></div><div class="ttdef"><b>Definition:</b> snake.h:22</div></div>
-<div class="ttc" id="ia_8h_html_afdfe031849d2d1508a0a5c85e256a131"><div class="ttname"><a href="ia_8h.html#afdfe031849d2d1508a0a5c85e256a131">move_def_ia</a></div><div class="ttdeci">void move_def_ia(Serpent *ia, Board board, int nbSnakes, Serpent **snakes)</div><div class="ttdoc">Fait bouger le serpent contrôlé par l&amp;#39;IA défensive. </div><div class="ttdef"><b>Definition:</b> ia.c:279</div></div>
-<div class="ttc" id="ia_8h_html_a56edf63e554b1c8be4d61a6cad1f9af5"><div class="ttname"><a href="ia_8h.html#a56edf63e554b1c8be4d61a6cad1f9af5">move_random_ia</a></div><div class="ttdeci">void move_random_ia(Serpent *ia, Board board, int nbSnakes, Serpent **snakes)</div><div class="ttdoc">Fait bouger le serpent contrôlé par l&amp;#39;IA aléatoire. </div><div class="ttdef"><b>Definition:</b> ia.c:27</div></div>
+<a href="ia_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef IA_H_</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define IA_H_</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="obstacle_8h.html">obstacle.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keywordtype">void</span> <a class="code" href="ia_8h.html#a56edf63e554b1c8be4d61a6cad1f9af5">move_random_ia</a>(<a class="code" href="struct_serpent.html">Serpent</a>* ia, <a class="code" href="struct_board.html">Board</a> board, <span class="keywordtype">int</span> nbSnakes, <a class="code" href="struct_serpent.html">Serpent</a>** snakes);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keywordtype">void</span> <a class="code" href="ia_8h.html#afdfe031849d2d1508a0a5c85e256a131">move_def_ia</a>(<a class="code" href="struct_serpent.html">Serpent</a>* ia, <a class="code" href="struct_board.html">Board</a> board, <span class="keywordtype">int</span> nbSnakes, <a class="code" href="struct_serpent.html">Serpent</a>** snakes);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<a class="code" href="snake_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> <a class="code" href="ia_8h.html#a73caefb75490a91b11fa01bb731585fc">minimum</a>(<span class="keywordtype">int</span> choix, <a class="code" href="struct_point.html">Point</a> centre_right, <a class="code" href="struct_point.html">Point</a> centre_forward, <a class="code" href="struct_point.html">Point</a> centre_left, <a class="code" href="struct_serpent.html">Serpent</a>** tab_serpent, <span class="keywordtype">int</span> nb_snakes, <a class="code" href="struct_serpent.html">Serpent</a>* snake);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="struct_point_html"><div class="ttname"><a href="struct_point.html">Point</a></div><div class="ttdef"><b>Definition:</b> snake.h:22</div></div>
+<div class="ttc" id="ia_8h_html_afdfe031849d2d1508a0a5c85e256a131"><div class="ttname"><a href="ia_8h.html#afdfe031849d2d1508a0a5c85e256a131">move_def_ia</a></div><div class="ttdeci">void move_def_ia(Serpent *ia, Board board, int nbSnakes, Serpent **snakes)</div><div class="ttdoc">Fait bouger le serpent contrôlé par l&#39;IA défensive. </div><div class="ttdef"><b>Definition:</b> ia.c:293</div></div>
+<div class="ttc" id="ia_8h_html_a73caefb75490a91b11fa01bb731585fc"><div class="ttname"><a href="ia_8h.html#a73caefb75490a91b11fa01bb731585fc">minimum</a></div><div class="ttdeci">Direction minimum(int choix, Point centre_right, Point centre_forward, Point centre_left, Serpent **tab_serpent, int nb_snakes, Serpent *snake)</div><div class="ttdoc">Permet de trouver la direction dans laquelle il y ale moins d&#39;obstacle afin que l&#39;ia évite au maximum...</div><div class="ttdef"><b>Definition:</b> ia.c:154</div></div>
+<div class="ttc" id="ia_8h_html_a56edf63e554b1c8be4d61a6cad1f9af5"><div class="ttname"><a href="ia_8h.html#a56edf63e554b1c8be4d61a6cad1f9af5">move_random_ia</a></div><div class="ttdeci">void move_random_ia(Serpent *ia, Board board, int nbSnakes, Serpent **snakes)</div><div class="ttdoc">Fait bouger le serpent contrôlé par l&#39;IA aléatoire. </div><div class="ttdef"><b>Definition:</b> ia.c:27</div></div>
 <div class="ttc" id="struct_board_html"><div class="ttname"><a href="struct_board.html">Board</a></div><div class="ttdef"><b>Definition:</b> obstacle.h:29</div></div>
 <div class="ttc" id="snake_8h_html_a224b9163917ac32fc95a60d8c1eec3aa"><div class="ttname"><a href="snake_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a></div><div class="ttdeci">Direction</div><div class="ttdef"><b>Definition:</b> snake.h:49</div></div>
 <div class="ttc" id="struct_serpent_html"><div class="ttname"><a href="struct_serpent.html">Serpent</a></div><div class="ttdef"><b>Definition:</b> snake.h:65</div></div>
@@ -123,7 +134,7 @@ $(document).ready(function(){initNavTree('ia_8h_source.html','');});
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="ia_8h.html">ia.h</a></li>
     <li class="footer">Généré par
     <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
 </div>
 </body>

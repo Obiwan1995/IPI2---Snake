@@ -1,27 +1,25 @@
-\hypertarget{option_8c}{}\section{Référence du fichier src/option.c}
-\label{option_8c}\index{src/option.\+c@{src/option.\+c}}
+\hypertarget{option_8c}{\section{Référence du fichier src/option.c}
+\label{option_8c}\index{src/option.\-c@{src/option.\-c}}
+}
 
 
 Fichier qui gère les options.  
 
 
-{\ttfamily \#include \char`\"{}option.\+h\char`\"{}}\\*
-{\ttfamily \#include $<$stdio.\+h$>$}\\*
-Graphe des dépendances par inclusion de option.\+c\+:
-% FIG 0
+{\ttfamily \#include \char`\"{}option.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+Graphe des dépendances par inclusion de option.\-c\-:
 \subsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{option_8c_af8ddd17fc38a79aedbc21b49478f5c5a}{option} (S\+D\+L\+\_\+\+Surface $\ast$sdl\+Screen, int $\ast$p\+Nb\+Snakes, int $\ast$p\+Board, int $\ast$p\+Speed\+Init, int $\ast$p\+Walls)
+void \hyperlink{option_8c_af8ddd17fc38a79aedbc21b49478f5c5a}{option} (S\-D\-L\-\_\-\-Surface $\ast$sdl\-Screen, int $\ast$p\-Nb\-Snakes, int $\ast$p\-Board, int $\ast$p\-Speed\-Init, int $\ast$p\-Walls)
 \begin{DoxyCompactList}\small\item\em Gère les options du jeu. \end{DoxyCompactList}\item 
-void \hyperlink{option_8c_a10c4ff94e6fd755aa0b0b9919921366c}{aide} (S\+D\+L\+\_\+\+Surface $\ast$sdl\+Screen)
-\begin{DoxyCompactList}\small\item\em Affiche l\textquotesingle{}aide du jeu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \hyperlink{option_8c_a10c4ff94e6fd755aa0b0b9919921366c}{aide} (S\-D\-L\-\_\-\-Surface $\ast$sdl\-Screen)
+\begin{DoxyCompactList}\small\item\em Affiche l'aide du jeu. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Description détaillée}
-Fichier qui gère les options. 
-
-\begin{DoxyAuthor}{Auteur}
+Fichier qui gère les options. \begin{DoxyAuthor}{Auteur}
 Les Mixtes 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
@@ -30,51 +28,51 @@ Les Mixtes
 
 
 \subsection{Documentation des fonctions}
-\index{option.\+c@{option.\+c}!aide@{aide}}
-\index{aide@{aide}!option.\+c@{option.\+c}}
-\subsubsection[{\texorpdfstring{aide(\+S\+D\+L\+\_\+\+Surface $\ast$sdl\+Screen)}{aide(SDL_Surface *sdlScreen)}}]{\setlength{\rightskip}{0pt plus 5cm}aide (
+\hypertarget{option_8c_a10c4ff94e6fd755aa0b0b9919921366c}{\index{option.\-c@{option.\-c}!aide@{aide}}
+\index{aide@{aide}!option.c@{option.\-c}}
+\subsubsection[{aide}]{\setlength{\rightskip}{0pt plus 5cm}aide (
 \begin{DoxyParamCaption}
-\item[{S\+D\+L\+\_\+\+Surface $\ast$}]{sdl\+Screen}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{sdl\-Screen}
 \end{DoxyParamCaption}
-)}\hypertarget{option_8c_a10c4ff94e6fd755aa0b0b9919921366c}{}\label{option_8c_a10c4ff94e6fd755aa0b0b9919921366c}
+)}}\label{option_8c_a10c4ff94e6fd755aa0b0b9919921366c}
 
 
-Affiche l\textquotesingle{}aide du jeu. 
+Affiche l'aide du jeu. 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em sdl\+Screen} & L\textquotesingle{}écran affiché à l\textquotesingle{}utilisateur\\
+{\em sdl\-Screen} & L'écran affiché à l'utilisateur\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
 void 
 \end{DoxyReturn}
-\index{option.\+c@{option.\+c}!option@{option}}
-\index{option@{option}!option.\+c@{option.\+c}}
-\subsubsection[{\texorpdfstring{option(\+S\+D\+L\+\_\+\+Surface $\ast$sdl\+Screen, int $\ast$p\+Nb\+Snakes, int $\ast$p\+Board, int $\ast$p\+Speed\+Init, int $\ast$p\+Walls)}{option(SDL_Surface *sdlScreen, int *pNbSnakes, int *pBoard, int *pSpeedInit, int *pWalls)}}]{\setlength{\rightskip}{0pt plus 5cm}option (
+\hypertarget{option_8c_af8ddd17fc38a79aedbc21b49478f5c5a}{\index{option.\-c@{option.\-c}!option@{option}}
+\index{option@{option}!option.c@{option.\-c}}
+\subsubsection[{option}]{\setlength{\rightskip}{0pt plus 5cm}option (
 \begin{DoxyParamCaption}
-\item[{S\+D\+L\+\_\+\+Surface $\ast$}]{sdl\+Screen, }
-\item[{int $\ast$}]{p\+Nb\+Snakes, }
-\item[{int $\ast$}]{p\+Board, }
-\item[{int $\ast$}]{p\+Speed\+Init, }
-\item[{int $\ast$}]{p\+Walls}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{sdl\-Screen, }
+\item[{int $\ast$}]{p\-Nb\-Snakes, }
+\item[{int $\ast$}]{p\-Board, }
+\item[{int $\ast$}]{p\-Speed\-Init, }
+\item[{int $\ast$}]{p\-Walls}
 \end{DoxyParamCaption}
-)}\hypertarget{option_8c_af8ddd17fc38a79aedbc21b49478f5c5a}{}\label{option_8c_af8ddd17fc38a79aedbc21b49478f5c5a}
+)}}\label{option_8c_af8ddd17fc38a79aedbc21b49478f5c5a}
 
 
 Gère les options du jeu. 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em sdl\+Screen} & L\textquotesingle{}écran affiché à l\textquotesingle{}utilisateur \\
+{\em sdl\-Screen} & L'écran affiché à l'utilisateur \\
 \hline
-{\em p\+Nb\+Snakes} & Le nombre de serpents \\
+{\em p\-Nb\-Snakes} & Le nombre de serpents \\
 \hline
-{\em p\+Board} & Le type de plateau utilisé actuellement \\
+{\em p\-Board} & Le type de plateau utilisé actuellement \\
 \hline
-{\em p\+Speed\+Init} & La vitesse initiale définie actuellement \\
+{\em p\-Speed\-Init} & La vitesse initiale définie actuellement \\
 \hline
-{\em p\+Walls} & Le booléen indiquant s\textquotesingle{}il y a des murs au milieu du plateau ou non\\
+{\em p\-Walls} & Le booléen indiquant s'il y a des murs au milieu du plateau ou non\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}

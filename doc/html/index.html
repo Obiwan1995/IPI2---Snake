@@ -3,24 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.11"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
 <title>Snake vs Schlanga: Snake vs Schlanga - Les Mixtes</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript">
   $(document).ready(initResizable);
   $(window).load(resizeHeight);
 </script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
-  $(document).ready(function() { init_search(); });
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
@@ -30,7 +28,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectalign" style="padding-left: 0.5em;">
+  <td style="padding-left: 0.5em;">
    <div id="projectname">Snake vs Schlanga
    &#160;<span id="projectnumber">v2.0</span>
    </div>
@@ -41,7 +39,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Généré par Doxygen 1.8.11 -->
+<!-- Généré par Doxygen 1.8.6 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </script>
@@ -88,7 +86,7 @@ $(document).ready(function(){initNavTree('index.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Structures de données</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Définitions de type</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -105,7 +103,7 @@ $(document).ready(function(){initNavTree('index.html','');});
 <div class="textblock"><h1><a class="anchor" id="intro_sec"></a>
 Introduction</h1>
 <p>Dans le cadre de l'UE Programation Impérative du deuxième semestre, nous devions réaliser un projet dont le thème était Snake vs Schlanga. Nous avons donc créé une variante du jeu Snake disponible sur les anciens téléphones Nokia. Ainsi, il y a maintenant plusieurs serpents qui s'affrontent sur un plateau de jeu où la mort est sans pitié.</p>
-<p><br />
+<p><br/>
  </p>
 <h1><a class="anchor" id="install_sec"></a>
 Installation</h1>
@@ -115,7 +113,7 @@ Jeu</h2>
 <h2><a class="anchor" id="step2"></a>
 Tests unitaires</h2>
 <p>Pour lancer les tests unitaires, il suffit d'exécuter le fichier run_tests.sh. Vous devez entrer votre mot de passe car le fichier tente d'installer la librairie cmocka que nous avons utilisé pour créer ces tests unitaires. Après quelques instants, vous pourrez voir le résultat des tests unitaires.</p>
-<p><br />
+<p><br/>
  </p>
 <h1><a class="anchor" id="jeu"></a>
 Principe du jeu</h1>
@@ -124,15 +122,17 @@ Principes de base</h2>
 <p>Le joueur doit tenter de survivre le plus longtemps possible sur le plateau de jeu. Pour se déplacer, le joueur peut utiliser les flèches directionnelles ou les touches q et d. Attention, la direction est en fonction de la tête du serpent, ce qui signifie que si le joueur appuie sur la flèche droite, le serpent tourne à droite. Les murs sont mortels, la taille du plateau est fixe tout au long de la partie.</p>
 <h2><a class="anchor" id="jeu_ia"></a>
 Intelligences artificielles</h2>
-<p>Les serpents non contrôlés par le joueur sont régis par deux types d'intelligence artificielle :</p><ul>
+<p>Les serpents non contrôlés par le joueur sont régis par deux types d'intelligence artificielle :</p>
+<ul>
 <li>Une intelligence artificielle aléatoire : celle-ci teste uniquement la prochaine case et évite les collisions. Ses déplacements sont gérés de manière aléatoire.</li>
 <li>Une intelligence artificielle défensive : celle-ci compte le nombre d'obstacles dans un carré de 5x5 à gauche, devant et à droite du snake. Ensuite, le serpent va dans la direction dans laquelle il y a le moins d'obstacles.</li>
 </ul>
-<p><br />
+<p><br/>
  </p>
 <h1><a class="anchor" id="options"></a>
 Options</h1>
-<p>Lors du lancement du jeu, le joueur a accès à un menu d'options accessible en appuyant sur la touche "o". Dans ce menu, le joueur peut modifier de nombreux paramètres du jeu :</p><ul>
+<p>Lors du lancement du jeu, le joueur a accès à un menu d'options accessible en appuyant sur la touche "o". Dans ce menu, le joueur peut modifier de nombreux paramètres du jeu :</p>
+<ul>
 <li>La vitesse des serpents : lent, moyen ou rapide</li>
 <li>Le nombre de serpents sur le plateau : de 1 à 4</li>
 <li>Le type de plateau : normal, 1 contre 1 (2 serpents uniquement) ou grand</li>
@@ -145,7 +145,7 @@ Options</h1>
   <ul>
     <li class="footer">Généré par
     <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
 </div>
 </body>

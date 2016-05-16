@@ -3,24 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.11"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
 <title>Snake vs Schlanga: Référence du fichier src/bonus.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript">
   $(document).ready(initResizable);
   $(window).load(resizeHeight);
 </script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
-  $(document).ready(function() { init_search(); });
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
@@ -30,7 +28,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectalign" style="padding-left: 0.5em;">
+  <td style="padding-left: 0.5em;">
    <div id="projectname">Snake vs Schlanga
    &#160;<span id="projectnumber">v2.0</span>
    </div>
@@ -41,7 +39,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Généré par Doxygen 1.8.11 -->
+<!-- Généré par Doxygen 1.8.6 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </script>
@@ -94,7 +92,7 @@ $(document).ready(function(){initNavTree('bonus_8h.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Structures de données</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Définitions de type</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -114,20 +112,22 @@ $(document).ready(function(){initNavTree('bonus_8h.html','');});
 
 <p>Header du fichier <a class="el" href="bonus_8c.html" title="Fichier permettant la gestion des bonus. ">bonus.c</a>.  
 <a href="#details">Plus de détails...</a></p>
-<div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
-<code>#include &lt;math.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="obstacle_8h_source.html">obstacle.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br/>
+<code>#include &lt;math.h&gt;</code><br/>
+<code>#include &quot;<a class="el" href="obstacle_8h_source.html">obstacle.h</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
 Graphe des dépendances par inclusion de bonus.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="bonus_8h__incl.png" border="0" usemap="#src_2bonus_8h" alt=""/></div>
-<!-- MAP 0 -->
+<map name="src_2bonus_8h" id="src_2bonus_8h">
+</map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier :</div>
 <div class="dyncontent">
 <div class="center"><img src="bonus_8h__dep__incl.png" border="0" usemap="#src_2bonus_8hdep" alt=""/></div>
-<!-- MAP 1 -->
+<map name="src_2bonus_8hdep" id="src_2bonus_8hdep">
+</map>
 </div>
 </div>
 <p><a href="bonus_8h_source.html">Aller au code source de ce fichier.</a></p>
@@ -140,28 +140,28 @@ Macros</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
 <tr class="memitem:a0e115af4dfcb254654573d46a03ea916"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bonus_8h.html#a0e115af4dfcb254654573d46a03ea916">add_bonus</a> (<a class="el" href="struct_board.html">Board</a> *b, <a class="el" href="struct_serpent.html">Serpent</a> **tab_serpent, int nb_snakes)</td></tr>
-<tr class="memdesc:a0e115af4dfcb254654573d46a03ea916"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute un bonus sur le plateau.  <a href="#a0e115af4dfcb254654573d46a03ea916">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a0e115af4dfcb254654573d46a03ea916"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute un bonus sur le plateau.  <a href="#a0e115af4dfcb254654573d46a03ea916">Plus de détails...</a><br/></td></tr>
 <tr class="separator:a0e115af4dfcb254654573d46a03ea916"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a768eec8af85609c2c374553f36ce0dd1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bonus_8h.html#a768eec8af85609c2c374553f36ce0dd1">take_bonus</a> (<a class="el" href="struct_serpent.html">Serpent</a> *s, <a class="el" href="struct_bonus.html">Bonus</a> *bonus)</td></tr>
-<tr class="memdesc:a768eec8af85609c2c374553f36ce0dd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de gérer la prise d'un bonus par un serpent.  <a href="#a768eec8af85609c2c374553f36ce0dd1">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a768eec8af85609c2c374553f36ce0dd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de gérer la prise d'un bonus par un serpent.  <a href="#a768eec8af85609c2c374553f36ce0dd1">Plus de détails...</a><br/></td></tr>
 <tr class="separator:a768eec8af85609c2c374553f36ce0dd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb39e891aa6febbd9aa23649c48fd2da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bonus_8h.html#aeb39e891aa6febbd9aa23649c48fd2da">reverse_snake</a> (<a class="el" href="struct_serpent.html">Serpent</a> *s)</td></tr>
-<tr class="memdesc:aeb39e891aa6febbd9aa23649c48fd2da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet d'échanger la tête et la queue du serpent.  <a href="#aeb39e891aa6febbd9aa23649c48fd2da">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:aeb39e891aa6febbd9aa23649c48fd2da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet d'échanger la tête et la queue du serpent.  <a href="#aeb39e891aa6febbd9aa23649c48fd2da">Plus de détails...</a><br/></td></tr>
 <tr class="separator:aeb39e891aa6febbd9aa23649c48fd2da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0b39bf25001311ee6eb377b1cd20c39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bonus_8h.html#ad0b39bf25001311ee6eb377b1cd20c39">clean_snake</a> (<a class="el" href="struct_serpent.html">Serpent</a> *s)</td></tr>
-<tr class="memdesc:ad0b39bf25001311ee6eb377b1cd20c39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de supprimer le corps du serpent.  <a href="#ad0b39bf25001311ee6eb377b1cd20c39">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:ad0b39bf25001311ee6eb377b1cd20c39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de supprimer le corps du serpent.  <a href="#ad0b39bf25001311ee6eb377b1cd20c39">Plus de détails...</a><br/></td></tr>
 <tr class="separator:ad0b39bf25001311ee6eb377b1cd20c39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a599755e82d28b50e3390900858a91dc6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bonus_8h.html#a599755e82d28b50e3390900858a91dc6">change_snakes</a> (<a class="el" href="struct_serpent.html">Serpent</a> **snakes, int nb_snakes, int index)</td></tr>
-<tr class="memdesc:a599755e82d28b50e3390900858a91dc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet d'échanger deux serpents.  <a href="#a599755e82d28b50e3390900858a91dc6">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a599755e82d28b50e3390900858a91dc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet d'échanger deux serpents.  <a href="#a599755e82d28b50e3390900858a91dc6">Plus de détails...</a><br/></td></tr>
 <tr class="separator:a599755e82d28b50e3390900858a91dc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6870a1c1f7d76611a7757ce09e2cff4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bonus_8h.html#ab6870a1c1f7d76611a7757ce09e2cff4">close_walls</a> (<a class="el" href="struct_board.html">Board</a> *b, int nWallsRow)</td></tr>
-<tr class="memdesc:ab6870a1c1f7d76611a7757ce09e2cff4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de remplir le plateau avec des murs.  <a href="#ab6870a1c1f7d76611a7757ce09e2cff4">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:ab6870a1c1f7d76611a7757ce09e2cff4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de remplir le plateau avec des murs.  <a href="#ab6870a1c1f7d76611a7757ce09e2cff4">Plus de détails...</a><br/></td></tr>
 <tr class="separator:ab6870a1c1f7d76611a7757ce09e2cff4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17a515ba56440f822a8d7f06ebef2f83"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bonus_8h.html#a17a515ba56440f822a8d7f06ebef2f83">delete_bonus_board</a> (<a class="el" href="struct_board.html">Board</a> *b, int index)</td></tr>
-<tr class="memdesc:a17a515ba56440f822a8d7f06ebef2f83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de supprimer un bonus du plateau.  <a href="#a17a515ba56440f822a8d7f06ebef2f83">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a17a515ba56440f822a8d7f06ebef2f83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de supprimer un bonus du plateau.  <a href="#a17a515ba56440f822a8d7f06ebef2f83">Plus de détails...</a><br/></td></tr>
 <tr class="separator:a17a515ba56440f822a8d7f06ebef2f83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a066e315b94ace4a62e79577d76ff7559"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bonus_8h.html#a066e315b94ace4a62e79577d76ff7559">delete_bonus_snake</a> (<a class="el" href="struct_serpent.html">Serpent</a> *s, int index)</td></tr>
-<tr class="memdesc:a066e315b94ace4a62e79577d76ff7559"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de supprimer un bonus d'un serpent.  <a href="#a066e315b94ace4a62e79577d76ff7559">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a066e315b94ace4a62e79577d76ff7559"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de supprimer un bonus d'un serpent.  <a href="#a066e315b94ace4a62e79577d76ff7559">Plus de détails...</a><br/></td></tr>
 <tr class="separator:a066e315b94ace4a62e79577d76ff7559"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
@@ -481,7 +481,7 @@ Fonctions</h2></td></tr>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="bonus_8h.html">bonus.h</a></li>
     <li class="footer">Généré par
     <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
 </div>
 </body>
