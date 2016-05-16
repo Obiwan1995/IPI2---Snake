@@ -13,7 +13,7 @@
 #include <stdlib.h>
 
 /** Probabilité que le serpent grandisse à chaque pas de temps (en pourcentage) */
-#define P_GAIN_SIZE 40
+#define P_GAIN_SIZE 15
 
 /** Structure de Serpent qui permet de situer le serpent ou les obstacles:
 - x : sa position en x
