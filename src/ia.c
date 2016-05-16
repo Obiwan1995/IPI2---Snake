@@ -147,11 +147,13 @@ void move_random_ia(Serpent* ia, Board board, int nbSnakes, Serpent** snakes)
  * @param  centre_left     Point nécessaire pour calculer le nombre d'obstacle dans la zone
  * @param      tab_serpent     tableau des serpents
  * @param  nb_snakes       nombre de serpents
+ * @param b					Board 
  * @param      snake           le serpent à partir duquel on cherche la direction optimale
  *
  * @return     Direction Direction dans laquelle le snake se dirigera , ie direction où il y a le moins d'obstacle
  */
-Direction minimum(int choix, Point centre_right, Point centre_forward, Point centre_left, Serpent** tab_serpent, int nb_snakes, Serpent* snake) 
+
+Direction minimum(int choix, Point centre_right, Point centre_forward, Point centre_left, Board* b, Serpent** tab_serpent, int nb_snakes, Serpent* snake) 
 {
 	Direction res;
 	int nb_obs_right = nb_obstacles_around_5(centre_right, b, tab_serpent, nb_snakes, snake);
